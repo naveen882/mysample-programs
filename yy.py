@@ -505,3 +505,7 @@ for i in range(len(arr)):
 #Sorting a dictionaty by keys
 mydict = {'carl':40, 'alan':2, 'bob':1, 'danny':3}
 dict(sorted( mydict.items(), key = lambda(x): x[1] ))
+
+#dictionary - swapping key to values 
+my_dict = {'carl':40, 'alan':2, 'bob':1, 'danny':3}
+dict(zip(my_dict.values(),my_dict.keys()))
