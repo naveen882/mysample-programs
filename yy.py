@@ -502,4 +502,6 @@ for i in range(len(arr)):
 #sally #sally #sally #tom #tom #harry
 
 #tom #tom #tom #harry #harry #sally
-
+#Sorting a dictionaty by keys
+mydict = {'carl':40, 'alan':2, 'bob':1, 'danny':3}
+dict(sorted( mydict.items(), key = lambda(x): x[1] ))
