@@ -509,3 +509,8 @@ dict(sorted( mydict.items(), key = lambda(x): x[1] ))
 #dictionary - swapping key to values 
 my_dict = {'carl':40, 'alan':2, 'bob':1, 'danny':3}
 dict(zip(my_dict.values(),my_dict.keys()))
+
+#dictionary swapping keys and values
+a={'x':1,'y':2}
+a =dict((v,k) for k,v in a.iteritems())
+#{1: 'x', 2: 'y'} output
