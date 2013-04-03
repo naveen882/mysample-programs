@@ -523,3 +523,7 @@ B=[[[3,4,5]]]
 C=[[[4,5,6]]]
 print [[map(sum, zip(A[0][0], B[0][0], C[0][0]))]]  ##=>   [[[8, 11, 14]]]
 
+#dictionary swapping keys and values
+a={'x':1,'y':2}
+a =dict((v,k) for k,v in a.iteritems())
+#{1: 'x', 2: 'y'} output
