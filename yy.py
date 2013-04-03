@@ -9,7 +9,7 @@ class Dynamo:
 
    def __str__(self):
       print "In str func"
-      return self.x + "====="
+      return str(self.x) + "====="
       
    def __repr__(self):
       print "In repr func"
@@ -457,7 +457,7 @@ aa.group()
 
 ip="1.1.1.112 and other ip is 112.113.112.112"
 aa=re.findall(r"\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b",ip)
-aa.group()
+#aa.group()
 
 line="This line has smiley :) ;-) ;)"
 re.findall(r":\)|[:;]-\)|;\)",line)
@@ -487,7 +487,7 @@ re.findall(r"(\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b),((?:\w+,\w+|\w+)),(\d+)",a
 
 
 T2=[(i,j) for i in range(3) for j in range(i) ]
-first,second,*rest = (1,2,3,4,5,6,7,8) #this is supported in python 3 onwards
+#first,second,*rest = (1,2,3,4,5,6,7,8) #this is supported in python 3 onwards
 
 #Note xrange will return an iterator
 arr=["harry","sally","tom"]
@@ -509,3 +509,17 @@ dict(sorted( mydict.items(), key = lambda(x): x[1] ))
 #dictionary - swapping key to values 
 my_dict = {'carl':40, 'alan':2, 'bob':1, 'danny':3}
 dict(zip(my_dict.values(),my_dict.keys()))
+
+#Adding a two dimensional array
+a=[1,2]
+b=[3,4]
+a+b  #=>   [1, 2, 3, 4]
+summed = [sum(pair) for pair in zip(a, b)] #[4, 6]
+
+
+#Adding a three dimesional array
+A=[[[1,2,3]]]
+B=[[[3,4,5]]]
+C=[[[4,5,6]]]
+print [[map(sum, zip(A[0][0], B[0][0], C[0][0]))]]  ##=>   [[[8, 11, 14]]]
+
