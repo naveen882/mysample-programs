@@ -6,15 +6,12 @@ class Dynamo:
    def __init__(self,x):
       print "In init def"
       self.x=x
-
    def __str__(self):
       print "In str func"
       return str(self.x) + "====="
-      
    def __repr__(self):
       print "In repr func"
       return self.x + "====="
-      
    def __getattr__(self,k):
       if k == "color":
          print "key is color"
@@ -95,6 +92,11 @@ print b[0][2]
 print b[0][3]
 print b[1][0]
 print b[1][1]
+for i in range(len(b)):
+   for s in range(len(b[i])):
+      print b[i][s]
+
+
 c={'a':1,'b':2}
 print c['a']
 print c['b']
@@ -430,7 +432,7 @@ print a[::-1]
 
 import re
 m_="sumthing@sumthing.com"
-tt=re.findall(r"\w+@\w+\.(?:com|in)",m_)
+tt=re.findall(r"\w+@\w+\.(?:com|in)",m_) ## to remember
 print tt
 line = "He is a German called Mayer."
 if re.search(r"G[aert]r[mk]an",line):
@@ -527,3 +529,56 @@ print [[map(sum, zip(A[0][0], B[0][0], C[0][0]))]]  ##=>   [[[8, 11, 14]]]
 a={'x':1,'y':2}
 a =dict((v,k) for k,v in a.iteritems())
 #{1: 'x', 2: 'y'} output
+"""
+Iterators
+ In Python programming language, an iterator is an object which implements the iterator protocol. The iterator protocol consists of two methods. The __iter__() method, which must return the iterator object and the next() method, which returns the next element from a sequence.
+
+Python has several built-in objects, which implement the iterator protocol. For example lists, tuples, strings, dictionaries or files.
+
+#!/usr/bin/python
+
+# iter.py
+
+
+str = "formidable"
+
+for i in str:
+   print i,
+
+print
+
+it = iter(str)
+
+print it.next()
+print it.next()
+print it.next()
+print list(it)
+
+Generators
+
+In general, a generator is a special routine that can be used to control the iteration behaviour of a loop. A generator is similar to a function returning an array. A generator has parameters, it can be called and it generates a sequence of numbers. But unlike functions, which return a whole array, a generator yields one value at a time. This requires less memory. (Wikipedia) 
+
+#!/usr/bin/python
+
+# generator.py
+
+
+def gen():
+   x, y = 1, 2
+   yield x, y
+   x += 1
+   yield x, y
+
+
+it = gen()
+
+print it.next()
+print it.next()
+
+try:
+   print it.next()
+except StopIteration:
+   print "Iteration finished"
+
+"""
+
