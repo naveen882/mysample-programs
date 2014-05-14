@@ -984,5 +984,16 @@ myfunction(3, 4, 5) # third isn't None, it's 5, so enter the 'else' clause
 
 Tuples are heterogeneous data structures (i.e., their entries have different meanings), while lists are homogeneous sequences. Tuples have structure, lists have order.
 Tuples are immutable lists are mutable
+
+$(document).ready(function() {
+ // executes when HTML-Document is loaded and DOM is ready
+ alert("document is ready");
+});
+
+
+$(window).load(function() {
+ // executes when complete page is fully loaded, including all frames, objects and images
+ alert("window is loaded");
+});
 """
 
