@@ -723,6 +723,17 @@ print "======================================="
 #Difference between is and "=="
 #is will return True if two variables point to the same object, == if the objects referred to by the variables are equal.
 print "======================================="
+#using eval
+
+#The eval function lets a python program run python code within itself.
+
+#eval example (interactive shell):
+x = 1
+eval('x + 1')
+#2
+eval('x')
+#1
+print "======================================="
 """
 The str() function is meant to return representations of values which are fairly human-readable
 repr() is meant to generate representations which can be read by the interpreter (or will force a SyntaxError if there is no equivalent syntax).
