@@ -720,6 +720,8 @@ print "======================================="
 print open("ten_one_liners.py").readlines()
 
 print "======================================="
+#Difference between is and "=="
+#is will return True if two variables point to the same object, == if the objects referred to by the variables are equal.
 print "======================================="
 """
 The str() function is meant to return representations of values which are fairly human-readable
