@@ -1008,5 +1008,26 @@ $(window).load(function() {
  // executes when complete page is fully loaded, including all frames, objects and images
  alert("window is loaded");
 });
+
+
+Difference between dict and {}
+=======================================
+>>> from timeit import timeit
+>>> timeit("a = {'a': 1, 'b': 2}")
+0.424...
+>>> timeit("a = dict(a = 1, b = 2)")
+0.889...
+
+python __dict__
+>>> class B(object):
+...     "Documentation of B class"
+...     pass
+...
+>>> B.__doc__
+'Documentation of B class'
+>>> B.__dict__
+<dictproxy object at 0x00B83590>
+>>> B.__dict__['__doc__']
+'Documentation of B class'
 """
 
