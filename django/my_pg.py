@@ -246,6 +246,7 @@ Note:After a view function is called and completed the middle ware is applied in
 
 
 """
+http://www.b-list.org/weblog/2006/jun/13/how-django-processes-request/
 How Django processes a request
 
 Published June 13, 2006. Filed under: Django, Frameworks.
