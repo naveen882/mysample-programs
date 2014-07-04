@@ -1078,3 +1078,27 @@ gives us:
   '__module__': '__main__',
 }
 """
+
+
+"""
+Flake8 is a wrapper around these tools:
+
+PyFlakes
+pep8
+Ned Batchelder's McCabe script
+Flake8 runs all the tools by launching the single flake8 script. It displays the warnings in a per-file, merged output.
+
+It also adds a few features:
+
+files that contain this line are skipped:
+
+# flake8: noqa
+lines that contain a # noqa comment at the end will not issue warnings.
+
+a Git and a Mercurial hook.
+a McCabe complexity checker.
+extendable through flake8.extension entry points.
+
+QuickStart
+pip install flake8
+"""
