@@ -1031,3 +1031,50 @@ python __dict__
 'Documentation of B class'
 """
 
+"""
+class C(object):
+    def m(self):
+        print "m"
+
+
+x=C()
+x.m()
+print dir(x)
+print vars(x)
+So the difference between vars(x) and dir(x) is that dir(x) does the extra work of looking in x's class (and it's bases) for attributes that are accessible from it, not just those attributes that are stored in x's own symbol table. In the above example, vars(x) returns an empty dictionary, because x has no instance variables. However, dir(x) returns
+"""
+
+
+"""
+Difference between globals(), locals() and vars()
+globals() always returns the dictionary of the module namespace
+locals() always returns a dictionary of the current namespace
+vars() returns either a dictionary of the current namespace (if called with no argument) or the dictionary of the argument.
+def test():
+    a = 1
+    b = 2
+    huh = locals()
+    c = 3
+    print(huh)
+    huh['d'] = 4
+    print(d)
+test() #results in error where as 
+
+class Test(object):
+    a = 'one'
+    b = 'two'
+    huh = locals()
+    c = 'three'
+    huh['d'] = 'four'
+    print huh
+gives us:
+
+{
+  'a': 'one',
+  'b': 'two',
+  'c': 'three',
+  'd': 'four',
+  'huh': {...},
+  '__module__': '__main__',
+}
+"""
