@@ -1110,3 +1110,52 @@ coolproject/mod.py:625:17: E225 missing whitespace around operato
 coolproject/mod.py:729:1: F811 redefinition of function 'readlines' from line 723
 coolproject/mod.py:1028:1: F841 local variable 'errors' is assigned to but never used
 """
+
+"""
+lambda functions:
+Python supports the creation of anonymous functions (i.e. functions that are not bound to a name) at runtime, using a construct called "lambda".
+>>> def f (x): return x**2
+... 
+>>> print f(8)
+64
+>>> 
+>>> g = lambda x: x**2
+>>> 
+>>> print g(8)
+64
+
+As you can see, f() and g() do exactly the same and can be used in the same ways. Note that the lambda definition does not include a "return" statement -- it always contains an expression which is returned. Also note that you can put a lambda definition anywhere a function is expected, and you don't have to assign it to a variable at all. 
+
+
+>>> def make_incrementor (n): return lambda x: x + n
+>>> 
+>>> f = make_incrementor(2)
+>>> g = make_incrementor(6)
+>>> 
+>>> print f(42), g(42)
+44 48
+>>> 
+>>> print make_incrementor(22)(33)
+55
+
+The above is equivalent to 
+
+>>> def make_incrementor (n):
+...     def x1(x):
+...             return n+x
+...     return x1
+
+>>> foo = [2, 18, 9, 22, 17, 24, 8, 12, 27]
+>>> 
+print filter(lambda x: x % 3 == 0, foo)
+#Construct a list from those elements of iterable for which function returns true. iterable may be either a sequence, a container which supports iteration, or an iterator. If iterable is a string or a tuple, the result also has that type; otherwise it is always a list.filter(function, iterable) is equivalent to [item for item in iterable if function(item)]
+
+>>> print map(lambda x: x * 2 + 10, foo)
+[14, 46, 28, 54, 44, 58, 26, 34, 64]
+>>> 
+>>> print reduce(lambda x, y: x + y, foo) #reduce(lambda x, y: x+y, [1, 2, 3, 4, 5]) calculates ((((1+2)+3)+4)+5)
+139
+First we define a simple list of integer values, then we use the standard functions filter(), map() and reduce() to do various things with that list. All of the three functions expect two arguments: A function and a list. 
+
+Of course, we could define a separate function somewhere else and then use that function's name as an argument to filter() etc., and in fact that's probably a good idea if we're going to use that function several times, or if the function is too complex for writing in a single line. However, if we need it only once and it's quite simple (i.e. it contains just one expression, like in the above examples), it's more convenient to use a lambda construct to generate a (temporary) anonymous function and pass it to filter() immediately. This creates very compact, yet readable code. 
+"""
