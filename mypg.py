@@ -1,6 +1,7 @@
 import string
 import logging
 import datetime
+import os,subprocess 
 
 class Dynamo():
 	def __init__(self,x):
@@ -87,7 +88,22 @@ while True:
 		break
 f.close()
 
+#Mixing while and for loop is probably a bad idea to read files since both are loops, using while only to ready files can be done by the following way
+
+## Open the file with read only permit
+f = open('/tmp/aa.txt')
+## Read the first line 
+line = f.readline()
+
+## If the file is not empty keep reading line one at a time
+## till the file is empty
+while line:
+	print line
+	line = f.readline()
+f.close()
+
 print "====================="
+os.system("touch /tmp/ab.txt")
 f=open("/tmp/ab.txt","r+") # read  and write mode  and to use this file should be existing already
 f.write("This is some text 123456789")
 print f.seek(10) #read after tenth character
@@ -711,12 +727,13 @@ def at(r,t):
 try:
 	at(1)
 except:
-	logging.exception(e)
+	logging.exception("exception")
 #Traceback (most recent call last):
 #  File "<stdin>", line 1, in <module>
 #TypeError: a() takes exactly 2 arguments (1 given)
 print "======================================="
 #oneliner to read a file
+os.system("touch ten_one_liners.py")
 print open("ten_one_liners.py").readlines()
 
 print "======================================="
