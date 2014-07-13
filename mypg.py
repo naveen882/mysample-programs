@@ -112,6 +112,13 @@ f.seek(10) #read after tenth character
 print f.read(1) #read after tenth character and print one character only 
 f.close()
 
+#important reading speific lines
+
+f=open('/tmp/aa.txt')
+lines=f.readlines()
+print lines[1]
+print lines[2]
+
 print "======================================="
 
 a=(1,2,3,4)
