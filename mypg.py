@@ -118,6 +118,7 @@ f=open('/tmp/aa.txt')
 lines=f.readlines()
 print lines[1]
 print lines[2]
+f.close()
 
 print "======================================="
 
