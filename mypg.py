@@ -146,8 +146,8 @@ print "======================================="
 c={'a':1,'b':2}
 print c['a']
 print c['b']
-print c.keys()
-print c.values()
+print c.keys() #returns keys list
+print c.values() #returns values list
 print c.pop('b',None) #returns 2
 print c.get("b",c.update({'b':6}))
 print c #prints {'a': 1, 'b': 6}
@@ -180,7 +180,7 @@ print "======================================="
 def func1(a,*b): #* stands for a tuple
 	print a
 	if len(b) > 0 :
-		print b
+		print b #This prints tuple
 		for i in b:
 			print i
 
@@ -249,7 +249,7 @@ try:
 	print gg
 except:
 	print logging.exception("e") #This prints unhashable type: 'list'
-print "======================================="
+print "=======================================" ##From here
 di=dict(a=1,b=2)
 print di
 print dir(di)
