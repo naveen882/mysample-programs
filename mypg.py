@@ -253,7 +253,7 @@ print "=======================================" ##From here
 di=dict(a=1,b=2)
 print di
 print dir(di)
-print di.items()
+print di.items() # will represent key value in tuple format inside a list
 print di.has_key('a')
 print di.keys()
 print di.values()
@@ -339,6 +339,7 @@ m=myt(3,mt)
 mt.hello()
 m.hello()
 print "======================================="
+#Array slicing
 mystr1="hello world"
 print mystr1[::-2]
 print "======================================="
@@ -357,7 +358,7 @@ print "======================================="
 a = [-1, 1, 66.25, 333, 333, 1234.5]
 del a[0]
 print a
-del a[2:4]
+del a[2:4] #deletes items 2 and 3
 print a
 del a[:]
 del a[::]
@@ -382,6 +383,14 @@ def linear(a,b):
 
 aa=linear(3,4)
 print aa	
+
+def linear(a,b):
+	def result(x):
+		return a*x+b
+	return result
+aa= linear(5,6)
+bb=aa(4)
+print bb #prints 26
 print "======================================="
 if __name__ == "__main__":
 	print __name__
@@ -673,7 +682,7 @@ class a:
 
 x=a()
 x.a =1
-x.__dict__
+print x.__dict__
 print "======================================="
 # class can also be created with metaclasses read about this..
 print "======================================="
@@ -741,7 +750,7 @@ except:
 #TypeError: a() takes exactly 2 arguments (1 given)
 print "======================================="
 #oneliner to read a file
-os.system("touch ten_one_liners.py")
+os.system("echo 'hello world' > ./ten_one_liners.py")
 print open("ten_one_liners.py").readlines()
 
 print "======================================="

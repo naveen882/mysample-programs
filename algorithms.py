@@ -54,6 +54,7 @@ func()
 
 #So lambda lets you define and use a function inside an if statement body, or inside a list. However, lambda expressions are just that, expressions. It is difficult to write a complicated function because statements are not allowed.
 
+#Python supports a concept called "list comprehensions". It can be used to construct lists in a very natural, easy way, like a mathematician is used to do.
 #S = {x² : x in {0 ... 9}}
 #V = (1, 2, 4, 8, ..., 2¹²)
 #M = {x | x in S and x even}
