@@ -1133,6 +1133,7 @@ NOT is the simplest:
 
 NOT T = F
 NOT F = T
+http://www.annedawson.net/DeMorgansLaws.htm
 
 """
 
