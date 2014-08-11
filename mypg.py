@@ -1113,6 +1113,28 @@ gives us:
 }
 """
 
+"""
+DeMorgans Laws
+
+"not (A and B)" is the same as "(not A) or (not B)"
+
+and also,
+
+"not (A or B)" is the same as "(not A) and (not B)"
+
+(not(x < 15 and y >= 3) has the same value as (x >= 15 or y < 3)
+x = int(raw_input("Enter a value for x: "))
+y = int(raw_input("Enter a value for y: "))
+print (not(x < 15 and y >= 3))
+print (x >= 15 or y < 3)
+We have two values: T and F.
+We can combine these values in three ways: NOT, AND, and OR.
+NOT is the simplest:
+
+NOT T = F
+NOT F = T
+
+"""
 
 """
 Flake8 is a wrapper around these tools:
