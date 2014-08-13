@@ -14,3 +14,40 @@ SHA-1: A 160-bit hash function which resembles the earlier MD5 algorithm. This w
 SHA-2: A family of two similar hash functions, with different block sizes, known as SHA-256 and SHA-512. They differ in the word size; SHA-256 uses 32-bit words where SHA-512 uses 64-bit words. There are also truncated versions of each standard, known as SHA-224 and SHA-384. These were also designed by the NSA.
 SHA-3: A hash function formerly called Keccak, chosen in 2012 after a public competition among non-NSA designers. It supports the same hash lengths as SHA-2, and its internal structure differs significantly from the rest of the SHA family.
 The corresponding standards are FIPS PUB 180 (original SHA), FIPS PUB 180-1 (SHA-1), FIPS PUB 180-2 (SHA-1, SHA-256, SHA-384, and SHA-512). NIST has updated Draft FIPS Publication 202, SHA-3 Standard separate from the Secure Hash Standard (SHS).
+
+What is Reverse Proxy?
+
+A reverse proxy is a device or service placed between a client and a server in a network infrastructure. Incoming requests are handled by the proxy, which interacts on behalf of the client with the desired server or  service residing on the server. The most common use of a reverse proxy is to provide load balancing for web applications and APIs. Reverse proxies can also be deployed to offload services from applications as a way to improve performance through SSL acceleration,intelligent compression, and caching. They can also enable federated security services for multiple applications.
+
+A reverse proxy may act either as a simple forwarding service or actively participate in the exchange between client and server. When the proxy treats the client and server as separate entities by implementing dual network stacks, it is called a full proxy. A full reverse proxy is capable of intercepting, inspecting, and interacting with requests and responses. Interacting with requests and responses enables more advanced traffic management services such as application layer security,web acceleration, page routing, and secure remote access. 
+
+A reverse proxy is most commonly used to provide load balancing services for scalability and availability. Increasingly, reverse proxies are also used as a strategic point in the network to enforce web application security through web application firewalls, application delivery firewalls, and deep content inspection to mitigate data leaks.
+
+Nginx Vs Apache
+
+As discussed above Nginx is based on event-driven architecture. Apache is based on process-driven architecture. It is interesting to note that Apache in its earliest release was not having multitasking architecture. Later Apache MPM (multi-processing module) was added to achieve this.
+Nginx doesn’t create a new process for a new request. Apache creates a new process for each request.
+In Nginx, memory consumption is very low for serving static pages. But, Apache’s nature of creating new process for each request increases the memory consumption.
+Several benchmarking results indicates that when compared to Apache, Nginx is extremely fast for serving static pages.
+Nginx development started only in 2002. But Apache initial release was in 1995.
+In complex configurations situation, when compared to Nginx, Apache can be configured easily as it comes with lot of configuration features to cover wide range of requirements.
+When compared to Nginx, Apache has excellent documentation.
+In general, Nginx have less components to add more features. But Apache has tons of features and provides lot more functionality than Nginx.
+Nginx do not support Operating Systems like OpenVMS and IBMi. But Apache supports much wider range of Operating Systems.
+Since Nginx comes only with core features that are required for a web server, it is lightweight when compared to Apache.
+The performance and scalability of Nginx is not completely dependent on hardware resources, whereas the performance and scalability of the Apache is dependent on underlying hardware resources like memory and CPU.
+
+
+Nginx Vs Apache
+
+As discussed above Nginx is based on event-driven architecture. Apache is based on process-driven architecture. It is interesting to note that Apache in its earliest release was not having multitasking architecture. Later Apache MPM (multi-processing module) was added to achieve this.
+Nginx doesn’t create a new process for a new request. Apache creates a new process for each request.
+In Nginx, memory consumption is very low for serving static pages. But, Apache’s nature of creating new process for each request increases the memory consumption.
+Several benchmarking results indicates that when compared to Apache, Nginx is extremely fast for serving static pages.
+Nginx development started only in 2002. But Apache initial release was in 1995.
+In complex configurations situation, when compared to Nginx, Apache can be configured easily as it comes with lot of configuration features to cover wide range of requirements.
+When compared to Nginx, Apache has excellent documentation.
+In general, Nginx have less components to add more features. But Apache has tons of features and provides lot more functionality than Nginx.
+Nginx do not support Operating Systems like OpenVMS and IBMi. But Apache supports much wider range of Operating Systems.
+Since Nginx comes only with core features that are required for a web server, it is lightweight when compared to Apache.
+The performance and scalability of Nginx is not completely dependent on hardware resources, whereas the performance and scalability of the Apache is dependent on underlying hardware resources like memory and CPU.

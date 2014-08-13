@@ -57,6 +57,90 @@ d.color1
 print "%s"%(d.x)
 
 print "=========================================="
+#Python pass by value and pass by reference
+def f(*t):
+  print t
+  t=3
+  print t
+t= 2
+print t
+2
+f(t) #prints (2,)
+print t #prints 3
+
+
+#Ex:2
+x = [ 2, 4, 4, 5, 5 ]
+print x  # 2, 4, 4, 5, 5
+
+def go( li ) :
+  li = [ 5, 6, 7, 8 ]  # re-assigning what li POINTS TO, does not
+  # change the value of the ORIGINAL variable x
+
+go( x ) 
+print x  # 2, 4, 4, 5, 5  [ STILL! ]
+
+#Ex:3
+def change(x):
+    x[0] = 3
+
+x = [1]
+change(x)
+print x
+
+#Ex:4
+#All parameters (arguments) in the Python language are passed by reference. It means if you change what a parameter refers to within a function, the change also reflects back in the calling function. For example:
+
+#!/usr/bin/python
+
+# Function definition is here
+def changeme( mylist ):
+   "This changes a passed list into this function"
+   mylist.append([1,2,3,4]);
+   print "Values inside the function: ", mylist
+   return
+
+# Now you can call changeme function
+mylist = [10,20,30];
+changeme( mylist );
+print "Values outside the function: ", mylist
+#Here, we are maintaining reference of the passed object and appending values in the same object. So, this would produce the following result:
+
+#Values inside the function:  [10, 20, 30, [1, 2, 3, 4]]
+#Values outside the function:  [10, 20, 30, [1, 2, 3, 4]]
+
+
+#There is one more example where argument is being passed by reference and the reference is being overwritten inside the called function.
+
+
+# Function definition is here
+def changeme( mylist ):
+   "This changes a passed list into this function"
+   mylist = [1,2,3,4]; # This would assig new reference in mylist
+   print "Values inside the function: ", mylist
+   return
+
+# Now you can call changeme function
+mylist = [10,20,30];
+changeme( mylist );
+print "Values outside the function: ", mylist
+#The parameter mylist is local to the function changeme. Changing mylist within the function does not affect mylist. The function accomplishes nothing and finally this would produce the following result:
+
+#Values inside the function:  [1, 2, 3, 4]
+#Values outside the function:  [10, 20, 30]
+
+#Function Arguments:
+#You can call a function by using the following types of formal arguments:
+#
+#Required arguments
+#
+#Keyword arguments
+#
+#Default arguments
+#
+#Variable-length arguments
+
+print "=========================================="
 
 f=open("/tmp/aa.txt","w")
 f.write("Testing  and \n Testing again \n and \n again")
