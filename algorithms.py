@@ -36,13 +36,78 @@ for i in range(1,101):
         a=i
    if(a == ""):
       print i,i
+print "==============================================================="
+#Default Argument Values are Only Evaluated Once
+"""
+The default value for a function argument is only evaluated once, when the function is defined. Python simply assigns this value to the correct variable name when the function is called.
 
+Python doesn't check if that value (that location in memory) was changed. It just continues to assign that value to any caller that needs it. So, if the value is changed, the change will persist across function calls. Above, when we appended a value to the list represented by stuff, we actually changed the default value for all eternity. When we called function again looking for a default value, the modified default was given to us
+"""
 def func(a=[]):
 	a.append(1)
 	print a
 
 func()
 func()
+
+
+#The solution: don't use mutable objects as function defaults. You might be able to get away with it if you don't modify them, but it's still not a good idea.
+
+#A better way to write the above code would be:
+
+#'s
+def function(item, stuff = None):
+    if stuff is None:
+        stuff = []
+    stuff.append(item)
+    print stuff
+
+function(1)
+# prints '[1]'
+
+function(2)
+# prints '[2]', as expected
+#None is immutable (and we're not trying to change it anyways), so we're safe from accidently changing value of the default.
+
+#On the plus side, a clever programmer could probably turn this into a trick, in effect creating C-style 'static variables'.
+print "==============================================================="
+#'Switch Statements' using Dictionaries of Functions
+keycode = 2
+functions = {1: key_1_pressed, 2: key_2_pressed, 3: key_3_pressed}
+functions.get(keycode, unknown_key_pressed)()
+print "==============================================================="
+#Passing 'self' Manually
+class Class:
+    def a_method(self):
+        print 'Hey a method'
+
+instance = Class()
+
+instance.a_method()
+# prints 'Hey a method', somewhat unsuprisingly.  You can also do:
+
+Class.a_method(instance)
+# prints 'Hey a method'
+
+print "==============================================================="
+
+#Modifying classes after creation
+
+class Class:
+   def method(self):
+        print 'Hey a method'
+
+instance = Class()
+instance.method()
+# prints 'Hey a method'
+
+def new_method(self):
+    print 'New method wins!'
+
+Class.method = new_method
+instance.method()
+# prints 'New method wins!'
+print "==============================================================="
 
 
 #Lambda function

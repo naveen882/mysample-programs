@@ -141,6 +141,56 @@ print "Values outside the function: ", mylist
 #Variable-length arguments
 
 print "=========================================="
+#Inverting a dictionary using a dictionary comprehension
+m = {'a': 1, 'b': 2, 'c': 3, 'd': 4}
+m
+#{'d': 4, 'a': 1, 'b': 2, 'c': 3}
+{v: k for k, v in m.items()}
+#{1: 'a', 2: 'b', 3: 'c', 4: 'd'}
+
+#Dictionry comprehension example
+
+emails = {'Dick': 'bob@example.com', 'Jane': 'jane@example.com', 'Stou': 'stou@example.net'}
+3email_at_dotcom = dict( [name, '.com' in email] for name, email in emails.iteritems() )
+# email_at_dotcom now is {'Dick': True, 'Jane': True, 'Stou': False}
+print "=========================================="
+
+#Sets and set operations
+A = {1, 2, 3, 3}
+print A
+#set([1, 2, 3])
+B = {3, 4, 5, 6, 7}
+print B
+#set([3, 4, 5, 6, 7])
+print A | B
+#set([1, 2, 3, 4, 5, 6, 7])
+print A & B
+#set([3])
+print A - B
+#set([1, 2])
+print B - A
+#set([4, 5, 6, 7])
+print A ^ B
+#set([1, 2, 4, 5, 6, 7])
+print (A ^ B) == ((A - B) | (B - A))
+#True
+
+print "=========================================="
+#Dictionary to lists
+dictionary = {'a': 1, 'b': 2, 'c': 3}
+dict_as_list = dictionary.items()
+#dict_as_list now contains [('a', 1), ('b', 2), ('c', 3)]
+
+#Lists to Dicts
+You can reverse the process, turning a list of 2-element lists or tuples into a dict:
+# 's
+dict_as_list = [['a', 1], ['b', 2], ['c', 3]]
+dictionary = dict(dict_as_list)
+# dictionary now contains {'a': 1, 'b': 2, 'c': 3}
+dict_as_list = [('a', 1), ('b', 2), ('c', 3)]
+dictionary = dict(dict_as_list)
+# dictionary now contains {'a': 1, 'b': 2, 'c': 3}
+print "=========================================="
 
 f=open("/tmp/aa.txt","w")
 f.write("Testing  and \n Testing again \n and \n again")
