@@ -179,7 +179,7 @@ f = open('/tmp/aa.txt')
 ## Read the first line 
 line = f.readline()
 
-## If the file is not empty keep reading line one at a time
+#100.112.17.235# If the file is not empty keep reading line one at a time
 ## till the file is empty
 while line:
 	print line
@@ -1299,4 +1299,46 @@ print filter(lambda x: x % 3 == 0, foo)
 First we define a simple list of integer values, then we use the standard functions filter(), map() and reduce() to do various things with that list. All of the three functions expect two arguments: A function and a list. 
 
 Of course, we could define a separate function somewhere else and then use that function's name as an argument to filter() etc., and in fact that's probably a good idea if we're going to use that function several times, or if the function is too complex for writing in a single line. However, if we need it only once and it's quite simple (i.e. it contains just one expression, like in the above examples), it's more convenient to use a lambda construct to generate a (temporary) anonymous function and pass it to filter() immediately. This creates very compact, yet readable code. 
+"""
+
+
+"""
+A bit about Python's memory management
+======================================
+As you have seen before, a value will have only one copy in memory and all the variables having this value will refer to this memory location. For example when you have variables a, b, c having a value 10, it doesn't mean that there will be 3 copy of 10s in memory. There will be only one 10 and all the variables a, b, c will point to this value. Once a variable is updated, say you are doing a += 1 a new value 11 will be allocated in memory and a will be pointing to this.
+
+Let's check this behaviour with Python Interpreter. Start the Python Shell and try the following for yourselves.
+
+>>> a_list = [1] * 10
+>>> a_list
+[1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+>>> [id(value) for value in a_list]
+[26089400, 26089400, 26089400, 26089400, 26089400, 26089400, 26089400, 26089400, 26089400, 26089400]
+id() will return an objects memory address (object's identity). As you have noticed, when you create a list with same values, the values are not copied in memory. In fact, you are getting a list with references to the value 1; not a list with 10 copies of 1.
+
+Now we will try to create custom objects and try to find their identities.
+
+>>> class Foo:
+...     pass
+... 
+>>> bar = Foo()
+>>> baz = Foo()
+>>> id(bar)
+140730612513248
+>>> id(baz)
+140730612513320
+>>> list_a = [1, 2, 3] # lists are mutable objects
+>>> list_b = [1, 2, 3]
+>>> id(list_a)
+140116233272136
+>>> id(list_b)
+140116233272064
+>>> [id(value) for value in list_a]
+[24221624, 24221600, 24221576] # `int` is immutable
+>>> [id(value) for value in list_b]
+[24221624, 24221600, 24221576] # same as above
+As you can see, the two instances have different identities. That means, there are two different copies of the same object in memory. This behaviour is different from what you have seen before. When you are creating objects they will have unique identities unless you are using Singleton Pattern. All immutable objects like str, int, float will have same identities when objects are created simultaneously.
+
+
+
 """
