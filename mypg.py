@@ -66,6 +66,15 @@ mergedlist = listone + listtwo # This will not remove duplicates
 #[1, 2, 3, 4, 5, 6]
 
 print "=========================================="
+#Duplicating a list within itself
+listone = [1,2,3]
+listone = listone * 2 
+
+print listone
+#[1, 2, 3, 1, 2, 3]
+
+
+print "=========================================="
 #Python pass by value and pass by reference
 def f(*t):
   print t
