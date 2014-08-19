@@ -57,6 +57,15 @@ d.color1
 print "%s"%(d.x)
 
 print "=========================================="
+#combining two lists into one
+
+listone = [1,2,3]
+listtwo = [4,5,6]
+
+mergedlist = listone + listtwo # This will not remove duplicates
+#[1, 2, 3, 4, 5, 6]
+
+print "=========================================="
 #Python pass by value and pass by reference
 def f(*t):
   print t
