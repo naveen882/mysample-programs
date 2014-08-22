@@ -191,8 +191,10 @@ print B - A
 print A ^ B
 #set([1, 2, 4, 5, 6, 7])
 print (A ^ B) == ((A - B) | (B - A))
-#True
+#[1,2,3] True
 
+#sets are mutable
+#fronzensets are immutable
 print "=========================================="
 #Dictionary to lists
 dictionary = {'a': 1, 'b': 2, 'c': 3}
