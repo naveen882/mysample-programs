@@ -321,6 +321,11 @@ except:
 	logging.error("error")
 	logging.exception("exception")
 print "======================================="
+qq="12"
+rr="13"
+out = "<html>%(qq)s%(rr)s</html>" % locals()
+print out
+print "======================================="
 def func(a,b=None):
 	if b is None:
 		print "b is None"
