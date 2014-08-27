@@ -57,6 +57,29 @@ d.color1
 print "%s"%(d.x)
 
 print "=========================================="
+#Difference between function decorator and class decorator
+#If you want to keep state in the decorator you should use a class. 
+#If you can write a function to implement your decorator you should prefer it. But not all decorators can easily be written as a function - for example when you want to store some internal state.
+#I've seen people (including myself) go through ridiculous efforts to write decorators only with functions. I still have no idea why, the overhead of a class is usually totally negligible.
+#http://stackoverflow.com/questions/4650333/difference-between-decorator-classes-and-decorator-functions
+class counted(object):
+    """ counts how often a function is called """
+    def __init__(self, func):
+        self.func = func
+        self.counter = 0
+
+    def __call__(self, *args, **kwargs):
+        self.counter += 1
+        return self.func(*args, **kwargs)
+
+
+@counted
+def something():
+    pass
+
+something()
+print something.counter
+print "=========================================="
 #combining two lists into one
 
 listone = [1,2,3]
@@ -169,7 +192,7 @@ m
 #Dictionry comprehension example
 
 emails = {'Dick': 'bob@example.com', 'Jane': 'jane@example.com', 'Stou': 'stou@example.net'}
-3email_at_dotcom = dict( [name, '.com' in email] for name, email in emails.iteritems() )
+email_at_dotcom = dict( [name, '.com' in email] for name, email in emails.iteritems() )
 # email_at_dotcom now is {'Dick': True, 'Jane': True, 'Stou': False}
 print "=========================================="
 
@@ -202,8 +225,8 @@ dict_as_list = dictionary.items()
 #dict_as_list now contains [('a', 1), ('b', 2), ('c', 3)]
 
 #Lists to Dicts
-You can reverse the process, turning a list of 2-element lists or tuples into a dict:
-# 's
+#You can reverse the process, turning a list of 2-element lists or tuples into a dict:
+#'s
 dict_as_list = [['a', 1], ['b', 2], ['c', 3]]
 dictionary = dict(dict_as_list)
 # dictionary now contains {'a': 1, 'b': 2, 'c': 3}
@@ -1414,6 +1437,37 @@ Now we will try to create custom objects and try to find their identities.
 [24221624, 24221600, 24221576] # same as above
 As you can see, the two instances have different identities. That means, there are two different copies of the same object in memory. This behaviour is different from what you have seen before. When you are creating objects they will have unique identities unless you are using Singleton Pattern. All immutable objects like str, int, float will have same identities when objects are created simultaneously.
 
+
+
+"""
+
+
+"""
+Difference between function decorator and class decorator
+ 14 down vote accepted
+	
+
+If you want to keep state in the decorator you should use a class else for a simple case use a class decorator.
+
+For example, this does not work
+
+def mydecorator(f):
+    x = 0 
+    def decorator():
+        x += 1 # x is a nonlocal name and cant be modified
+        return f(x)
+    return decorator 
+
+There are many workarounds for this but the simplest way is to use a class
+
+class mydecorator(object):
+    def __init__(self, f):
+        self.f = f
+        self.x = 0
+
+    def __call__(self, *k, **kw):
+        self.x += 1
+        return f(self.x)
 
 
 """
