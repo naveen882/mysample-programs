@@ -1319,6 +1319,18 @@ http://www.annedawson.net/DeMorgansLaws.htm
 
 """
 
+
+"""
+What is __init__.py?
+It is used to import a module in a directory, called package import.
+ If we have a module, dir1/dir2/mod.py, we put __init__.py in each directories. So, we can import the mod like this:
+
+import dir1.dir2.mod
+
+The __init__.py is usually an empty py file. The hierarchy gives us a convenient way of organizing the files in a large system.
+In the simplest case, __init__.py can just be an empty file, but it can also execute initialization code for the package or set the __all__ variable, described later.
+"""
+
 """
 Flake8 is a wrapper around these tools:
 
@@ -1470,4 +1482,38 @@ class mydecorator(object):
         return f(self.x)
 
 
+"""
+
+
+"""
+Monkey-patching
+
+The origin of monkey-patch according to wiki is :
+"The term monkey patch seems to have come from an earlier term, guerrilla patch, which referred to changing code sneakily at runtime. The word guerrilla, homophonous with gorilla, became monkey, possibly to make the patch sound less intimidating."
+
+In Python, the term monkey patch only refers to dynamic modifications of a class or module at runtime, motivated by the intent to patch existing third-party code as a workaround to a bug or feature which does not act as you desire.
+
+We have a module called m.py like this:
+
+# m.py
+class MyClass:
+    def f(self):
+        print "f()"
+
+Then, if we run the monkey-patch testing like this:
+
+>>> import m
+>>> def monkey_f(self):
+	print "monkey_f()"
+
+	
+>>> m.MyClass.f = monkey_f
+>>> obj = m.MyClass()
+>>> obj.f()
+monkey_f()
+>>> 
+
+As we can see, we did make some changes in the behavior of f() in MyClass using the function we defined, monkey_f(), outside of the module m.
+
+It is a risky thing to do, but sometimes we need this trick, such as testing.
 """

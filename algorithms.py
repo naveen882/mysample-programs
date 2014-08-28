@@ -181,3 +181,16 @@ def fib(n):    # write Fibonacci series up to n
  
 # Now call the function we just defined:
 fib(2000)
+
+''.join([`i` for i in range(101)])
+#'0123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100'
+
+
+def f():
+    yield
+
+def g():
+    return
+
+print 'f()=', f() #f()= <generator object f at 0x7f705eb3c820>
+print 'g()=', g() #g()= None
