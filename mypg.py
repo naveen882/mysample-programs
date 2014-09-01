@@ -1517,3 +1517,65 @@ As we can see, we did make some changes in the behavior of f() in MyClass using 
 
 It is a risky thing to do, but sometimes we need this trick, such as testing.
 """
+
+
+"""
+>>> thing = ( x*2 for x in xrange(10) )
+>>> 
+>>> type(thing)
+<type 'generator'>
+>>> thing = [x*2 for x in xrange(10) ]
+>>> type(thing)
+>>> def t():
+...     for i in range(10):
+...             yield i
+... 
+>>> thing = (x for x in t())
+>>> type(thing)
+<type 'generator'>
+>>> thing = [x for x in t()]
+>>> type(thing)
+<type 'list'>
+>>> 
+
+"""
+
+
+"""
+a=[]
+b=list()
+a==b #True
+
+a=['hello']
+b=list('hello')
+a==b #False
+a[0] #hello
+b[0] #h
+b[1] #e
+b[2] #l
+b[3] #l
+b[4] #o
+#Another trick for the same is :)
+
+c="hello"
+c[0] #h
+c[1] #e
+c[2] #l
+c[3] #l
+c[4] #o
+
+a = 'hello'
+a= a+ 'x'
+a
+#'hellox'
+
+
+
+a=[1,2,3,4]
+b=list(a)
+b[0]
+#1
+b[1]
+#2
+
+"""
