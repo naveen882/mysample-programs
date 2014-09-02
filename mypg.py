@@ -1579,3 +1579,39 @@ b[1]
 #2
 
 """
+
+
+"""
+#Map, filter and reduce
+#Map
+We have a built-in feature that does most of the work for us. The map(aFunction, aSequence) function applies a passed-in function to each item in an iterable object and returns a list containing all the function call results.
+ex:
+>>> items = [1, 2, 3, 4, 5]
+>>> def sqr(x): return x ** 2
+
+>>> list(map(sqr, items))
+[1, 4, 9, 16, 25]
+
+#Filter
+#As the name suggests filter extracts each element in the sequence for which the function returns True. The reduce function is a little less obvious in its intent. This function reduces a list to a single value by combining elements via a supplied function. The map function is the simplest one among Python built-ins used for functional programming.
+
+>>> list(range(-5,5))
+[-5, -4, -3, -2, -1, 0, 1, 2, 3, 4]
+>>>
+>>> list( filter((lambda x: x < 0), range(-5,5)))
+[-5, -4, -3, -2, -1]
+>>> 
+
+
+#Reduce
+#The reduce is in the functools in Python 3.0. It is more complex. It accepts an iterator to process, but it's not an iterator itself. It returns a single result:
+
+>>> 
+>>> from functools import reduce
+>>> reduce( (lambda x, y: x * y), [1, 2, 3, 4] )
+24
+>>> reduce( (lambda x, y: x / y), [1, 2, 3, 4] )
+0.041666666666666664
+>>> 
+At each step, reduce passes the current product or division, along with the next item from the list, to the passed-in lambda function. By default, the first item in the sequence initialized the starting value.
+"""
