@@ -78,7 +78,7 @@ def something():
     pass
 
 something()
-print something.counter
+print something.counter #Magic/Trick is function can access class variables
 print "=========================================="
 #combining two lists into one
 
