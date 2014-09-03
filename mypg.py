@@ -820,6 +820,7 @@ a=[1,1,1,1,2,3,4,5,56,76]
 answer,pos =binary_search(a,5)
 print answer,pos
 print "======================================="
+#iterator
 class seq:
 	x= 0 
 	def __iter__(self):

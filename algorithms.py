@@ -194,3 +194,11 @@ def g():
 
 print 'f()=', f() #f()= <generator object f at 0x7f705eb3c820>
 print 'g()=', g() #g()= None
+
+
+"""
+In python Arguments are passed by assignment. The rationale behind this is twofold:
+
+the parameter passed in is actually a reference to an object (but the reference is passed by value)
+some data types are mutable, but others aren't
+"""
