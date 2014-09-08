@@ -36,14 +36,6 @@ class Rastan(object):
 		print "In init def"
 		self.x=x
 
-	def __str__(self):
-		print "In str func"
-		return self.x + "====="
-
-	def __repr__(self):
-		print "In repr func"
-		return self.x + "====="
-
 	def __getattribute__(self,k):
 		print "In get attribute"
 		if k == "color":
@@ -323,26 +315,22 @@ print "======================================="
 c={'a':1,'b':2}
 print c['a']
 print c['b']
+#Key value can also be added like the following
+c['c'] = 3
+print c
 print c.keys() #returns keys list
 print c.values() #returns values list
 print c.pop('b',None) #returns 2
 print c.get("b",c.update({'b':6}))
 print c #prints {'a': 1, 'b': 6}
 try :
-	if c['a']:
-		print c['a']
+	if c['d']:
+		print c['d']
 except:
 	logging.debug("debug")
 	logging.error("error")
 	logging.exception("exception")
 
-try :
-	if c['c']:
-		print c['c']
-except:
-	logging.debug("debug")
-	logging.error("error")
-	logging.exception("exception")
 print "======================================="
 qq="12"
 rr="13"
@@ -594,32 +582,86 @@ print a
 print a.sort()
 
 print "======================================="
-class Deco(object):
-	def __init__(self):
-		print "In Deco class init"
-	def __call__(self,f):
-		print "before"
-		print dir(f)
-		print f.__name__
-		f()
-		print "after"
+#class decorator without arguments
+class decoratorWithoutArguments(object):
 
-@Deco()
-def tt():
-	print "in tt"
+    def __init__(self, f):
+        #If there are no decorator arguments, the function
+        #to be decorated is passed to the constructor.
+        #print "Inside __init__()"
+        self.f = f
 
-def Deco1():
-	def all(F):
-		print "before in func"
-		print dir(F)
-		F.__name__
-		F()
-		print "after in func"
-	return all
+    def __call__(self, *args):
+        #The __call__ method is not called until the
+        #decorated function is called.
+        print "Inside __call__()"
+        self.f(*args)
+        print "After self.f(*args)"
 
-@Deco1()
-def gg():
-	print "in gg"
+@decoratorWithoutArguments
+def sayHello(a1, a2, a3, a4):
+    print 'sayHello arguments:', a1, a2, a3, a4
+
+print "After decoration"
+
+print "Preparing to call sayHello()"
+sayHello("say", "hello", "argument", "list")
+print "After first sayHello() call"
+sayHello("a", "different", "set of", "arguments")
+print "After second sayHello() call"
+
+
+#class decorator with arguments
+class decoratorWithArguments(object):
+
+    def __init__(self, arg1, arg2, arg3):
+        #If there are decorator arguments, the function
+        #to be decorated is not passed to the constructor!
+        print "Inside __init__()"
+        self.arg1 = arg1
+        self.arg2 = arg2
+        self.arg3 = arg3
+
+    def __call__(self, f):
+        If there are decorator arguments, __call__() is only called
+        once, as part of the decoration process! You can only give
+        it a single argument, which is the function object.
+        print "Inside __call__()"
+        def wrapped_f(*args):
+            print "Inside wrapped_f()"
+            print "Decorator arguments:", self.arg1, self.arg2, self.arg3
+            f(*args)
+            print "After f(*args)"
+        return wrapped_f
+
+@decoratorWithArguments("hello", "world", 42)
+def sayHello(a1, a2, a3, a4):
+    print 'sayHello arguments:', a1, a2, a3, a4
+
+
+#Function decorator with arguments
+def decoratorFunctionWithArguments(arg1, arg2, arg3):
+    def wrap(f):
+        print "Inside wrap()"
+        def wrapped_f(*args):
+            print "Inside wrapped_f()"
+            print "Decorator arguments:", arg1, arg2, arg3
+            f(*args)
+            print "After f(*args)"
+        return wrapped_f
+    return wrap
+
+@decoratorFunctionWithArguments("hello", "world", 42)
+def sayHello(a1, a2, a3, a4):
+    print 'sayHello arguments:', a1, a2, a3, a4
+
+print "After decoration"
+
+print "Preparing to call sayHello()"
+sayHello("say", "hello", "argument", "list")
+print "after first sayHello() call"
+sayHello("a", "different", "set of", "arguments")
+print "after second sayHello() call"
 print "======================================="
 def shout(aa="yes"):
 	print aa
@@ -730,24 +772,6 @@ a=[1,2,3,4,5,6,7,8,9]
 mid = binary_search(a,7) 
 print mid
 print "======================================="
-def binary_saearch(a,x,lo=0,hi=None):
-	if hi is None:
-		hi = len(a)
-	while (lo < hi):
-		mid=(lo+hi)/2
-		midval = a[mid]
-		if midval < x:
-			lo = mid+1
-		elif midval > x:
-			hi=mid
-		else:
-			return mid
-	return -1
-
-val = binary_search(a,8)
-print "====="
-print val
-print "======================================="
 #A dict cannot have list or dict as keys but it can have tuple since tuple cannot be chnages and is a read only datastructure
 a=(1,2)
 b={a:2}
@@ -802,24 +826,6 @@ print palindrome("tat")
 print palindrome("t")
 print palindrome("ti")
 print "======================================="
-def binary_search(a,x,lo=0,hi=None):
-	if hi is None:
-		hi=len(a)
-	while lo < hi:
-		mid=(lo+hi)/2
-		midval = a[mid]
-		if midval < x:
-			lo = mid + 1
-		elif midval > x:
-			hi = mid
-		else:
-			return midval,mid
-	return -1
-
-a=[1,1,1,1,2,3,4,5,56,76]
-answer,pos =binary_search(a,5)
-print answer,pos
-print "======================================="
 #iterator
 class seq:
 	x= 0 
@@ -837,7 +843,7 @@ print s.next()
 print s.next()
 #print s.next() ## this will call StopIteration
 print "======================================="
-#Python polymorphism example
+#Python polymorphism example and inheritence example
 class Animal:
 	def __init__(self, name):    # Constructor of the class
 		self.name = name
@@ -1111,88 +1117,6 @@ The concept of overloading is also a branch of polymorphism. When the exiting op
 
 """
 
-"""
-class decorator without arguments
-class decoratorWithoutArguments(object):
-
-    def __init__(self, f):
-        #If there are no decorator arguments, the function
-        #to be decorated is passed to the constructor.
-        #print "Inside __init__()"
-        self.f = f
-
-    def __call__(self, *args):
-        #The __call__ method is not called until the
-        #decorated function is called.
-        print "Inside __call__()"
-        self.f(*args)
-        print "After self.f(*args)"
-
-@decoratorWithoutArguments
-def sayHello(a1, a2, a3, a4):
-    print 'sayHello arguments:', a1, a2, a3, a4
-
-print "After decoration"
-
-print "Preparing to call sayHello()"
-sayHello("say", "hello", "argument", "list")
-print "After first sayHello() call"
-sayHello("a", "different", "set of", "arguments")
-print "After second sayHello() call"
-
-
-class decorator with arguments
-class decoratorWithArguments(object):
-
-    def __init__(self, arg1, arg2, arg3):
-        #If there are decorator arguments, the function
-        #to be decorated is not passed to the constructor!
-        print "Inside __init__()"
-        self.arg1 = arg1
-        self.arg2 = arg2
-        self.arg3 = arg3
-
-    def __call__(self, f):
-        If there are decorator arguments, __call__() is only called
-        once, as part of the decoration process! You can only give
-        it a single argument, which is the function object.
-        print "Inside __call__()"
-        def wrapped_f(*args):
-            print "Inside wrapped_f()"
-            print "Decorator arguments:", self.arg1, self.arg2, self.arg3
-            f(*args)
-            print "After f(*args)"
-        return wrapped_f
-
-@decoratorWithArguments("hello", "world", 42)
-def sayHello(a1, a2, a3, a4):
-    print 'sayHello arguments:', a1, a2, a3, a4
-
-
-Function decorator with arguments
-def decoratorFunctionWithArguments(arg1, arg2, arg3):
-    def wrap(f):
-        print "Inside wrap()"
-        def wrapped_f(*args):
-            print "Inside wrapped_f()"
-            print "Decorator arguments:", arg1, arg2, arg3
-            f(*args)
-            print "After f(*args)"
-        return wrapped_f
-    return wrap
-
-@decoratorFunctionWithArguments("hello", "world", 42)
-def sayHello(a1, a2, a3, a4):
-    print 'sayHello arguments:', a1, a2, a3, a4
-
-print "After decoration"
-
-print "Preparing to call sayHello()"
-sayHello("say", "hello", "argument", "list")
-print "after first sayHello() call"
-sayHello("a", "different", "set of", "arguments")
-print "after second sayHello() call"
-"""
 
 """
 Method resolution operrator
