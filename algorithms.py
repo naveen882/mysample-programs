@@ -1,4 +1,5 @@
 #!/usr/bin/python
+import logging
 
 #Anagrams
 word = sorted('rac')
@@ -120,10 +121,11 @@ print "==============================================================="
 #So lambda lets you define and use a function inside an if statement body, or inside a list. However, lambda expressions are just that, expressions. It is difficult to write a complicated function because statements are not allowed.
 
 #Python supports a concept called "list comprehensions". It can be used to construct lists in a very natural, easy way, like a mathematician is used to do.
-#S = {x² : x in {0 ... 9}}
-#V = (1, 2, 4, 8, ..., 2¹²)
-#M = {x | x in S and x even}
-
+"""
+S = {x² : x in {0 ... 9}}
+V = (1, 2, 4, 8, ..., 2¹²)
+M = {x | x in S and x even}
+"""
 #>>> S = [x**2 for x in range(10)]
 #>>> V = [2**i for i in range(13)]
 #>>> M = [x for x in S if x % 2 == 0]
@@ -135,7 +137,7 @@ print "==============================================================="
 
 #converting list to integer
 T2 = ['13', '17', '18', '21', '32']
-T3 = [map(int, x) for x in T1]
+T3 = [map(int, x) for x in T2]
 
 #palindrome
 def ispalindrome(word):
@@ -195,6 +197,51 @@ def g():
 print 'f()=', f() #f()= <generator object f at 0x7f705eb3c820>
 print 'g()=', g() #g()= None
 
+#Python opertor overloading
+#Why is it required
+class Point:
+    def __init__(self,x = 0,y = 0):
+        self.x = x
+        self.y = y
+
+#Now when we try to add two points that we create as follows.
+
+
+p1 = Point(2,3)
+p2 = Point(-1,2)
+try:
+	p1 + p2
+except:
+	import logging 
+	logging.debug("eeeeeeeeee")
+#Traceback (most recent call last):
+#...
+#TypeError: unsupported operand type(s) for +: 'Point' and 'Point'
+
+######Whoa! That's a lot of complains. TypeError was raised since Python didn't know how to add two Point objects together. However, the good news is that we can teach this to Python through operator overloading. But first, let's get a notion about special functions.
+
+
+class Point:
+    # previous definitions...
+    def __init__(self,x = 0,y = 0):
+        self.x = x
+        self.y = y
+    
+    def __add__(self,other):
+        x = self.x + other.x
+        y = self.y + other.y
+        return Point(x,y)
+
+#Now let's try that addition again.
+
+
+p1 = Point(2,3)
+p2 = Point(-1,2)
+print type(p1),type(p2)
+print(p1 + p2)
+#(1,5)
+#similarly operator overloading an be done for substraction,mulitplication,devision etc
+#http://www.programiz.com/python-programming/operator-overloading
 
 """
 In python Arguments are passed by assignment. The rationale behind this is twofold:

@@ -623,9 +623,9 @@ class decoratorWithArguments(object):
         self.arg3 = arg3
 
     def __call__(self, f):
-        If there are decorator arguments, __call__() is only called
-        once, as part of the decoration process! You can only give
-        it a single argument, which is the function object.
+        #If there are decorator arguments, __call__() is only called
+        #once, as part of the decoration process! You can only give
+        #it a single argument, which is the function object.
         print "Inside __call__()"
         def wrapped_f(*args):
             print "Inside wrapped_f()"
@@ -956,6 +956,58 @@ eval('x + 1')
 #2
 eval('x')
 #1
+print "======================================="
+try:
+    open("/tmp/s.txt")
+    #pass
+    #for i in range(10):
+    #   break
+except: #There can be more than one except
+    print "Exception"
+else:   #else part will be executed if no exceptions are raised
+    print "In else"
+finally: #finally will be executed irrespective of conditions
+    print "In final"
+
+try:
+    pass
+except:
+    print "Exception"
+finally: #finally will be executed irrespective of conditions
+    print "In final"
+
+#Python for else:
+for i in range(1,11):
+    print i
+    break
+else:
+    print "In else1"
+print "======================================="
+#Python Access specifiers
+#Python does not have mandatory access control like some other languages you may be used to. The philosophy of the language is "We are all consenting adults".
+__private_access_specifier = 1 ## private has __
+_protected_access_specifier = 2 ## protected has _
+public_access_specifier = 3 ##with any underscore are public by default
+
+#Ex:
+class Cup:
+	var = None #public variable by default
+	_color = None    # protected variable
+	__content = None # private variable
+
+	def __init__(self, color):
+		self._color = color
+
+	def fill(self, beverage):
+		self.__content = beverage
+
+	def empty(self):
+		self.__content = None
+
+redCup = Cup("red")
+redCup._Cup__content = "tea"
+
+print "======================================="
 print "======================================="
 """
 The str() function is meant to return representations of values which are fairly human-readable
