@@ -288,3 +288,8 @@ If dictionary lookup fails, next the template system tries an attribute lookup, 
 If attribute lookup fails, the template system tries looking it up as a list index.
 if all of these fail, the template system outputs the value of the setting TEMPLATE_STRING_IF_INVALID, which defaults to an empty string.
 """
+
+
+"""
+A WSGI server (meaning WSGI compliant) only receives the request from the client, pass it to the application and then send the response provided by the application to the client. It does nothing else. All the gory details must be supplied by the application or middleware.
+"""
