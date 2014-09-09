@@ -243,6 +243,21 @@ print(p1 + p2)
 #similarly operator overloading an be done for substraction,mulitplication,devision etc
 #http://www.programiz.com/python-programming/operator-overloading
 
+
+#print "*" with recursion
+
+i=0
+
+def t():
+    global i
+    i += 1
+    if i < 11:
+        print "*" * i
+        t()
+
+t()
+
+
 """
 In python Arguments are passed by assignment. The rationale behind this is twofold:
 
