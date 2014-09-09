@@ -262,6 +262,16 @@ for i in range(1,11):
 	print "*" * i
 
 
+
+#all and any, in a nutshell, allow you to do the equivalent of and and or respectively but on an entire list.* So, in the most basic case, here's how they work:
+
+print all([True, True, True, False, True, True])  #All values in the list should be True
+#False
+print any([True, True, True, False, True, True]) #Any one of the value in the list should be Trur
+#True
+#check all variables are inetgers or not
+all([x for x in range(1,11) if isinstance(x,int)])
+#True
 """
 In python Arguments are passed by assignment. The rationale behind this is twofold:
 
