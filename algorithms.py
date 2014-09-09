@@ -256,6 +256,10 @@ def t():
         t()
 
 t()
+## Another way of doing the same is
+
+for i in range(1,11):
+	print "*" * i
 
 
 """
