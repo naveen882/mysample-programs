@@ -265,7 +265,7 @@ for i in range(1,11):
 #lambda functions only accespts expression and not statement
 #y=a+b is an expression
 #print "*"* i is a statement
-from __future__ import print_function
+from __future__ import print_function #this line may not be imported in the middle of the program since it makes a call to the compiler
 map(lambda x:print("*"*x) ,range(1,11))
 
 print "================================================="
