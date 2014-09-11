@@ -261,7 +261,35 @@ t()
 for i in range(1,11):
 	print "*" * i
 
+## Another way of doing the same is
+#lambda functions only accespts expression and not statement
+#y=a+b is an expression
+#print "*"* i is a statement
+from __future__ import print_function
+map(lambda x:print("*"*x) ,range(1,11))
 
+print "================================================="
+## using super and its advantages
+
+class Base(object):
+    def __init__(self):
+        print "Base created"
+
+class ChildA(Base):
+    def __init__(self):
+        Base.__init__(self)
+
+class ChildB(Base):
+    def __init__(self):
+        super(ChildB, self).__init__()
+
+print ChildA(),ChildB()
+
+#super() lets you avoid referring to the base class explicitly, which can be nice. But the main advantage comes with multiple inheritance, where all sorts of fun stuff can happen. See the standard docs on super if you haven't already.
+
+#Note that the syntax changed in Python 3.0: you can just say super().__init__() instead of super(ChildB, self).__init__() which IMO is quite a bit nicer.
+
+print "================================================="
 
 #all and any, in a nutshell, allow you to do the equivalent of and and or respectively but on an entire list.* So, in the most basic case, here's how they work:
 
@@ -272,6 +300,20 @@ print any([True, True, True, False, True, True]) #Any one of the value in the li
 #check all variables are inetgers or not
 all([x for x in range(1,11) if isinstance(x,int)])
 #True
+print "================================================="
+#unloading a python module is not supported .GTK
+from __future__ import print_function
+import sys
+map(lambda x:print("*"*x) ,range(1,11))
+
+del sys.modules['__future__']
+print(sys.modules)
+for i in range(1,11):
+	try:
+		print "*" * i #will cause an error,use print () here instead
+	except:
+		pass
+print "================================================="
 """
 In python Arguments are passed by assignment. The rationale behind this is twofold:
 

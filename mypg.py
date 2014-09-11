@@ -71,6 +71,8 @@ def something():
 
 something()
 print something.counter #Magic/Trick is function can access class variables
+something()
+print something.counter #Magic/Trick is function can access class variables
 print "=========================================="
 #combining two lists into one
 
@@ -123,6 +125,7 @@ print x
 
 #Ex:4
 #All parameters (arguments) in the Python language are passed by reference. It means if you change what a parameter refers to within a function, the change also reflects back in the calling function. For example:
+#All parameters in python language are passed by assignments
 
 #!/usr/bin/python
 
@@ -385,8 +388,9 @@ fs(7)
 print "======================================="
 cc=[1,2,3,4]
 dd=['1','2','3','4']
-print "%s"%"====".join(dd) ##### To remember
+print "%s"%"====".join(dd) ##### To remember   
 print "====".join(dd) #This is similar to the above statement
+#####join takes liast as arguments
 for i in range(len(dd)):
 	print i,dd[i]
 a=11
@@ -1502,7 +1506,7 @@ It is a risky thing to do, but sometimes we need this trick, such as testing.
 >>> type(thing)
 <type 'generator'>
 >>> thing = [x*2 for x in xrange(10) ]
->>> type(thing)
+>>> type(thing) #list
 >>> def t():
 ...     for i in range(10):
 ...             yield i
