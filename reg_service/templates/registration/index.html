@@ -1,0 +1,83 @@
+<html>
+	<head>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<!-- The above line to be replace by static url,due to the time constraing going with tthe above approach -->
+
+<script>
+
+function validate()
+{
+	var firstname = $("#firstname").val();
+	var lastname = $("#lastname").val();
+	var password = $("#password").val();
+	var email = $("#email").val();
+	var role = $("#role option:selected").val();
+	var snddata = {};
+	snddata['firstname'] = firstname;
+	snddata['lastname'] = lastname;
+	snddata['password'] = password;
+	snddata['role'] = role;
+	snddata['email'] = email;
+	snddata['csrfmiddlewaretoken']=$("{% csrf_token %}").val() ;
+	if (firstname == "")
+	{
+		alert("Enter Firstname");
+	}
+	if (lastname == "")
+	{
+		alert("Enter Lastname");
+	}
+	else if(password == "")
+	{
+		alert("Enter password");
+	}
+	else
+	{
+		$.post("/registration/send/" ,snddata,
+      function callbackHandler(data) 
+      {
+		if (data.status == 0)
+		{
+			window.location = "/registration/login/"
+		}
+		else if (data.status == 1)
+		{
+			$("#message").show();
+			$("#message").val(data.message);
+			$("#message").html(data.message);
+		}
+      }, 
+      "json"
+     );
+	}
+	
+	
+}
+</script>
+
+	</head>
+	<body>
+<form> 
+<!--<input type="hidden" name="csrftoken" id="csrftoken" value="{% csrf_token %}" />-->
+</form>
+
+<table id="userreg">
+<tr><td>First name:</td><td><input type="text" name="firstname" id="firstname" /></td></tr>
+<tr><td>Last name:</td><td><input type="text" name="lastname" id="lastname" /></td></tr>
+<tr><td>Password:</td><td>		<input type ="password" name="password" id="password" /></td></tr>
+<tr><td>Email Id(username):</td><td>		<input type ="text" name="email" id="email" /></td></tr>
+<tr><td>Role:</td><td>		<select name="role" id="role" >
+			<option value="role1">Role1</option>
+			<option value="role2">Role2</option>
+		</select></td></tr>
+	<tr><td></td><td><input type="button" value="submit" onclick="validate();" /></td></tr>
+	<tr><td></td><td ><div id="message" style="display:none;"> </div></td></tr>
+</table>
+<table id="loginform" style="display:none;">
+<tr><td>Email Id(username):</td><td>		<input type ="text" name="email" id="email" /></td></tr>
+<tr><td>Password:</td><td>		<input type ="password" name="password" id="password" /></td></tr>
+	<tr><td></td><td><input type="button" value="Login" onclick="validate();" /></td></tr>
+</table>
+	</body>
+</html>
+	

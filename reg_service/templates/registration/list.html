@@ -1,0 +1,166 @@
+<html>
+	<head>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<!-- The above line to be replace by static url,due to the time constraing going with tthe above approach -->
+
+<script>
+
+function validate()
+{
+	var firstname = $("#firstname").val();
+	var lastname = $("#lastname").val();
+	var password = $("#password").val();
+	var email = $("#email").val();
+	var role = $("#role option:selected").val();
+	var snddata = {};
+	snddata['firstname'] = firstname;
+	snddata['lastname'] = lastname;
+	snddata['password'] = password;
+	snddata['role'] = role;
+	snddata['email'] = email;
+	snddata['csrfmiddlewaretoken']=$("{% csrf_token %}").val() ;
+	if (firstname == "")
+	{
+		alert("Enter Firstname");
+	}
+	if (lastname == "")
+	{
+		alert("Enter Lastname");
+	}
+	else if(password == "")
+	{
+		alert("Enter password");
+	}
+	else
+	{
+		$.post("/registration/send/" ,snddata,
+      function callbackHandler(data) 
+      {
+		if (data.status == 0)
+		{
+			window.location = "/registration/login/"
+		}
+		else if (data.status == 1)
+		{
+			$("#message").show();
+			$("#message").val(data.message);
+			$("#message").html(data.message);
+		}
+      }, 
+      "json"
+     );
+	}
+	
+	
+}
+
+function edit(firstname,lastname,rid)
+{
+	$("#userreg").hide();
+	$("#useredit").show();
+	$("#firstname").html(firstname);
+	$("#lastname").html(lastname);
+	$("#firstname").val(firstname);
+	$("#lastname").val(lastname);
+	$("#rowid").val(rid);
+}
+
+function delete_user(rid)
+{
+	var flag = confirm("Are you sure you want to delete the user");
+	if(flag)
+	{
+		var snddata = {};
+		snddata['rid'] = rid; 
+		snddata['csrfmiddlewaretoken']=$("{% csrf_token %}").val() ;
+		$.post("/registration/delete/" ,snddata,
+		  function callbackHandler(data) 
+		  {
+			if (data.status == 0)
+			{
+				window.location = "/registration/list/"
+			}
+			else if (data.status == 1)
+			{
+				$("#message").show();
+				$("#message").val(data.message);
+				$("#message").html(data.message);
+			}
+		  }, 
+		  "json"
+		 );
+	}
+}
+function update()
+{
+	var firstname = $("#firstname").val();
+	var lastname = $("#lastname").val();
+	var rid = $("#rowid").val();
+	if (firstname == "")
+	{
+		alert("Enter First name");
+	}
+	else if(lastname == "")
+	{
+		alert("Enter last name");
+
+	}
+	else
+	{
+		var snddata = {};
+		snddata['firstname'] = firstname 
+		snddata['lastname'] = lastname
+		snddata['rid'] = rid; 
+		snddata['csrfmiddlewaretoken']=$("{% csrf_token %}").val() ;
+		$.post("/registration/update/" ,snddata,
+		  function callbackHandler(data) 
+		  {
+			if (data.status == 0)
+			{
+				window.location = "/registration/list/"
+			}
+			else if (data.status == 1)
+			{
+				$("#message").show();
+				$("#message").val(data.message);
+				$("#message").html(data.message);
+			}
+		  }, 
+		  "json"
+		 );
+	}
+}
+
+function cancel()
+{
+	window.location = "/registration/list/"
+}
+function new_user()
+{
+	window.location = "/registration/reg/"
+}
+</script>
+
+	</head>
+	<body>
+<form> 
+<!--<input type="hidden" name="csrftoken" id="csrftoken" value="{% csrf_token %}" />-->
+</form>
+<input type="button" value="New user" onclick="new_user();" />
+<br><br>
+<table id="userreg">
+<tr><th>First name</th><th>Last name</th><th>Actions</th></tr>
+{% for i in up %}
+<tr id="{{i.id}}"><td>{{i.first_name}}</td><td>{{i.last_name}}</td><td><a href="#" onclick="edit('{{i.first_name}}','{{i.last_name}}','{{i.id}}');">Edit</a>&nbsp;&nbsp;<a href="#" onclick="delete_user('{{i.id}}');">Delete</a></td></tr>
+{%endfor %}
+</table>
+<table id="useredit" style="display:none;">
+<tr><td>First name:</td><td><input type="text" name="firstname" id="firstname"  /></td></tr>
+<tr><td>Last name:</td><td><input type="text" name="lastname" id="lastname" /></td></tr>
+<tr><td></td><td><input type="hidden" name="rowid" id="rowid" /></td></tr>
+<tr><td></td><td><input type="hidden" name="message" id="message" /></td></tr>
+<tr><td></td><td><input type="button" value="Update" onclick="update();" />&nbsp;&nbsp;<input type="button" value="Cancel" onclick="cancel();" /></td></tr>
+</table>
+	</body>
+</html>
+	
