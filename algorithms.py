@@ -74,8 +74,8 @@ function(2)
 print "==============================================================="
 #'Switch Statements' using Dictionaries of Functions
 keycode = 2
-functions = {1: key_1_pressed, 2: key_2_pressed, 3: key_3_pressed}
-functions.get(keycode, unknown_key_pressed)()
+functions = {1: 'key_1_pressed', 2: 'key_2_pressed', 3: 'key_3_pressed'}
+functions.get(keycode, None)
 print "==============================================================="
 #Passing 'self' Manually
 class Class:
@@ -122,8 +122,8 @@ print "==============================================================="
 
 #Python supports a concept called "list comprehensions". It can be used to construct lists in a very natural, easy way, like a mathematician is used to do.
 """
-S = {x² : x in {0 ... 9}}
-V = (1, 2, 4, 8, ..., 2¹²)
+S = {x^2 : x in {0 ... 9}}
+V = (1, 2, 4, 8, ..., 2^12)
 M = {x | x in S and x even}
 """
 #>>> S = [x**2 for x in range(10)]
@@ -238,7 +238,7 @@ class Point:
 p1 = Point(2,3)
 p2 = Point(-1,2)
 print type(p1),type(p2)
-print(p1 + p2)
+print p1 + p2 
 #(1,5)
 #similarly operator overloading an be done for substraction,mulitplication,devision etc
 #http://www.programiz.com/python-programming/operator-overloading
@@ -265,8 +265,8 @@ for i in range(1,11):
 #lambda functions only accespts expression and not statement
 #y=a+b is an expression
 #print "*"* i is a statement
-from __future__ import print_function #this line may not be imported in the middle of the program since it makes a call to the compiler
-map(lambda x:print("*"*x) ,range(1,11))
+#from __future__ import print_function #this line may not be imported in the middle of the program since it makes a call to the compiler
+#map(lambda x:print("*"*x) ,range(1,11))
 
 print "================================================="
 ## using super and its advantages
@@ -302,17 +302,44 @@ all([x for x in range(1,11) if isinstance(x,int)])
 #True
 print "================================================="
 #unloading a python module is not supported .GTK
-from __future__ import print_function
+#from __future__ import print_function
 import sys
-map(lambda x:print("*"*x) ,range(1,11))
+#map(lambda x:print("*"*x) ,range(1,11))
 
-del sys.modules['__future__']
-print(sys.modules)
+#del sys.modules['__future__']
+#print(sys.modules)
 for i in range(1,11):
 	try:
 		print "*" * i #will cause an error,use print () here instead
 	except:
 		pass
+print "================================================="
+#Linked list
+class Node:
+	def __init__(self,content,nxt=None):
+		self.content = content
+		self.nxt = nxt
+	
+	def getcontents(self):
+		return self.content
+
+	def __str__(self):
+		return str(self.content)
+
+def print_list(node):
+	while node:
+		print node.getcontents()
+		node=node.nxt
+
+node1 = Node("car")
+node2 = Node("bus")
+node3 = Node("lorry")
+
+node1.nxt=node2
+node2.nxt=node3
+#node3.nxt=node1 #circular linked list
+print_list(node1)
+print "================================================="
 print "================================================="
 """
 In python Arguments are passed by assignment. The rationale behind this is twofold:
