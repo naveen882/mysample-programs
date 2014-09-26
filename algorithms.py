@@ -347,3 +347,13 @@ In python Arguments are passed by assignment. The rationale behind this is twofo
 the parameter passed in is actually a reference to an object (but the reference is passed by value)
 some data types are mutable, but others aren't
 """
+
+
+"""
+Some notes about java
+
+Multiple inhertince is not directly supported in Java.You need to use interface for this in java.
+
+When a class method has to be implemented in the child class then the parent class is an abstract class
+
+"""

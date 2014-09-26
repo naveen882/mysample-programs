@@ -101,7 +101,7 @@ t= 2
 print t
 2
 f(t) #prints (2,)
-print t #prints 3
+print t #prints 2
 
 
 #Ex:2
@@ -325,6 +325,7 @@ print c.keys() #returns keys list
 print c.values() #returns values list
 print c.pop('b',None) #returns 2
 print c.get("b",c.update({'b':6}))
+#print c.get("b",c['b']=6) #This raises an erro 
 print c #prints {'a': 1, 'b': 6}
 try :
 	if c['d']:
@@ -913,7 +914,7 @@ print a ##If u delete a value by its key it will delete the key also
 def rt(ty):
 	print ty
 
-rt(ty=1) #you can call the function withc exact same function definition attributes.This is just for readability purpose.Chaning the parameter will result in an error
+rt(ty=1) #you can call the function withc exact same function definition attributes.This is just for readability purpose.Changing the parameter will result in an error
 
 a,b,c,d=colors #unpacking an array into different variable
 print a,b,c,d
@@ -985,7 +986,7 @@ for i in range(1,11):
     print i
     break
 else:
-    print "In else1"
+    print "In else1" #else will be executed only when there is no break
 print "======================================="
 #Python Access specifiers
 #Python does not have mandatory access control like some other languages you may be used to. The philosophy of the language is "We are all consenting adults".
