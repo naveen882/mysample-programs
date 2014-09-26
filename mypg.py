@@ -1013,6 +1013,37 @@ redCup = Cup("red")
 redCup._Cup__content = "tea"
 
 print "======================================="
+#Important chnaging one character in a given string
+string="yelloworld"
+print string
+string=list(string)
+string[0]='h'
+string1="".join(string)
+print string1
+
+string="yelloworld"
+di={string:'123'}
+print di
+string=list(string)
+string[0]='h'
+string="".join(string)
+print string
+print di
+#Note: Even though the string chnaged dictionary remain unchanged
+#How to change a dictionary key 
+
+di["helloworld"] = di.pop("yelloworld")
+print di
+
+#               OR
+
+string="yelloworld"
+di={string:'123'}
+di["helloworld"]=di["yelloworld"]
+print di
+del di["yelloworld"]
+print di
+
 print "======================================="
 """
 The str() function is meant to return representations of values which are fairly human-readable
