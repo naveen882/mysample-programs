@@ -1628,3 +1628,31 @@ ex:
 >>> 
 At each step, reduce passes the current product or division, along with the next item from the list, to the passed-in lambda function. By default, the first item in the sequence initialized the starting value.
 """
+
+
+"""
+#printing list in reverse order with python
+>>> for length in range(10, 0,-1):
+...     print length
+... 
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+>>> for length in range(10, 0,-2):
+...     print length
+... 
+10
+8
+6
+4
+2
+
+
+"""
