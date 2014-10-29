@@ -325,7 +325,7 @@ print c.keys() #returns keys list
 print c.values() #returns values list
 print c.pop('b',None) #returns 2
 print c.get("b",c.update({'b':6}))
-#print c.get("b",c['b']=6) #This raises an erro 
+#print c.get("b",c['b']=6) #This raises an error saying assignment cannot be done here 
 print c #prints {'a': 1, 'b': 6}
 try :
 	if c['d']:
@@ -1655,4 +1655,21 @@ At each step, reduce passes the current product or division, along with the next
 2
 
 
+"""
+
+
+"""
+Difference between an iterator and generator is that consider the following example,
+"""
+def func(t):
+	for i in t:
+		yield i
+
+li=[1,2,3,4,5]
+gn = func(li)
+print gn.next() #after printing 1, 1 is discarded from memory
+print gn.next() #after printing 2, 2 is discarded from memory
+print gn.next() #after printing 3, 3 is discarded from memory
+"""
+From above,Thats why generator are more efficient,where as in iterator after returning 1 ,1 is still retained in memory , we may have to use del() explicitly to remove it from memory,but also some times the object have circular references and therefore may need to delete all the objects associated with it which is more complicated and errorsum. So generator is ususally preferred over an iterator most of the times
 """
