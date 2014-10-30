@@ -1673,3 +1673,15 @@ print gn.next() #after printing 3, 3 is discarded from memory
 """
 From above,Thats why generator are more efficient,where as in iterator after returning 1 ,1 is still retained in memory , we may have to use del() explicitly to remove it from memory,but also some times the object have circular references and therefore may need to delete all the objects associated with it which is more complicated and errorsum. So generator is ususally preferred over an iterator most of the times
 """
+
+
+
+"""
+>>> a=[]
+>>> for i in a:
+...     print "inside"
+... else:
+...     print "in else"
+... 
+in else
+"""
