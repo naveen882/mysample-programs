@@ -121,7 +121,17 @@ def change(x):
 
 x = [1]
 change(x)
-print x
+print x #prints 3o
+
+def rr(a):
+    a=1
+    return a
+
+
+a=2
+print rr(a) #prints 1
+print a #prints 2
+
 
 #Ex:4
 #All parameters (arguments) in the Python language are passed by reference. It means if you change what a parameter refers to within a function, the change also reflects back in the calling function. For example:
