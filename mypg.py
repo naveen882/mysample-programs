@@ -1731,6 +1731,7 @@ import copy
 a = [1, 2, 3]
 b = [4, 5, 6]
 c = [a, b]
+print "======Normal copy============="
 print c
 
 #Using normal assignment operatings to copy:
@@ -1746,6 +1747,7 @@ print id(c[0]) == id(d[0]) #True ,Elements are also same
 a = [1, 2, 3]
 b = [4, 5, 6]
 c = [a, b]
+print "======Shallow copy============="
 print c
 d = copy.copy(c)
 print id(c) == id(d)  #False ,both have different ids
@@ -1758,6 +1760,7 @@ print d #"a"is found in both c and d
 a = [1, 2, 3]
 b = [4, 5, 6]
 c = [a, b]
+print "======Deep copy============="
 print c
 d = copy.deepcopy(c)
 print id(c) == id(d)  #False ,both have different ids
@@ -1765,3 +1768,18 @@ print id(c[0]) == id(d[0]) #False ,Elements are also same
 d[0][1]="a"
 print c #"a"is found in d only
 print d #"a"is found in d only
+
+print "======shallow dict copy============="
+c={'a':1}
+d=copy.copy(c)
+d.update({'b':2})
+print c,d
+c.update({'c':3})
+print c,d
+print "======deep dict copy============="
+c={'a':1}
+d=copy.deepcopy(c)
+d.update({'a':2})
+print c,d
+c.update({'c':3})
+print c,d
