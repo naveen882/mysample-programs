@@ -1695,3 +1695,73 @@ From above,Thats why generator are more efficient,where as in iterator after ret
 ... 
 in else
 """
+
+
+"""
+>>> li = [0] * 3
+>>> li
+[0, 0, 0]
+>>> li = [[0] * 3] * 3
+>>> li
+[[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+>>> li[0][0]=5
+>>> li
+[[5, 0, 0], [5, 0, 0], [5, 0, 0]]
+>>> li[0][1]=6
+>>> li
+[[5, 6, 0], [5, 6, 0], [5, 6, 0]]
+>>> li[0][2]=7
+>>> li
+[[5, 6, 7], [5, 6, 7], [5, 6, 7]]
+>>> 
+
+"""
+
+
+"""
+#Shallow copy and deep copy
+Shallow copies duplicate as little as possible. A shallow copy of a collection is a copy of the collection structure, not the elements. With a shallow copy, two collections now share the individual elements.
+
+Deep copies duplicate everything. A deep copy of a collection is two collections with all of the elements in the original collection duplicated.
+In short, it depends on what points to what. In a shallow copy, object B points to object A's location in memory. In deep copy, all things in object A's memory location get copied to object B's memory location.
+
+For example:
+"""
+import copy
+a = [1, 2, 3]
+b = [4, 5, 6]
+c = [a, b]
+print c
+
+#Using normal assignment operatings to copy:
+d=c
+print d
+d[0][1]="a"
+print c #"a"is found in both c and d
+print d #"a"is found in both c and d
+print id(c) == id(d)  #True ,both have same ids
+print id(c[0]) == id(d[0]) #True ,Elements are also same
+
+#using a shallow copy
+a = [1, 2, 3]
+b = [4, 5, 6]
+c = [a, b]
+print c
+d = copy.copy(c)
+print id(c) == id(d)  #False ,both have different ids
+print id(c[0]) == id(d[0]) #True ,Elements are also same
+d[0][1]="a"
+print c #"a"is found in both c and d
+print d #"a"is found in both c and d
+
+#using a shallow copy
+a = [1, 2, 3]
+b = [4, 5, 6]
+c = [a, b]
+print c
+d = copy.deepcopy(c)
+print id(c) == id(d)  #False ,both have different ids
+print id(c[0]) == id(d[0]) #False ,Elements are also same
+d[0][1]="a"
+print c #"a"is found in d only
+print d #"a"is found in d only
