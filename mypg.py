@@ -1783,3 +1783,10 @@ d.update({'a':2})
 print c,d
 c.update({'c':3})
 print c,d
+print "=========================================="
+d={"a":1,"b":2,"c":3}
+print zip(*d.iteritems()) #To separate keys and values, 
+#[('a', 'c', 'b'), (1, 3, 2)]
+print zip(d.iteritems()) #if "* is omitted the output is as follows"
+#[(('a', 1),), (('c', 3),), (('b', 2),)]
+
