@@ -340,6 +340,17 @@ node2.nxt=node3
 #node3.nxt=node1 #circular linked list
 print_list(node1)
 print "================================================="
+#different ways of writing if condition:
+x=5
+#bad
+if x>0 and x<10:
+	print "X is between 0 and 10"
+#good way of writing the above is
+if 0 < x<10:
+	print "X is between 0 and 10"
+#also works
+if 10>x>0:
+	print "X is between 0 and 10"
 print "================================================="
 """
 In python Arguments are passed by assignment. The rationale behind this is twofold:

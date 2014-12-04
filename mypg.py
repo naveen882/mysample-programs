@@ -735,6 +735,20 @@ rt()
 rt()
 rt()
 print "======================================="
+d={}
+print d['red'] if 'red' in d else 'None===========' 
+d={'red':1}
+#OR
+d.get('red',"None===========")
+print d['red'] if 'red' in d else 'None===========' 
+d.get('red',"None===========")
+#print help(d.get)
+colors = ['red','red','red','red','green','blue','blue']
+#Best way to count objects in a list
+for i in colors:
+	d[i]=d.get(i,0)+1
+print d
+print "======================================="
 def rs(a,b,c):
 	print a,b,c
 
