@@ -1849,3 +1849,9 @@ print group_adjacent(a, 2)
 #[(1, 2), (3, 4), (5, 6)]
 print group_adjacent(a, 1)
 #[(1,), (2,), (3,), (4,), (5,), (6,)]
+
+
+#[on_true] if [expression] else [on_false]
+x, y = 50, 25
+small = x if x < y else y
+print small
