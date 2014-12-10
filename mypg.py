@@ -1804,3 +1804,48 @@ print zip(*d.iteritems()) #To separate keys and values,
 print zip(d.iteritems()) #if "* is omitted the output is as follows"
 #[(('a', 1),), (('c', 3),), (('b', 2),)]
 
+a, b, c = 1, 2, 3
+print a, b, c
+#(1, 2, 3)
+a, b, c = [1, 2, 3]
+print a, b, c
+#(1, 2, 3)
+a, (b, c), d = [1, (2, 3), 4]
+print a
+#1
+print b
+#2
+print c
+#3
+print d
+#4
+
+#Negative indexing
+
+a = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+print a[-1]
+#10
+print a[-3]
+#8
+
+#List slices with step (a[start:end:step])
+
+a = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+print a[::2]
+#[0, 2, 4, 6, 8, 10]
+print a[::3]
+#[0, 3, 6, 9]
+print a[2:8:2]
+#[2, 4, 6]
+
+
+a = [1, 2, 3, 4, 5, 6]
+
+# Using iterators
+group_adjacent = lambda a, k: zip(*([iter(a)] * k))
+print group_adjacent(a, 3)
+#[(1, 2, 3), (4, 5, 6)]
+print group_adjacent(a, 2)
+#[(1, 2), (3, 4), (5, 6)]
+print group_adjacent(a, 1)
+#[(1,), (2,), (3,), (4,), (5,), (6,)]
