@@ -1855,3 +1855,8 @@ print group_adjacent(a, 1)
 x, y = 50, 25
 small = x if x < y else y
 print small
+
+#Boolean as indexes
+b = 1==1
+name = "I am %s" % ["John","Doe"][b]
+print name
