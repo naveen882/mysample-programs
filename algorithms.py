@@ -352,6 +352,17 @@ if 0 < x<10:
 if 10>x>0:
 	print "X is between 0 and 10"
 print "================================================="
+#Python simple calculator
+calculator = {
+'plus': lambda x, y: x + y,
+'minus': lambda x, y: x - y
+}
+print calculator['minus'](9,3)
+#6
+print "================================================="
+print "================================================="
+print "================================================="
+print "================================================="
 """
 In python Arguments are passed by assignment. The rationale behind this is twofold:
 

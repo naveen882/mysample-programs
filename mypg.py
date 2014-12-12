@@ -1927,3 +1927,58 @@ print "=========="
 #List comprehension
 numbers = [1,2,3,4,5,6]
 even = [number for number in numbers if number%2 == 0]
+print "=========="
+#This is more of a fun one than a useful technique. In python True and False are basically just global variables. Thus:
+print False == True
+#False
+False = True
+if False:
+    print "Hello"
+else:
+    print "World"
+#Hello
+print "=========="
+os.system("echo '{\"key\":\"value\"}' | python -m json.tool")
+print "=========="
+#Python simple calculator and writing lamda functions inside dictionary
+calculator = {
+'plus': lambda x, y: x + y,
+'minus': lambda x, y: x - y
+}
+print calculator['minus'](9,3)
+#6
+print "=========="
+#Context Managers!
+with open("ten_one_liners.py") as f:
+   print(f.readlines())
+
+#It will automatically close the file on exit, this can be used for creating resources which are automatically cleaned up after exiting scope.
+
+print "=========="
+#Implementing a switch-case statement:
+def f(x):    
+    return {
+        'foo': 1,
+        'bar': 2,        
+    }.get(x, 3) #.get is like the default,very important
+
+print f('gg')
+print f('foo')
+print "=========="
+#Default value
+text = ''
+option = text or 'empty'
+print option
+#'empty'
+print "=========="
+#Ternary Expressions
+
+y = 1
+x = 10 if (y == 1) else 20
+print x
+#10
+y = 2
+x = 10 if (y == 1) else 20
+print x
+#20
+print "=========="
