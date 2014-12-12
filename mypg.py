@@ -1923,3 +1923,7 @@ print "=========="
 #Inline if statement
 print "Hello" if True else "World"
 #Hello
+print "=========="
+#List comprehension
+numbers = [1,2,3,4,5,6]
+even = [number for number in numbers if number%2 == 0]
