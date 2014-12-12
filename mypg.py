@@ -1881,3 +1881,12 @@ a=1
 b=2
 print [ a if a== 1 else  b]
 print "=========="
+n=1
+if n < 0:
+    result = 'n is negative'
+else:
+    result = 'n is positive'
+#Or in short this can be written as ,
+result = n < 0 and 'n is negative' or 'n is positive'
+print result
+print "=========="
