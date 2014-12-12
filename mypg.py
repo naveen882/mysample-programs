@@ -1856,13 +1856,23 @@ x, y = 50, 25
 small = x if x < y else y
 print small
 
+print "=========="
 #Boolean as indexes
 b = 1==1
 name = "I am %s" % ["John","Doe"][b]
 print name
 
+print "=========="
 #In python false is treated as 0 and True is treated as 1
 a=1
 print (a==1) + (a>0) + (a==2)
 #2
+print "=========="
+a = ['two', 'three', 'four']
+for i, word in enumerate(a, 2):
+  print i, word
+
+#2 two
+#3 three
+#4 four
 
