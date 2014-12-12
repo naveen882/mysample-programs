@@ -1860,3 +1860,9 @@ print small
 b = 1==1
 name = "I am %s" % ["John","Doe"][b]
 print name
+
+#In python false is treated as 0 and True is treated as 1
+a=1
+print (a==1) + (a>0) + (a==2)
+#2
+
