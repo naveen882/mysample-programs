@@ -1890,3 +1890,7 @@ else:
 result = n < 0 and 'n is negative' or 'n is positive'
 print result
 print "=========="
+a=[1,2,3,4,5]
+b=[6,7,8,9]
+print dict(zip(a,b))
+#{1: 6, 2: 7, 3: 8, 4: 9}
