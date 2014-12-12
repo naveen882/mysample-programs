@@ -1982,3 +1982,11 @@ x = 10 if (y == 1) else 20
 print x
 #20
 print "=========="
+p = lambda k : {"a":1,"b":2}.get(k,"Default")
+p("a")
+#1
+p("b")
+#2
+p("bb")
+#'Default'
+print "=========="
