@@ -1876,3 +1876,8 @@ for i, word in enumerate(a, 2):
 #3 three
 #4 four
 
+print "====List comprehension if else======"
+a=1
+b=2
+print [ a if a== 1 else  b]
+print "=========="
