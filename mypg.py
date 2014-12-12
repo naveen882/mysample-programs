@@ -1899,3 +1899,27 @@ abc = 'mystring',
 print abc
 # ('mystring,) #abc is a tuple now ust because of the leading comma
 
+print "=========="
+def foo(a, b, c):
+    print a, b, c
+
+mydict = {'a':1, 'b':2, 'c':3}
+mylist = [10, 20, 30]
+
+foo(*mydict)
+#a, b, c
+foo(**mydict)
+#1, 2, 3
+foo(*mylist)
+#10 20 30
+print "=========="
+#Python enums
+class PlayerRanking:
+  Bolt, Green, Johnson, Mom = range(4)
+
+print PlayerRanking.Mom
+#3
+print "=========="
+#Inline if statement
+print "Hello" if True else "World"
+#Hello
