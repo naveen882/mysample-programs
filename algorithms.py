@@ -367,8 +367,8 @@ class A(object):
         print "executing foo(%s,%s)"%(self,x)
 
     @classmethod
-    def class_foo(cls,x):
-        print "executing class_foo(%s,%s)"%(cls,x)
+    def class_foo(clss_something,x): #clss_somrthing can be any variable name
+        print "executing class_foo(%s,%s)"%(clss_something,x)
 
     @staticmethod
     def static_foo(x):
