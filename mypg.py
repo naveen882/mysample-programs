@@ -1990,3 +1990,25 @@ p("b")
 p("bb")
 #'Default'
 print "=========="
+#creating a class on the fly using type
+#using type to create classes
+#type takes three arguments 
+#1.Name of the new class
+#2.parent class in tuple format if any
+#3. class functions in dict format as shown
+
+def t(self,a):
+	print a
+
+
+class A(object):
+	def __init__(self):
+		print "In A"
+
+B= type("B",(A,),{"t1":t})
+b=B()
+b.t1(11)
+C= type("C",(object,),{"t2":t})
+c=C()
+c.t2(12)
+print "=========="
