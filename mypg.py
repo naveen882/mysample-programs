@@ -2011,4 +2011,5 @@ b.t1(11)
 C= type("C",(object,),{"t2":t})
 c=C()
 c.t2(12)
-print "=========="
+#print "=========="
+#As to why the dict.update function is used beacuse u can update more than one variable at the same time. As oppose to a['aa'] where only one value can be updated at one time
