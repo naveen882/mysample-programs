@@ -2013,3 +2013,14 @@ c=C()
 c.t2(12)
 #print "=========="
 #As to why the dict.update function is used beacuse u can update more than one variable at the same time. As oppose to a['aa'] where only one value can be updated at one time
+#print "=========="
+#Get common elements from 3 lists
+a = [1,2,3,4]
+b = [2,3,4,5]
+c = [3,4,5,6]
+print set(a) & set(b) & set(c)
+#{3, 4}
+# or 
+out = [x for x in a if x in b and x in c] # Depending on the length of the lists, a very expensive solution
+print out
+
