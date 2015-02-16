@@ -2058,3 +2058,8 @@ print tuple(i for i in (1, 2, 3))
 
 for i in [(1,2,3)]:
 	print i
+
+dct= {'spam' : 'eggs',1:2,(1,2):(3,4)}
+print dir(dct)
+
+print dct['spam']
