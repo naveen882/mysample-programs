@@ -2024,3 +2024,37 @@ print set(a) & set(b) & set(c)
 out = [x for x in a if x in b and x in c] # Depending on the length of the lists, a very expensive solution
 print out
 
+print "================================================="
+if "" : print "A",
+if[[]]:print "B",
+if None: print "C",
+if ():print "D",
+if " ":print "E",
+if 9%9:print "F",
+
+print "The above print B E"
+
+print "================================================="
+def myfunc():
+	"""The purpose of myfunc is to prepare scambled eggs with spam"""
+	eggs=2
+	spam = 'spam' * 10
+	breakfast = "eggs" * eggs + spam
+
+
+print myfunc.__doc__
+
+print "=============================="
+import timeit
+#s =timeit.timeit()
+s = {s for s in range(10000)} #This is set comprehension
+x = [x for x in range(10000)] 
+d=[{i:i} for i in x]
+print s
+print type(s)
+print timeit.timeit('print x[9999]', setup='from __main__ import x',number=1)
+print timeit.timeit('print d[9999]', setup='from __main__ import d',number=1)
+print tuple(i for i in (1, 2, 3))
+
+for i in [(1,2,3)]:
+	print i
