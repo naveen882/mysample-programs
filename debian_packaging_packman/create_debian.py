@@ -3,8 +3,8 @@
 #http://packman.readthedocs.org/en/latest/
 #pip install packman
 
-COMPONENT_PACKAGES_PATH = '/home/vuser/cloudify/'  #Destination path where the debian file has to be stored
-PACKAGES_PATH = '/home/vuser/cloudify' #source path for which the debian package has to be built
+COMPONENT_PACKAGES_PATH = '/home/user/ui/'  #Destination path where the debian file has to be stored
+PACKAGES_PATH = '/home/user/ui' #source path for which the debian package has to be built
 PACKAGES = {
     "naveen": {
         "name": "naveen",
