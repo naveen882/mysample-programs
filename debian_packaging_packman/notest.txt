@@ -1,0 +1,3 @@
+$ pkm pack -f created_debian.py
+
+#for more options refer to /packman/packman/examples/packages.py
