@@ -2063,3 +2063,12 @@ dct= {'spam' : 'eggs',1:2,(1,2):(3,4)}
 print dir(dct)
 
 print dct['spam']
+print "=============================="
+#What are containers in python
+
+
+#Containers are any object that holds an arbitrary number of other objects. Generally, containers provide a way to access the contained objects and to iterate over them.
+
+#Examples of containers include tuple, list, set, dict; these are the built-in containers. More container types are available in the collections module
+# A Container is a class that implements the __contains__ method.
+
