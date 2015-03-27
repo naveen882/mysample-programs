@@ -81,6 +81,17 @@ listtwo = [4,5,6]
 
 mergedlist = listone + listtwo # This will not remove duplicates
 #[1, 2, 3, 4, 5, 6]
+listone = (1,2,3)
+listtwo = (4,5,6)
+
+print listone+listtwo
+listone = [1,2,3]
+listtwo = (4,5,6)
+
+try:
+    print listone+listtwo
+except Exception as e: #Exception is a keyword
+    print e
 
 print "=========================================="
 #Duplicating a list within itself
@@ -412,7 +423,7 @@ print a,b,c
 a,b,c=c,a,b
 print a,b,c
 print "======================================="
-add2 = lambda a,b:a+b;print "=====";print "|||||||";print "iiiiiiiii"   ##To remember
+add2 = lambda a,b:a+b;print "=====";print "|||||||";print "iiiiiiiii"   ##To remember,first return statement and rest prints statement next
 print add2(3,4)
 def tr(add2):
 	print add2(5,6)
@@ -776,6 +787,9 @@ print my_dict
 my_dict = {'carl':40, 'alan':2, 'bob':1, 'danny':3}
 my_dict = dict([(v,k) for k,v in my_dict.items()])
 print my_dict
+my_dict = {'carl':40, 'alan':2, 'bob':1, 'danny':3}
+mydict= {v:k for k,v in mydict.items()}
+print my_dict  #dictionary comprehension
 
 print "======================================="
 def binary_search(a, x, lo=0, hi=None):
