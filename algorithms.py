@@ -295,7 +295,7 @@ print "================================================="
 
 print all([True, True, True, False, True, True])  #All values in the list should be True
 #False
-print any([True, True, True, False, True, True]) #Any one of the value in the list should be Trur
+print any([True, True, True, False, True, True]) #Any one of the value in the list should be True
 #True
 #check all variables are inetgers or not
 all([x for x in range(1,11) if isinstance(x,int)])
