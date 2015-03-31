@@ -2086,3 +2086,72 @@ print "=============================="
 #Examples of containers include tuple, list, set, dict; these are the built-in containers. More container types are available in the collections module
 # A Container is a class that implements the __contains__ method.
 
+print "=============================="
+#Singleton class: is a design pattern in which only one instance of the object may be created.One of something.Ex: One phonebook
+class MySingleTon(object):
+	_instance = None
+	def __new__(self):
+		if not self._instance:
+			self._instance = super(MySingleTon,self).__new__(self)
+			self.y= 10
+		return self._instance
+
+x=MySingleTon()
+print x.y
+x.y=20
+z=MySingleTon()
+print z.y
+#The above can be done using a decorator also
+print "=============================="
+#classdecorator: lets you call a class function without creating the object of the class
+
+class MyClass:
+	@classmethod
+	def printHam(self):
+		print "HAM"
+
+MyClass.printHam()
+print "=============================="
+#Factory: is a design pattern in which you let a function determine which class to create
+
+BaseClass = type("BaseClass",(object,),{})
+C1 = type("C1",(BaseClass,),{"x":1})
+C2 = type("C2",(BaseClass,),{"x":30})
+
+def MyFactory(myBool=None):
+	return C1() if myBool else C2()
+
+m = MyFactory(True)
+v = MyFactory()
+print m.x,v.x
+#Factory allows stuff to be created on the fly and not have programmer  harcode everything
+#In this example if there are 100 subclasses if loop will be nested over and over again which is very confusing and difficlut to maintain so we can refactor the above solution like the following:
+print "=============================="
+BaseClass = type("BaseClass",(object,),{})
+
+@classmethod
+def Check1(self,myStr):
+	return myStr == "ham"
+
+@classmethod
+def Check2(self,myStr):
+	return myStr == "sandwich"
+
+@classmethod
+def Check3(self,myStr):
+	return myStr == "wich"
+
+
+C1 = type("C1",(BaseClass,),{"x":1,"Check":Check1})
+C2 = type("C2",(BaseClass,),{"x":30,"Check":Check2})
+C3 = type("C2",(BaseClass,),{"x":30,"Check":Check3})
+
+def MyFactory(myStr):
+	for cls in BaseClass.__subclasses__():
+		if cls.Check(myStr):
+			return cls()
+
+m = MyFactory("ham")
+v = MyFactory("sandwich")
+print m.x,v.x
+print "=============================="
