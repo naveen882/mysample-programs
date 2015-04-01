@@ -148,6 +148,18 @@ print a #prints 2
 #All parameters (arguments) in the Python language are passed by reference. It means if you change what a parameter refers to within a function, the change also reflects back in the calling function. For example:
 #All parameters in python language are passed by assignments
 
+
+def tyhu(tt):
+	tt+=10
+	return tt
+
+g=10
+yy = tyhu(g)
+print g,yy
+
+
+#In this case the function is creating a copy of g as tt and also it is not mentioned as global variable
+
 #!/usr/bin/python
 
 # Function definition is here
