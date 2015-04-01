@@ -2167,3 +2167,52 @@ m = MyFactory("ham")
 v = MyFactory("sandwich")
 print m.x,v.x
 print "=============================="
+"""
+Abstract base class:cannot be instantiated
+                    It can only be inherited from,
+					May also be called as virtual class
+
+
+"""
+print "=============================="
+def yu(**kwargs):
+	for i,k in kwargs.items():
+		print i,k
+
+yu(x=13,y=7)
+
+def yut(*args):
+	for i in args:
+		print i
+
+try:
+	#Important:::::::::::::::::::::::::::::::::::::::::::::::
+	##This will cause an error as 14 is passed after the keyword arguments
+	#yut(x=13,y=7,14) #This will cause an error as 14 is passed after the keyword arguments
+	pass
+except:
+	print "In  exception"
+print "=============================="
+def outside():
+	x=10
+	def inr():
+		print x
+	return inr
+
+o = outside()
+o() #prints 10, because when inr is created it initializes all the local variables available with outside() fucntion
+print "=============================="
+"""
+class tty(object): #object is a must else super will not be called
+	def __init__(self):
+		self.health =10
+		return self.health
+
+class bs(tty):
+	def __init__(self):
+		super(tty,self).__init__()
+
+iu= bs()
+print dir(iu)
+print iu.health
+"""
