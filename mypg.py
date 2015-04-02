@@ -2202,6 +2202,17 @@ def outside():
 o = outside()
 o() #prints 10, because when inr is created it initializes all the local variables available with outside() fucntion
 print "=============================="
+def ph(self):
+	print "In ph"
+
+C1 = type("C1",(BaseClass,),{"x":1,"Check":Check1,"ph1":ph})
+c = C1()
+print c.x #=>equivalent to self.x
+c.ph1() #=>equivalent to obj.ph1
+print "=============================="
+print "1".__class__
+print "1".__class__.__class__
+print "=============================="
 """
 class tty(object): #object is a must else super will not be called
 	def __init__(self):
