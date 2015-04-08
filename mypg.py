@@ -2227,3 +2227,56 @@ iu= bs()
 print dir(iu)
 print iu.health
 """
+print "==================================="
+"""
+Tuples:a mechanism for grouping and organizing data to make it easier to use ex:(a_born,1981)
+
+Tuples are used for grouping data
+
+"""
+print "==================================="
+"""
+Important default dict
+"""
+from collections import defaultdict
+
+#counting
+s = 'mississippi'
+d = defaultdict(int)
+for k in s:
+	d[k] += 1
+
+print d
+#defaultdict(<type 'int'>, {'i': 4, 'p': 2, 's': 4, 'm': 1})
+print d.items()
+#[('i', 4), ('p', 2), ('s', 4), ('m', 1)]
+
+
+s = [('yellow', 1), ('blue', 2), ('yellow', 3), ('blue', 4), ('red', 1)]
+d = defaultdict(list)
+for k, v in s:
+	d[k].append(v)
+
+print d
+#defaultdict(<type 'list'>, {'blue': [2, 4], 'red': [1], 'yellow': [1, 3]})
+print d.items()
+#[('blue', [2, 4]), ('red', [1]), ('yellow', [1, 3])]
+
+
+somedict = {}
+try:
+	print(somedict[3]) # KeyError
+except  Exception as e:
+	print e
+	
+someddict = defaultdict(int)
+print(someddict[3])
+
+
+ice_cream = defaultdict(lambda: 'Vanilla')
+ice_cream['Sarah'] = 'Chunky Monkey'
+ice_cream['Abdul'] = 'Butter Pecan'
+print ice_cream['Sarah']
+#Chunky Monkey
+print ice_cream['Joe']
+#Vanilla
