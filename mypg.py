@@ -2283,14 +2283,17 @@ print ice_cream['Joe']
 print "========================================="
 """
 Important: While chaining decorators only the top __Call__ is executed
+Also in function decorators deco3 has access to deco2 inner function and deco2 has control over deco1 
 """
 class deco3(object):
-	def __init__(self,f):
-		self.f = f
+	def __init__(self,u):
+		self.u = u
 	def __call__(self):
 		print "====3"
-		print self.f.f.g.__name__
+		print self.u.f.g.__name__
+		self.u.f.g()
 		print "===="
+
 
 class deco2(object):
 	def __init__(self,f):
@@ -2315,3 +2318,32 @@ def tr():
 	print "In tr"
 
 tr()
+print "=========================================================="
+def deco3(u):
+	def ss():
+		print "1"
+		u()
+	return ss 
+
+def deco2(y):
+	def yy():
+		print "2"
+		print y.__name__
+		y()
+	return yy 
+
+def deco1(f):
+	def tt():
+		print "3"
+		print f.__name__
+		f()
+	return tt
+	
+@deco3	
+@deco2
+@deco1
+def tr():
+	print "In tr"
+
+tr()
+print "=========================================================="
