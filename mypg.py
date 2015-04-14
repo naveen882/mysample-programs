@@ -2347,3 +2347,13 @@ def tr():
 
 tr()
 print "=========================================================="
+#In a function decorator there should always be a return type and ususally the inner it is the inner function like "return rt" and "return rt()" will not work but if it is not a generator then calling only "rt" will not work it should be like "rt()" properly as in the below example
+print "=========================================================="
+def tt():
+	def rt():	
+		print "inside"
+	#rt #this will not call the rt function unlike the decorator
+	rt()
+
+tt()
+print "=========================================================="
