@@ -2280,3 +2280,38 @@ print ice_cream['Sarah']
 #Chunky Monkey
 print ice_cream['Joe']
 #Vanilla
+print "========================================="
+"""
+Important: While chaining decorators only the top __Call__ is executed
+"""
+class deco3(object):
+	def __init__(self,f):
+		self.f = f
+	def __call__(self):
+		print "====3"
+		print self.f.f.g.__name__
+		print "===="
+
+class deco2(object):
+	def __init__(self,f):
+		self.f = f
+	def __call__(self):
+		print "====2"
+		print self.f.g.__name__
+		print "===="
+
+class deco1(object):
+	def __init__(self,g):
+		self.g = g
+	def __call__(self):
+		print "====1"
+		print self.g.__name__
+		print "===="
+
+@deco3
+@deco2
+@deco1
+def tr():
+	print "In tr"
+
+tr()
