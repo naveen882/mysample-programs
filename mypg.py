@@ -2352,7 +2352,7 @@ print "=========================================================="
 def tt():
 	def rt():	
 		print "inside"
-	#rt #this will not call the rt function unlike the decorator
+	#rt #only writing rt insted of rt() will not call the rt function unlike the decorator
 	rt()
 
 tt()
