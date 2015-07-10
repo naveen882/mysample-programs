@@ -2381,4 +2381,10 @@ print s
 s=s.replace("worl","world")
 print s
 #'Hello world. example again'
+a=(1,)
+print type(a)
+#<type 'tuple'>
+b=(2,)
+print a+b
+#(1, 2)
 print "=========================================================="
