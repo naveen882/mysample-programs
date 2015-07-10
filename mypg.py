@@ -2373,4 +2373,12 @@ a=(1,2)
 b=(3,4)
 print a+b
 #(1, 2, 3, 4)
-
+s="Hello worl. example again"
+s.replace("worl","world")
+#'Hello world. example again'
+print s
+#'Hello worl. example again'
+s=s.replace("worl","world")
+print s
+#'Hello world. example again'
+print "=========================================================="
