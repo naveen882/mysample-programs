@@ -611,5 +611,471 @@ print dict([[v,k] for k,v in my_dict.items()])
 print dict(my_dict.items())
 print {v:k for k,v in my_dict.items()}
 print "====================="
+def fib():
+	a,b=0,1
+	while True:
+		yield a
+		a,b=b,a+b
+
+a= fib()
+print a.next()
+print a.next()
+print a.next()
+print a.next()
+print a.next()
+print a.next()
+print a.next()
+print a.next()
+print a.next()
+print a.next()
+
+def fib(n):
+	a,b=0,1
+	while b<=n:
+		yield a
+		a,b=b,a+b
+
+a=fib(5)
+print a.next()
+print a.next()
+print a.next()
+print a.next()
+print a.next()
 print "====================="
+def palindrome(word):
+	return word == word[::-1]
+
+print palindrome("tat")
+print palindrome("t")
+print palindrome("tat1")
+print "====================="
+#iterator
+print "====================="
+#python polymorphism and inheritenc exmaple
+class Animal:
+	def __init__(self,name):
+		self.name = name
+	def talk():
+		raise NotImplementedError("Subclass must implement base class")
+
+class Dog(Animal):
+	def talk(self):
+		return "woof woof"
+
+class Cat(Animal):
+	def talk(self):
+		return "meow meow"
+
+
+animals=[Cat("Missy"),Dog("Pluto"),Cat("Tom")]
+for animal in animals:
+	print animal.name + "speak as "+ animal.talk()
+print "====================="
+class a:
+	pass
+x=a()
+print x.__dict__
+print "====================="
+art = ["a","b","c","d","e"]
+for i in reversed(art):
+	print i
+
+colors = ["red","yellow","blue","green"]
+for i in sorted(colors,reverse=True):
+	print i
+for i in reversed(colors):
+	print i
+a={'b':1}
+del a['b']
+print a
+a,b,c,d=colors
+print a,b,c,d
+print "====================="
+os.system('echo "hello world" > ./ten_one_liner.py')
+print open('./ten_one_liner.py').readlines()
+print open('./ten_one_liner.py').read()
+print open('./ten_one_liner.py').readline()
+x=1
+print eval('x+1')
+print eval('x')
+print "====================="
+os.system("touch /tmp/s.txt && echo 'hi' > /tmp/s.txt")
+try:
+	open("/tmp/s.txt").close()
+except:
+	print "exception"
+else:
+	print "no exception"
+finally:
+	print "In final"	
+print "====================="
+for i in range(1,11):
+	print i
+	break
+else:
+	print "In else1"
+print "====================="
+__p1= 1 #privare
+_p2=2 #protected
+p3=3 #public
+print "====================="
+string="yelloworld"
+di={string:'123'}
+print di
+string ="yelloworld"
+string=list(string)
+string[0]='h'
+string="".join(string)
+print string
+print di
+di['helloworld']=di.pop('yelloworld')
+print di
+#OR
+string="yelloworld"
+di={string:'123'}
+di['helloworld'] = di['yelloworld']
+print di
+print "====================="
+f =open("/tmp/aa.txt")
+while True:
+	for l in f.readline():
+		print l,
+	else:
+		break
+f.close()
+print "====================="
+def fib1():
+	a,b=0,1
+	while b<5:
+		yield a
+		a,b=b,a+b
+
+f=fib1()
+print type(f)
+print f.next()
+print next(f)
+print f.next()
+print next(f)
+print "====================="
+from timeit import timeit
+
+print timeit("a={'a':1,'b':2}")
+print timeit("a=dict(a=1,b=2)")
+
+class B():
+	"Doc of class B"
+	pass
+
+print B.__dict__ 
+print B.__doc__ 
+print B.__dict__ ['__doc__']
+class C(object):
+    def m(self):
+        print "m"
+
+
+x=C()
+x.m()
+print dir(x)
+print vars(x)
+print "====================="
+#not(A or B) == (not A) and (not B)
+#not(A and B) == (not A) or (not B)
+print "====================="
+def make_incrementor(n): return lambda x:x+n
+f=make_incrementor(2)
+g=make_incrementor(4)
+
+print f(42)
+print g(48)
+foo = [2, 18, 9, 22, 17, 24, 8, 12, 27]
+foo1 = [2, 9, 22, 12]
+print filter(lambda x:x%3==0,foo)
+print map(lambda x: x*2+10,foo)
+print reduce(lambda x,y: x+y,foo1)
+
+a_list = [1] * 10
+print [id(i) for i in a_list]
+print "====================="
+#monkey patching
+class rt:
+	def rr(self):
+		print "In rr"
+
+def ww(self):
+	print "In ww"
+
+rt.rr = ww
+r=rt()
+r.rr()
+print "====================="
+thing = (i*2 for i in xrange(1,11))
+print type(thing)
+print thing
+print next(thing)
+print thing.next()
+print thing.next()
+print thing.next()
+print thing.next()
+
+print "====================="
+a=[[1,2,3,4]]
+b=list(a)
+print b
+print "====================="
+#printing list in reverse order
+for l in range(10,0,-1):
+	print l
+for l in range(10,0,-2):
+	print l
+print "====================="
+def func(t):
+	for i in t:
+		yield i
+
+a=[1,2,3,4,5]
+g=func(a)
+print g.next()
+print g.next()
+print g.next()
+print g.next()
+print g.next()
+	
+print "====================="
+import copy
+a=[1,2,3]
+b=[4,5,6]
+c=[a,b]
+d=c
+print d
+d[0][1]='a'
+print d
+print c
+print id(c)==id(d)
+print id(d[0])==id(c[0])
+
+#using shallow copy
+a = [1, 2, 3]
+b = [4, 5, 6]
+c = [a, b]
+print c
+print "shallowcopy"
+d=copy.copy(c)
+print d
+print id(c)==id(d)
+print id(d[0])==id(c[0])
+d[0][1]='a'
+print d
+print c
+#deep copy
+a = [1, 2, 3]
+b = [4, 5, 6]
+c = [a, b]
+print c
+print "deepcopy"
+d=copy.deepcopy(c)
+print d
+print id(c)==id(d)
+print id(d[0])==id(c[0])
+d[0][1]='a'
+print d
+print c
+print "====================="
+c={'a':1}
+d=copy.copy(c)
+print c,d
+d.update({'b':2})
+c.update({'c':3})
+print c,d
+print "deepcopy"
+c={'a':1}
+d=copy.deepcopy(c)
+print "========"
+print c,d
+d.update({'a':2})
+print c,d
+c.update({'c':3})
+print c,d
+print "====================="
+a = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+print a[-1]
+print a[-3]
+print "====================="
+x, y = 50, 25
+small = x if  x<y else y
+print small
+
+b = 1==1
+print b
+name = "I am %s" % ["John","Doe"][b]
+print name
+n=0
+print n<0 and 'n is negative' or 'n is positive'
+
+abc = 'mystring',
+print abc
+print type(abc)
+print "====================="
+def foo(a,b,c):
+	print a,b,c
+
+mydict={'a':1,'b':2,'c':3}
+mylist=[1,2,3]
+foo(*mydict)
+foo(**mydict)
+foo(*mylist)
+print "====================="
+#enums
+
+class enums:
+	a,b,c,d = range(4)
+
+print enums.a
+print enums.b
+print enums.c
+print enums.d
+os.system("echo '{\"key\":\"value\"}' | python -m json.tool")
+calculator = {
+	'+' : lambda x,y:x+y,
+	'-' :  lambda x,y:x-y
+	}
+print calculator['+'](1,2)
+print calculator['-'](2,1)
+print "====================="
+#context managers
+
+with open("/tmp/aa.txt") as f:
+	print f.read()
+print "====================="
+def f(x):
+	return {
+		'foo':1,
+		'gg':2
+	}.get(x,3)
+
+print f('cc')
+print f('gg')
+print "====================="
+p= lambda k : {'a':1,'b':2}.get(k,"default")
+print p('a')
+print p('aa')
+print "====================="
+#getting common elements form the list
+a = [1,2,3,4]
+b = [2,3,4,5]
+c = [3,4,5,6]
+
+print set(a) & set(b) & set(c)
+print "====================="
+#class method
+class MyClass:
+	@classmethod
+	def tt(self):
+		print "In tt"
+
+MyClass.tt()
+m=MyClass()
+m.tt()
+print "====================="
+def yu(**kwargs):
+   for i,k in kwargs.items():
+      print i,k
+
+yu(x=13,y=7,z=12)
+print "====================="
+class deco3(object):
+   def __init__(self,u):
+      self.u = u
+   def __call__(self):
+      print "====3"
+      print self.u.f.g.__name__
+      self.u.f.g()
+      print "===="
+
+
+class deco2(object):
+   def __init__(self,f):
+      self.f = f
+   def __call__(self):
+      print "====2"
+      print self.f.g.__name__
+      print "===="
+
+class deco1(object):
+   def __init__(self,g):
+      self.g = g
+   def __call__(self):
+      print "====1"
+      print self.g.__name__
+      print "===="
+
+@deco3
+@deco2
+@deco1
+def tr():
+   print "In tr"
+
+tr()
+
+print "====================="
+def deco3(u):
+   def ss():
+      print "1"
+      u()
+   return ss
+
+def deco2(y):
+   def yy():
+      print "2"
+      print y.__name__
+      y()
+   return yy
+
+def deco1(f):
+   def tt():
+      print "3"
+      print f.__name__
+      f()
+   return tt
+
+@deco3
+@deco2
+@deco1
+def tr():
+   print "In tr"
+
+tr()
+print "====================="
+a=[1,2,3,333,6,5,4,7,77,5566,94,2,34,'a',66,'b']
+print a
+for i in range(len(a)-1):
+	for j in range(len(a)-i-1):
+		if a[j] > a[j+1]:
+			a[j],a[j+1]=a[j+1],a[j]
+print a
+print "====================="
+for i in range(1,101):
+	if(i%3==0 and i%5==0):
+		print i,"fizzbuzz"
+	elif(i%3==0):
+		print i,"fizz"
+	elif(i%5==0):
+		print i,"buzz"
+	
+print "====================="
+T2 = ['13', '17', '18', '21', 32]
+print map(int,T2)
+print "====================="
+class B(object):
+	def __init__(self):
+		print "In base class"
+class childA(B):
+	def __init__(self):
+		B.__init__(self)
+class childB(B):
+	def __init__(self):
+		super(childB,self).__init__()
+
+print childA(),childB()
+	
 print "====================="
