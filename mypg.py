@@ -79,12 +79,12 @@ print "=========================================="
 listone = [1,2,3]
 listtwo = [4,5,6]
 
-mergedlist = listone + listtwo # This will not remove duplicates
+mergedlist = listone + listtwo # This will not remove duplicates ,also this will result in a list [1,2,3,4,5,6]
 #[1, 2, 3, 4, 5, 6]
 listone = (1,2,3)
 listtwo = (4,5,6)
 
-print listone+listtwo
+print listone+listtwo #also this will result in a tuple (1,2,3,4,5,6)
 listone = [1,2,3]
 listtwo = (4,5,6)
 
@@ -212,9 +212,9 @@ print "Values outside the function: ", mylist
 print "=========================================="
 #Inverting a dictionary using a dictionary comprehension
 m = {'a': 1, 'b': 2, 'c': 3, 'd': 4}
-m
+print m
 #{'d': 4, 'a': 1, 'b': 2, 'c': 3}
-{v: k for k, v in m.items()}
+print {v: k for k, v in m.items()}
 #{1: 'a', 2: 'b', 3: 'c', 4: 'd'}
 
 #Dictionry comprehension example
@@ -228,12 +228,12 @@ print "=========================================="
 A = {1, 2, 3, 3}
 print A
 #set([1, 2, 3])
-B = {3, 4, 5, 6, 7}
+B = {2,3, 4, 5, 6, 7}
 print B
 #set([3, 4, 5, 6, 7])
-print A | B
+print A | B #combines and removes duplicates and also sorts in asc order
 #set([1, 2, 3, 4, 5, 6, 7])
-print A & B
+print A & B #combines common elements and removes duplicates and also sorts in asc order
 #set([3])
 print A - B
 #set([1, 2])
@@ -259,6 +259,9 @@ dict_as_list = [['a', 1], ['b', 2], ['c', 3]]
 dictionary = dict(dict_as_list)
 # dictionary now contains {'a': 1, 'b': 2, 'c': 3}
 dict_as_list = [('a', 1), ('b', 2), ('c', 3)]
+dictionary = dict(dict_as_list)
+# dictionary now contains {'a': 1, 'b': 2, 'c': 3}
+dict_as_list = (('a', 1), ('b', 2), ('c', 3))
 dictionary = dict(dict_as_list)
 # dictionary now contains {'a': 1, 'b': 2, 'c': 3}
 print "=========================================="
@@ -388,11 +391,14 @@ def func1(a,*b): #* stands for a tuple
 	print a
 	if len(b) > 0 :
 		print b #This prints tuple
+		print type(b) #This prints tuple
 		for i in b:
 			print i
 
-func1(1,2,3,4,5,6)
+func1(1,2,3,4,5,6) #watch the difference between the below line
+func1(1,2,3,4,5,6,)
 func1(1)
+func1(1,) #this will not enter the if loop
 print "======================================="
 def func2(l,**c):
 	print l
@@ -522,8 +528,9 @@ for val ,key in enumerate(aa):
 			print aa[key]
 			print aa[key][i]
 print a_dict_2 ==a_dict_3	
-print a_dict_2.clear()
+print a_dict_2.clear() #a_dict_3 is also cleared
 print str(a_dict_2) + "====="
+print str(a_dict_3) + "====="
 print "======================================="
 class mytest:
 	p = 1
@@ -833,9 +840,6 @@ b={a:2}
 print b
 #{(1, 2): 2}
 print b[(1,2)] # will give 2
-print "======================================="
-T2=[(i,j) for i in range(3) for j in range(i) ]
-
 print "======================================="
 class a:
 	def __init__(self):
