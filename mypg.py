@@ -143,7 +143,22 @@ a=2
 print rr(a) #prints 1
 print a #prints 2
 
+a=1
 
+def t():
+	print a #prints 1
+
+t()
+
+a=1
+
+def t():
+	try:
+		a=a+1 #this will raise an error,because a will be treated as a local variable and is unknow now
+	except:
+		pass
+
+t()
 #Ex:4
 #All parameters (arguments) in the Python language are passed by reference. It means if you change what a parameter refers to within a function, the change also reflects back in the calling function. For example:
 #All parameters in python language are passed by assignments
@@ -557,6 +572,7 @@ print "======================================="
 #Array slicing
 mystr1="hello world"
 print mystr1[::-2]
+print mystr1[-1] # prints d #This is Negative indexing in python
 print "======================================="
 for x in range(1,11):
 	print x
