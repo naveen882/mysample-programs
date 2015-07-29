@@ -437,6 +437,38 @@ def word_numbers(input):
 print word_numbers(34)
 print word_numbers(56)
 print "================================================="
+#private public protected accessors
+class aa:
+	_a=1		
+	__a1=1		
+	a=1
+	def _t(self):
+		print "In t"
+		self.t = self.__a1
+	def __tt(self):
+		print "In tt"
+
+class bb(aa):
+    pass
+
+b=bb()
+b._t()
+print b._a
+print b.a
+#In t
+try:
+	b.__tt() #private method cannot be accessed
+except Exception as e:
+	print e
+try:
+	b.__a1 #private variable cannot be accessed
+except Exception as e:
+	print e
+a1=aa()
+print dir(a1)
+print a1._a
+#print a1.__aa
+print a1.a
 print "================================================="
 """
 In python Arguments are passed by assignment. The rationale behind this is twofold:
