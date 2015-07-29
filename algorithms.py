@@ -414,6 +414,28 @@ print(a.static_foo)
 # <function static_foo at 0xb7d479cc>
 print "=========="
 print "================================================="
+#given a phone number generate all letter combinations for that number **********Important********************
+digit_map = {
+    '2': 'abc',
+    '3': 'def',
+    '4': 'ghi',
+    '5': 'jkl',
+    '6': 'mno',
+    '7': 'pqrs',
+    '8': 'tuv',
+    '9': 'wxyz',
+}
+
+def word_numbers(input):
+  input = str(input)
+  ret = ['']
+  for char in input:
+    letters = digit_map.get(char, '')
+    ret = [prefix+letter for prefix in ret for letter in letters]
+  return ret
+
+print word_numbers(34)
+print word_numbers(56)
 print "================================================="
 print "================================================="
 """
@@ -443,8 +465,7 @@ program will be executed.
 In intrepreted language if the 5th line of the program has an error then it will first execute the first four lines and when the interpreter sees the error in the 5th line then it raises the error. 
 
 
-A Compiler and Interpreter both carry out the same purpose – convert a high level language (like C, Java) instructions into the binary form which is understandable by computer hardware. They are the software used to execute the high level programs and codes to perform various tasks. Specific compilers/interpreters are designed for different high level languages. However both compiler and interpreter have the same objective but they differ in the way they accomplish their task i.e. convert high level language into machine language. Through this article we will talk about the basic working of both and distinguish the basic difference between compiler and interpreter.
-
+A Compiler and Interpreter both carry out the same purpose - convert a high level language (like C, Java) instructions into the binary form which is understandable by computer hardware. They are the software used to execute the high level programs and codes to perform various tasks. Specific compilers/interpreters are designed for different high level languages. However both compiler and interpreter have the same objective but they differ in the way they accomplish their task i.e. convert high level language into machine language. Through this article we will talk about the basic working of both and distinguish the basic difference between compiler and interpreter.
  
 Compiler
 A compiler is a piece of code that translates the high level language into machine language. When a user writes a code in a high level language such as Java and wants it to execute, a specific compiler which is designed for Java is used before it will be executed. The compiler scans the entire program first and then translates it into machine code which will be executed by the computer processor and the corresponding tasks will be performed.  
@@ -455,8 +476,8 @@ Interpreters are not much different than compilers. They also convert the high l
 
 
 The main differences between compiler and interpreter are listed below:
-·         The interpreter takes one statement then translates it and executes it and then takes another statement. While the compiler translates the entire program in one go and then executes it.
-·         Compiler generates the error report after the translation of the entire page while an interpreter will stop the translation after it gets the first error.
-·         Compiler takes a larger amount of time in analyzing and processing the high level language code comparatively interpreter takes lesser time in the same process.
-·         Besides the processing and analyzing time the overall execution time of a code is faster for compiler relative to the interpreter.
+-         The interpreter takes one statement then translates it and executes it and then takes another statement. While the compiler translates the entire program in one go and then executes it.
+-         Compiler generates the error report after the translation of the entire page while an interpreter will stop the translation after it gets the first error.
+-         Compiler takes a larger amount of time in analyzing and processing the high level language code comparatively interpreter takes lesser time in the same process.
+-         Besides the processing and analyzing time the overall execution time of a code is faster for compiler relative to the interpreter.
 """

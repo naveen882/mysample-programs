@@ -2430,3 +2430,23 @@ print (x)
 
 #gives you: [1, 2, 3, 4, 5]
 print "=========================================================="
+s="a","b",[1,2,3,4],5
+print type(s) #prints tuple
+s=1,2,
+print type(s) #prints tuple
+s={1:'a'}
+print s
+print "=========================================================="
+a="abc"
+b="def"
+print [i+j for i in a for j  in b] #print all combinations from both the list
+#['ad', 'ae', 'af', 'bd', 'be', 'bf', 'cd', 'ce', 'cf']
+print "=========================================================="
+a=['']
+for i in a:
+	print i #prints ''
+	print "inside"  #prints inside
+
+print '' is None #prints False
+print '' == None #prints False
+print "=========================================================="
