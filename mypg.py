@@ -2478,3 +2478,15 @@ try:
 except Exception as e:
 	print "In exception",e
 print "=========================================================="
+class aa:
+   a=11
+   @classmethod
+   def t(classname):
+      return classname.a
+   @staticmethod
+   def foo():
+      return aa.a
+
+print aa.t()
+print aa.foo()
+print "=========================================================="
