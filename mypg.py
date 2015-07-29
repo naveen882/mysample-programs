@@ -2453,3 +2453,28 @@ print "=========================================================="
 print [1,2,3,4][1]
 #2
 print "=========================================================="
+def t():
+   a=0
+   while True:
+      a+=1
+      if a%2==0:
+         yield a
+         if a ==10:
+            break
+
+for i in t():
+   print i
+#this example is to show that next(i) or i.next() is not mandatory.The advantage with the above is you dont have to take care of the stopiteration condition
+#It is only mandatory when as below example,Here if you do not know the number of elements you need to take care of StopIteration condition
+
+i=t()
+i.next()
+next(i)
+i.next()
+next(i)
+i.next()
+try:
+	next(i)
+except Exception as e:
+	print "In exception",e
+print "=========================================================="
