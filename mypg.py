@@ -101,6 +101,10 @@ listone = listone * 2
 print listone
 #[1, 2, 3, 1, 2, 3]
 
+listone=[1,2,3]
+print [listone]*2
+#[[1, 2, 3], [1, 2, 3]]
+
 
 print "=========================================="
 #Python pass by value and pass by reference
@@ -2489,4 +2493,13 @@ class aa:
 
 print aa.t()
 print aa.foo()
+print "=========================================================="
+print list(enumerate(["a", "b", "c"]))
+#[(0, "a"), (1, "b"), (2, "c")]
+for i, c in enumerate(["a", "b", "c"]):
+    print i, c
+
+#0 a
+#1 b
+#2 c
 print "=========================================================="
