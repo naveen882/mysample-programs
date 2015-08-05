@@ -470,6 +470,25 @@ print a1._a
 #print a1.__aa
 print a1.a
 print "================================================="
+#primer number or not
+# Python program to check if the input number is prime or not
+
+# take input from the user
+num = int(input("Enter a number: "))
+
+# prime numbers are greater than 1
+if num > 1:
+   # check for factors
+	for i in range(2,num):
+		if (num % i) == 0:
+			print(num,"is not a prime number")
+			print(i,"times",num//i,"is",num)
+			break
+		else:
+			print(num,"is a prime number")
+else:
+   print(num,"is not a prime number")
+print "================================================="
 """
 In python Arguments are passed by assignment. The rationale behind this is twofold:
 
