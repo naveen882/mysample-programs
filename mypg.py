@@ -253,7 +253,7 @@ print B
 print A | B #combines and removes duplicates and also sorts in asc order
 #set([1, 2, 3, 4, 5, 6, 7])
 print A & B #combines common elements and removes duplicates and also sorts in asc order
-#set([3])
+#set([2, 3])
 print A - B
 #set([1, 2])
 print B - A
