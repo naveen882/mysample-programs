@@ -43,4 +43,44 @@ testdaughter.say_class_hello()
 
 testdaughter.say_hello()
 
+print "============================================================================"
+class dynamo():
 
+	@staticmethod
+	def all_return_same():
+		print "static method"
+
+	@classmethod
+	def all_return_different(cls):
+		print cls
+		if cls.__name__ == 'A':
+			print "1"
+		elif cls.__name__ == 'B':
+			print "2"
+		else:
+			print "3"
+
+class A(dynamo):
+	pass
+	
+class B(dynamo):
+	pass
+
+
+d=dynamo()
+d.all_return_same()
+d.all_return_different()
+dynamo().all_return_same()
+dynamo().all_return_different()
+print  "======"
+a=A()
+a.all_return_same()
+a.all_return_different()
+A.all_return_same()
+A.all_return_different()
+print  "======"
+b=B()
+b.all_return_same()
+b.all_return_different()
+B.all_return_same()
+B.all_return_different()
