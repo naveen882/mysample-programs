@@ -2503,3 +2503,17 @@ for i, c in enumerate(["a", "b", "c"]):
 #1 b
 #2 c
 print "=========================================================="
+#convert string to variable
+a=['a','b','c','d']
+for i in a:
+    exec("%s = %d" % (i,2))
+    print i
+
+#a
+#b
+#c
+#d
+print a,b,c,d
+#2 2 2 2
+
+print "=========================================================="
