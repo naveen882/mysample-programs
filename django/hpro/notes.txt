@@ -1,4 +1,6 @@
 uwsgi --socket :8001 --wsgi-file hpro/wsgi.py
 sudo ln -s ~/django-test/hpro/conf/hpro.conf /etc/nginx/sites-enabled/
+manage.py inspectdb --database=chinookdb > chinook/models.py
+
 
 sudo pip install redis

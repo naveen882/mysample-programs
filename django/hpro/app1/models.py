@@ -98,7 +98,7 @@ class Candidates(models.Model):
 	guid = models.CharField(max_length=40)
 	candidateoriginalsourceinfo_id = models.IntegerField(null=True)
 	candidatepreference_id = models.IntegerField(null=True)
-	candidatesourceinfo_id = models.IntegerField(null=True)
+	#candidatesourceinfo_id = models.IntegerField(null=True)
 	percentage_or_cgp = models.FloatField(null=True) ##pending double DEFAULT NULL,
 	is_percentage = models.NullBooleanField()
 	original_candidate_id = models.IntegerField(null=True)
@@ -376,3 +376,474 @@ class Candidate_social_network_details(models.Model):
 
 	class Meta:
 		db_table = 'candidate_social_network_details'
+
+
+class CandidatePreferences(models.Model):
+    desired_salary_from = models.FloatField(blank=True, null=True)
+    desired_salary_to = models.FloatField(blank=True, null=True)
+    desired_title_id = models.IntegerField(blank=True, null=True)
+    desired_title_text = models.CharField(max_length=50, blank=True, null=True)
+    job_category_id1 = models.IntegerField(blank=True, null=True)
+    job_category_text = models.CharField(max_length=50, blank=True, null=True)
+    notes = models.CharField(max_length=255, blank=True, null=True)
+    other_compensation = models.CharField(max_length=255, blank=True, null=True)
+    is_willing_to_relocate = models.IntegerField(blank=True, null=True)
+    job_category_id2 = models.IntegerField(blank=True, null=True)
+    job_category_id3 = models.IntegerField(blank=True, null=True)
+    job_category_id4 = models.IntegerField(blank=True, null=True)
+    company_type_id = models.IntegerField(blank=True, null=True)
+    company_type_text = models.CharField(max_length=50, blank=True, null=True)
+    company_sub_type_id = models.IntegerField(blank=True, null=True)
+    company_sub_type_text = models.CharField(max_length=50, blank=True, null=True)
+    notice_period = models.IntegerField(blank=True, null=True)
+    created_by = models.IntegerField()
+    created_on = models.DateTimeField()
+    modified_by = models.IntegerField(blank=True, null=True)
+    modified_on = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'candidate_preferences'
+
+class CandidateLocationPreferences(models.Model):
+    location_id = models.IntegerField()
+    created_by = models.IntegerField()
+    created_on = models.DateTimeField()
+    modified_by = models.IntegerField(blank=True, null=True)
+    modified_on = models.DateTimeField(blank=True, null=True)
+    candidatepreference_id = models.IntegerField(blank=True, null=True)
+    location_text = models.CharField(max_length=50, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'candidate_location_preferences'
+
+class CatalogValues(models.Model):
+    code = models.CharField(max_length=100, blank=True, null=True)
+    value = models.CharField(max_length=255, blank=True, null=True)
+    tenant_id = models.IntegerField(blank=True, null=True)
+    created_by = models.IntegerField()
+    created_on = models.DateTimeField()
+    modified_by = models.IntegerField(blank=True, null=True)
+    modified_on = models.DateTimeField(blank=True, null=True)
+    catalogmaster_id = models.IntegerField(blank=True, null=True)
+    catalogvalue_id = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'catalog_values'
+
+
+class Technologys(models.Model):
+    technology_id = models.IntegerField()
+    order_number = models.IntegerField()
+    created_by = models.IntegerField()
+    created_on = models.DateTimeField()
+    modified_by = models.IntegerField(blank=True, null=True)
+    modified_on = models.DateTimeField(blank=True, null=True)
+    candidate_id = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'technologys'
+
+
+class Users(models.Model):
+    version = models.IntegerField()
+    login_name = models.CharField(max_length=255, blank=True, null=True)
+    password = models.CharField(max_length=510, blank=True, null=True)
+    password_question = models.CharField(max_length=100, blank=True, null=True)
+    password_answer = models.CharField(max_length=50, blank=True, null=True)
+    is_approved = models.IntegerField()
+    last_login_date = models.DateTimeField(blank=True, null=True)
+    is_on_line = models.IntegerField()
+    is_locked_out = models.IntegerField()
+    signature = models.CharField(max_length=255, blank=True, null=True)
+    is_system = models.IntegerField()
+    email1 = models.CharField(max_length=50, blank=True, null=True)
+    email2 = models.CharField(max_length=50, blank=True, null=True)
+    first_name = models.CharField(max_length=75, blank=True, null=True)
+    last_name = models.CharField(max_length=75, blank=True, null=True)
+    middle_name = models.CharField(max_length=75, blank=True, null=True)
+    mobile1 = models.CharField(max_length=20, blank=True, null=True)
+    phone_office = models.CharField(max_length=20, blank=True, null=True)
+    phone_residence = models.CharField(max_length=20, blank=True, null=True)
+    salutation = models.IntegerField()
+    password_hash = models.CharField(max_length=255, blank=True, null=True)
+    is_admin = models.IntegerField()
+    type_of_user = models.IntegerField(blank=True, null=True)
+    password_question_id = models.IntegerField(blank=True, null=True)
+    address1 = models.CharField(max_length=255, blank=True, null=True)
+    address2 = models.CharField(max_length=255, blank=True, null=True)
+    address3 = models.CharField(max_length=255, blank=True, null=True)
+    current_login_date = models.DateTimeField(blank=True, null=True)
+    email_password = models.CharField(max_length=255, blank=True, null=True)
+    is_pop3_listener = models.IntegerField(blank=True, null=True)
+    is_email_extraction_required = models.IntegerField(blank=True, null=True)
+    tenant_id = models.IntegerField(blank=True, null=True)
+    created_by = models.IntegerField()
+    created_on = models.DateTimeField()
+    modified_by = models.IntegerField(blank=True, null=True)
+    modified_on = models.DateTimeField(blank=True, null=True)
+    is_deleted = models.IntegerField()
+    guid = models.CharField(max_length=40)
+    is_password_auto_generated = models.IntegerField(blank=True, null=True)
+    userprofile_id = models.IntegerField(blank=True, null=True)
+    user_name = models.CharField(max_length=75, blank=True, null=True)
+    country_code = models.CharField(max_length=10, blank=True, null=True)
+    is_master_vendor_user = models.IntegerField(blank=True, null=True)
+    last_password_changed_date = models.DateTimeField(blank=True, null=True)
+    browser_details = models.CharField(max_length=45, blank=True, null=True)
+    operating_system_details = models.CharField(max_length=45, blank=True, null=True)
+    last_login_ip = models.CharField(max_length=45, blank=True, null=True)
+    vendor_id = models.IntegerField(blank=True, null=True)
+    is_disabled = models.IntegerField()
+    login_failed_count = models.IntegerField()
+    is_archived = models.IntegerField()
+    location_id = models.IntegerField(blank=True, null=True)
+    department_id = models.IntegerField(blank=True, null=True)
+    designation_id = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'users'
+
+
+class Sources(models.Model):
+    version = models.IntegerField()
+    source_name = models.CharField(max_length=75, blank=True, null=True)
+    email1 = models.CharField(max_length=60, blank=True, null=True)
+    description = models.TextField(blank=True, null=True)
+    site_url = models.CharField(max_length=55, blank=True, null=True)
+    types_of_source = models.IntegerField(blank=True, null=True)
+    tenant_id = models.IntegerField(blank=True, null=True)
+    no_of_attachments = models.IntegerField(blank=True, null=True)
+    published_on = models.DateTimeField(blank=True, null=True)
+    published_by = models.IntegerField(blank=True, null=True)
+    is_active = models.IntegerField(blank=True, null=True)
+    is_draft = models.IntegerField(blank=True, null=True)
+    is_archived = models.IntegerField(blank=True, null=True)
+    is_alive = models.IntegerField()
+    created_by = models.IntegerField()
+    created_on = models.DateTimeField()
+    modified_by = models.IntegerField(blank=True, null=True)
+    modified_on = models.DateTimeField(blank=True, null=True)
+    is_deleted = models.IntegerField()
+    guid = models.CharField(max_length=40)
+    is_extractor_listener_required = models.IntegerField(blank=True, null=True)
+    address1 = models.CharField(max_length=255, blank=True, null=True)
+    country_code = models.CharField(max_length=55, blank=True, null=True)
+    mobile1 = models.CharField(max_length=55, blank=True, null=True)
+    phone_office = models.CharField(max_length=55, blank=True, null=True)
+    contract_id = models.IntegerField(blank=True, null=True)
+    color_code = models.CharField(max_length=45, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'sources'
+
+
+class CandidateOriginalSourceInfos(models.Model):
+    source_id = models.IntegerField(blank=True, null=True)
+    expiry_date = models.DateTimeField(blank=True, null=True)
+    status = models.IntegerField(blank=True, null=True)
+    created_by = models.IntegerField()
+    created_on = models.DateTimeField()
+    modified_by = models.IntegerField(blank=True, null=True)
+    modified_on = models.DateTimeField(blank=True, null=True)
+    comments = models.CharField(max_length=10000, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'candidate_original_source_infos'
+
+
+#==========================Tenant DB============================================
+class EntityPropertys(models.Model):
+    version = models.IntegerField()
+    property_name = models.CharField(max_length=255, blank=True, null=True)
+    entity_type = models.IntegerField(blank=True, null=True)
+    property_type = models.CharField(max_length=255, blank=True, null=True)
+    is_custom_property = models.IntegerField(blank=True, null=True)
+    property_code = models.CharField(max_length=255, blank=True, null=True)
+    created_by = models.IntegerField()
+    created_on = models.DateTimeField()
+    modified_by = models.IntegerField(blank=True, null=True)
+    modified_on = models.DateTimeField(blank=True, null=True)
+    is_deleted = models.IntegerField()
+    guid = models.CharField(max_length=40)
+    mandatory_type = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'entity_propertys'
+        app_label = '9999'			
+
+
+class EntityPropertyDefinitions(models.Model):
+    property_label = models.CharField(max_length=255, blank=True, null=True)
+    property_order = models.IntegerField(blank=True, null=True)
+    is_mandatory = models.IntegerField(blank=True, null=True)
+    is_catalog = models.IntegerField(blank=True, null=True)
+    master_name_if_catalog = models.CharField(max_length=255, blank=True, null=True)
+    tenant_id = models.IntegerField(blank=True, null=True)
+    created_by = models.IntegerField()
+    created_on = models.DateTimeField()
+    modified_by = models.IntegerField(blank=True, null=True)
+    modified_on = models.DateTimeField(blank=True, null=True)
+    entityproperty_id = models.IntegerField(blank=True, null=True)
+    is_not_visible = models.IntegerField(blank=True, null=True)
+    is_visible_in_grid = models.IntegerField(blank=True, null=True)
+    is_visible_in_search = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'entity_property_definitions'
+        app_label = '9999'			
+
+class Proctoring(models.Model):
+    file_path = models.CharField(max_length=1024, blank=True, null=True)
+    user_id = models.IntegerField()
+    tenant_id = models.IntegerField()
+    created_on = models.DateTimeField(auto_now_add=True,)
+    suspicious_flag =  models.BooleanField(default=0)
+    review_status = models.BooleanField(default=0)
+    duration = models.IntegerField()
+    is_deleted =  models.BooleanField(default=0)
+
+class QpGroups(models.Model):
+    name = models.CharField(max_length=255, blank=True, null=True)
+    description = models.CharField(max_length=1024, blank=True, null=True)
+    instruction_id = models.IntegerField(blank=True, null=True)
+    category_id = models.IntegerField(blank=True, null=True)
+    created_by = models.IntegerField()
+    created_on = models.DateTimeField()
+    modified_by = models.IntegerField(blank=True, null=True)
+    modified_on = models.DateTimeField(blank=True, null=True)
+    questionpaperinfo_id = models.IntegerField(blank=True, null=True)
+    sub_category_id = models.IntegerField(blank=True, null=True)
+    blueprint_id = models.IntegerField(blank=True, null=True)
+    question_tenant_type = models.IntegerField(blank=True, null=True)
+    total_questions = models.IntegerField(blank=True, null=True)
+    foreign_group_id = models.IntegerField(blank=True, null=True)
+    instruction_text = models.CharField(max_length=255, blank=True, null=True)
+    group_tenant_id = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'qp_groups'
+        app_label = '9999'			
+
+
+class Sections(models.Model):
+    name = models.CharField(max_length=255, blank=True, null=True)
+    description = models.CharField(max_length=255, blank=True, null=True)
+    instruction_id = models.IntegerField(blank=True, null=True)
+    sub_category_id = models.IntegerField(blank=True, null=True)
+    created_by = models.IntegerField()
+    created_on = models.DateTimeField()
+    modified_by = models.IntegerField(blank=True, null=True)
+    modified_on = models.DateTimeField(blank=True, null=True)
+    qpgroup_id = models.IntegerField(blank=True, null=True)
+    no_of_questions_to_display = models.IntegerField(blank=True, null=True)
+    question_type = models.IntegerField(blank=True, null=True)
+    sub_topic_id = models.IntegerField(blank=True, null=True)
+    is_revised = models.IntegerField()
+    foreign_section_id = models.IntegerField(blank=True, null=True)
+    instruction_text = models.CharField(max_length=255, blank=True, null=True)
+    section_tenant_id = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'sections'
+        app_label = '9999'			
+
+
+class TestResults(models.Model):
+    question_id = models.IntegerField()
+    answer_string = models.CharField(max_length=7000, blank=True, null=True)
+    is_subjective = models.IntegerField()
+    created_by = models.IntegerField()
+    created_on = models.DateTimeField()
+    modified_by = models.IntegerField(blank=True, null=True)
+    modified_on = models.DateTimeField(blank=True, null=True)
+    testuser_id = models.IntegerField(blank=True, null=True)
+    obtained_marks = models.FloatField(blank=True, null=True)
+    time_spent = models.FloatField(blank=True, null=True)
+    section_id = models.IntegerField(blank=True, null=True)
+    question_tenant_id = models.IntegerField(blank=True, null=True)
+    is_statistics_completed = models.IntegerField()
+    coding_language_id = models.IntegerField(blank=True, null=True)
+    result_status = models.IntegerField(blank=True, null=True)
+    code_server_token = models.CharField(max_length=255, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'test_results'
+        app_label = '9999'			
+
+
+class TestUsers(models.Model):
+    candidate_id = models.IntegerField(blank=True, null=True)
+    total_score = models.FloatField(blank=True, null=True)
+    percentage = models.FloatField(blank=True, null=True)
+    candidate_regn_id = models.CharField(max_length=255, blank=True, null=True)
+    login_time = models.DateTimeField(blank=True, null=True)
+    log_out_time = models.DateTimeField(blank=True, null=True)
+    login_id = models.CharField(max_length=255, blank=True, null=True)
+    password = models.CharField(max_length=255, blank=True, null=True)
+    status = models.IntegerField(blank=True, null=True)
+    is_login_info_sent = models.IntegerField()
+    normal_distribution = models.FloatField(blank=True, null=True)
+    percentile = models.FloatField(blank=True, null=True)
+    correct_answers = models.IntegerField(blank=True, null=True)
+    in_correct_answers = models.IntegerField(blank=True, null=True)
+    un_attended_questions = models.IntegerField(blank=True, null=True)
+    created_by = models.IntegerField()
+    created_on = models.DateTimeField()
+    modified_by = models.IntegerField(blank=True, null=True)
+    modified_on = models.DateTimeField(blank=True, null=True)
+    test_id = models.IntegerField(blank=True, null=True)
+    is_password_disabled = models.IntegerField(blank=True, null=True)
+    rank = models.IntegerField(blank=True, null=True)
+    total_no_of_subjective_questions = models.IntegerField(blank=True, null=True)
+    is_partially_evaluated = models.IntegerField(blank=True, null=True)
+    enable_last_session = models.IntegerField()
+    is_dummy = models.IntegerField(blank=True, null=True)
+    is_candidate_registered = models.IntegerField(blank=True, null=True)
+    client_system_info = models.CharField(max_length=255, blank=True, null=True)
+    is_offline = models.IntegerField()
+    candidate_name = models.CharField(max_length=255, blank=True, null=True)
+    candidate_email = models.CharField(max_length=255, blank=True, null=True)
+    reactivated_count = models.IntegerField()
+    time_spent = models.FloatField(blank=True, null=True)
+    time_stamp = models.DateTimeField(blank=True, null=True)
+    is_submission_failed = models.IntegerField()
+    is_test_user_exported = models.IntegerField(blank=True, null=True)
+    current_employer_id = models.IntegerField(blank=True, null=True)
+    current_employer_text = models.CharField(max_length=45, blank=True, null=True)
+    total_experience = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'test_users'
+        app_label = '9999'			
+
+class CandidateScores(models.Model):
+    category_id = models.IntegerField(blank=True, null=True)
+    score = models.FloatField(blank=True, null=True)
+    correct_anwers = models.IntegerField(blank=True, null=True)
+    in_correct_answers = models.IntegerField(blank=True, null=True)
+    qn_paper_id = models.CharField(max_length=255, blank=True, null=True)
+    qn_paper_code = models.CharField(max_length=255, blank=True, null=True)
+    un_attended_questions = models.IntegerField(blank=True, null=True)
+    created_by = models.IntegerField()
+    created_on = models.DateTimeField()
+    modified_by = models.IntegerField(blank=True, null=True)
+    modified_on = models.DateTimeField(blank=True, null=True)
+    testuser_id = models.IntegerField(blank=True, null=True)
+    candidatescore_id = models.IntegerField(blank=True, null=True)
+    total_no_of_subjective_questions = models.IntegerField(blank=True, null=True)
+    group_id = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'candidate_scores'
+        app_label = '9999'			
+
+class Tests(models.Model):
+    version = models.IntegerField()
+    name = models.CharField(max_length=255)
+    valid_from = models.DateTimeField()
+    experience_from = models.IntegerField()
+    expertise_id = models.IntegerField(blank=True, null=True)
+    technology = models.CharField(max_length=255)
+    no_of_candidates = models.IntegerField(blank=True, null=True)
+    is_approved = models.IntegerField(blank=True, null=True)
+    valid_to = models.DateTimeField()
+    test_duration = models.FloatField(blank=True, null=True)
+    test_code = models.CharField(max_length=255, blank=True, null=True)
+    permissible_late_time = models.IntegerField(blank=True, null=True)
+    test_start_time = models.DateTimeField(blank=True, null=True)
+    test_end_time = models.DateTimeField(blank=True, null=True)
+    is_all_time_permissible = models.IntegerField()
+    is_accepted = models.IntegerField(blank=True, null=True)
+    no_of_questions_per_page = models.IntegerField(blank=True, null=True)
+    about_test = models.TextField(blank=True, null=True)
+    purpose_of_test = models.TextField(blank=True, null=True)
+    instructions = models.TextField(blank=True, null=True)
+    hierarchy_id = models.IntegerField(blank=True, null=True)
+    experience_to = models.IntegerField(blank=True, null=True)
+    question_paper_id = models.IntegerField(blank=True, null=True)
+    correct = models.FloatField(blank=True, null=True)
+    in_correct = models.FloatField(blank=True, null=True)
+    left_entries = models.FloatField(blank=True, null=True)
+    max_marks = models.FloatField(blank=True, null=True)
+    instant_evaluation = models.IntegerField()
+    mean = models.FloatField(blank=True, null=True)
+    standard_deviation = models.FloatField(blank=True, null=True)
+    group_wise_timing = models.IntegerField()
+    question_randomizing = models.IntegerField()
+    tenant_id = models.IntegerField(blank=True, null=True)
+    published_on = models.DateTimeField(blank=True, null=True)
+    published_by = models.IntegerField(blank=True, null=True)
+    is_active = models.IntegerField(blank=True, null=True)
+    is_draft = models.IntegerField(blank=True, null=True)
+    is_archived = models.IntegerField(blank=True, null=True)
+    true_false2 = models.IntegerField(blank=True, null=True)
+    true_false1 = models.IntegerField(blank=True, null=True)
+    integer2 = models.IntegerField(blank=True, null=True)
+    integer1 = models.IntegerField(blank=True, null=True)
+    text4 = models.CharField(max_length=50, blank=True, null=True)
+    text3 = models.CharField(max_length=50, blank=True, null=True)
+    text2 = models.CharField(max_length=50, blank=True, null=True)
+    text1 = models.CharField(max_length=50, blank=True, null=True)
+    is_alive = models.IntegerField()
+    created_by = models.IntegerField()
+    created_on = models.DateTimeField()
+    modified_by = models.IntegerField(blank=True, null=True)
+    modified_on = models.DateTimeField(blank=True, null=True)
+    is_deleted = models.IntegerField()
+    guid = models.CharField(max_length=40)
+    que_paper_tenantid = models.IntegerField(blank=True, null=True)
+    is_test_active = models.IntegerField(blank=True, null=True)
+    primary_owner_id = models.IntegerField(blank=True, null=True)
+    template_id = models.IntegerField(blank=True, null=True)
+    automate_tagging = models.IntegerField(blank=True, null=True)
+    selecting_criteria = models.FloatField(blank=True, null=True)
+    is_instant_result = models.IntegerField(blank=True, null=True)
+    integer3 = models.IntegerField(blank=True, null=True)
+    integer4 = models.IntegerField(blank=True, null=True)
+    integer5 = models.IntegerField(blank=True, null=True)
+    text5 = models.CharField(max_length=50, blank=True, null=True)
+    is_online = models.IntegerField(blank=True, null=True)
+    is_option_randomize = models.IntegerField()
+    is_shuffle_question_order = models.IntegerField()
+    blue_print_id = models.IntegerField(blank=True, null=True)
+    event_name = models.CharField(max_length=255, blank=True, null=True)
+    multiplicity_offline = models.IntegerField(blank=True, null=True)
+    multiplicity_online = models.IntegerField(blank=True, null=True)
+    is_published = models.IntegerField(blank=True, null=True)
+    logo_file_id = models.IntegerField(blank=True, null=True)
+    number_of_question_papers = models.IntegerField(blank=True, null=True)
+    footer = models.CharField(max_length=255, blank=True, null=True)
+    header = models.CharField(max_length=255, blank=True, null=True)
+    logo_position = models.IntegerField(blank=True, null=True)
+    page_number_position = models.IntegerField(blank=True, null=True)
+    end_instruction = models.CharField(max_length=255, blank=True, null=True)
+    presentation_file_id = models.IntegerField(blank=True, null=True)
+    number_of_attachments = models.IntegerField()
+    is_sent_for_approval = models.IntegerField(blank=True, null=True)
+    event_details = models.CharField(max_length=255, blank=True, null=True)
+    type_of_test = models.IntegerField()
+    rejecting_criteria = models.FloatField(blank=True, null=True)
+    is_manual_selection_criteria = models.IntegerField()
+    type_of_shortlisting_criteria = models.IntegerField(blank=True, null=True)
+    config = models.CharField(max_length=2000, blank=True, null=True)
+    ip_configuration_text = models.TextField(blank=True, null=True)
+    ip_address_config = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'tests'
+        app_label = '9999'			

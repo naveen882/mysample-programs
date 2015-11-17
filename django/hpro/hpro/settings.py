@@ -38,9 +38,12 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 	 'app1',
+	 'reports',
 	 'app2',
 	 'app3',
+	 'proctoring',
 #    'djcelery',		
+#    'gunicorn',		
 #	 'django_extensions', #for generating relationship graphs
 )
 
@@ -80,59 +83,159 @@ WSGI_APPLICATION = 'hpro.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#    }
-#}
 DATABASE_ROUTERS = ['manager.router.DatabaseAppsRouter']
-#DATABASE_APPS_MAPPING = {'app1': 'db1', 
-#                         'app2':'db2'}
+
 from manager import app2db 
 DATABASE_APPS_MAPPING = app2db.mapping
 print DATABASE_APPS_MAPPING
                         
-#DATABASES = {
-#    'default': {
-#    },
-#	 'db1': {
-#        'ENGINE': 'django.db.backends.mysql',
-#        'NAME': 'hpro1',
-#        'USER': 'root',
-#        'PASSWORD': 'hp123',
-#		  'PORT': '3306'
-#	 },
-#	 'db2': {
-#        'ENGINE': 'django.db.backends.mysql',
-#        'NAME': 'hpro2',
-#        'USER': 'root',
-#        'PASSWORD': 'hp123',
-#		  'PORT': '3306'
-#	 }
-#}
 
 DATABASES = {
     'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'hpro_django',
+        'USER': 'root',
+        'PASSWORD': 'hp123',
+        'HOST': 'localhost',
+        'PORT': '3306'
     },
 	 'db1': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'appserver_core',
         'USER': 'appserver',
         'PASSWORD': 'data',
-		  'HOST': '10.0.3.7',
+		  'HOST': 'preproduction.hirepro.in',
 		  'PORT': '3306'
 	 },
 	 'db2': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'appserver_coreone',
+        'NAME': 'accenturedb',
         'USER': 'appserver',
         'PASSWORD': 'data',
-		  'HOST': '10.0.3.7',
+		  'HOST': 'preproduction.hirepro.in',
+		  'PORT': '3306'
+	 },
+	 'db3': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'core70',
+        'USER': 'appserver',
+        'PASSWORD': 'data',
+		  'HOST': 'preproduction.hirepro.in',
+		  'PORT': '3306'
+	 },
+	 'db4': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'appserver_tenant',
+        'USER': 'appserver',
+        'PASSWORD': 'data',
+		  'HOST': 'preproduction.hirepro.in',
+		  'PORT': '3306'
+	 },
+	 'db5': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'appserver_activity',
+        'USER': 'appserver',
+        'PASSWORD': 'data',
+		  'HOST': 'preproduction.hirepro.in',
+		  'PORT': '3306'
+	 },
+	 'db6': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'contentdb',
+        'USER': 'appserver',
+        'PASSWORD': 'data',
+		  'HOST': 'preproduction.hirepro.in',
+		  'PORT': '3306'
+	 },
+	 'db7': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'activity70',
+        'USER': 'appserver',
+        'PASSWORD': 'data',
+		  'HOST': 'preproduction.hirepro.in',
+		  'PORT': '3306'
+	 },
+	 'db8': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'core18',
+        'USER': 'appserver',
+        'PASSWORD': 'data',
+		  'HOST': 'preproduction.hirepro.in',
+		  'PORT': '3306'
+	 },
+	 'db9': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'core183',
+        'USER': 'appserver',
+        'PASSWORD': 'data',
+		  'HOST': 'preproduction.hirepro.in',
+		  'PORT': '3306'
+	 },
+	 'db10': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'core115',
+        'USER': 'appserver',
+        'PASSWORD': 'data',
+		  'HOST': 'preproduction.hirepro.in',
+		  'PORT': '3306'
+	 },
+	 'db11': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'core219',
+        'USER': 'appserver',
+        'PASSWORD': 'data',
+		  'HOST': 'preproduction.hirepro.in',
+		  'PORT': '3306'
+	 },
+	 'db12': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'core3',
+        'USER': 'appserver',
+        'PASSWORD': 'data',
+		  'HOST': 'preproduction.hirepro.in',
+		  'PORT': '3306'
+	 },
+	 'db13': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'activity3',
+        'USER': 'appserver',
+        'PASSWORD': 'data',
+		  'HOST': 'preproduction.hirepro.in',
+		  'PORT': '3306'
+	 },
+	 'db14': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'core131',
+        'USER': 'appserver',
+        'PASSWORD': 'data',
+		  'HOST': 'preproduction.hirepro.in',
+		  'PORT': '3306'
+	 },
+	 'db15': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'core158',
+        'USER': 'appserver',
+        'PASSWORD': 'data',
+		  'HOST': 'preproduction.hirepro.in',
+		  'PORT': '3306'
+	 },
+	 'db16': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'hpro1',
+        'USER': 'root',
+        'PASSWORD': 'hp123',
+		  'HOST': 'localhost',
+		  'PORT': '3306'
+	 },
+	 'db17': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'appserver_core',
+        'USER': 'appserver',
+        'PASSWORD': 'data',
+		  'HOST': 'db1.hirepro.in',
 		  'PORT': '3306'
 	 }
 }
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 

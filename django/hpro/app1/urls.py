@@ -51,4 +51,10 @@ urlpatterns = [
 	 url(r'^candidatesocialnetworkdetailssave/$',views.candidate_salarys),
 	 url(r'^candidatesocialnetworkdetailsid/(?P<m_id>[0-9]+)$',views.candidate_salarys),
 	 url(r'^getallcandidatesocialnetworkdetails/$',views.candidate_salarys),
+
+	 url(r'^candidate_assesment/(?P<c_id>[0-9]+)/$',views.candidate_assesment),
+	 url(r'^candidate_assesment/(?P<c_id>[0-9]+)/(?P<test_id>[0-9]+)/$',views.candidate_assesment),
+	 url(r'^actionplanning/(?P<c_id>[0-9]+)/$',views.actionplanning),
+	 url(r'^personaldevelopmenttips/(?P<c_id>[0-9]+)/$',views.personaldevelopmenttips),
+	 url(r'^potentialtargetcompanies/(?P<c_id>[0-9]+)/$',views.potentialtargetcompanies),
 ]
