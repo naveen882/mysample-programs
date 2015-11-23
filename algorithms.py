@@ -489,6 +489,16 @@ if num > 1:
 else:
    print(num,"is not a prime number")
 print "================================================="
+import math
+
+n=5
+for power in range(n):
+    amt=(math.pow(2,power))
+    print('*'*int(amt))
+for power in range(n-1)[::-1]:
+    amt=(math.pow(2,power))
+    print('*'*int(amt))
+print "================================================="
 """
 In python Arguments are passed by assignment. The rationale behind this is twofold:
 
