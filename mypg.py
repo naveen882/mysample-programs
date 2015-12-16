@@ -80,6 +80,8 @@ listone = [1,2,3]
 listtwo = [4,5,6]
 
 mergedlist = listone + listtwo # This will not remove duplicates ,also this will result in a list [1,2,3,4,5,6]
+listone.extend(listtwo) #To merge to list one
+print listone
 #[1, 2, 3, 4, 5, 6]
 listone = (1,2,3)
 listtwo = (4,5,6)
@@ -93,6 +95,7 @@ try:
 except Exception as e: #Exception is a keyword
     print e
 
+print listone+list(listtwo)
 print "=========================================="
 #Duplicating a list within itself
 listone = [1,2,3]
