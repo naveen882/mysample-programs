@@ -51,3 +51,15 @@ In general, Nginx have less components to add more features. But Apache has tons
 Nginx do not support Operating Systems like OpenVMS and IBMi. But Apache supports much wider range of Operating Systems.
 Since Nginx comes only with core features that are required for a web server, it is lightweight when compared to Apache.
 The performance and scalability of Nginx is not completely dependent on hardware resources, whereas the performance and scalability of the Apache is dependent on underlying hardware resources like memory and CPU.
+
+
+what is celery?
+Celery is a task queue that is built on an asynchronous message passing system. It can be used as a bucket where programming tasks can be dumped. The program that passed the task can continue to execute and function responsively, and then later on, it can poll celery to see if the computation is complete and retrieve the data.
+
+While celery is written in Python, its protocol can be implemented in any language. It can even function with other languages through webhooks.
+
+RabbitMQ with celery
+Celery requires a messaging agent in order to handle requests from an external source. This agent is referred to as a "broker".
+There are quite a few options for brokers available to choose from, including relational databases, NoSQL databases, key-value stores, and actual messaging systems,RabbitMQ.
+
+
