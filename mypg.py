@@ -2526,3 +2526,14 @@ explain what "evaluates lazily" means?
 "evaluates lazily" means that each i is evaluated on demand rather than on initialization.
 http://stackoverflow.com/questions/94935/what-is-the-difference-between-range-and-xrange-functions-in-python-2-x
 """
+print "=========================================================="
+x=[1,2,3]
+y=[4,5,6]
+zipped = zip(x,y)
+print zipped
+[(1, 4), (2, 5), (3, 6)]
+x2,y2 = zip(*zipped)
+#[(1, 2, 3), (4, 5, 6)]
+print x == list(x2) and y == list(y2)
+print "=========================================================="
+
