@@ -1,0 +1,163 @@
+Rajeev
+You have one or more workers running somewhere: Do you mean workers as celery tasks? also if the tasks are taken care automatically then is there no need to run the command celery worker -A celery_test -n 1.%h & ????
+ 
+Andrea Corbellini
+Andrea Corbellini
+@Rajeev: tasks are your Python functions; workers are processes that execute such tasks as required.
+ 
+Rajeev
+Rajeev
+k sure.But are you saying we need not run this command explicitly? or why is this command run? celery worker -A celery_test -n 1.%h &
+ 
+Andrea Corbellini
+Andrea Corbellini
+@Rajeev: yes, you have to run that command: it is needed to start a worker. If you do not have a worker, who is going to execute your tasks?
+ 
+Rajeev
+Rajeev
+But again that is a manual process right? i.e, starting a worker.But after the worker completes the task the worker will still be alive right?
+ 
+Andrea Corbellini
+Andrea Corbellini
+18:39
+@Rajeev: sure. The worker will wait for tasks until you manually stop it. The role of Celery is to orchestrate workers and make them run tasks. Starting/stopping them is your duty
+hi :)
+ 
+Rajeev
+Rajeev
+Hi, sorry to bother but was desparate to understand how celery works :)
+ 
+Andrea Corbellini
+Andrea Corbellini
+yeah, no problem
+so what can I help you with specifically?
+ 
+Rajeev
+Rajeev
+In MVC fromework for example ,django, when a request comes in and we hand over a task to a worker, and in the same request if we have to provide a response which is an output of the task how will this be handled
+ 
+Andrea Corbellini
+Andrea Corbellini
+6471
+the same way: from your app (corresponding to the "client" or "browser" in django) you launch a task
+then, your task processes the input parameters (if any)
+and it returns a value
+from your "client", after launching the task, you can wait for it and get the result using the get() method
+take your tutorial: digitalocean.com/community/…
+ 
+Rajeev
+Rajeev
+k untill the tasks get completed meanwhile the client has to kept waited right?in this case
+ 
+Andrea Corbellini
+Andrea Corbellini
+18:46
+not necessarily
+you can wait for it, or you can check the result later
+ 
+Rajeev
+Rajeev
+k sure.Can i ask something out of topic but related to python
+ 
+Andrea Corbellini
+Andrea Corbellini
+sure
+ 
+Rajeev
+Rajeev
+Python is a single threaded application right
+ 
+Andrea Corbellini
+Andrea Corbellini
+no
+it supports multithreading
+[ by the way, be sure to play with the gen_prime task from the digitalocean tutorial ]
+ 
+Rajeev
+Rajeev
+but then i have looked at many posts , why do they say that threading is bad in python or being asked the question is threading supported in python
+Sure i have played with the same and have refered to the same link in the question i started
+ 
+Andrea Corbellini
+Andrea Corbellini
+6471
+18:50
+CPython comes with the Global Interpreter Lock
+this makes it impossible to run more than one thread concurrently
+but still you'll have more than a thread running
+I mean: if you start 5 threads, 1 will run and the other 4 will be idle
+unless they're doing I/O: the global interpreter lock is released for slow system calls (such as I/O related system calls)
+ 
+Rajeev
+Rajeev
+k.And does this mean that python cannot run across different processors ?
+ 
+Andrea Corbellini
+Andrea Corbellini
+6471
+Not either, as even a single-threaded application can be switched from a processor to another
+it means that if you run get_primes on two threads, the total speed will be like if you run get_primes two times on the same thread
+long story short: you can run multithreaded applications in Python. You just won't have noticeable improvements, unless you are doing I/O
+ 
+Rajeev
+Rajeev
+k. And one last question ? what is a meta class
+where is it most useful
+ 
+Andrea Corbellini
+Andrea Corbellini
+6471
+you can think of metaclasses as "class factories"
+when you do:
+
+class C(object): pass
+
+behind the scenes, this is what happening: C = type('C', (object,), {})
+type() is the default metaclass
+when you do:
+
+class C(object):
+
+    __metaclass__ = Something
+
+the following happens: C = Something('C', (object,), {})
+you can use metaclasses to customize class creation
+metaclasses are used for example to implement abstract base classes
+docs.python.org/2/library/…
+ 
+Rajeev
+Rajeev
+then so Something will again be created by type is it right?
+ 
+Andrea Corbellini
+Andrea Corbellini
+19:04
+Something may be a class (and generally it is a class), so yes: it was created by type(), and probably it inherits from type
+but in general you can use any callable
+ 
+Rajeev
+Rajeev
+k.Sure i wont bother you any more.Thanks for your time.Very nice speaking to you
+In case i have any question is there a way i can contact you either mail or some chat id ?
+ 
+Andrea Corbellini
+Andrea Corbellini
+6471
+well...
+you can contact me via corbellini.andrea@gmail.com
+however it'd be better if you just send me links to stackoverflow.com questions
+I'm not sure I have the time to answer everything
+ 
+Rajeev
+Rajeev
+sure will not bother you much only if i have very curious questions i would send a mail with the links.
+Thanks for everything
+ 
+Andrea Corbellini
+Andrea Corbellini
+have a nice day :)
+ 
+Rajeev
+Rajeev
+you too Thanks:)
+ 
