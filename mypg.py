@@ -2536,4 +2536,17 @@ x2,y2 = zip(*zipped)
 #[(1, 2, 3), (4, 5, 6)]
 print x == list(x2) and y == list(y2)
 print "=========================================================="
+sentinel = object()
 
+def foo(self, value=sentinel):
+	if value is not sentinel:
+		print "you passed something else"
+
+sentinel = []
+sentinel = {}
+
+foo(1)
+""" 
+http://stackoverflow.com/questions/13287887/using-none-as-parameter-to-keyword-argument
+"""
+print "=========================================================="
