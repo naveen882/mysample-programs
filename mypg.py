@@ -2555,5 +2555,15 @@ print os.path.abspath(__file__)
 print os.path.dirname(os.path.abspath(__file__))
 print os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 print os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+if None:
+    print "insideeee"
+else:
+    print "in elseeeee"
+
+
+if {}:
+    print "In iffffff"
+else:
+    print "in elseeeee"
 print "=========================================================="
 print "=========================================================="
