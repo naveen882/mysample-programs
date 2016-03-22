@@ -2550,3 +2550,10 @@ foo(1)
 http://stackoverflow.com/questions/13287887/using-none-as-parameter-to-keyword-argument
 """
 print "=========================================================="
+print __file__
+print os.path.abspath(__file__)
+print os.path.dirname(os.path.abspath(__file__))
+print os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+print os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+print "=========================================================="
+print "=========================================================="
