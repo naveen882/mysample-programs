@@ -2566,4 +2566,20 @@ if {}:
 else:
     print "in elseeeee"
 print "=========================================================="
+#Python lstrip() and rstrip()
+a = '        hello world!    '
+print a
+#' \t hello world!\t '
+print a.lstrip(' ')
+print repr(a.lstrip(' '))
+#'\t hello world!\t '
+print a.lstrip()
+#'hello world!\t '
+print a.rstrip(' ')
+#' \t hello world!\t'
+print a.rstrip()
+#' \t hello world!'
+print a.strip()
+#hello world!
+print "=========================================================="
 print "=========================================================="
