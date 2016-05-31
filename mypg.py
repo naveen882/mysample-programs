@@ -2582,4 +2582,10 @@ print a.rstrip()
 print a.strip()
 #hello world!
 print "=========================================================="
+"""
+Context managers are the statment which uses with ex:
+with open('a.txt') as f:  #This line will make sure that the file will be closed after the operation and even if there is an exception the outer exception will catch it and close the file before inner exception takes place
+	//do something
+"""
+print "=========================================================="
 print "=========================================================="
