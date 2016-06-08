@@ -2588,4 +2588,22 @@ with open('a.txt') as f:  #This line will make sure that the file will be closed
 	//do something
 """
 print "=========================================================="
+a = set()
+
+#Use add to append single values
+
+a.add(1)
+a.add(2)
+
+#Use update to append iterable values
+
+a.update([3,4])
+
+#Check your collection
+
+print a
+#Out[*n*]: {1, 2, 3, 4}
+print a.add.__doc__
+#'Add an element to a set.\n\nThis has no effect if the element is already present.'
+print "=========================================================="
 print "=========================================================="
