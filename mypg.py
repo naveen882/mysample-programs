@@ -2636,3 +2636,5 @@ a=[1,2,3,4,5]
 count(*l) #This is variable list argument
 #1 (2, 3, 4, 5, 6, 1, 2)
 print "=========================================================="
+#Python parallel vs concurrent programming
+print "=========================================================="
