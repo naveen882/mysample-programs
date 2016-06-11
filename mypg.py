@@ -2606,4 +2606,33 @@ print a
 print a.add.__doc__
 #'Add an element to a set.\n\nThis has no effect if the element is already present.'
 print "=========================================================="
+#Named tuple
+print "=========================================================="
+def rt(a,l=[]):
+	l.append(a)
+	return l
+
+print rt(10) # [10]
+print rt(20,[]) # [20]
+print rt(30) # [10, 30]
+print rt(40,["a","b","c"]) # [10, 30]
+print "=========================================================="
+#Best way to count the number of words in a file
+print "=========================================================="
+l=[1,2,3,None,{},(),[]]
+print len(l)
+#7
+print "=========================================================="
+import collections
+
+l=[1,2,3,4,5,6,1,2]
+print collections.Counter(l)
+#Counter({1: 2, 2: 2, 3: 1, 4: 1, 5: 1, 6: 1})
+print "=========================================================="
+def count(a,*l):
+	print a,l
+
+a=[1,2,3,4,5]
+count(*l) #This is variable list argument
+#1 (2, 3, 4, 5, 6, 1, 2)
 print "=========================================================="
