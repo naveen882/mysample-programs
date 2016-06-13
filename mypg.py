@@ -2638,3 +2638,19 @@ count(*l) #This is variable list argument
 print "=========================================================="
 #Python parallel vs concurrent programming
 print "=========================================================="
+#To count the number of words in a file
+#with open('test_readme.txt') as f:
+#	di.update({ w : (di[w]+1 if w in di else 1)  for l in f for w in l.split(' ')})
+#print di	
+#In python we cant refer to the current object i.e, dictionary in this case
+	
+#No you cant, 99% of the python is about runtime. It will define the objects in runtime, and until the end of your operations python doesn't create the di
+
+from collections import Counter
+counter = Counter()
+with open('test_readme.txt') as f:
+	for line in f:
+		counter += Counter(line.split())
+print counter
+print dict(counter)
+print "=========================================================="
