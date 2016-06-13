@@ -2607,6 +2607,22 @@ print a.add.__doc__
 #'Add an element to a set.\n\nThis has no effect if the element is already present.'
 print "=========================================================="
 #Named tuple
+#What is namedtuple ?
+
+#As the name suggests, namedtuple is a tuple with name. In standard tuple, we access the elements using the index, whereas namedtuple allows user to define name for elements. This is very handy especially processing csv (comma separated value) files and working with complex and large dataset, where the code becomes messy with the use of indices (not so pythonic).
+a=(1,'tom',2)
+b=[1,'tom',2]
+print "%s serial number name is %s and leaves at house # %s "%a #Note that the actual datatype %d or %s can be used here
+print "%d serial number name is %s and leaves at house # %d "%a #Note that the actual datatype or %s can be used here
+#We cannot use list to do the same
+#print "%d serial number name is %s and leaves at house # %d "%b #This gives an error , 
+#Instead of accessing a tuple by indexes 
+from collections import namedtuple
+Emp = namedtuple('Emp', 'id batch empno')
+t1= Emp(1,2,3)
+print t1.id
+print t1.batch
+print t1.empno
 print "=========================================================="
 def rt(a,l=[]):
 	l.append(a)
@@ -2653,4 +2669,5 @@ with open('test_readme.txt') as f:
 		counter += Counter(line.split())
 print counter
 print dict(counter)
+print "=========================================================="
 print "=========================================================="
