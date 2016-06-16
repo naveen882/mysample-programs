@@ -2670,4 +2670,25 @@ with open('test_readme.txt') as f:
 print counter
 print dict(counter)
 print "=========================================================="
+"""map(function, iterable, ...)
+Return an iterator that applies function to every item of iterable, yielding the results. If additional iterable arguments are passed, function must take that many arguments and is applied to the items from all iterables in parallel. With multiple iterables, the iterator stops when the shortest iterable is exhausted.
+"""
+"""
+The below works only on a python interpreter
+import sys
+sys.ps1
+'>>> '
+print sys.ps2
+'... '
+print sys.ps3
+  File "<stdin>", line 1, in <module>
+AttributeError: 'module' object has no attribute 'ps3'
+sys.ps1= '+++'
+#console.changes to '+++'
+"""
+"""
+***
+def Execute at Runtime
+***
+"""
 print "=========================================================="
