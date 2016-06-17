@@ -2692,3 +2692,7 @@ def Execute at Runtime
 ***
 """
 print "=========================================================="
+#The following shows the number of cpu present on the system
+import multiprocessing as m
+print m.cpu_count()
+print "=========================================================="
