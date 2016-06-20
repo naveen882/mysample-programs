@@ -2698,3 +2698,24 @@ print m.cpu_count()
 print "=========================================================="
 #******* VERY IMPORTANT READ REFER GIL.txt
 print "=========================================================="
+#https://kovshenin.com/2010/pickle-vs-json-which-is-faster/
+#JSON is faster as per the above link
+print "=========================================================="
+class Candidate(object):
+   def __init__(self, name):
+      self.name = name
+
+obj = Candidate('Python')
+print obj.__dict__
+obj.__dict__['email'] = 'in@python.org'
+print obj.__dict__
+print "=========================================================="
+output = 1<< 10 #Left shift operator
+print output
+
+#os.tempnam(dir, prefix) .Creates a  temporary file in the given directory with the file prefixed with the prefix name.see example below
+#os.tempnam('/tmp/tutorialsdir','tuts1')
+
+#/tmp/tutorialsdir/tuts1IbAco8
+
+print "=========================================================="
