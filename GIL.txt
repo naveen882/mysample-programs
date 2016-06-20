@@ -1,0 +1,44 @@
+http://stackoverflow.com/questions/31340/how-do-threads-work-in-python-and-what-are-common-python-threading-specific-pit
+http://stackoverflow.com/questions/3044580/multiprocessing-vs-threading-python
+only one thread can be running at once, and the active thread switches every 10 instructions or so
+Experienced parallel programmers will know the difference between a process and a thread is that the process has its own state, while threads share their state with other threads.  Hence a thread can reach out and touch the other thread’s objects.  Python is making sure that when that touch happens, only one thread can touch at a time.  Processes don’t have this problem because their communication is carefully controlled and every process has its own objects.
+Threads run inside the same virtual machine, and hence run on the same physical machine.  Processes can run on the same physical machine or in another physical machine.  If you architect your application around threads, you’ve done nothing to access multiple machines.  So, you can scale to as many cores are on the single machine (which will be quite a few over time), but to really reach web scales, you’ll need to solve the multiple machine problem anyway.
+ In theory, threads are lighter weight and they can perform better than a process
+The threading module uses threads, the multiprocessing uses processes. The difference is that threads run in the same memory space, while processes have separate memory. This makes it a bit harder to share objects between processes with multiprocessing. Since threads use the same memory, precautions have to be taken or two threads will write to the same memory at the same time. This is what the global interpreter lock is for.
+Spawning processes is a bit slower than spawning threads. Once they are running, there is not much difference.
+Process is mostly costlier because it runs in its own memory space and kepp building a heap
+
+
+Here are some pros/cons I came up with.
+
+Multiprocessing
+
+Pros
+
+Separate memory space
+Code is usually straightforward
+Takes advantage of multiple CPUs & cores
+Avoids GIL limitations for cPython
+Eliminates most needs for synchronization primitives unless if you use shared memory (instead, it's more of a communication model for IPC)
+Child processes are interruptible/killable
+Python multiprocessing module includes useful abstractions with an interface much like threading.Thread
+A must with cPython for CPU-bound processing
+Cons
+
+IPC a little more complicated with more overhead (communication model vs. shared memory/objects)
+Larger memory footprint
+Threading
+
+Pros
+
+Lightweight - low memory footprint
+Shared memory - makes access to state from another context easier
+Allows you to easily make responsive UIs
+cPython C extension modules that properly release the GIL will run in parallel
+Great option for I/O-bound applications
+Cons
+
+cPython - subject to the GIL
+Not interruptible/killable
+If not following a command queue/message pump model (using the Queue module), then manual use of synchronization primitives become a necessity (decisions are needed for the granularity of locking)
+Code is usually harder to understand and to get right - the potential for race conditions increases dramatically
