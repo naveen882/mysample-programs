@@ -7,7 +7,9 @@ Threads run inside the same virtual machine, and hence run on the same physical 
 The threading module uses threads, the multiprocessing uses processes. The difference is that threads run in the same memory space, while processes have separate memory. This makes it a bit harder to share objects between processes with multiprocessing. Since threads use the same memory, precautions have to be taken or two threads will write to the same memory at the same time. This is what the global interpreter lock is for.
 Spawning processes is a bit slower than spawning threads. Once they are running, there is not much difference.
 Process is mostly costlier because it runs in its own memory space and kepp building a heap
-
+********
+The GIL is an interpreter-level lock. This lock prevents execution of multiple threads at once in the Python interpreter. Each thread that wants to run must wait for the GIL to be released by the other thread, which means your multi-threaded Python application is essentially single threaded, right? Yes. Not exactly. Sort of.
+********
 
 Here are some pros/cons I came up with.
 
