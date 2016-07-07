@@ -1,4 +1,7 @@
 """
+Suppose we have a class called Math then nobody will want to create object of class Math and then invoke methods like ceil and floor and fabs on it.( >> Math.floor(3.14))
+
+So we make them static.
 
 One would use @classmethod when he/she would want to change the behaviour of the method based on which subclass is calling the method. remember we have a reference to the calling class in a class method.
 
@@ -84,3 +87,30 @@ b.all_return_same()
 b.all_return_different()
 B.all_return_same()
 B.all_return_different()
+print "============================================================================"
+"""
+static methods are best used when you want to call the class functions without creating the class object
+
+"""
+class  A(object):
+    @staticmethod
+    def r1():
+            print "In r1"
+
+print A.r1()
+#In r1
+a=A()
+a.r1()
+#In r1
+class  A(object):
+    def r1(self):
+            print "In r1"
+
+"""
+print A.r1()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: unbound method r1() must be called with A instance as first argument (got nothing instead)
+"""
+
+
