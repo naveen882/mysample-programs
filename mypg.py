@@ -2738,3 +2738,186 @@ if num > 1:
 else:
    print(num,"is not a prime number")
 print "=========================================================="
+print r"\nwoow"
+"""
+the text exactly like this: r"\nwoow"
+When prefixed with the letter 'r' or 'R' a string literal becomes a raw string and the escape sequences such as \n are not converted.
+"""
+
+print "\x48\x49!"
+"""
+HI!
+description:
+\\x is an escape sequence that means the following 2 digits are a hexadicmal number encoding a character.
+"""
+
+print "hello" 'world'
+#helloworld
+class Person:
+	def __init__(self, id):
+		self.id = id
+p =Person(1)
+print p.__dict__
+#{'id': 1}
+p.__dict__['age']=2
+print p.__dict__
+#{'age': 2, 'id': 1}
+"""
+What does the code below do?
+
+sys.path.append('/root/mods')
+
+    Adds a new directory to seach for python modules that are imported - correct
+rocesses are searched for after they are launched
+
+description:
+The list sys.path contains, in order, all the directories to be searched when trying to load a module
+
+"""
+
+"""
+Question #45: What gets printed?
+
+confusion = {}
+confusion[1] = 1
+confusion['1'] = 2
+confusion[1.0] = 4
+
+sum = 0
+for k in confusion:
+    sum += confusion[k]
+
+print sum
+
+    6 - correct
+
+description:
+Note from python docs: "if two numbers compare equal (such as 1 and 1.0) then they can be used interchangeably to index the same dictionary entry. (Note however, that since computers store floating-point numbers as approximations it is usually unwise to use them as dictionary keys.)"
+"""
+
+
+"""
+Question #50: What gets printed?
+
+names = ['Amir', 'Barry', 'Chales', 'Dao']
+print names[-1][-1]
+
+    o - correct
+
+description:
+-1 refers to the last position in a list or the last character in a string. In this case, we are referencing the last character in the last string in the list.
+"""
+"""
+Question #61: What gets printed in the below?
+"""
+def print_header(str):
+    print "+++%s+++" % str
+
+
+print_header.category = 1
+print_header.text = "some info"
+
+print_header("%d %s" %(print_header.category, print_header.text))
+
+#    +++1 some info+++ - correct
+
+#description:
+#As of python 2.1 you could assign arbitrary typed information to functions.
+
+
+"""
+class NumFactory:
+    def __init__(self, n):
+        self.val = n
+    def timesTwo(self):
+        self.val *= 2
+    def plusTwo(self):
+        self.val += 2
+
+f = NumFactory(2)
+for m in dir(f):
+    mthd = getattr(f,m)
+    if callable(mthd):
+        mthd()
+
+print f.val
+
+    An exception is thrown - correct
+
+description:
+An exception will be thrown when trying to call the __init__ method of the object without any parameters: TypeError: __init__() takes exactly 2 arguments (1 given)
+"""
+
+
+"""
+Question #75: What gets printed?
+
+kvps = { '1' : 1, '2' : 2 }
+theCopy = kvps.copy()
+
+kvps['1'] = 5
+
+sum = kvps['1'] + theCopy['1']
+print sum
+
+    1
+    2
+    6 - correct
+    10
+    An exception is thrown
+
+description:
+The copy method of the dictionary will make a new (shallow) copy of the dictionary so a change to the original in this case does not change the copy.
+Question #76: What gets printed
+
+aList = [1,2]
+bList = [3,4]
+
+kvps = { '1' : aList, '2' : bList }
+theCopy = kvps.copy()
+
+kvps['1'][0] = 5
+
+sum = kvps['1'][0] + theCopy['1'][0]
+print sum
+
+    10 - correct
+    An exception is thrown
+
+description:
+The copy method provides a shallow copy therefore the list being held as the value inside the dictionary is the same list in the copy as the original.
+Question #77: What gets printed?
+
+import copy
+
+aList = [1,2]
+bList = [3,4]
+
+kvps = { '1' : aList, '2' : bList }
+theCopy = copy.deepcopy(kvps)
+
+kvps['1'][0] = 5
+
+sum = kvps['1'][0] + theCopy['1'][0]
+print sum
+
+    6 - correct
+
+description:
+A deep copy will copy all the keys and values inside a dictionary. Therefore the list inside the dictionary are different in the first and second dictionaries of this example.
+Question #78: What gets printed?
+
+kvps = { '1' : 1, '2' : 2 }
+theCopy = dict(kvps)
+
+kvps['1'] = 5
+
+sum = kvps['1'] + theCopy['1']
+print sum
+
+    6 - correct
+
+description:
+Creating a new dictionary object initialized from the first does a 'shallow copy'
+"""
+print "=========================================================="
