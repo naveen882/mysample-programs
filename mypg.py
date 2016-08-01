@@ -2921,3 +2921,5 @@ description:
 Creating a new dictionary object initialized from the first does a 'shallow copy'
 """
 print "=========================================================="
+print [2,3,4]*3
+#[2, 3, 4, 2, 3, 4, 2, 3, 4]
