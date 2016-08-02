@@ -2923,3 +2923,12 @@ Creating a new dictionary object initialized from the first does a 'shallow copy
 print "=========================================================="
 print [2,3,4]*3
 #[2, 3, 4, 2, 3, 4, 2, 3, 4]
+print "=========================================================="
+def rt(a,b,c=set()):
+	print a,b,c
+	if len(c)>0:
+		print "hi"
+
+rt(1,2,(1,3))
+rt(1,2)
+print "=========================================================="
