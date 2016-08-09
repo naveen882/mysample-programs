@@ -1,5 +1,6 @@
 """
 The asyncio module provides tools for building concurrent applications using coroutines. While the threading module implements concurrency through application threads and multiprocessing implements concurrency using system processes, asyncio uses a single-threaded, single-process approach in which parts of an application cooperate to switch tasks explicitly at optimal times. Most often this context switching occurs when the program would otherwise block waiting to read or write data, but asyncio also includes support for scheduling code to run at a specific future time, to enable one coroutine to wait for another to complete, for handling system signals, and for recognizing other events that may be reasons for an application to change what it is working on.
+https://pymotw.com/3/asyncio
 """
 import asyncio
 import time
