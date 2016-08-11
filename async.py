@@ -279,5 +279,106 @@ try:
 	task = event_loop.run_until_complete(starter())
 finally:
 	print('Closing event loop')
-	event_loop.close()
+	#event_loop.close()
 
+print("=================Waiting for Multiple Coroutines==================")
+async def phase(i):
+	print('in phase {}'.format(i))
+	await asyncio.sleep(0.1 * i)
+	print('done with phase {}'.format(i))
+	return 'phase {} result'.format(i)
+
+async def main(num_phases):
+	print('starting main')
+	phases= [phase(i) for i in range(num_phases)]
+	print('Waiting for phases to complete')
+	completed,pending = await asyncio.wait(phases)
+	results = [t.result() for t in completed]
+	print('results:{!r}'.format(results))
+
+event_loop = asyncio.get_event_loop()
+try:
+	event_loop.run_until_complete(main(3))
+finally:
+	print('Closing event loop')
+	#event_loop.close()
+print("=================Waiting for Multiple Coroutines =>cancelled & pending task==================")
+async def phase(i):
+	print('in phase {}'.format(i))
+	try:
+		await asyncio.sleep(0.1 * i)
+	except asyncio.CancelledError:
+		print('phase {} cancelled'.format(i))
+		raise
+	else:
+		print('done with phase {}'.format(i))
+		return 'phase {} result'.format(i)
+
+async def main(num_phases):
+	print('starting main')
+	phases= [phase(i) for i in range(num_phases)]
+	print('Waiting 0.1 for phases to complete')
+	completed,pending = await asyncio.wait(phases,timeout=0.1)
+	print('{} completed and {} pending'.format(len(completed),len(pending),))
+	if pending:
+		print('Cancelling tasks')
+		for t in pending:
+			t.cancel()
+	print('exiting main')
+
+event_loop = asyncio.get_event_loop()
+try:
+	event_loop.run_until_complete(main(3))
+finally:
+	print('Closing event loop')
+	#event_loop.close()
+print("=================Gathering Results from Coroutines==================")
+async def phase1():
+	print('in phase1')
+	await asyncio.sleep(2)
+	print('done with phase1')
+	return 'phase1 result'
+
+async def phase2():
+	print('in phase2')
+	await asyncio.sleep(1)
+	print('done with phase2')
+	return 'phase2 result'
+
+async def main():
+	print('starting main')
+	print('Waiting for phases to complete')
+	results = await asyncio.gather(phase1(),phase2(),)
+	print('results: {!r}'.format(results))
+
+event_loop = asyncio.get_event_loop()
+try:
+	event_loop.run_until_complete(main())
+finally:
+	print('Closing event loop')
+	#event_loop.close()
+print("=================Handling Background Operations as They Finish==================")
+async def phase1(i):
+	print('in phase1')
+	await asyncio.sleep(0.5 - (0.1 * i))
+	print('done with phase {}'.format(i))
+	return 'phase {} result'.format(i)
+
+async def main(num_phases):
+	print('starting main')
+	phases= [phase(i) for i in range(num_phases)]
+	print('Waiting for phases to complete')
+	results = []
+	for next_to_complete in asyncio.as_completed(phases):
+		answer = await next_to_complete
+		print('received answer {!r}'.format(answer))
+		results.append(answer)
+	print('results: {!r}'.format(results))
+	return results
+
+event_loop = asyncio.get_event_loop()
+try:
+	event_loop.run_until_complete(main(3))
+finally:
+	print('Closing event loop')
+	event_loop.close()
