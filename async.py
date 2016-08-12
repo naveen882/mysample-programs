@@ -381,4 +381,179 @@ try:
 	event_loop.run_until_complete(main(3))
 finally:
 	print('Closing event loop')
+	#event_loop.close()
+print("=================Synchronization Primitives - Locks==================")
+def unlock(lock):
+	print('Callback releasing lock')
+	lock.release()
+
+async def coro1(lock):
+	print('Coro1 waiting for the lock')
+	with await lock:
+		print('corol lock acquired')
+	print('Corol released lock')
+
+async def coro2(lock):
+	print('Coro2 waiting for the lock')
+	await lock
+	try:
+		print('coro2 lock acquired')
+	finally:
+		print('Coro2 released lock')
+		lock.release()
+
+event_loop = asyncio.get_event_loop()
+try:
+	#create and acquired a shared lock
+	lock = asyncio.Lock()
+	print('Acquiring the lock before starting coroutines')
+	event_loop.run_until_complete(lock.acquire())
+	print('lock acquired: {}'.format(lock.locked()))
+	#schedule a callback to unlock the lock
+	event_loop.call_later(0.1,functools.partial(unlock,lock))
+	#Run the coroutines that want to use the lock
+	print('Entering event loop')
+	event_loop.run_until_complete(asyncio.wait([coro1(lock),coro2(lock)]),)
+	print('Exited event loop')
+	print('lock status: {}'.format(lock.locked()))
+finally:
+	print('Closing event loop')
+	#event_loop.close()
+print("=================Synchronization Primitives - Events==================")
+def set_event(event):
+	print('setting event in callback')
+	event.set()
+
+async def coro1(lock):
+	print('Coro1 waiting for event')
+	await event.wait()
+	print('Coro1 triggered')
+
+async def coro2(lock):
+	print('Coro2 waiting for event')
+	await event.wait()
+	print('Coro2 triggered')
+event_loop = asyncio.get_event_loop()
+try:
+	#create and acquired a shared lock
+	event = asyncio.Event()
+	print('event state:{}'.format(event.is_set()))
+	event_loop.call_later(0.1,functools.partial(set_event,event))
+	print('Entering event loop')
+	event_loop.run_until_complete(asyncio.wait([coro1(event),coro2(event)]),)
+	print('Exited event loop')
+	print('event status: {}'.format(lock.locked()))
+finally:
+	print('Closing event loop')
+	#event_loop.close()
+print("=================Synchronization Primitives - Conditions==================")
+async def consumer(condition,n):
+	with await condition:
+		print('Consumer {} is awaiting'.format(n))
+		await condition.wait()
+		print('consumer {} triggered'.format(n))
+	print('ending consumer {}'.format(n))
+
+async def manipulate_condition(condition):
+	print('starting manipulate condition')
+	await asyncio.sleep(0.1)
+	for i in range(1,3):
+		with await condition:
+			print('notifying {}'.format(i))
+			condition.notify(n=i)
+		await asyncio.sleep(0.1)
+	with await condition:
+		print('notifying remaining')
+		condition.notify_all()
+	print('ending manipulate condition')
+	
+event_loop = asyncio.get_event_loop()
+try:
+	#create and acquired a shared lock
+	condition= asyncio.Condition()
+	consumers = [ consumer(condition,i) for i in range(5)]
+	event_loop.create_task(manipulate_condition(condition))
+	print('Entering event loop')
+	event_loop.run_until_complete(asyncio.wait(consumers),)
+	print('Exited event loop')
+finally:
+	print('Closing event loop')
+	#event_loop.close()
+print("=================Synchronization Primitives - Conditions==================")
+async def consumer(condition,n):
+	with await condition:
+		print('Consumer {} is awaiting'.format(n))
+		await condition.wait()
+		print('consumer {} triggered'.format(n))
+	print('ending consumer {}'.format(n))
+
+async def manipulate_condition(condition):
+	print('starting manipulate condition')
+	await asyncio.sleep(0.1)
+	for i in range(1,3):
+		with await condition:
+			print('notifying {}'.format(i))
+			condition.notify(n=i)
+		await asyncio.sleep(0.1)
+	with await condition:
+		print('notifying remaining')
+		condition.notify_all()
+	print('ending manipulate condition')
+	
+event_loop = asyncio.get_event_loop()
+try:
+	#create and acquired a shared lock
+	condition= asyncio.Condition()
+	consumers = [ consumer(condition,i) for i in range(5)]
+	event_loop.create_task(manipulate_condition(condition))
+	print('Entering event loop')
+	event_loop.run_until_complete(asyncio.wait(consumers),)
+	print('Exited event loop')
+finally:
+	print('Closing event loop')
+	#event_loop.close()
+print("=================Synchronization Primitives - Queue==================")
+async def consumer(n,q):
+	print('consumer {}:starting'.format(n))
+	while True:
+		print('Consumer {}:Waiting for Item'.format(n))
+		item =await q.get()
+		print('Conssumer {}: has item{}'.format(n,item))
+		if item is None:
+			q.task_done()
+			break
+		else:
+			await asyncio.sleep(0.01*item)
+			q.task_done()
+	print('consumer {}:ending'.format(n))
+
+async def producer(q,num_workers):
+	print('producer: starting')
+	#Add some numbers to the queue to simulate jobs
+	for i in range(num_workers * 3):
+		await q.put(i)	
+		print('producer: added task {} to the queue'.format(i))
+	#Add none entries on ther queue
+	#to signal the consumers to exit
+	print('producer:asssing stop signals to the queue')
+	for i in range(num_workers):
+		await q.put(None)
+	print('producer:waiting for queue to empty')
+	await q.join()
+	print('producer ending')
+
+event_loop = asyncio.get_event_loop()
+try:
+	num_consumers = 2
+	#create the queue with a fixed size so the producer will block until the consumers pull some items out
+	q= asyncio.Queue(maxsize=num_consumers)
+	#scheduled the consumer tasks
+	consumers = [ event_loop.create_task(consumer(i,q)) for i in range(num_consumers)]
+	prod = event_loop.create_task(producer(q,num_consumers))
+	#wait for all of the coroutines to finish
+	print('Entering event loop')
+	event_loop.run_until_complete(asyncio.wait(consumers +[prod]),)
+	print('Exited event loop')
+finally:
+	print('Closing event loop')
 	event_loop.close()
