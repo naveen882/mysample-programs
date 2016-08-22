@@ -13,6 +13,8 @@ import functools
 import socket 
 import sys
 import logging
+import os
+import signal
 
 #@asyncio.coroutine decorator for version < 3.5
 #async def coroutine(): python 3.5
@@ -586,6 +588,40 @@ try:
 		info = event_loop.run_until_complete(event_loop.getnameinfo(target))
 		#print(info)
 		print('{:15}: {} {}'.format(target[0],*info))
+finally:
+	print('Closing event loop')
+	#event_loop.close()
+print("=================Receiving signals==================")
+def signal_handler(name):
+		print('signal_handler({!r})'.format(name))
+
+
+event_loop = asyncio.get_event_loop()
+try:
+	event_loop.add_signal_handler(signal.SIGHUP,functools.partial(signal_handler,'SIGHUP'),)
+	event_loop.add_signal_handler(signal.SIGUSR1,functools.partial(signal_handler,'SIGUSR1'),)
+	event_loop.add_signal_handler(signal.SIGINT,functools.partial(signal_handler,'SIGINT'),)
+finally:
+	print('Closing event loop')
+	#event_loop.close()
+print("=================Sending signals==================")
+async def send_signals():
+	pid = os.getpid()
+	print('starting sending signals for {}'.format(pid))
+	await asyncio.sleep(5)
+
+	for name in ['SIGHUP','SIGHUP','SIGUSR1','SIGINT']:
+		print('sending {}'.format(name))
+		os.kill(pid,getattr(signal,name))
+		#yield control to allow the signal handler to run,
+		#since the signal does not interrupt the program flow otherwise
+		print('Yielding control')
+		await asyncio.sleep(0.01)
+	return
+
+event_loop = asyncio.get_event_loop()
+try:
+	event_loop.run_until_complete(send_signals())	
 finally:
 	print('Closing event loop')
 	event_loop.close()
