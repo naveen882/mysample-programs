@@ -2,9 +2,17 @@
 The asyncio module provides tools for building concurrent applications using coroutines. While the threading module implements concurrency through application threads and multiprocessing implements concurrency using system processes, asyncio uses a single-threaded, single-process approach in which parts of an application cooperate to switch tasks explicitly at optimal times. Most often this context switching occurs when the program would otherwise block waiting to read or write data, but asyncio also includes support for scheduling code to run at a specific future time, to enable one coroutine to wait for another to complete, for handling system signals, and for recognizing other events that may be reasons for an application to change what it is working on.
 https://pymotw.com/3/asyncio
 """
+"""
+what is event loop?
+
+Event loop "is a programming construct that waits for and dispatches events or messages in a program". Basically an event loop lets you go, "when A happens, do B". 
+"""
 import asyncio
 import time
 import functools
+import socket 
+import sys
+import logging
 
 #@asyncio.coroutine decorator for version < 3.5
 #async def coroutine(): python 3.5
@@ -554,6 +562,30 @@ try:
 	print('Entering event loop')
 	event_loop.run_until_complete(asyncio.wait(consumers +[prod]),)
 	print('Exited event loop')
+finally:
+	print('Closing event loop')
+	#event_loop.close()
+print("=================Interacting with Domain Name Services==================")
+targets = [('pymotw.com', 'https'), ('doughellmann.com', 'https'), ('python.org', 'https'),]
+event_loop = asyncio.get_event_loop()
+try:
+	for target in targets:
+		info = event_loop.run_until_complete(event_loop.getaddrinfo(*target,proto=socket.IPPROTO_TCP,))
+	for host in info:
+		print(host)
+		print('{:20}: {}'.format(target[0],host[4][0]))
+finally:
+	print('Closing event loop')
+	#event_loop.close()
+print("=================Name Lookup by Address==================")
+targets = [ ('66.33.211.242', 443), ('104.130.43.121', 443), ]
+
+event_loop = asyncio.get_event_loop()
+try:
+	for target in targets:
+		info = event_loop.run_until_complete(event_loop.getnameinfo(target))
+		#print(info)
+		print('{:15}: {} {}'.format(target[0],*info))
 finally:
 	print('Closing event loop')
 	event_loop.close()
