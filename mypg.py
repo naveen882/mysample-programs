@@ -73,6 +73,9 @@ something()
 print something.counter #Magic/Trick is function can access class variables
 something()
 print something.counter #Magic/Trick is function can access class variables
+#### OR ######
+#s=something
+#print s.counter
 print "=========================================="
 #combining two lists into one
 
@@ -230,6 +233,10 @@ print "Values outside the function: ", mylist
 #Default arguments
 #
 #Variable-length arguments
+######################################Inference###########################
+# from the above we see that a list passes can only be changed by list operations and not by assinging new list
+#tuples cannot be changed
+#integer cannot be changed
 
 print "=========================================="
 #Inverting a dictionary using a dictionary comprehension
