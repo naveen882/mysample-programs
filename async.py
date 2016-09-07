@@ -6,6 +6,10 @@ https://pymotw.com/3/asyncio
 what is event loop?
 
 Event loop "is a programming construct that waits for and dispatches events or messages in a program". Basically an event loop lets you go, "when A happens, do B". 
+
+what is a coroutine?
+
+An asynchronous function in Python is typically called a 'coroutine', which is just a function that uses the async keyword, or one that is decorated with @asyncio.coroutine. 
 """
 import asyncio
 import time
