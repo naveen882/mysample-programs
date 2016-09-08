@@ -2662,8 +2662,12 @@ print "=========================================================="
 #Python parallel vs concurrent programming
 print "=========================================================="
 #To count the number of words in a file
-#with open('test_readme.txt') as f:
-#	di.update({ w : (di[w]+1 if w in di else 1)  for l in f for w in l.split(' ')})
+print "++++++++++++++++++++++++++++++++++"
+os.system("echo 'this is a test file used for testing and  this file file is only for testing' > /tmp/a.txt")
+with open('/tmp/a.txt') as f:
+	di.update({ w : (di[w]+1 if w in di else 1)  for l in f for w in l.split(' ')})
+print di
+print "++++++++++++++++++++++++++++++++++"
 #print di	
 #In python we cant refer to the current object i.e, dictionary in this case
 	
