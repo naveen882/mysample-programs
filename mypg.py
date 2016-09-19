@@ -2964,3 +2964,58 @@ print "=========================================================="
 """
 
 print "=========================================================="
+"""
+>>> Jan = Mar = May = range(1, 32)
+>>> Jan
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
+>>> Mar
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
+>>> May
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
+"""
+print "=========================================================="
+def bool_to_str(value):
+	"""value should be a bool"""
+	if value: #This is just to avoid None condition
+		print "12345"
+		print value
+		return ['No', 'Yes'][value]
+
+print bool_to_str(True) #Prints Yes
+print bool_to_str(False) #Prints No
+print bool_to_str(None) #Prints None
+#False is 0 and True is 1
+print "=========================================================="
+"""
+The assert statement exists in almost every programming language. When you do...
+
+assert condition
+************************very important******************
+... you're telling the program to test that condition, and trigger an error if the condition is false.
+******************************************
+
+In Python, it's roughly equivalent to this:
+
+if not condition:
+    raise AssertionError()
+
+Try it in the Python shell:
+
+>>> assert True
+>>> assert False
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AssertionError
+
+"""
+print "=========================================================="
+"""
+How is memory managed in python?
+- Memory management in Python involves a private heap containing all Python objects and data structures. Interpreter takes care of Python heap and that the programmer has no access to it.
+- The allocation of heap space for Python objects is done by Python memory manager. The core API of Python provides some tools for the programmer to code reliable and more robust program.
+- Python also has a build-in garbage collector which recycles all the unused memory. When an object is no longer referenced by the program, the heap space it occupies can be freed. The garbage collector determines objects which are no longer referenced by the sprogram frees the occupied memory and make it available to the heap space.
+- The gc module defines functions to enable /disable garbage collector:
+gc.enable() -Enables automatic garbage collection.
+gc.disable() - Disables automatic garbage collection.
+"""
+print "=========================================================="
