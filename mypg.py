@@ -3187,6 +3187,7 @@ Use _one_underline to mark you methods as not part of the API. Use __two_underli
 
 print "=========================================================="
 """
+FYI
 In python 3 functions can be defined as >>> def foo((x1, y1: expression), (x2: expression, y2: expression)=(None, None)):
 
 """
