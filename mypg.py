@@ -3019,3 +3019,190 @@ gc.enable() -Enables automatic garbage collection.
 gc.disable() - Disables automatic garbage collection.
 """
 print "=========================================================="
+"""
+********Very important************
+Difference between _, __ and __xx__ in Python
+
+One underline in the beginning
+
+Python doesn't have real private methods in classes and modules, so one underline in the beginning of a method or attribute means you shouldn't access this method, because it's not part of the API. It's very common when using properties:
+
+Two underlines in the beginning
+
+
+This one causes a lot of confusion. It should not be used to mark a method as private, the goal here is to avoid your method to be overridden by a subclass. Let's see an example:
+
+
+class A(object):
+    def __method(self):
+        print "I'm a method in A"
+
+
+
+def method(self):
+    self.__method()
+
+
+
+a = A()
+a.method()
+
+
+
+The output here is
+
+
+$ python example.py 
+I'm a method in A
+
+
+
+Fine, as we expected. Now let's subclass A and customize __method
+
+
+class B(A):
+    def __method(self):
+        print "I'm a method in B"
+
+
+
+b = B()
+b.method()
+
+
+
+and now the output is...
+
+
+$ python example.py
+I'm a method in A
+
+
+
+as you can see, A.method() didn't call B.__method() as we could expect. Actually this is the correct behavior for __. So when you create a method starting with __ you're saying that you don't want anybody to override it, it will be accessible just from inside the own class.
+
+
+How python does it? Simple, it just renames the method. Take a look:
+
+
+a = A()
+a._A__method()  # never use this!! please!
+
+
+
+$ python example.py
+I'm a method in A
+
+
+
+If you try to access a.__method() it won't work either, as I said, __method is just accessible inside the class itself.
+
+
+Two underlines in the beginning and in the end
+
+
+When you see a method like __this__, the rule is simple: don't call it. Why? Because it means it's a method python calls, not you. Take a look:
+
+
+>>> name = "igor"
+>>> name.len()
+4
+>>> len(name)
+4
+
+
+
+>>> number = 10
+>>> number.add(20)
+30
+>>> number + 20
+30
+
+
+
+There is always an operator or native function that calls these magic methods. The idea here is to give you the ability to override operators in your own classes. Sometimes it's just a hook python calls in specific situations. __init__(), for example, is called when the object is created so you can initialize it. __new__() is called to build the instance, and so on...
+
+
+Here's an example:
+
+
+class CrazyNumber(object):
+
+
+
+def __init__(self, n):
+    self.n = n
+
+def __add__(self, other):
+    return self.n - other
+
+def __sub__(self, other):
+    return self.n + other
+
+def __str__(self):
+    return str(self.n)
+
+
+
+num = CrazyNumber(10)
+print num           # 10
+print num + 5       # 5
+print num - 20      # 30
+
+
+
+Another example:
+
+
+class Room(object):
+
+
+
+def __init__(self):
+    self.people = []
+
+def add(self, person):
+    self.people.append(person)
+
+def __len__(self):
+    return len(self.people)
+
+
+
+room = Room()
+room.add("Igor")
+print len(room)     # 1
+
+
+
+The documentation covers all these special methods.
+
+
+Conclusion
+
+
+Use _one_underline to mark you methods as not part of the API. Use __two_underlines__ when you're creating objects to look like native python objects or you wan't to customize behavior in specific situations. And don't use __just_to_underlines, unless you really know what you're doing!
+"""
+
+
+print "=========================================================="
+"""
+In python 3 functions can be defined as >>> def foo((x1, y1: expression), (x2: expression, y2: expression)=(None, None)):
+
+"""
+
+print "=========================================================="
+
+"""
+In python 3 only functions can be defined as below ,but it is not mandatory but it is done because the user can call functions with proper type praameters http://stackoverflow.com/questions/39698290/python-3-x-what-is-annotation
+ def g() -> str :
+    ...
+    return 'hello world'
+-> is an annotation[https://www.python.org/dev/peps/pep-3107/], attached to the function return value. Annotations are optional, but you can use the syntax to attach arbitrary objects to a function. You can attach more annotations by using name : annotation on the parameters too.
+
+In the sample you gave, it is being used to create a type hint. Type hinting is a new Python 3 extension. It is not mandatory, but using type hints can make development in an IDE like PyCharm easier, as well as enable static typechecking by tools like mypy.
+
+See the typing module[https://docs.python.org/3/library/typing.html] for a set of objects to help create type hints, and the PEP 484 Type Hints proposal.
+
+"""
+print "=========================================================="
