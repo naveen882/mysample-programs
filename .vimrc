@@ -92,3 +92,14 @@ autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
 set laststatus=2
 set statusline=%<%f%h%m%r%=%b\ 0x%B\ \ %l,%c%V\ %P
 "set statusline=%f "tail of the filename
+
+if &t_Co >= 256 || has("gui_running")
+	    colorscheme mustang
+endif
+
+if &t_Co > 2 || has("gui_running")
+	 " switch syntax highlighting on, when the terminal has colors
+     syntax on
+endif
+
+"set mouse=a
