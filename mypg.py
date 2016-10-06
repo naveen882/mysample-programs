@@ -3285,3 +3285,69 @@ tail = {'y': 2, 'z': 3}
 
 """
 print "=========================================================="
+"""
+Python 2
+>>> True, False = False, True
+>>> True
+False
+>>> False
+True
+
+Python 3
+>>> True, False = False, True
+  File "<stdin>", line 1
+  SyntaxError: can't assign to keyword
+
+
+  Python 2.x2.7
+
+  print "Hello World"
+  print                         # print a newline
+  print "No newline",           # add trailing comma to remove newline 
+  print >>sys.stderr, "Error"   # print to stderr
+  print("hello")                # print "hello", since ("hello") == "hello"
+  print()                       # print an empty tuple "()"
+  print 1, 2, 3                 # print space-separated arguments: "1 2 3"
+  print(1, 2, 3)                # print tuple "(1, 2, 3)"
+
+  In Python 3, print() is a function, with keyword arguments for common uses:
+      Python 3.x3.0
+
+      print "Hello World"              # SyntaxError
+      print("Hello World")
+      print()                          # print a newline (must use parentheses)
+      print("No newline", end="")      # end specifies what to append (defaults to newline)
+      print("Error", file=sys.stderr)  # file specifies the output buffer
+      print("Comma", "separated", "output", sep=",")  # sep specifies the separator
+      print("A", "B", "C", sep="")     # null string for sep: prints as ABC
+      print("Flush this", flush=True)  # flush the output buffer, added in Python 3.3
+      print(1, 2, 3)                   # print space-separated arguments: "1 2 3"
+      print((1, 2, 3))                 # print tuple "(1, 2, 3)"
+
+
+      Leaked variables in list comprehension
+      Python 2.x2.3
+
+      x = 'hello world!'
+      vowels = [x for x in 'AEIOU'] 
+
+      print (vowels)
+      # Out: ['A', 'E', 'I', 'O', 'U']
+      print(x)
+      # Out: 'U'   
+
+      Python 3.x3.0
+
+      x = 'hello world!'
+      vowels = [x for x in 'AEIOU']
+
+      print (vowels)
+      # Out: ['A', 'E', 'I', 'O', 'U']
+      print(x)
+      # Out: 'hello world!'
+
+
+
+
+"""
+print "=========================================================="
