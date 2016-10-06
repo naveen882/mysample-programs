@@ -3216,3 +3216,27 @@ computer programming to defer initialization of an object until the point at whi
 
 """
 print "=========================================================="
+
+"""
+what is @property decorator
+
+One simple use case will be to set a read only instance attribute , as you know leading a variable
+name with one underscore _x in python usually mean it's private (internal use) but sometimes we want
+to be able to read the instance attribute and not to write it so we can use property for this:
+
+class C(object):
+    def __init__(self, x):
+        self._x = x
+
+    @property
+    def x(self):
+        return self._x
+
+c = C(1)
+print c.x
+#1
+c.x = 2
+AttributeError        Traceback (most recent call last)
+AttributeError: can't set attribute
+"""
+print "=========================================================="
