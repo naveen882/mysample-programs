@@ -3351,3 +3351,12 @@ Python 3
 
 """
 print "=========================================================="
+#finding out which version of python
+import sys
+py2 = sys.version_info < (3,)
+py3 =not py2
+print py3
+#False
+print py2
+#True
+print "=========================================================="
