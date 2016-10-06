@@ -3207,3 +3207,12 @@ See the typing module[https://docs.python.org/3/library/typing.html] for a set o
 
 """
 print "=========================================================="
+"""
+what is lazy loading
+
+Lazy loading is a design pattern commonly used in computer programming to defer initialization of an
+object until the point at which it is needed.Lazy loading is a design pattern commonly used in
+computer programming to defer initialization of an object until the point at which it is needed
+
+"""
+print "=========================================================="
