@@ -3240,3 +3240,48 @@ AttributeError        Traceback (most recent call last)
 AttributeError: can't set attribute
 """
 print "=========================================================="
+"""
+python 3 only
+
+first, second, *tail, last = [1, 2, 3, 4, 5]
+print(first)
+# Out: 1
+print(second)
+# Out: 2
+print(tail)
+# Out: [3, 4]
+print(last)
+# Out: 5
+first, second, *tail, last = [1, 2, 3, 4]
+print(tail)
+# Out: [3]
+
+first, second, *tail, last = [1, 2, 3]
+print(tail)
+# Out: []
+print(last)
+# Out: 3
+begin, *tail = "Hello"
+print(begin)
+# Out: 'H'
+print(tail)
+# Out: ['e', 'l', 'l', 'o']
+*head, *tail = [1, 2]
+# Out: SyntaxError: two starred expressions in assignment
+{*range(4), 4, *(5, 6, 7)}
+# Out: {0, 1, 2, 3, 4, 5, 6, 7}
+iterable = [1, 2, 3, 4, 5]
+print(iterable)
+# Out: [1, 2, 3, 4, 5]
+print(*iterable)
+# Out: 1 2 3 4 5
+tail = {'y': 2, 'z': 3}
+{'x': 1, **tail}
+ # Out: {'x': 1, 'y': 2, 'z': 3}
+ dict1 = {'x': 1, 'y': 1}
+ dict2 = {'y': 2, 'z': 3}
+ {**dict1, **dict2}
+ # Out: {'x': 1, 'y': 2, 'z': 3}
+
+"""
+print "=========================================================="
