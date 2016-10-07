@@ -3360,3 +3360,20 @@ print py3
 print py2
 #True
 print "=========================================================="
+"""
+Differnce between class and instance attributes
+
+>>> class A: foo = []
+>>> a, b = A(), A()
+>>> a.foo.append(5)
+>>> b.foo
+[5]
+>>> class A:
+...  def __init__(self): self.foo = []
+>>> a, b = A(), A()
+>>> a.foo.append(5)
+>>> b.foo    
+[]
+
+"""
+print "=========================================================="
