@@ -3377,3 +3377,14 @@ Differnce between class and instance attributes
 
 """
 print "=========================================================="
+"""
+json dumps takes an object and produces a string:
+
+    >>> a = {'foo': 3}
+    >>> json.dumps(a)
+    '{"foo": 3}
+
+    load would take a file-like object, read the data from that object, and use that string to
+    create an object:
+"""
+print "=========================================================="
