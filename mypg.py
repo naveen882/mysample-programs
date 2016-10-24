@@ -3387,4 +3387,8 @@ json dumps takes an object and produces a string:
     load would take a file-like object, read the data from that object, and use that string to
     create an object:
 """
+
+"""
+log n typically is indicated when the problem is iteratvely made smaller
+"""
 print "=========================================================="
