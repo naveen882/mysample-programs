@@ -542,3 +542,9 @@ The main differences between compiler and interpreter are listed below:
 -         Compiler takes a larger amount of time in analyzing and processing the high level language code comparatively interpreter takes lesser time in the same process.
 -         Besides the processing and analyzing time the overall execution time of a code is faster for compiler relative to the interpreter.
 """
+print "================================================="
+"""
+Linear search go through the list item by item and finding the element even if the list is not ordered
+
+Binary Search The binary search is used to find an item in an ORDERED list.In this search the list is divided by two and then traversed
+"""
