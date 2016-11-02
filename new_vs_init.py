@@ -4,8 +4,11 @@ class A(object):
 	def __new__(cls):
 		if 'key' in A._dict:
 			print "Exists"
+			print A._dict
+			#print str(cls) + "===="
 			return A._dict['key']
 		else:
+			print A._dict
 			print "NEW"
 			return super(A,cls).__new__(cls)
 

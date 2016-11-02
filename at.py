@@ -1,13 +1,15 @@
 import asyncio
 import os
 
-def callback(n):
+async def callback(n):
 	print('Callback {} invoked'.format(n))
 	i=0
 	os.system("> /tmp/aa")
 	while i < 100000:
 		print(i)
 		i += 1
+	return
+	
 
 def stopper(loop):
     print("Stopper invoked")
@@ -23,7 +25,8 @@ try:
     #event_loop.call_at(now + 300,callback,3)
     #event_loop.call_at(now+301,stopper,event_loop)
     #event_loop.async(now+301,stopper,event_loop)
-    asyncio.async(callback(1))
+    #asyncio.async(callback(1))
+    event_loop.run_until_complete(callback(1))
     print("======")
     print("======")
     print("======")
@@ -31,7 +34,7 @@ try:
     print("======")
     print("======")
     print('Entering event loop')
-    event_loop.run_forever()
+    #event_loop.run_forever()
 finally:
     print('Closing event loop')
     event_loop.close();
