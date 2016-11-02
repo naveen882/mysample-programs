@@ -3405,4 +3405,15 @@ auth_url="www.yahoo.com"
 search_url="google.com"
 print "auth url is {auth_url} and search url is {search_url}".format(**locals())
 print "=========================================================="
+"""
+Accessing dictionary by index
+"""
+a={'a':1,'b':33,'c':44,'d':66,'e':5}
+b={'aa':1,'bb':33,'cc':44,'dd':66,'ee':5}
+for i in range(len(a)):
+	print b.keys()[i]
+	print b.values()[i]
+print "=========================================================="
+
+
 
