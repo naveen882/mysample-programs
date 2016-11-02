@@ -3392,3 +3392,17 @@ json dumps takes an object and produces a string:
 log n typically is indicated when the problem is iteratvely made smaller
 """
 print "=========================================================="
+"""
+if you want to use {} while using format.This is the way to do it
+
+"""
+
+print "{{Hello}} {}".format('world') #{Hello} world
+"""
+This is the way to print the variables
+"""
+auth_url="www.yahoo.com"
+search_url="google.com"
+print "auth url is {auth_url} and search url is {search_url}".format(**locals())
+print "=========================================================="
+
