@@ -3414,6 +3414,22 @@ for i in range(len(a)):
 	print b.keys()[i]
 	print b.values()[i]
 print "=========================================================="
+u=unicode('unicode')
+s=str('string')
+print u,s
+print u+s
+print "=========================================================="
+import json
+d={'a':1,'b':2}
+#to import the dictionary to json use
+print json.dumps(d)
+t=json.dumps(d)
+#to retreieve the javascript data structure to python use
+print json.loads(t)
+d=json.loads(t)
+print d
+
+
 
 
 
