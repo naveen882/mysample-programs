@@ -3429,3 +3429,10 @@ print json.loads(t)
 d=json.loads(t)
 print d
 print "=========================================================="
+print '%s and {0}'%('hellow').format('world')
+#'hellow and {0}'
+'%s and {0}'%('hello {0}').format('world')
+#'hello world and {0}'
+print '%s and {0}'.format('world')%('hello')
+#'hello and world'
+print "=========================================================="
