@@ -3455,5 +3455,7 @@ print "=========================================================="
 vars([object])
 
 Without an argument, act like locals().
+You can just use the vars builtin function which looks up __dict__ for you:
+vars(t).keys()
 """
 print "=========================================================="
