@@ -3403,7 +3403,7 @@ This is the way to print the variables
 """
 auth_url="www.yahoo.com"
 search_url="google.com"
-print "auth url is {auth_url} and search url is {search_url}".format(**locals())
+print "auth url is {auth_url} and search url is {search_url}".format(**locals())##use ** to "unpack" a dictionary and * to unpack a dictionary
 print "=========================================================="
 """
 Accessing dictionary by index
@@ -3428,4 +3428,14 @@ t=json.dumps(d)
 print json.loads(t)
 d=json.loads(t)
 print d
+print "=========================================================="
+search_url = "www.example.com"
+
+def custom_search_url(search_url):
+	print "search url {search_url}".format(**locals())
+	print "search url {search_url}".format(**globals())
+
+custom_search_url("www.otherexample.com")
+print "search url {search_url}".format(**locals())
+print "search url {search_url}".format(**globals())
 print "=========================================================="
