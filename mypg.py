@@ -3439,3 +3439,10 @@ custom_search_url("www.otherexample.com")
 print "search url {search_url}".format(**locals())
 print "search url {search_url}".format(**globals())
 print "=========================================================="
+print '%s and {0}'%('hellow').format('world')
+#'hellow and {0}'
+'%s and {0}'%('hello {0}').format('world')
+#'hello world and {0}'
+print '%s and {0}'.format('world')%('hello')
+#'hello and world'
+print "=========================================================="
