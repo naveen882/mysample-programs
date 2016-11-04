@@ -3451,3 +3451,9 @@ print '%s and {0}'%('hellow').format('world')
 print '%s and {0}'.format('world')%('hello')
 #'hello and world'
 print "=========================================================="
+"""
+vars([object])
+
+Without an argument, act like locals().
+"""
+print "=========================================================="
