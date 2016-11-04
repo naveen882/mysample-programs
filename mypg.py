@@ -3404,6 +3404,11 @@ This is the way to print the variables
 auth_url="www.yahoo.com"
 search_url="google.com"
 print "auth url is {auth_url} and search url is {search_url}".format(**locals())##use ** to "unpack" a dictionary and * to unpack a dictionary
+"""
+Important:
+
+use ** to "unpack" a dictionary  and * to unpack a dictionary
+"""
 print "=========================================================="
 """
 Accessing dictionary by index
