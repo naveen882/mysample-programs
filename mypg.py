@@ -36,6 +36,7 @@ class Rastan(object):
 		print "In init def"
 		self.x=x
 
+        #getattribute is invoked before looking at the actual attributes on the object,
 	def __getattribute__(self,k):
 		print "In get attribute"
 		if k == "color":
