@@ -29,6 +29,8 @@ print "%s"%(d.x)
 print str(d) ##//Thsi will print str function
 
 print "==================================="
+#A key difference between __getattr__ and __getattribute__ is that __getattr__ is only invoked if the attribute wasn't found the usual ways. It's good for implementing a fallback for missing attributes, and is probably the one of two you want.
+print "==================================="
 
 
 class Rastan(object):
