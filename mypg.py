@@ -3459,3 +3459,4 @@ You can just use the vars builtin function which looks up __dict__ for you:
 vars(t).keys()
 """
 print "=========================================================="
+#UTF-8 is an extension of ASCII
