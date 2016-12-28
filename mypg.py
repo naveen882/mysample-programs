@@ -53,7 +53,7 @@ print "%s"%(d.x)
 
 print "=========================================="
 #Difference between function decorator and class decorator
-#If you want to keep state in the decorator you should use a class. 
+#If you want to keep state in the decorator you should use a class decorator. 
 #If you can write a function to implement your decorator you should prefer it. But not all decorators can easily be written as a function - for example when you want to store some internal state.
 #I've seen people (including myself) go through ridiculous efforts to write decorators only with functions. I still have no idea why, the overhead of a class is usually totally negligible.
 #http://stackoverflow.com/questions/4650333/difference-between-decorator-classes-and-decorator-functions
@@ -296,6 +296,9 @@ dictionary = dict(dict_as_list)
 dict_as_list = (('a', 1), ('b', 2), ('c', 3))
 dictionary = dict(dict_as_list)
 # dictionary now contains {'a': 1, 'b': 2, 'c': 3}
+dict_as_list = (('a', 1), ('b', 2), ['c', 3])
+dictionary = dict(dict_as_list)
+# dictionary now contains {'a': 1, 'b': 2, 'c': 3}
 print "=========================================="
 
 f=open("/tmp/aa.txt","w")
@@ -304,7 +307,7 @@ f.close()
 
 f=open("/tmp/aa.txt")
 while True:
-	for l in f.read(): #reads character by character
+	for l in f.read(): #reads full file at one stretch
 		print l,
 	else:
 		break
@@ -407,6 +410,8 @@ print "======================================="
 qq="12"
 rr="13"
 out = "<html>%(qq)s%(rr)s</html>" % locals()
+print out
+out = "<html>%(qq)s%(rr)s</html>" % globals()
 print out
 print "======================================="
 def func(a,b=None):
@@ -540,6 +545,10 @@ b=dict(a=1,b=2,c=3)
 fun(*a)
 fun(**b)
 fun(*a,**b)
+##very important below without * and ** while calling fun()
+fun(a)
+fun(b)
+fun(a,b)
 print "======================================="
 opt = ["opt3", "opt2", "opt7", "opt6", "opt1", "opt10", "opt11"]
 print sorted(opt)
@@ -3463,3 +3472,8 @@ vars(t).keys()
 """
 print "=========================================================="
 #UTF-8 is an extension of ASCII
+print "=========================================================="
+ee=[1,2]
+ff=[3,4]
+print [list(i) for i in zip(ee,ff)]
+print dict(list(i) for i in zip(ee,ff))
