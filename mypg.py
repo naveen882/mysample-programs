@@ -598,7 +598,7 @@ print "======================================="
 #Array slicing
 mystr1="hello world"
 print mystr1[::-2]
-print mystr1[-1] # prints d #This is Negative indexing in python
+print mystr1[-1] # prints d #This is Negative indexing in python ****************
 print "======================================="
 for x in range(1,11):
 	print x
@@ -611,6 +611,7 @@ def reverse(str1):
 
 for i in reverse(str1):
 		print i
+
 print "======================================="
 a = [-1, 1, 66.25, 333, 333, 1234.5]
 del a[0]
@@ -653,6 +654,9 @@ if __name__ == "__main__":
 	print __name__
 import logging
 print logging.__name__
+class rtt(object):
+    pass
+print rtt.__name__ #prints rtt as string
 print "======================================="
 a = [66.25, 333, 333, 1, 1234.5]
 print a.count(333)
@@ -851,7 +855,8 @@ print my_dict
 my_dict = {'carl':40, 'alan':2, 'bob':1, 'danny':3}
 mydict= {v:k for k,v in mydict.items()}
 print my_dict  #dictionary comprehension
-
+print {(v,k) for k,v in mydict.items()} #use : for dictionary else it would be a set
+#set([(1, 'bob'), (40, 'carl'), (2, 'alan'), (3, 'danny')])
 print "======================================="
 def binary_search(a, x, lo=0, hi=None):
 	if hi is None:
