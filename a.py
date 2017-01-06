@@ -761,3 +761,25 @@ tt()
 
 
 #to do prime number
+from collections import namedtuple as nt
+
+Emp = nt('Emp','id,no,vote')
+t1=Emp(1,2,3)
+print t1.id
+print t1.no
+print t1.vote
+
+import collections
+
+a=[1,2,2,2,2,2,1,1,1,1,1,3,4,5,6,7]
+
+print collections.Counter(a)
+
+Jan=Feb=Mar=range(1,32)
+print Jan
+print Feb
+print Mar
+print Jan.append(66)
+print Jan #66 exists everywhere
+print Feb #66 exists everywhere
+print Mar #66 exists everywhere
