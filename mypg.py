@@ -3106,7 +3106,7 @@ How python does it? Simple, it just renames the method. Take a look:
 
 
 a = A()
-a._A__method()  # never use this!! please!
+a._A__method()  # never use this!! please! #********************************
 
 
 
@@ -3485,3 +3485,17 @@ ee=[1,2]
 ff=[3,4]
 print [list(i) for i in zip(ee,ff)]
 print dict(list(i) for i in zip(ee,ff))
+
+#Find duplicates in O(n) time and O(1) extra space
+arr=[1, 2, 3, 1, 3, 6, 6]
+print arr
+a = datetime.datetime.now()
+for i in range(len(arr)):
+    if (arr[abs(arr[i])] >= 0):
+        arr[abs(arr[i])] = -arr[abs(arr[i])];
+    else:
+        print " %d "%(abs(arr[i]));
+b = datetime.datetime.now()
+c=b-a
+print c
+
