@@ -3499,3 +3499,10 @@ b = datetime.datetime.now()
 c=b-a
 print c
 
+print "=========================================================="
+#list to string
+
+li= [1, 2, 3, 4, 5, 6]
+print map(str,li) #['1', '2', '3', '4', '5', '6']
+print "".join(str(e) for e in li)
+#123456
