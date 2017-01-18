@@ -548,3 +548,16 @@ Linear search go through the list item by item and finding the element even if t
 
 Binary Search The binary search is used to find an item in an ORDERED list.In this search the list is divided by two and then traversed
 """
+
+
+n =6
+for i in range(1,n+1):
+    print " "*(n-i)+"#"*i
+"""
+     #
+    ##
+   ###
+  ####
+ #####
+######
+"""
