@@ -3506,3 +3506,8 @@ li= [1, 2, 3, 4, 5, 6]
 print map(str,li) #['1', '2', '3', '4', '5', '6']
 print "".join(str(e) for e in li)
 #123456
+print "=========================================================="
+#Tower of hanoi can be solved always in 2^n−1 i.e, 2powern-1 moves
+#Example if we have three disks then it would take 2^3-1 moves i,e 7 moves
+#For more example watch tower_of_hanoi.gif in the same directory 
+print "=========================================================="
