@@ -1,0 +1,2011 @@
+<!DOCTYPE html>
+<!-- saved from url=(0114)https://null-byte.wonderhowto.com/how-to/hack-like-pro-using-powerful-versatile-scapy-for-scanning-dosing-0159231/ -->
+<html lang="en" class=" js no-flexbox flexbox-legacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths bgsizecover textoverflow" xmlns:og="http://opengraphprotocol.org/schema/"><!--<![endif]--><head prefix="og: http://ogp.me/ns#"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Hack Like a Pro: Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte</title>
+            <link rel="preload" href="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/tmnhead.js" as="script">
+    <link rel="preload" href="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/wonderhowto.logo.shadow.png" as="image">
+    <link rel="preload" href="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/wonderhowto.mark.png" as="image">
+    <link rel="preload" href="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/css" as="style">
+    <link rel="preload" href="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/fonts-and-styles.woff2.bundle.min.css" as="style">
+    <link rel="preload" href="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/ready.min.js" as="script">
+    <link rel="preload" href="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-like-pro-using-powerful-versatile-scapy-for-scanning-dosing.1280x600.jpg" as="image">
+        <link rel="preload" href="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/jquery.min.js" as="script">
+        <link rel="preload" href="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/set.min.js" as="script">
+        <link rel="preload" href="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/go.min.js" as="script">
+
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,user-scalable=no">
+    <meta property="fb:app_id" content="133643190002681">
+    <meta property="og:site_name" content="WonderHowTo">
+    <meta content="Hack Like a Pro: Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing" property="og:title">
+<meta content="https://null-byte.wonderhowto.com/how-to/hack-like-pro-using-powerful-versatile-scapy-for-scanning-dosing-0159231/" property="og:url">
+<meta content="Welcome back, my hacker apprentices! We have explored a number of packet manipulation tools here on Null Byte that can be very effective for network scanning, such as Nmap and Hping. As you know, almost any packet crafting/manipulation tool can also be used for DoSing (denial-of-service attacks). Given the power of creating just about any type of packet with any characteristics, we can likely find one that will take down a host or network. In this article, we will add a new tool called Scapy to your arsenal of scanning and DoSing weapons. Scapy is a packet manipulation tool similar to Nmap" property="og:description">
+<meta content="article" property="og:type">
+<meta content="https://www.facebook.com/WonderHowTo" property="article:publisher">
+<meta content="https://img.wonderhowto.com/img/28/47/63555535636847/0/hack-like-pro-using-powerful-versatile-scapy-for-scanning-dosing.1280x600.jpg" property="og:image">
+<meta content="Welcome back, my hacker apprentices! We have explored a number of packet manipulation tools here on Null Byte that can be very effective for network scanning, such as Nmap and Hping. As you know, almost any packet crafting/manipulation tool can also be used for DoSing (denial-of-service attacks). Given the power of creating just about any type of packet with any characteristics, we can likely find one that will take down a host or network. In this article, we will add a new tool called Scapy to your arsenal of scanning and DoSing weapons. Scapy is a packet manipulation tool similar to Nmap" name="description">
+<meta content="summary_large_image" name="twitter:card">
+<meta content="https://img.wonderhowto.com/img/28/47/63555535636847/0/hack-like-pro-using-powerful-versatile-scapy-for-scanning-dosing.1280x600.jpg" name="twitter:image:src">
+<meta content="@WonderHowTo" name="twitter:site">
+<meta content="Hack Like a Pro: Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing" name="twitter:title">
+<meta content="Welcome back, my hacker apprentices! We have explored a number of packet manipulation tools here on Null Byte that can be very effective for network scanning, such as Nmap and Hping. As you know, a..." name="twitter:description">
+<meta content="@NullByteWht" name="twitter:creator">
+<meta content="null-byte.WonderHowTo.com" name="twitter:domain">
+<link href="https://null-byte.wonderhowto.com/how-to/hack-like-pro-using-powerful-versatile-scapy-for-scanning-dosing-0159231/" rel="canonical">
+
+    <link rel="alternate" type="application/rss+xml" href="https://null-byte.wonderhowto.com/rss.xml" title="Null Byte RSS Feed">
+        <script type="text/javascript" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/event.js"></script><script src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/osd.js"></script><script src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/expansion_embed.js"></script><script src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/saved_resource" type="text/javascript" async=""></script><script async="" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/bk-coretag.js"></script><script src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/ads"></script><script async="" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/beacon.js"></script><script async="" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/analytics.js"></script><script async="" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/tmntag.js"></script><script type="text/javascript" async="" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/bid"></script><script type="text/javascript" async="" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/amzn_ads.js"></script><script async="" type="text/javascript" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/gpt.js"></script><script async="" type="text/javascript" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/tmnhead.js"></script><script type="text/javascript">
+        //<![CDATA[
+        window._sf_startpt = (new Date()).getTime();
+        var tmntag = tmntag || {}; tmntag.cmd = tmntag.cmd || [];
+        
+        (function (a) { _q = function () { return a; }; $ = function (f) { typeof f === "function" && a.push(arguments); return $; }; jQuery = $.ready = $; }([]));
+        (function () {
+            // callback format: callback(oElement, sSrc, bSuccess, bFromCache){}
+            window.preloadImage = function (element, src, callback, skipCacheCheck) {
+                var c = callback;
+                if (skipCacheCheck !== true) { var t = document.createElement('img'); t.src = src; if (t.complete || t.width + t.height > 0) { t = null; if (callback) callback(element, src, true, true); return; } t = null; }
+                var i = new Image();
+                i.onload = function () { i.onload = i.onerror = i.onabort = null; if (callback) callback(element, i.src, true, false); i = null; };
+                i.onerror = i.onabort = function () { i = i.onload = i.onerror = i.onabort = null; if (callback) callback(element, src, false, false); i = null; };
+                i.src = src;
+            };
+        })();
+
+        
+            (function (WHT) { WHT.___pOpts = { type: 'article', pageSize: 2, kw: ["null-byte","Null Byte","Hack Like a Pro","wonderhowto.com","WonderHowTo","ID0159231","howto","hack","like","pro","using","powerful","versatile","scapy","for","scanning","dosing"], enableCloning: false, cloneOneAtATime: false, maxClone: 0, iForceRefreshIfUnfilledAfterSeconds: 15, iMinAgeForBlankVisiblePlacementRefresh: 6, speedyRefresh: false }; })(window.WHT = window.WHT || {});
+                
+                    (function() { 
+                        var tmnhead = document.createElement('script'); tmnhead.async = true; tmnhead.type = 'text/javascript'; tmnhead.src = 'https://ads.servebom.com/tmnhead.js';
+                        var node = document.getElementsByTagName('script')[0]; node.parentNode.insertBefore(tmnhead, node);
+                    })();
+                
+        document.documentElement.className = '';
+        //]]>
+    </script>
+    <link href="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/fonts-and-styles.woff2.bundle.min.css" type="text/css">
+
+<script src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/pubads_impl_110.js" async=""></script><link rel="prefetch" href="https://tpc.googlesyndication.com/safeframe/1-0-6/html/container.html"></head>
+<body class="theme-wh oversized-header isworld is-world world-name-null-byte subworld controller-article action-index isnotuser hascalltoaction" vocab="http://schema.org/">
+    <header>
+        <div id="header-offset" class="clearfix"><div></div></div>
+        <div id="top-header" class="page-header header-height full-page-width" style="transform: translate3d(0px, -260px, 0px);">
+                <img id="header-bg-image" class="header-bg full-page-width" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-like-pro-using-powerful-versatile-scapy-for-scanning-dosing.1280x600.jpg" width="128" height="60" style="transform: translate3d(0px, 154px, 0px); opacity: 0;">
+            
+                <div id="header-overlay" class="header-overlay" style="transform: translate3d(0px, -616px, 0px); opacity: 0;">
+                    <strong class="big-site-logo">
+                    <a class="big-logo" href="https://www.wonderhowto.com/">
+                        <span>WonderHowTo</span>
+                        <img class="immediate" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/wonderhowto.logo.shadow.png" width="309" height="125">
+                    </a>
+                    </strong>
+
+<strong class="header-tagline sub-site-title">                        <a class="active-world-name" href="https://null-byte.wonderhowto.com/" title="The aspiring white-hat hacker/security awareness playground">
+                            Null Byte
+                        </a>
+</strong>                </div>
+        </div>
+        <div class="init">
+            <!-- Preload header image -->
+            
+            <script type="text/javascript">
+                //<![CDATA[
+                (function (d) {
+                    window.rxMatchDomain = /^http(s)?\:\/\/([a-z0-9-]+)\.((wonderhowto|gadgethacks|invisiverse|foodhacksdaily)\.com|reality\.news|driverless\.id)/i;
+                    var sDN = function (u, s, rx) { rx = rxMatchDomain.exec(u); window['_WHT_' + s + 'sdn'] = rx == null ? '' : rx[1]; window['_WHT_' + s + 'tdn'] = rx == null ? '' : rx[2]; }, bDidJump = false,
+                        sbbg = 'https://img.wonderhowto.com/img/69/07/63620327870894/0/null-byte.b300x140.jpg',
+                        sfbg = 'https://img.wonderhowto.com/img/69/07/63620327870894/0/null-byte.1280x600.jpg';
+                    sDN(document.location, 'c'); sDN(document.referrer, 'r');
+                    window._RefInSite = (_WHT_ctdn === _WHT_rtdn && _WHT_csdn === _WHT_rsdn);
+                    window._RefInNetwork = (_WHT_rtdn !== '');
+                    
+                })(document.getElementById('header-bg-image'));
+                //]]>
+            </script>
+        </div>
+        <div id="top-nav" class="full-page-width" style="position: fixed; top: 0px;">
+            <div style="height:0;">
+                <div class="nav-menu-block">
+                    <div class="shade" style="opacity: 1;"></div>
+                    <div class="root-sites"><div>
+	<a href="https://www.wonderhowto.com/" class="wonderhowto_com theme-wh">WonderHowTo</a>
+	<a href="https://www.gadgethacks.com/" class="gadgethacks_com theme-gh">Gadget Hacks</a>
+	<a href="https://www.invisiverse.com/" class="invisiverse_com theme-iv">Invisiverse</a>
+	<a href="https://next.reality.news/" class="reality_news theme-nr">Next Reality</a>
+	<a href="https://www.driverless.id/" class="driverless_id theme-dl">Driverless</a>
+	<a href="https://null-byte.wonderhowto.com/" class="sub-null-byte active theme-wh">Null Byte</a>
+</div></div>
+                    <div class="small-logo-mark">
+                        <a class="logo-mark" href="https://www.wonderhowto.com/">
+                            <img class="immediate" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/wonderhowto.mark.png" width="60" height="60">
+                        </a>
+                    </div>
+                    <div class="top-nav-links navlinks">
+                        <div class="social-cta" style="display: block;">
+                            <button type="button" class="fa fa-facebook-square" data-action="follow-facebook"></button>
+                            <button type="button" class="fa fa-twitter-square" data-action="follow-twitter" style="display: inline-block;"></button>
+                            <button type="button" class="fa fa-youtube-square" data-action="follow-youtube"></button>
+                            <button type="button" class="fa fa-pinterest-square" data-action="follow-pinterest"></button>
+                        </div>
+                        
+
+        <a href="https://null-byte.wonderhowto.com/forum">Forum</a>
+        <a href="https://null-byte.wonderhowto.com/how-to/metasploit-basics/">Metasploit Basics</a>
+        <a href="https://null-byte.wonderhowto.com/how-to/facebook-hacks/">Facebook Hacks</a>
+        <a href="https://null-byte.wonderhowto.com/how-to/password-cracking/">Password Cracking</a>
+        <a href="https://null-byte.wonderhowto.com/how-to/wi-fi-hacking/">Wi-Fi Hacking</a>
+        <a href="https://null-byte.wonderhowto.com/how-to/linux-basics/">Linux Basics</a>
+        <a href="https://null-byte.wonderhowto.com/how-to/mr-robot-hacks/">Mr. Robot Hacks</a>
+        <a href="https://null-byte.wonderhowto.com/how-to/hack-like-a-pro/">Hack Like a Pro</a>
+        <a href="https://null-byte.wonderhowto.com/how-to/forensics/">Forensics</a>
+        <a href="https://null-byte.wonderhowto.com/how-to/recon/">Recon</a>
+        <a href="https://null-byte.wonderhowto.com/how-to/social-engineering/">Social Engineering</a>
+        <a href="https://null-byte.wonderhowto.com/how-to/networking-basics/">Networking Basics</a>
+        <a href="https://null-byte.wonderhowto.com/how-to/evading-av-software/">Antivirus Evasion</a>
+        <a href="https://null-byte.wonderhowto.com/how-to/spy-tactics/">Spy Tactics</a>
+        <a href="https://null-byte.wonderhowto.com/how-to/mitm/">MitM</a>
+        <a href="https://null-byte.wonderhowto.com/how-to/advice-from-a-hacker/">Advice from a Hacker</a>
+
+                        
+                        
+                    </div>
+                    <div class="menu-buttons">
+                        <button type="button" class="nav-button nav-menu-toggle fa fa-bars">
+                        </button>
+                        <button type="button" class="nav-button nav-search-toggle fa fa-search"></button>
+                    </div>
+                    <form action="https://null-byte.wonderhowto.com/search/" method="GET" class="search-form" novalidate="novalidate">
+                        <input type="search" id="searchbox" placeholder="Search" class="search-box" name="searchText" value="">
+                        <button type="submit" class="search-submit"></button>
+                    </form>
+                </div>
+                <div class="center-frame">
+                    <div id="locked-toolbar" class="locked-toolbar-block"></div>
+                </div>
+            </div>
+        </div>
+        <div class="top-nav-init">
+            <script type="text/javascript">
+                (function(){
+                    window.waitForFont = function (fCallback, fontClass, oCallBackScope) {
+                        window.waitForFont.fonts = window.waitForFont.fonts || {};
+                        if (window.waitForFont.fonts[fontClass || 'default']) { if (oCallBackScope) fCallback.apply(oCallBackScope, []); else fCallback(); return; }
+                        var fc = document.createElement('span'), w, to = null,retries=0;
+                        fc.className = 'font-load-check' + (fontClass?' '+fontClass:'');
+                        document.body.appendChild(fc);w = fc.offsetWidth;fc.className += ' check';
+                        var fCheck = function () {
+                            if (to != null) clearTimeout(to); to = null;
+                            if (++retries > 3000) return;
+                            if (fc && fc.offsetWidth != w) { window.waitForFont.fonts[fontClass || 'default'] = true; fc.parentNode.removeChild(fc); fc = null; if(oCallBackScope) fCallback.apply(oCallBackScope,[]); else fCallback(); return; }
+                            to = setTimeout(fCheck, 10);
+                        };
+                        fCheck();
+                    };
+                })();
+                //(function(e,s,a,m,t,T,p) {
+                //    var e = document.getElementById('asw'), s = 42;
+                //    if (e == null) return; a = e.getElementsByTagName('a'); if (a.length == 0) return; a = a[0]; m = s;
+                //    a.style.visibility = 'hidden';
+                //    a.style.fontSize = String(s) + 'px';
+                //    window._fixSWN = function () {
+                //        if (document.getElementById('top-nav').className.indexOf('small-logo') > -1) { a.style.visibility = ''; return; }
+                //        a.style.visibility = ''; t = String(a.innerText); T = '', p = t.indexOf(' ') > -1;
+                //        if (t.length > 18) a.style.letterSpacing = 0;
+                //        if (t.length < 10 || !p) {
+                //            for (var x = 0; x < t.length; x++) T += t.charAt(x) + ((t.charAt(x) == ' ') ? '&nbsp; &nbsp; ' : ' ');
+                //            a.style.wordSpacing = '-0.3em';
+                //            a.style.letterSpacing = 0;
+                //            if (p) { e.style.width = '230px'; e.style.paddingRight = '30px'; }
+                //            a.innerHTML = T.substring(0, T.length - 1);
+                //        }
+                //        while (a.scrollHeight > ((m + 2) * 2) && s > 8) a.style.fontSize = String(--s) + 'px';
+                //    };waitForFont(window._fixSWN);
+                //})();
+            </script>
+        </div>
+    </header>
+
+    <section class="page-wrapper">
+        <div id="main-wrapper" class="clearfix">
+            
+                <div id="ad-top-lock" class="full-page-width">
+                    <div class="center-frame centered clearfix">
+                        <div class="ad-top-container whtaph" data-unit-type="topwide"><div class="" id="purch_Y_L_1_1" data-google-query-id="CJbI_s6intICFZWoaAod6jkGDw" style="min-height: 66px;"><div id="google_ads_iframe_/10518929/tmnp.wonderhowto/a1-p1-s1_0__container__" style="border: 0pt none; display: inline-block; width: 728px; height: 90px;"><iframe frameborder="0" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/container.html" id="google_ads_iframe_/10518929/tmnp.wonderhowto/a1-p1-s1_0" title="3rd party ad content" name="" scrolling="no" marginwidth="0" marginheight="0" width="728" height="90" data-is-safeframe="true" style="border: 0px; vertical-align: bottom;"></iframe></div></div></div>
+                    </div>
+                </div>
+            <div id="content" class="center-frame">
+                
+
+
+
+<div id="content-container" class="reversed">
+    
+    <div class="right-col outer-article-wrapper">
+        
+
+<div class="article-wrapper at-10 article-id-159231" data-article-id="159231">
+
+    <div class="article-root" itemscope="" itemtype="http://schema.org/Article">
+
+
+
+        
+<header class="article-headline ">
+    <h1 itemprop="name headline">
+<a class="series-tab" href="https://null-byte.wonderhowto.com/how-to/hack-like-a-pro/"><span class="series">Hack Like a Pro</span></a><span class="hide">:</span>
+        <a itemprop="url" href="https://null-byte.wonderhowto.com/how-to/hack-like-pro-using-powerful-versatile-scapy-for-scanning-dosing-0159231/">
+            Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing
+        </a>
+    </h1>
+    
+</header>
+
+        <aside class="meta-stats">
+            <ul>
+                <li class="stat stat-author">By <a rel="author" itemprop="author" href="https://creator.wonderhowto.com/occupythewebotw/">occupytheweb</a></li>
+                <li class="stat stat-timestamp"><i class="fa fa-clock-o"></i>         <time datetime="2014-12-30T19:30:00" pubdate="pubdate" class="localtimestamp" data-published="2014-12-30T19:30:00" data-revised="2014-12-30T19:30:00" data-featured="2014-12-30T19:30:00" title="">12/31/2014 1:00 am</time>
+    <meta itemprop="dateCreated" content="2014-12-23T15:31:49">
+    <meta itemprop="datePublished" content="2014-12-30T19:30:00">
+    <meta itemprop="dateModified" content="2014-12-30T19:30:00">
+</li>
+                
+                        <li class="stat stat-site"><a href="https://null-byte.wonderhowto.com/how-to/hack-like-a-pro/">Hack Like a Pro</a></li>
+            </ul>
+        </aside>
+
+        <div class="article-box">
+
+            <article class="article-container clearfix centered-article-content" itemprop="articleBody">
+
+                
+
+                <section>
+
+                    
+                    <h2 class="hide">Hack Like a Pro: Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing</h2> 
+<p>Welcome back, my hacker apprentices!</p><p>We have explored a number of packet manipulation tools here on Null Byte that can be very effective for network scanning, such as <a href="https://null-byte.wonderhowto.com/how-to/hack-like-pro-conduct-active-reconnaissance-and-dos-attacks-with-nmap-0146950/">Nmap</a> and <a href="https://null-byte.wonderhowto.com/how-to/hack-like-pro-conduct-active-reconnaissance-your-target-with-hping3-0148092/">Hping</a>. As you know, almost any packet crafting/manipulation tool can also be used for DoSing (denial-of-service attacks). Given the power of creating just about any type of packet with <em>any</em> characteristics, we can likely find one that will take down a host or network.</p><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"><div class="" id="purch_Y_L_0_1" style="min-height: 90px;" data-google-query-id="CJnI_s6intICFZWoaAod6jkGDw"><div id="google_ads_iframe_/10518929/tmnp.wonderhowto/a0-p1-s1_0__container__" style="border: 0pt none; display: inline-block; width: 728px; height: 90px;"><iframe frameborder="0" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/container(1).html" id="google_ads_iframe_/10518929/tmnp.wonderhowto/a0-p1-s1_0" title="3rd party ad content" name="" scrolling="no" marginwidth="0" marginheight="0" width="728" height="90" data-is-safeframe="true" style="border: 0px; vertical-align: bottom;"></iframe></div></div></aside></aside><p>In this article, we will add a new tool called <strong>Scapy</strong> to your arsenal of scanning and DoSing weapons. Scapy is a packet manipulation tool similar to Nmap and Hping, but unlike those other tools, Scapy is almost infinitely customizable. This is not to say that Nmap and Hping are not customizable, but their ability to be customized is limited. They trade off ease of use for customization. Scapy, on the other hand, has almost no limits in your ability to customize it, but it does have a bit of a learning curve.</p><p>If you invest the time to understanding Scapy, you will be rewarded with a <em>very</em> powerful weapon.</p></section><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"></aside></aside>
+<section>
+<h2 class="sectionHeadline"><a id="jump-understandingtcpip" class="anchor"></a>Understanding TCP/IP</h2><p>When using a tool like Scapy, <a href="https://null-byte.wonderhowto.com/how-to/hack-like-pro-conduct-active-reconnaissance-and-dos-attacks-with-nmap-0146950/">Nmap</a>, <a href="https://null-byte.wonderhowto.com/how-to/hack-like-pro-conduct-active-reconnaissance-your-target-with-hping3-0148092/">Hping</a>, and others, it is critical you understand the structure of both the IP header and the TCP header. Without that fundamental knowledge of these protocols, it is trying to fly an F-16 into a war zone without basic and fundamental flight training. It is a powerful weapon and you might unleash a bomb or two, but you are likely to crash and burn as well.</p><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"></aside></aside> <figure><figure class="whtGallery pad-2" id="10305292docPartGal880037" role="group"><div class="gallery-layout" style="overflow: visible; height: 311px; width: auto;">   <div class="gallery-layout-container"><figure class="gal-row gal-row-f gal-wa" data-index="0" style="background: rgb(255, 255, 255); width: 600px;"><a href="https://img.wonderhowto.com/img/original/30/84/63555532857847/0/635555328578473084.jpg" rel="nofollow" target="_blank"><img src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-like-pro-using-powerful-versatile-scapy-for-scanning-dosing.w1456.jpg" alt="" style="width: auto; max-width: 600px; height: 305px; margin-left: -3px;"></a></figure></div>   <div class="white-out" style="display: none;">       <div style="display: none;"></div>   </div></div></figure></figure><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"></aside></aside> <p>In addition, you should be familiar with the TCP header and packet as well.</p> <figure><figure class="whtGallery pad-2" id="47543664docPartGal880041" role="group"><div class="gallery-layout" style="overflow: visible; height: 375px; width: auto;">   <div class="gallery-layout-container"><figure class="gal-row gal-row-f gal-wa" data-index="0" style="background: rgb(255, 255, 255); width: 600px;"><a href="https://img.wonderhowto.com/img/original/96/38/63555533318612/0/635555333186129638.jpg" rel="nofollow" target="_blank"><img src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-like-pro-using-powerful-versatile-scapy-for-scanning-dosing.w1456(1).jpg" alt="" style="width: auto; max-width: 600px; height: 369px; margin-left: -3px;"></a></figure></div>   <div class="white-out" style="display: none;">       <div style="display: none;"></div>   </div></div></figure></figure><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"></aside></aside> <p>The better you understand the structure of these headers and packets, the better hacker you will be. Otherwise, you will be limited to being a script kiddie with some powerful tools and no knowledge to use them effectively.</p><p>Scapy is also very versatile. It can be customized to do ARP spoofing, ARP cache poisoning, packet sniffing and analysis like Tcpdump and Wireshark, injecting 802.1 frames like Aireplay-ng, and decoding VoIP like Cain and Abel. It is written in Python by Philipe Biondi and is capable of crafting packets as well as decoding packets. Its syntax is a bit obscure, but its power makes it worth investing the time to learn.</p><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"></aside></aside><p>In this article, I'll try to introduce you first to Scapy's syntax and then we will use it for a simple yet effective DoS attack.</p></section><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"><div class="" id="purch_Y_L_0_2" style="min-height: 90px;" data-google-query-id="CJrI_s6intICFZWoaAod6jkGDw"><div id="google_ads_iframe_/10518929/tmnp.wonderhowto/a0-p2-s1_0__container__" style="border: 0pt none; display: inline-block; width: 728px; height: 90px;"><iframe frameborder="0" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/container(2).html" id="google_ads_iframe_/10518929/tmnp.wonderhowto/a0-p2-s1_0" title="3rd party ad content" name="" scrolling="no" marginwidth="0" marginheight="0" width="728" height="90" data-is-safeframe="true" style="border: 0px; vertical-align: bottom;"></iframe></div></div></aside></aside>
+<section>
+<h2 class="step"><a id="jump-step1" class="anchor"></a><span class="margin-label"><span>Step 1</span></span>Fire Up Kali &amp; Run Scapy</h2><p>Let's fire up <a href="https://null-byte.wonderhowto.com/how-to/hack-like-pro-getting-started-with-kali-your-new-hacking-system-0151631/">Kali</a>, open a terminal and type:</p><ul><li><strong>kali &gt; scapy</strong></li></ul> <figure><figure class="whtGallery pad-2" id="60470938docPartGal880011" role="group"><div class="gallery-layout" style="overflow: visible; height: 136px; width: auto;">   <div class="gallery-layout-container"><figure class="gal-row gal-row-f gal-wa img-shadow" data-index="0" style="background: rgb(255, 255, 255); width: 600px;"><a href="https://img.wonderhowto.com/img/original/95/35/63554890565366/0/635548905653669535.jpg" rel="nofollow" target="_blank"><img src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-like-pro-using-powerful-versatile-scapy-for-scanning-dosing.w1456(2).jpg" alt="" style="width: auto; max-width: 600px; height: 130px; margin-left: -2px;"></a></figure></div>   <div class="white-out" style="display: none;">       <div style="display: none;"></div>   </div></div></figure></figure><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"></aside></aside> <p>When we do so, we will greeted with screen that looks like that above. Notice the "<strong>&gt;&gt;&gt;</strong>" prompt. This indicates that Scapy is in interactive mode. All commands after this will be Scapy commands and will be interpreted by the Scapy interpreter.</p></section><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"></aside></aside>
+<section>
+<h2 class="step"><a id="jump-step2" class="anchor"></a><span class="margin-label"><span>Step 2</span></span>View the Scapy Configuration File</h2><p>Now that we are in the Scapy interpreter, let's type:</p><ul><li><strong>&gt;&gt;&gt; conf</strong></li></ul> <figure><figure class="whtGallery pad-2" id="62516879docPartGal880043" role="group"><div class="gallery-layout" style="overflow: visible; height: 370px; width: auto;">   <div class="gallery-layout-container"><figure class="gal-row gal-row-f gal-wa img-shadow" data-index="0" style="background: rgb(255, 255, 255); width: 600px;"><a href="https://img.wonderhowto.com/img/original/82/50/63555534002034/0/635555340020348250.jpg" rel="nofollow" target="_blank"><img src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-like-pro-using-powerful-versatile-scapy-for-scanning-dosing.w1456(3).jpg" alt="" style="width: auto; max-width: 600px; height: 364px; margin-left: -3px;"></a></figure></div>   <div class="white-out" style="display: none;">       <div style="display: none;"></div>   </div></div></figure></figure><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"></aside></aside> <p>As you can see in the screenshot above, Scapy reveals its configuration file when we type "conf" in. In a later tutorial, we will work with this configuration file in Scapy, but for now, I just want you to know where it resides.</p></section><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"></aside></aside>
+<section>
+<h2 class="step"><a id="jump-step3" class="anchor"></a><span class="margin-label"><span>Step 3</span></span>Create a Packet</h2><p>The beauty of Scapy is its ability to custom build any packet you can imagine. Generally, the TCP/IP stack of your OS will build a RFC-compliant packet whenever you want to communicate over the Internet. As a hacker, we often want to create a custom/unique packet that may <em>not</em> be RFC-compliant for the purposes of gathering information on our target (i.e., scanning) or possibly creating a DoS condition by creating a packet that causes the target system to crash (land attack, ping of death, fragroute, etc.).</p><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"></aside></aside><p>So, let's start by creating a simple IP packet. In Scapy, you first declare a variable that represents your packet and then define the packet attributes one by one. So, here we define our packet as "x" and then give x multiple attributes. Let's begin by defining "x" as an IP packet with a TTL of 64.</p><ul><li><strong>&gt;&gt;&gt; x=IP(ttl=64)</strong></li> <li><strong>&gt;&gt;&gt; x</strong></li></ul> <figure><figure class="whtGallery pad-2" id="28540334docPartGal880045" role="group"><div class="gallery-layout" style="overflow: visible; height: 83px; width: auto;">   <div class="gallery-layout-container"><figure class="gal-row gal-row-f gal-wa img-shadow" data-index="0" style="background: rgb(255, 255, 255); width: 549px;"><a href="https://img.wonderhowto.com/img/original/84/66/63555534119784/0/635555341197848466.jpg" rel="nofollow" target="_blank"><img src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-like-pro-using-powerful-versatile-scapy-for-scanning-dosing.w1456(4).jpg" alt="" style="width: auto; max-width: 600px; height: 77px; margin-left: -3px;"></a></figure></div>   <div class="white-out" style="display: none;">       <div style="display: none;"></div>   </div></div></figure></figure><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"><div class="" id="purch_Y_L_0_3" style="min-height: 90px;" data-google-query-id="CJvI_s6intICFZWoaAod6jkGDw"><div id="google_ads_iframe_/10518929/tmnp.wonderhowto/a0-p3-s1_0__container__" style="border: 0pt none; display: inline-block; width: 728px; height: 90px;"><iframe frameborder="0" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/container(3).html" id="google_ads_iframe_/10518929/tmnp.wonderhowto/a0-p3-s1_0" title="3rd party ad content" name="" scrolling="no" marginwidth="0" marginheight="0" width="728" height="90" data-is-safeframe="true" style="border: 0px; vertical-align: bottom;"></iframe></div></div></aside></aside> <p>Notice that after I have created the variable x and defined it as an IP packet with a time to live (TTL) of 64, I then retyped the variable x and it responded with the value of x. In this case, IP time to live = 64.</p><p>Now, let's add some additional attributes to this variable x, such as a source and destination IP address. The syntax is similar to Wireshark or Tcpdump. We represent the source IP attribute with <strong>x.src</strong> and the destination IP attribute with <strong>x.dst</strong> followed by the value in double quotation marks (<strong>"</strong>).</p><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"></aside></aside><ul><li><strong>&gt;&gt;&gt; x.src="192.168.1.101"</strong></li> <li><strong>&gt;&gt;&gt; x.dst="192.168.1.122"</strong></li></ul> <figure><figure class="whtGallery pad-2" id="39293538docPartGal880047" role="group"><div class="gallery-layout" style="overflow: visible; height: 134px; width: auto;">   <div class="gallery-layout-container"><figure class="gal-row gal-row-f gal-wa img-shadow" data-index="0" style="background: rgb(255, 255, 255); width: 548px;"><a href="https://img.wonderhowto.com/img/original/51/51/63555534197253/0/635555341972535151.jpg" rel="nofollow" target="_blank"><img src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-like-pro-using-powerful-versatile-scapy-for-scanning-dosing.w1456(5).jpg" alt="" style="width: auto; max-width: 600px; height: 128px; margin-left: -3px;"></a></figure></div>   <div class="white-out" style="display: none;">       <div style="display: none;"></div>   </div></div></figure></figure><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"></aside></aside> <p>Notice that after setting each value, I checked the value by simply retyping the variable followed by the attribute.</p><p>Now we have created a packet with the following attributes:</p><ul><li>TTL=64</li> <li>Source IP is 192.168.1.101</li> <li>Destination IP is 192.168.1.122</li> </ul><p>We can check these by now typing the variable name, x, and Scapy will return our variable with its our attributes.</p><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"></aside></aside> <figure><figure class="whtGallery pad-2" id="48024551docPartGal880049" role="group"><div class="gallery-layout" style="overflow: visible; height: 68px; width: auto;">   <div class="gallery-layout-container"><figure class="gal-row gal-row-f gal-wa img-shadow" data-index="0" style="background: rgb(255, 255, 255); width: 546px;"><a href="https://img.wonderhowto.com/img/original/34/22/63555534229097/0/635555342290973422.jpg" rel="nofollow" target="_blank"><img src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-like-pro-using-powerful-versatile-scapy-for-scanning-dosing.w1456(6).jpg" alt="" style="width: auto; max-width: 600px; height: 62px; margin-left: -3px;"></a></figure></div>   <div class="white-out" style="display: none;">       <div style="display: none;"></div>   </div></div></figure></figure> </section><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"></aside></aside>
+<section>
+<h2 class="step"><a id="jump-step4" class="anchor"></a><span class="margin-label"><span>Step 4</span></span>Built-in Functions</h2><p>Scapy has large number of built-in functions. We can list these functions by typing:</p><ul><li><strong>&gt;&gt;&gt; lsc()</strong></li></ul> <figure><figure class="whtGallery pad-2" id="28682078docPartGal880051" role="group"><div class="gallery-layout" style="overflow: visible; height: 366px; width: auto;">   <div class="gallery-layout-container"><figure class="gal-row gal-row-f gal-wa img-shadow" data-index="0" style="background: rgb(255, 255, 255); width: 600px;"><a href="https://img.wonderhowto.com/img/original/40/58/63555534273800/0/635555342738004058.jpg" rel="nofollow" target="_blank"><img src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-like-pro-using-powerful-versatile-scapy-for-scanning-dosing.w1456(7).jpg" alt="" style="width: auto; max-width: 600px; height: 360px; margin-left: -3px;"></a></figure></div>   <div class="white-out" style="display: none;">       <div style="display: none;"></div>   </div></div></figure></figure><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"></aside></aside> <p>Since the list is too long to display in one screen, I have displayed the first of these functions above and the last of these functions below. Note, some functions did not fit on either screen.</p> <figure><figure class="whtGallery pad-2" id="2376049docPartGal880053" role="group"><div class="gallery-layout" style="overflow: visible; height: 367px; width: auto;">   <div class="gallery-layout-container"><figure class="gal-row gal-row-f gal-wa" data-index="0" style="background: rgb(255, 255, 255); width: 600px;"><a href="https://img.wonderhowto.com/img/original/49/92/63555534293003/0/635555342930034992.jpg" rel="nofollow" target="_blank"><img src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-like-pro-using-powerful-versatile-scapy-for-scanning-dosing.w1456(8).jpg" alt="" style="width: auto; max-width: 600px; height: 361px; margin-left: -3px;"></a></figure></div>   <div class="white-out" style="display: none;">       <div style="display: none;"></div>   </div></div></figure></figure><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"><div class="" id="purch_Y_L_0_4" style="min-height: 90px;" data-google-query-id="CJzI_s6intICFZWoaAod6jkGDw"><div id="google_ads_iframe_/10518929/tmnp.wonderhowto/a0-p4-s1_0__container__" style="border: 0pt none; display: inline-block; width: 728px; height: 90px;"><iframe frameborder="0" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/container(4).html" id="google_ads_iframe_/10518929/tmnp.wonderhowto/a0-p4-s1_0" title="3rd party ad content" name="" scrolling="no" marginwidth="0" marginheight="0" width="728" height="90" data-is-safeframe="true" style="border: 0px; vertical-align: bottom;"></iframe></div></div></aside></aside> <p>Note the command "send" on the first line of the second screenshot of the functions. This is what we use when we want to send a packet. Let's use it to send the packet we created above called "x" that has the attributes of TTL=64, source IP address of 192.168.1.101, and a destination iP address of 192.168.1.122. Of course, when we send this packet, it will go to the destination IP address and will have a limit of 64 hops (TTL=64).</p><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"></aside></aside><ul><li><strong>&gt;&gt;&gt; send(x)</strong></li></ul> <figure><figure class="whtGallery pad-2" id="36336585docPartGal880055" role="group"><div class="gallery-layout" style="overflow: visible; height: 83px; width: auto;">   <div class="gallery-layout-container"><figure class="gal-row gal-row-f gal-wa img-shadow" data-index="0" style="background: rgb(255, 255, 255); width: 549px;"><a href="https://img.wonderhowto.com/img/original/00/11/63555534491535/0/635555344915350011.jpg" rel="nofollow" target="_blank"><img src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-like-pro-using-powerful-versatile-scapy-for-scanning-dosing.w1456(9).jpg" alt="" style="width: auto; max-width: 600px; height: 77px; margin-left: -3px;"></a></figure></div>   <div class="white-out" style="display: none;">       <div style="display: none;"></div>   </div></div></figure></figure><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"></aside></aside> <p>As you can see, our specially crafted packet x was sent to the destination IP address.</p><p>We can use Scapy to craft a packet with just about any value in any of the IP header or TCP header fields, such as window size, flags, fragmentation field, acknowledgement value, sequence number, etc.</p></section><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"></aside></aside>
+<section>
+<h2 class="step"><a id="jump-step5" class="anchor"></a><span class="margin-label"><span>Step 5</span></span>Create an Attack</h2><p>I hope by now that you getting the idea that Scapy to be used to manipulate <em>any</em> of the fields in the TCP/IP packet. We will play with some of the other fields in a subsequent Scapy tutorial.</p><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"></aside></aside><p>Now, let's use this capability to create a malicious packet and then send it to a target system. Windows Server 2003 (believe or not, there are still millions of 2003 servers out there; check <a href="https://null-byte.wonderhowto.com/how-to/hack-like-pro-conduct-passive-reconnaissance-potential-target-0146938/">Netcraft</a> or use <a href="https://null-byte.wonderhowto.com/how-to/hack-like-pro-conduct-os-fingerprinting-with-xprobe2-0148439/">Xprobe2</a> to find the operating system) is vulnerable to the "land" attack. This is a DoS attack that sends an oversized packet to the target with the same source and destination IP address and the same source and destination port. It doesn't always crash the system, but will slow it down considerably. For web servers, slowing them down is effectively a DoS.</p><p>Let's create that land attack packet in Scapy. Scapy can take all of the attributes in a single command. So, let's create our "land" attack packet and send it 2,000 times. We can do this by typing:</p><ul><li><strong>&gt;&gt;&gt; send(IP(src="192.168.1.122", dst="192.168.1.122")/TCP(sport=135,dport=135), count=2000)</strong></li> </ul><p>Let's break down that command.</p><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"></aside></aside><ul><li><strong>send</strong> is the command</li> <li><strong>IP</strong> defines the protocol for IP addresses</li> <li><strong>src="192.168.1.122"</strong> is the source IP address</li> <li><strong>dst="192.168.1.122"</strong> is the destination IP address</li> <li><strong>TCP</strong> defines the protocol for the ports</li> <li><strong>sport=135</strong> defines the source port</li> <li><strong>dport=135</strong> defines the destination port</li> <li><strong>count=2000</strong> defines the number of packets we want to send</li></ul> <figure><figure class="whtGallery pad-2" id="22173324docPartGal880057" role="group"><div class="gallery-layout" style="overflow: visible; height: 438px; width: auto;">   <div class="gallery-layout-container"><figure class="gal-row gal-row-f gal-wa img-shadow" data-index="0" style="background: rgb(255, 255, 255); width: 600px;"><a href="https://img.wonderhowto.com/img/original/54/88/63555534696050/0/635555346960505488.jpg" rel="nofollow" target="_blank"><img src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-like-pro-using-powerful-versatile-scapy-for-scanning-dosing.w1456(10).jpg" alt="" style="width: auto; max-width: 600px; height: 432px; margin-left: -3px;"></a></figure></div>   <div class="white-out" style="display: none;">       <div style="display: none;"></div>   </div></div></figure></figure><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"></aside></aside> <p>If these packets are directed at a Windows Server 2003, it can crash the system or at least slow it down dramatically. When a web server is slowed, it effectively DoSes the website.</p><p>Scapy is yet another powerful scanning and DoSing tool in our arsenal of tools. Scapy is incredibly versatile enabling us to do multiple tasks with this single tool. It has almost an unlimited ability to create packets with any characteristics you can imagine and thereby create a unique scanning technique and DoS attacks.</p></section><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"></aside></aside> 
+<section><small class="image-credits">Cover image via <a href="http://www.shutterstock.com/pic-180524933/stock-photo-online-distributed-denial-services-attack-concept-with-hand-wearing-black-leather-glove-pressing.html" rel="nofollow" target="_blank">Shutterstock</a></small> 
+
+                </section>
+
+                <footer class="clearfix mgb"></footer>
+
+            </article>
+
+                <aside class="related-scroller">
+                    <h2 class="subsections-heading text-only"><span class="centered-article-content">Related</span></h2>
+                    
+    <div class="article-list article-list-mode1 hscrollable" data-margin-between-items="0" data-filter-sort="0" data-display-mode="1" data-prevpagekey="" data-activepagekey="QXJ0aWNsZUxpc3RLZXl8MHwxMzB8MHwxMTI0fHwxfDE1OTIzMXwwfDB8MXwwfA==" data-nextpagekey="QXJ0aWNsZUxpc3RLZXl8MHwxMzB8MHwxMTI0fHwyfDE1OTIzMXwwfDB8MXwwfA==" data-prevpagepath="" data-activepagepath="" data-nextpagepath="" data-title-base="Related" data-page-number="1" style="overflow: hidden; height: 230px;">
+                <ul style="width: 11200px; height: 230px; transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); transition-duration: 0ms; transform: translate(0px, 0px) translateZ(0px);">
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="162731" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/build-arp-scanner-using-scapy-and-python-0162731/" class="no-video ">
+
+                    <span class="img-crop">
+                        <img src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/build-arp-scanner-using-scapy-and-python.300x140.jpg" alt="" width="300" height="140">                    </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Build an ARP Scanner Using Scapy and Python
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="164783" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a href="https://android.gadgethacks.com/news/5-best-apps-for-scanning-text-documents-android-0164783/" class="no-video ">
+
+                    <span class="img-crop">
+                        <img src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/5-best-apps-for-scanning-text-documents-android.300x140.jpg" alt="" width="300" height="140" style="transition: 0.2s; transform: none;">                    </span>
+
+                <span class="text ">
+                        <span class="series">News</span><span class="hide">:</span>
+                    The 5 Best Apps for Scanning Text &amp; Documents on Android
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="132542" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/hack-wpa-wifi-passwords-by-cracking-wps-pin-0132542/" class="no-video ">
+
+                    <span class="img-crop">
+                        <img src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-wpa-wifi-passwords-by-cracking-wps-pin.300x140.jpg" alt="" width="300" height="140">                    </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Hack WPA WiFi Passwords by Cracking the WPS PIN
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="164779" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/build-stealth-port-scanner-with-scapy-and-python-0164779/" class="no-video ">
+
+                    <span class="img-crop">
+                        <img src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/build-stealth-port-scanner-with-scapy-and-python.300x140.jpg" alt="" width="300" height="140" style="transition: 0.2s; transform: none;">                    </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Build a Stealth Port Scanner with Scapy and Python
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="162518" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a href="https://android.gadgethacks.com/news/best-android-antivirus-avast-vs-avg-vs-kaspersky-vs-mcafee-0162518/" class="has-video ">
+
+                    <span class="img-crop">
+                        <img src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/best-android-antivirus-avast-vs-avg-vs-kaspersky-vs-mcafee.300x140.jpg" alt="" width="300" height="140">                    </span>
+
+                <span class="text ">
+                        <span class="series">Best Android Antivirus</span><span class="hide">:</span>
+                    Avast vs. AVG vs. Kaspersky vs. McAfee
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="148329" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/hack-like-pro-perform-stealthy-reconnaissance-protected-network-0148329/" class="no-video ">
+
+                    <span class="img-crop">
+                        <img src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-like-pro-perform-stealthy-reconnaissance-protected-network.300x140.jpg" alt="" width="300" height="140">                    </span>
+
+                <span class="text ">
+                        <span class="series">Hack Like a Pro</span><span class="hide">:</span>
+                    How to Perform Stealthy Reconnaissance on a Protected Network
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="165138" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/news/study-for-white-hat-hacker-associate-certification-cwa-0165138/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/study-for-white-hat-hacker-associate-certification-cwa.300x140.jpg" data-src="https://img.wonderhowto.com/img/53/47/63580328862338/0/study-for-white-hat-hacker-associate-certification-cwa.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">News</span><span class="hide">:</span>
+                    How to Study for the White Hat Hacker Associate Certification (CWA)
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="161286" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a href="https://smartphones.gadgethacks.com/how-to/scan-save-old-printed-photos-your-smartphone-0161286/" class="has-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/scan-save-old-printed-photos-your-smartphone.300x140.jpg" data-src="https://img.wonderhowto.com/img/94/72/63564104137491/0/scan-save-old-printed-photos-your-smartphone.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Scan &amp; Save Old Printed Photos to Your Smartphone
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="151729" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/hack-like-pro-find-vulnerabilities-for-any-website-using-nikto-0151729/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-like-pro-find-vulnerabilities-for-any-website-using-nikto.300x140.jpg" data-src="https://img.wonderhowto.com/img/93/67/63530737229751/0/hack-like-pro-find-vulnerabilities-for-any-website-using-nikto.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">Hack Like a Pro</span><span class="hide">:</span>
+                    How to Find Vulnerabilities for Any Website Using Nikto
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="135663" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a href="https://sketchheroes.wonderhowto.com/how-to/draw-vegeta-0135663/" class="has-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/draw-vegeta.300x140.jpg" data-src="https://img.wonderhowto.com/img/06/67/63474974103092/0/draw-vegeta.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Draw Vegeta
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="157767" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/hack-like-pro-using-nexpose-scan-for-network-system-vulnerabilities-0157767/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-like-pro-using-nexpose-scan-for-network-system-vulnerabilities.300x140.jpg" data-src="https://img.wonderhowto.com/img/45/60/63548533796450/0/hack-like-pro-using-nexpose-scan-for-network-system-vulnerabilities.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">Hack Like a Pro</span><span class="hide">:</span>
+                    Using Nexpose to Scan for Network &amp; System Vulnerabilities
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="146950" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/hack-like-pro-conduct-active-reconnaissance-and-dos-attacks-with-nmap-0146950/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-like-pro-conduct-active-reconnaissance-and-dos-attacks-with-nmap.300x140.jpg" data-src="https://img.wonderhowto.com/img/75/69/63504818895706/0/hack-like-pro-conduct-active-reconnaissance-and-dos-attacks-with-nmap.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">Hack Like a Pro</span><span class="hide">:</span>
+                    How to Conduct Active Reconnaissance and DOS Attacks with Nmap
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="138376" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/hack-like-pro-hacking-windows-vista-by-exploiting-smb2-vulnerabilities-0138376/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-like-pro-hacking-windows-vista-by-exploiting-smb2-vulnerabilities.300x140.jpg" data-src="https://img.wonderhowto.com/img/60/03/63481676170907/0/hack-like-pro-hacking-windows-vista-by-exploiting-smb2-vulnerabilities.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How to Hack Like a Pro</span><span class="hide">:</span>
+                    Hacking Windows Vista by Exploiting SMB2 Vulnerabilities
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="169854" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/hack-like-pro-reconnaissance-with-recon-ng-part-1-getting-started-0169854/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-like-pro-reconnaissance-with-recon-ng-part-1-getting-started.300x140.jpg" data-src="https://img.wonderhowto.com/img/27/76/63594788005433/0/hack-like-pro-reconnaissance-with-recon-ng-part-1-getting-started.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">Hack Like a Pro</span><span class="hide">:</span>
+                    Reconnaissance with Recon-Ng, Part 1 (Getting Started)
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="158681" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/hack-like-pro-using-nmap-scripting-engine-nse-for-reconnaissance-0158681/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-like-pro-using-nmap-scripting-engine-nse-for-reconnaissance.300x140.jpg" data-src="https://img.wonderhowto.com/img/62/87/63552525206064/0/hack-like-pro-using-nmap-scripting-engine-nse-for-reconnaissance.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">Hack Like a Pro</span><span class="hide">:</span>
+                    Using the Nmap Scripting Engine (NSE) for Reconnaissance
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="167255" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/hack-like-pro-using-sparta-for-reconnaissance-0167255/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-like-pro-using-sparta-for-reconnaissance.300x140.jpg" data-src="https://img.wonderhowto.com/img/24/46/63586570243463/0/hack-like-pro-using-sparta-for-reconnaissance.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">Hack Like a Pro</span><span class="hide">:</span>
+                    Using Sparta for Reconnaissance
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="165973" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/anti-virus-kali-linux-0165973/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/anti-virus-kali-linux.300x140.jpg" data-src="https://img.wonderhowto.com/img/81/47/63582194707741/0/anti-virus-kali-linux.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Anti-Virus in Kali Linux
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="149736" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a href="https://ios.gadgethacks.com/how-to/make-touch-id-fingerprint-sensor-work-perfectly-your-iphone-every-time-0149736/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/make-touch-id-fingerprint-sensor-work-perfectly-your-iphone-every-time.300x140.jpg" data-src="https://img.wonderhowto.com/img/98/37/63622235020722/0/make-touch-id-fingerprint-sensor-work-perfectly-your-iphone-every-time.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Make the Touch ID Fingerprint Sensor Work Perfectly on Your iPhone Every Time
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="-244898" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a href="https://software-tips.wonderhowto.com/how-to/edit-video-quicktime-pro-244898/" class="has-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/edit-video-quicktime-pro.300x140.jpg" data-src="https://img.wonderhowto.com/img/96/08/63475250539770/0/edit-video-quicktime-pro.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Edit video in QuickTime Pro
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="167990" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/five-phases-hacking-0167990/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/five-phases-hacking.300x140.jpg" data-src="https://img.wonderhowto.com/img/84/74/63588907550732/0/five-phases-hacking.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    The Five Phases of Hacking
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="-272057" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a href="https://drawing.wonderhowto.com/how-to/recycle-sketch-book-drawing-into-finished-drawing-272057/" class="has-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/recycle-sketch-book-drawing-into-finished-drawing.300x140.jpg" data-src="https://img.wonderhowto.com/img/48/91/63475365924538/0/recycle-sketch-book-drawing-into-finished-drawing.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Recycle a sketch book drawing into a finished drawing
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="165049" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/hack-bluetooth-part-3-reconnaissance-0165049/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-bluetooth-part-3-reconnaissance.300x140.jpg" data-src="https://img.wonderhowto.com/img/78/54/63579830993356/0/hack-bluetooth-part-3-reconnaissance.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How to Hack Bluetooth, Part 3</span><span class="hide">:</span>
+                    Reconnaissance
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="164485" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a href="https://android.gadgethacks.com/how-to/fingerprint-lock-apps-android-without-fingerprint-scanner-0164485/" class="has-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/fingerprint-lock-apps-android-without-fingerprint-scanner.300x140.jpg" data-src="https://img.wonderhowto.com/img/81/12/63577589349155/0/fingerprint-lock-apps-android-without-fingerprint-scanner.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Fingerprint-Lock Apps on Android Without a Fingerprint Scanner
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="149695" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/hack-like-pro-scripting-for-aspiring-hacker-part-2-conditional-statements-0149695/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-like-pro-scripting-for-aspiring-hacker-part-2-conditional-statements.300x140.jpg" data-src="https://img.wonderhowto.com/img/84/83/63521840208263/0/hack-like-pro-scripting-for-aspiring-hacker-part-2-conditional-statements.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">Hack Like a Pro</span><span class="hide">:</span>
+                    Scripting for the Aspiring Hacker, Part 2 (Conditional Statements)
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="148993" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/hack-databases-hunting-for-microsofts-sql-server-0148993/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-databases-hunting-for-microsofts-sql-server.300x140.jpg" data-src="https://img.wonderhowto.com/img/84/42/63517434424226/0/hack-databases-hunting-for-microsofts-sql-server.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How to Hack Databases</span><span class="hide">:</span>
+                    Hunting for Microsoft's SQL Server
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="-276088" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a href="https://tennis-lessons.wonderhowto.com/how-to/practice-one-handed-backhand-progressions-tennis-276088/" class="has-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/practice-one-handed-backhand-progressions-tennis.300x140.jpg" data-src="https://img.wonderhowto.com/img/24/80/63475286999274/0/practice-one-handed-backhand-progressions-tennis.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Practice one-handed backhand progressions in tennis
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="148132" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/hack-like-pro-scan-globe-for-vulnerable-ports-services-0148132/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-like-pro-scan-globe-for-vulnerable-ports-services.300x140.jpg" data-src="https://img.wonderhowto.com/img/69/52/63511386237580/0/hack-like-pro-scan-globe-for-vulnerable-ports-services.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">Hack Like a Pro</span><span class="hide">:</span>
+                    How to Scan the Globe for Vulnerable Ports &amp; Services
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="168493" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/zanti-nmap-0168493/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/zanti-nmap.300x140.jpg" data-src="https://img.wonderhowto.com/img/50/09/63590519189619/0/zanti-nmap.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">Zanti</span><span class="hide">:</span>
+                    Nmap
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="165555" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/hack-like-pro-metasploit-for-aspiring-hacker-part-10-finding-deleted-webpages-0165555/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-like-pro-metasploit-for-aspiring-hacker-part-10-finding-deleted-webpages.300x140.jpg" data-src="https://img.wonderhowto.com/img/31/72/63582842071751/0/hack-like-pro-metasploit-for-aspiring-hacker-part-10-finding-deleted-webpages.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">Hack Like a Pro</span><span class="hide">:</span>
+                    Metasploit for the Aspiring Hacker, Part 10 (Finding Deleted Webpages)
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="151619" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/hack-like-pro-advanced-nmap-for-reconnaissance-0151619/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-like-pro-advanced-nmap-for-reconnaissance.300x140.jpg" data-src="https://img.wonderhowto.com/img/01/26/63545955986014/0/hack-like-pro-advanced-nmap-for-reconnaissance.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">Hack Like a Pro</span><span class="hide">:</span>
+                    Advanced Nmap for Reconnaissance
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="130719" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/hackers-use-your-ip-address-hack-your-computer-stop-0130719/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hackers-use-your-ip-address-hack-your-computer-stop.300x140.jpg" data-src="https://img.wonderhowto.com/img/63/51/63454544793093/0/hackers-use-your-ip-address-hack-your-computer-stop.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    How Hackers Use Your IP Address to Hack Your Computer &amp; How to Stop It
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="132299" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/hack-radio-pick-up-different-frequencies-including-law-enforcement-more-0132299/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-radio-pick-up-different-frequencies-including-law-enforcement-more.300x140.jpg" data-src="https://img.wonderhowto.com/img/70/35/63460770921301/0/hack-radio-pick-up-different-frequencies-including-law-enforcement-more.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Hack a Radio to Pick Up Different Frequencies - Including Law Enforcement &amp; More
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="123540" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a href="https://obedia.wonderhowto.com/news/what-does-pro-tools-hd-native-mean-for-you-0123540/" class="no-video no-image">
+
+
+                <span class="text ">
+                        <span class="series">News</span><span class="hide">:</span>
+                    What does Pro Tools HD Native mean for you?
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="133518" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/hacking-reconnaissance-finding-vulnerabilities-your-target-using-nmap-0133518/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hacking-reconnaissance-finding-vulnerabilities-your-target-using-nmap.300x140.jpg" data-src="https://img.wonderhowto.com/img/12/66/63465583774970/0/hacking-reconnaissance-finding-vulnerabilities-your-target-using-nmap.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">Hacking Reconnaissance</span><span class="hide">:</span>
+                    Finding Vulnerabilities in Your Target Using Nmap
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="132737" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/spider-web-pages-with-nmap-for-sqli-vulnerabilities-0132737/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/spider-web-pages-with-nmap-for-sqli-vulnerabilities.300x140.jpg" data-src="https://img.wonderhowto.com/img/95/95/63462219154483/0/spider-web-pages-with-nmap-for-sqli-vulnerabilities.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Spider Web Pages with Nmap for SQLi Vulnerabilities
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="129789" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a href="https://indie-games-ichiban.wonderhowto.com/news/these-videos-will-teach-you-cryengine-0129789/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/these-videos-will-teach-you-cryengine.300x140.jpg" data-src="https://img.wonderhowto.com/img/63/27/63451002646499/0/these-videos-will-teach-you-cryengine.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">News</span><span class="hide">:</span>
+                    These Videos Will Teach You CryEngine
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="128727" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a href="https://giveawaytuesdays.wonderhowto.com/news/3-ultra-cheap-diy-macro-photography-hacks-0128727/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/3-ultra-cheap-diy-macro-photography-hacks.300x140.jpg" data-src="https://img.wonderhowto.com/img/69/44/63446194820980/0/3-ultra-cheap-diy-macro-photography-hacks.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">News</span><span class="hide">:</span>
+                    3 Ultra-Cheap DIY Macro Photography Hacks
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="129327" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a href="https://googleplus.wonderhowto.com/how-to/official-google-insiders-guide-index-0129327/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/official-google-insiders-guide-index.300x140.jpg" data-src="https://img.wonderhowto.com/img/16/85/63449102849985/0/official-google-insiders-guide-index.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    The Official Google+ Insider's Guide Index
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="116369" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a href="https://organic.wonderhowto.com/news/does-sunscreen-give-you-cancer-0116369/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/does-sunscreen-give-you-cancer.300x140.jpg" data-src="https://img.wonderhowto.com/img/60/35/63410326626307/0/does-sunscreen-give-you-cancer.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">News</span><span class="hide">:</span>
+                    Does Sunscreen Give you Cancer?
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="118254" style="margin: 0px;">
+        <h3 class="article-headline">
+            <a href="https://writers.wonderhowto.com/news/scan-your-books-without-destroying-them-0118254/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/scan-your-books-without-destroying-them.300x140.jpg" data-src="https://img.wonderhowto.com/img/81/51/63415999273819/0/scan-your-books-without-destroying-them.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">News</span><span class="hide">:</span>
+                    Scan your books without destroying them
+                </span>
+            </a>
+        </h3>
+    </li>
+                                    </ul>
+    <div class="scroller-arrow arrow-left hide" style="display: none;"><div class="fade"></div><em class="fa fa-chevron-left" style="line-height: 230px;"></em></div><div class="scroller-arrow arrow-right hide" style="display: block;"><div class="fade"></div><em class="fa fa-chevron-right" style="line-height: 230px;"></em></div></div>
+
+
+
+
+    
+
+    
+
+
+    
+
+
+
+                </aside>
+        </div>
+    </div>
+
+        <div class="comments-box article-id-159231" data-article-id="159231">
+            <div class="responses-wrapper clearfix">
+
+                    <div class="centered-article-content">
+                        
+                        
+                    </div>
+
+                <h2 class="subsections-heading response-count" data-response-count="7"><span class="centered-article-content">7 Comments</span></h2>
+
+                <div class="responses">
+
+
+<article class="response cascadelevel-1 clearfix" id="comment-107678" data-id="107678" data-article-id="159231" data-user-id="1053528" data-user-name="damoskan" data-created="2014-12-30T22:34:30Z" data-updated="" data-level="1" data-score="1" data-vote="" data-parent="0">
+
+    <aside class="author-hero">
+        <div class="centered-article-content clearfix">
+            <div class="fr vote-container">
+                <button class="raised-btn mfr short hidden-toggle" data-action="unhide"></button>
+                <button class="raised-btn fr merge-left short fa fa-chevron-down " data-action="downvote"></button>
+                <button class="raised-btn fr merge-right short fa fa-chevron-up " data-action="upvote"></button>
+                <span class="comment-score comment-score-107678">1</span>
+            </div>
+            <a href="https://creator.wonderhowto.com/damoskan/" rel="nofollow" class="image"><img src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/damoskan.135x180.jpg" width="23" height="30" alt="Damo Skan"></a>
+            <span class="text">
+                <a href="https://creator.wonderhowto.com/damoskan/" rel="nofollow" itemprop="author" class="name">Damo Skan</a>
+                <small>
+                    <time datetime="2014-12-30T22:34:30" pubdate="pubdate">
+                        2 years ago
+                    </time>
+                </small>
+                <meta itemprop="dateCreated" content="2014-12-30T22:34:30">
+                <meta itemprop="datePublished" content="2014-12-30T22:34:30">
+                <meta itemprop="dateModified" content="0001-01-01T00:00:00">
+            </span>
+        </div>
+    </aside>
+
+    <div class="response-content article-container centered-article-content">
+        <section>
+<p>Can you effectively spoof your ip if you are not entering your real ip source. The packet will still be sent?</p>         </section>
+    </div>
+
+    <aside class="comment-actions centered-article-content clearfix">
+        <button class="link-btn mfr short subtle" data-action="reply"><i class="fa fa-reply"></i> Reply</button>
+            </aside>
+</article>
+
+
+
+<article class="response cascadelevel-2 clearfix" id="comment-107680" data-id="107680" data-article-id="159231" data-user-id="798974" data-user-name="occupythewebotw" data-created="2014-12-30T22:50:17Z" data-updated="" data-level="2" data-score="1" data-vote="" data-parent="107678">
+
+    <aside class="author-hero">
+        <div class="centered-article-content clearfix">
+            <div class="fr vote-container">
+                <button class="raised-btn mfr short hidden-toggle" data-action="unhide"></button>
+                <button class="raised-btn fr merge-left short fa fa-chevron-down " data-action="downvote"></button>
+                <button class="raised-btn fr merge-right short fa fa-chevron-up " data-action="upvote"></button>
+                <span class="comment-score comment-score-107680">1</span>
+            </div>
+            <a href="https://creator.wonderhowto.com/occupythewebotw/" rel="nofollow" class="image"><img src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/occupythewebotw.135x180.jpg" width="23" height="30" alt="occupytheweb"></a>
+            <span class="text">
+                <a href="https://creator.wonderhowto.com/occupythewebotw/" rel="nofollow" itemprop="author" class="name">occupytheweb</a>
+                <small>
+                    <time datetime="2014-12-30T22:50:17" pubdate="pubdate">
+                        2 years ago
+                    </time>
+                </small>
+                <meta itemprop="dateCreated" content="2014-12-30T22:50:17">
+                <meta itemprop="datePublished" content="2014-12-30T22:50:17">
+                <meta itemprop="dateModified" content="0001-01-01T00:00:00">
+            </span>
+        </div>
+    </aside>
+
+    <div class="response-content article-container centered-article-content">
+        <section>
+<p>Yes, you can spoof your IP and it will be sent. The drawback is that you will not get any return traffic, it will be sent to the spoofed IP. When DoSing, we don't need any return traffic, but when scanning we do.</p>         </section>
+    </div>
+
+    <aside class="comment-actions centered-article-content clearfix">
+        <button class="link-btn mfr short subtle" data-action="reply"><i class="fa fa-reply"></i> Reply</button>
+            </aside>
+</article>
+
+
+
+<article class="response cascadelevel-1 clearfix" id="comment-111746" data-id="111746" data-article-id="159231" data-user-id="1054065" data-user-name="cavpar" data-created="2015-03-07T03:41:25Z" data-updated="" data-level="1" data-score="2" data-vote="" data-parent="0">
+
+    <aside class="author-hero">
+        <div class="centered-article-content clearfix">
+            <div class="fr vote-container">
+                <button class="raised-btn mfr short hidden-toggle" data-action="unhide"></button>
+                <button class="raised-btn fr merge-left short fa fa-chevron-down " data-action="downvote"></button>
+                <button class="raised-btn fr merge-right short fa fa-chevron-up " data-action="upvote"></button>
+                <span class="comment-score comment-score-111746">2</span>
+            </div>
+            <a href="https://creator.wonderhowto.com/cavpar/" rel="nofollow" class="image"><img src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/user-default.135x180.jpg" width="23" height="30" alt="cavpar"></a>
+            <span class="text">
+                <a href="https://creator.wonderhowto.com/cavpar/" rel="nofollow" itemprop="author" class="name">cavpar</a>
+                <small>
+                    <time datetime="2015-03-07T03:41:25" pubdate="pubdate">
+                        1 year ago
+                    </time>
+                </small>
+                <meta itemprop="dateCreated" content="2015-03-07T03:41:25">
+                <meta itemprop="datePublished" content="2015-03-07T03:41:25">
+                <meta itemprop="dateModified" content="0001-01-01T00:00:00">
+            </span>
+        </div>
+    </aside>
+
+    <div class="response-content article-container centered-article-content">
+        <section>
+<p>If I were sending the packets to an external IP address would I still use the local host address (192.168.x.x) or would I use the internet facing IP for x.source?</p>         </section>
+    </div>
+
+    <aside class="comment-actions centered-article-content clearfix">
+        <button class="link-btn mfr short subtle" data-action="reply"><i class="fa fa-reply"></i> Reply</button>
+            </aside>
+</article>
+
+
+
+<article class="response cascadelevel-1 clearfix" id="comment-111747" data-id="111747" data-article-id="159231" data-user-id="798974" data-user-name="occupythewebotw" data-created="2015-03-07T03:44:20Z" data-updated="" data-level="1" data-score="2" data-vote="" data-parent="0">
+
+    <aside class="author-hero">
+        <div class="centered-article-content clearfix">
+            <div class="fr vote-container">
+                <button class="raised-btn mfr short hidden-toggle" data-action="unhide"></button>
+                <button class="raised-btn fr merge-left short fa fa-chevron-down " data-action="downvote"></button>
+                <button class="raised-btn fr merge-right short fa fa-chevron-up " data-action="upvote"></button>
+                <span class="comment-score comment-score-111747">2</span>
+            </div>
+            <a href="https://creator.wonderhowto.com/occupythewebotw/" rel="nofollow" class="image"><img src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/occupythewebotw.135x180.jpg" width="23" height="30" alt="occupytheweb"></a>
+            <span class="text">
+                <a href="https://creator.wonderhowto.com/occupythewebotw/" rel="nofollow" itemprop="author" class="name">occupytheweb</a>
+                <small>
+                    <time datetime="2015-03-07T03:44:20" pubdate="pubdate">
+                        1 year ago
+                    </time>
+                </small>
+                <meta itemprop="dateCreated" content="2015-03-07T03:44:20">
+                <meta itemprop="datePublished" content="2015-03-07T03:44:20">
+                <meta itemprop="dateModified" content="0001-01-01T00:00:00">
+            </span>
+        </div>
+    </aside>
+
+    <div class="response-content article-container centered-article-content">
+        <section>
+<p>The internet facing or public IP.</p>         </section>
+    </div>
+
+    <aside class="comment-actions centered-article-content clearfix">
+        <button class="link-btn mfr short subtle" data-action="reply"><i class="fa fa-reply"></i> Reply</button>
+            </aside>
+</article>
+
+
+
+<article class="response cascadelevel-2 clearfix" id="comment-129587" data-id="129587" data-article-id="159231" data-user-id="1094502" data-user-name="PratikKamat" data-created="2015-09-17T13:17:34Z" data-updated="" data-level="2" data-score="1" data-vote="" data-parent="111747">
+
+    <aside class="author-hero">
+        <div class="centered-article-content clearfix">
+            <div class="fr vote-container">
+                <button class="raised-btn mfr short hidden-toggle" data-action="unhide"></button>
+                <button class="raised-btn fr merge-left short fa fa-chevron-down " data-action="downvote"></button>
+                <button class="raised-btn fr merge-right short fa fa-chevron-up " data-action="upvote"></button>
+                <span class="comment-score comment-score-129587">1</span>
+            </div>
+            <a href="https://creator.wonderhowto.com/pratikkamat/" rel="nofollow" class="image"><img src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/pratikkamat.135x180.jpg" width="23" height="30" alt="Mr.Hacker"></a>
+            <span class="text">
+                <a href="https://creator.wonderhowto.com/pratikkamat/" rel="nofollow" itemprop="author" class="name">Mr.Hacker</a>
+                <small>
+                    <time datetime="2015-09-17T13:17:34" pubdate="pubdate">
+                        1 year ago
+                    </time>
+                </small>
+                <meta itemprop="dateCreated" content="2015-09-17T13:17:34">
+                <meta itemprop="datePublished" content="2015-09-17T13:17:34">
+                <meta itemprop="dateModified" content="0001-01-01T00:00:00">
+            </span>
+        </div>
+    </aside>
+
+    <div class="response-content article-container centered-article-content">
+        <section>
+<p>how can i also spoof my mac?<br>After all, still if i spoof my ip or not the victim will get my mac.<br>And the attacker will be caught.<br>So is there any way to spoof mac ?</p>         </section>
+    </div>
+
+    <aside class="comment-actions centered-article-content clearfix">
+        <button class="link-btn mfr short subtle" data-action="reply"><i class="fa fa-reply"></i> Reply</button>
+            </aside>
+</article>
+
+
+
+<article class="response cascadelevel-3 clearfix" id="comment-129591" data-id="129591" data-article-id="159231" data-user-id="1099418" data-user-name="triphat" data-created="2015-09-17T14:04:13Z" data-updated="" data-level="3" data-score="1" data-vote="" data-parent="129587">
+
+    <aside class="author-hero">
+        <div class="centered-article-content clearfix">
+            <div class="fr vote-container">
+                <button class="raised-btn mfr short hidden-toggle" data-action="unhide"></button>
+                <button class="raised-btn fr merge-left short fa fa-chevron-down " data-action="downvote"></button>
+                <button class="raised-btn fr merge-right short fa fa-chevron-up " data-action="upvote"></button>
+                <span class="comment-score comment-score-129591">1</span>
+            </div>
+            <a href="https://creator.wonderhowto.com/triphat/" rel="nofollow" class="image"><img src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/triphat.135x180.jpg" width="23" height="30" alt="TripHat"></a>
+            <span class="text">
+                <a href="https://creator.wonderhowto.com/triphat/" rel="nofollow" itemprop="author" class="name">TripHat</a>
+                <small>
+                    <time datetime="2015-09-17T14:04:13" pubdate="pubdate">
+                        1 year ago
+                    </time>
+                </small>
+                <meta itemprop="dateCreated" content="2015-09-17T14:04:13">
+                <meta itemprop="datePublished" content="2015-09-17T14:04:13">
+                <meta itemprop="dateModified" content="0001-01-01T00:00:00">
+            </span>
+        </div>
+    </aside>
+
+    <div class="response-content article-container centered-article-content">
+        <section>
+<p>This will spoof mac</p><p><strong>sendp(Ether(src="aa:bb:cc:dd:ee:ff")/IP(src="192.168.1.3", dst="192.168.1.1")/TCP(sport=135,dport=135), count=2000)</strong></p><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"></aside></aside><p>But mac spoofing makes sense only on LAN.</p>         </section>
+    </div>
+
+    <aside class="comment-actions centered-article-content clearfix">
+        <button class="link-btn mfr short subtle" data-action="reply"><i class="fa fa-reply"></i> Reply</button>
+            </aside>
+</article>
+
+
+
+<article class="response cascadelevel-4 clearfix" id="comment-129594" data-id="129594" data-article-id="159231" data-user-id="1094502" data-user-name="PratikKamat" data-created="2015-09-17T14:19:42Z" data-updated="" data-level="4" data-score="1" data-vote="" data-parent="129591">
+
+    <aside class="author-hero">
+        <div class="centered-article-content clearfix">
+            <div class="fr vote-container">
+                <button class="raised-btn mfr short hidden-toggle" data-action="unhide"></button>
+                <button class="raised-btn fr merge-left short fa fa-chevron-down " data-action="downvote"></button>
+                <button class="raised-btn fr merge-right short fa fa-chevron-up " data-action="upvote"></button>
+                <span class="comment-score comment-score-129594">1</span>
+            </div>
+            <a href="https://creator.wonderhowto.com/pratikkamat/" rel="nofollow" class="image"><img src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/pratikkamat.135x180.jpg" width="23" height="30" alt="Mr.Hacker"></a>
+            <span class="text">
+                <a href="https://creator.wonderhowto.com/pratikkamat/" rel="nofollow" itemprop="author" class="name">Mr.Hacker</a>
+                <small>
+                    <time datetime="2015-09-17T14:19:42" pubdate="pubdate">
+                        1 year ago
+                    </time>
+                </small>
+                <meta itemprop="dateCreated" content="2015-09-17T14:19:42">
+                <meta itemprop="datePublished" content="2015-09-17T14:19:42">
+                <meta itemprop="dateModified" content="0001-01-01T00:00:00">
+            </span>
+        </div>
+    </aside>
+
+    <div class="response-content article-container centered-article-content">
+        <section>
+<p>Thanks mate :)</p>         </section>
+    </div>
+
+    <aside class="comment-actions centered-article-content clearfix">
+        <button class="link-btn mfr short subtle" data-action="reply"><i class="fa fa-reply"></i> Reply</button>
+            </aside>
+</article>
+
+                <div class="hide reply-root clearfix" style="display: none;"><div class="centered-article-content"><button type="button" class="raised-btn mfl" data-action="reply-root"><i class="fa fa-reply"></i> Start a New Comment</button></div></div></div><div class="user-comment-editor">
+                    <h2 class="subsections-heading  comment-editor-header"><span class="centered-article-content">Share Your Thoughts</span></h2>
+
+                    
+                    
+
+
+    <div class="share-widget clearfix notOnInit" data-world-topic-id="0">
+        <div class="share-widget-input clearfix">
+            <div class="article-box">
+
+                    <aside class="author-hero">
+                        <div class="centered-article-content clearfix">
+                                <span rel="nofollow" class="image"><img src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/user-default.135x180(1).jpg" width="23" height="30"></span>
+                                <span class="text">
+                                    <a href="javascript://" rel="nofollow" class="name">You</a>
+                                    <small>Login to Comment</small>
+                                </span>
+                        </div>
+                    </aside>
+
+                <div class="centered-article-content clearfix">
+                    <div class="share-pre-init clearfix">
+                            <div class="wteParagraph textholder pos-rel">
+                                <span class="txt-clr-lighter">
+                                    Click to share your thoughts
+                                </span>
+                            </div>
+                            <textarea placeholder="Click to leave a response" class="comment-input hide"></textarea>
+                    </div>
+                    <div class="sharePrompt">
+                        <form class="share-form" novalidate="novalidate">
+                            <div class="editorBlocks"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="action-buttons clearfix centered-article-content"></div>
+        </div>
+
+        <div class="share-widget-tips" style="display: none;">
+
+        </div>
+    </div>
+
+                </div>
+
+            </div>
+
+            
+                
+        </div><aside class="whtaph-rightbox whtaph-728"><aside class="whtaph rightbox" data-unit-type="rightbox"></aside></aside>
+</div>
+
+
+
+
+    </div>
+
+        <div class="left-col" style="transform: none;">
+            
+<aside class="top-ad-anchor whtaph" data-unit-type="bigbox">
+    
+<div class="" id="purch_Y_R_1_1" data-google-query-id="CJfI_s6intICFZWoaAod6jkGDw" style="min-height: 250px; background-color: rgb(255, 255, 255);"><div id="google_ads_iframe_/10518929/tmnp.wonderhowto/a1-p1-s2_0__container__" style="border: 0pt none; display: inline-block; width: 300px; height: 250px;"><iframe frameborder="0" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/container(5).html" id="google_ads_iframe_/10518929/tmnp.wonderhowto/a1-p1-s2_0" title="3rd party ad content" name="" scrolling="no" marginwidth="0" marginheight="0" width="300" height="250" data-is-safeframe="true" style="border: 0px; vertical-align: bottom;"></iframe></div></div></aside>
+
+<div class="content-nav">
+    
+
+    
+
+    <div class="lockable-anchor" style="height: 4884px;">
+        <div class="lockable-region" data-lockable-top-offset="0" data-lock-edge="bottom" style="width: 300px;">
+            
+
+            <div class="list-toggler subtabs">
+                <ul>
+                    <li><span class="right" data-filter-sort="11"><i class="fa fa-certificate"></i> Hot</span></li>
+                    <li><span class="left active" data-filter-sort="14"><i class="fa fa-clock-o"></i> Latest</span></li>
+                    
+                </ul>
+            </div>
+
+            <div class="lockable-fill-vertical-no"><div>
+                
+
+
+
+                
+
+                
+    <div class="article-list article-list-mode1" data-filter-sort="14" data-display-mode="1" data-prevpagekey="" data-activepagekey="QXJ0aWNsZUxpc3RLZXl8MTR8MTMwfDB8MTEyNHx8MXwxNTkyMzF8MHwxfDF8MHw=" data-nextpagekey="QXJ0aWNsZUxpc3RLZXl8MTR8MTMwfDB8MTEyNHx8MnwxNTkyMzF8MHwxfDF8MHw=" data-prevpagepath="" data-activepagepath="https://null-byte.wonderhowto.com/" data-nextpagepath="https://null-byte.wonderhowto.com/" data-title-base="Null Byte Features" data-page-number="1">
+                <ul>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="176007">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/news/you-can-now-use-protonmail-even-more-securely-through-tor-network-0176007/" class="no-video ">
+
+                    <span class="img-crop">
+                        <img src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/you-can-now-use-protonmail-even-more-securely-through-tor-network.300x140.jpg" alt="" width="300" height="140">                    </span>
+
+                <span class="text ">
+                        <span class="series">News</span><span class="hide">:</span>
+                    You Can Now Use ProtonMail Even More Securely Through the Tor Network
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="176134">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/hack-wi-fi-capturing-wpa-passwords-by-targeting-users-with-fluxion-attack-0176134/" class="no-video ">
+
+                    <span class="img-crop">
+                        <img src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-wi-fi-capturing-wpa-passwords-by-targeting-users-with-fluxion-attack.300x140.jpg" alt="" width="300" height="140">                    </span>
+
+                <span class="text ">
+                        <span class="series">How to Hack Wi-Fi</span><span class="hide">:</span>
+                    Capturing WPA Passwords by Targeting Users with a Fluxion Attack
+                </span>
+            </a>
+        </h3>
+    </li><li><aside class="whtaph leftbox" data-unit-type="leftbox"><div class="" id="purch_Y_R_0_1" data-google-query-id="CJjI_s6intICFZWoaAod6jkGDw" style="min-height: 250px;"><div id="google_ads_iframe_/10518929/tmnp.wonderhowto/a0-p1-s2_0__container__" style="border: 0pt none; display: inline-block; width: 300px; height: 250px;"><iframe frameborder="0" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/container(6).html" id="google_ads_iframe_/10518929/tmnp.wonderhowto/a0-p1-s2_0" title="3rd party ad content" name="" scrolling="no" marginwidth="0" marginheight="0" width="300" height="250" data-is-safeframe="true" style="border: 0px; vertical-align: bottom;"></iframe></div></div></aside></li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="139532">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/4-ways-crack-facebook-password-protect-yourself-from-them-0139532/" class="no-video ">
+
+                    <span class="img-crop">
+                        <img src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/4-ways-crack-facebook-password-protect-yourself-from-them.300x140.jpg" alt="" width="300" height="140">                    </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    4 Ways to Crack a Facebook Password &amp; How to Protect Yourself from Them
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="175686">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/punchabunch-just-made-ssh-local-forwarding-stupid-easy-0175686/" class="no-video ">
+
+                    <span class="img-crop">
+                        <img src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/punchabunch-just-made-ssh-local-forwarding-stupid-easy.300x140.jpg" alt="" width="300" height="140">                    </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Punchabunch Just Made SSH Local Forwarding Stupid Easy
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="165154">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/hack-wi-fi-get-anyones-wi-fi-password-without-cracking-using-wifiphisher-0165154/" class="no-video ">
+
+                    <span class="img-crop">
+                        <img src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-wi-fi-get-anyones-wi-fi-password-without-cracking-using-wifiphisher.300x140.jpg" alt="" width="300" height="140" style="transition: 0.2s; transform: none;">                    </span>
+
+                <span class="text ">
+                        <span class="series">How to Hack Wi-Fi</span><span class="hide">:</span>
+                    Get Anyone's Wi-Fi Password Without Cracking Using Wifiphisher
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="167535">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/successfully-hack-website-2016-0167535/" class="no-video ">
+
+                    <span class="img-crop">
+                        <img src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/successfully-hack-website-2016.300x140.jpg" alt="" width="300" height="140">                    </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Successfully Hack a Website in 2016!
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="142514">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/hack-like-pro-secretly-hack-into-switch-on-watch-anyones-webcam-remotely-0142514/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-like-pro-secretly-hack-into-switch-watch-anyones-webcam-remotely.300x140.jpg" data-src="https://img.wonderhowto.com/img/76/71/63497044701306/0/hack-like-pro-secretly-hack-into-switch-watch-anyones-webcam-remotely.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">Hack Like a Pro</span><span class="hide">:</span>
+                    How to Secretly Hack Into, Switch On, &amp; Watch Anyone's Webcam Remotely
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="160151">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/hack-windows-7-become-admin-0160151/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-windows-7-become-admin.300x140.jpg" data-src="https://img.wonderhowto.com/img/91/69/63559050599992/0/hack-windows-7-become-admin.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Hack Windows 7 (Become Admin)
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="149638">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/get-unlimited-free-trials-using-real-fake-credit-card-number-0149638/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/get-unlimited-free-trials-using-real-fake-credit-card-number.300x140.jpg" data-src="https://img.wonderhowto.com/img/96/76/63521171811895/0/get-unlimited-free-trials-using-real-fake-credit-card-number.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Get Unlimited Free Trials Using a "Real" Fake Credit Card Number
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="160161">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/hack-android-using-kali-remotely-0160161/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-android-using-kali-remotely.300x140.jpg" data-src="https://img.wonderhowto.com/img/28/55/63559120258311/0/hack-android-using-kali-remotely.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Hack Android Using Kali (Remotely)
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="161629">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/crack-any-master-combination-lock-8-tries-less-using-calculator-0161629/" class="has-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/crack-any-master-combination-lock-8-tries-less-using-calculator.300x140.jpg" data-src="https://img.wonderhowto.com/img/91/71/63565745048089/0/crack-any-master-combination-lock-8-tries-less-using-calculator.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Crack Any Master Combination Lock in 8 Tries or Less Using This Calculator
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="148366">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/hack-wi-fi-cracking-wpa2-psk-passwords-using-aircrack-ng-0148366/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-wi-fi-cracking-wpa2-psk-passwords-using-aircrack-ng.300x140.jpg" data-src="https://img.wonderhowto.com/img/36/65/63513198971448/0/hack-wi-fi-cracking-wpa2-psk-passwords-using-aircrack-ng.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How to Hack Wi-Fi</span><span class="hide">:</span>
+                    Cracking WPA2-PSK Passwords Using Aircrack-Ng
+                </span>
+            </a>
+        </h3>
+    </li><li><aside class="whtaph leftbox" data-unit-type="leftbox"></aside></li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="158819">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/hack-wi-fi-breaking-wps-pin-get-password-with-bully-0158819/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-wi-fi-breaking-wps-pin-get-password-with-bully.300x140.jpg" data-src="https://img.wonderhowto.com/img/67/36/63553119205064/0/hack-wi-fi-breaking-wps-pin-get-password-with-bully.300x140.jpg" alt="" width="300" height="140" style="transition: 0.2s; transform: none;">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How to Hack Wi-Fi</span><span class="hide">:</span>
+                    Breaking a WPS PIN to Get the Password with Bully
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="160523">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/hack-like-pro-hack-facebook-part-2-facebook-password-extractor-0160523/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-like-pro-hack-facebook-part-2-facebook-password-extractor.300x140.jpg" data-src="https://img.wonderhowto.com/img/45/27/63560562351418/0/hack-like-pro-hack-facebook-part-2-facebook-password-extractor.300x140.jpg" alt="" width="300" height="140" style="transition: 0.2s; transform: none;">                                            </span>
+
+                <span class="text ">
+                        <span class="series">Hack Like a Pro</span><span class="hide">:</span>
+                    How to Hack Facebook, Part 2 (Facebook Password Extractor)
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="155374">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/hack-like-pro-crack-online-passwords-with-tamper-data-thc-hydra-0155374/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-like-pro-crack-online-passwords-with-tamper-data-thc-hydra.300x140.jpg" data-src="https://img.wonderhowto.com/img/77/11/63537990425053/0/hack-like-pro-crack-online-passwords-with-tamper-data-thc-hydra.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">Hack Like a Pro</span><span class="hide">:</span>
+                    How to Crack Online Passwords with Tamper Data &amp; THC Hydra
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="163905">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/hacks-mr-robot-spy-anyones-smartphone-activity-0163905/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hacks-mr-robot-spy-anyones-smartphone-activity.300x140.jpg" data-src="https://img.wonderhowto.com/img/54/35/63575591138721/0/hacks-mr-robot-spy-anyones-smartphone-activity.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">The Hacks of Mr. Robot</span><span class="hide">:</span>
+                    How to Spy on Anyone's Smartphone Activity
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="139261">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/crack-wi-fi-passwords-with-your-android-phone-and-get-free-internet-0139261/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/crack-wi-fi-passwords-with-your-android-phone-and-get-free-internet.300x140.jpg" data-src="https://img.wonderhowto.com/img/35/11/63483669455533/0/crack-wi-fi-passwords-with-your-android-phone-and-get-free-internet.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Crack Wi-Fi Passwords with Your Android Phone and Get Free Internet!
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="132568">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/hacks-behind-cracking-part-1-bypass-software-registration-0132568/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hacks-behind-cracking-part-1-bypass-software-registration.300x140.jpg" data-src="https://img.wonderhowto.com/img/15/81/63461352388591/0/hacks-behind-cracking-part-1-bypass-software-registration.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    The Hacks Behind Cracking, Part 1: How to Bypass Software Registration
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="160643">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/hack-like-pro-crack-online-web-form-passwords-with-thc-hydra-burp-suite-0160643/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-like-pro-crack-online-web-form-passwords-with-thc-hydra-burp-suite.300x140.jpg" data-src="https://img.wonderhowto.com/img/32/05/63561586176347/0/hack-like-pro-crack-online-web-form-passwords-with-thc-hydra-burp-suite.300x140.jpg" alt="" width="300" height="140" style="transition: 0.2s; transform: none;">                                            </span>
+
+                <span class="text ">
+                        <span class="series">Hack Like a Pro</span><span class="hide">:</span>
+                    How to Crack Online Web Form Passwords with THC-Hydra &amp; Burp Suite
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="151631">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/hack-like-pro-getting-started-with-kali-your-new-hacking-system-0151631/" class="has-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-like-pro-getting-started-with-kali-your-new-hacking-system.300x140.jpg" data-src="https://img.wonderhowto.com/img/64/41/63530131446407/0/hack-like-pro-getting-started-with-kali-your-new-hacking-system.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">Hack Like a Pro</span><span class="hide">:</span>
+                    Getting Started with Kali, Your New Hacking System
+                </span>
+            </a>
+        </h3>
+    </li>
+                                            <li class="pad-small"><div class="paging next-only"> <a class="align-right raised-btn" href="https://null-byte.wonderhowto.com/">All Features <span class="fa fa-chevron-right"></span></a> </div></li>
+                </ul>
+    </div>
+
+
+
+
+    
+
+    
+
+
+    
+
+
+
+                
+    <div class="article-list article-list-mode1" data-filter-sort="11" data-display-mode="1" data-prevpagekey="" data-activepagekey="QXJ0aWNsZUxpc3RLZXl8MTF8MTMwfDB8MTEyNHx8MXwxNTkyMzF8MHwxfDF8MHw=" data-nextpagekey="QXJ0aWNsZUxpc3RLZXl8MTF8MTMwfDB8MTEyNHx8MnwxNTkyMzF8MHwxfDF8MHw=" data-prevpagepath="" data-activepagepath="https://null-byte.wonderhowto.com/hot/" data-nextpagepath="https://null-byte.wonderhowto.com/hot/2/" data-title-base="Hot Null Byte Posts" data-page-number="1" style="display: none;">
+                <ul>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="176134">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/hack-wi-fi-capturing-wpa-passwords-by-targeting-users-with-fluxion-attack-0176134/" class="no-video ">
+
+                    <span class="img-crop">
+                        <img src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-wi-fi-capturing-wpa-passwords-by-targeting-users-with-fluxion-attack.300x140.jpg" alt="" width="300" height="140">                    </span>
+
+                <span class="text ">
+                        <span class="series">How to Hack Wi-Fi</span><span class="hide">:</span>
+                    Capturing WPA Passwords by Targeting Users with a Fluxion Attack
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="139532">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/4-ways-crack-facebook-password-protect-yourself-from-them-0139532/" class="no-video ">
+
+                    <span class="img-crop">
+                        <img src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/4-ways-crack-facebook-password-protect-yourself-from-them.300x140.jpg" alt="" width="300" height="140">                    </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    4 Ways to Crack a Facebook Password &amp; How to Protect Yourself from Them
+                </span>
+            </a>
+        </h3>
+    </li><li><aside class="whtaph leftbox" data-unit-type="leftbox"></aside></li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="175686">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/punchabunch-just-made-ssh-local-forwarding-stupid-easy-0175686/" class="no-video ">
+
+                    <span class="img-crop">
+                        <img src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/punchabunch-just-made-ssh-local-forwarding-stupid-easy.300x140.jpg" alt="" width="300" height="140">                    </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Punchabunch Just Made SSH Local Forwarding Stupid Easy
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="165154">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/hack-wi-fi-get-anyones-wi-fi-password-without-cracking-using-wifiphisher-0165154/" class="no-video ">
+
+                    <span class="img-crop">
+                        <img src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-wi-fi-get-anyones-wi-fi-password-without-cracking-using-wifiphisher.300x140.jpg" alt="" width="300" height="140">                    </span>
+
+                <span class="text ">
+                        <span class="series">How to Hack Wi-Fi</span><span class="hide">:</span>
+                    Get Anyone's Wi-Fi Password Without Cracking Using Wifiphisher
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="167535">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/successfully-hack-website-2016-0167535/" class="no-video ">
+
+                    <span class="img-crop">
+                        <img src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/successfully-hack-website-2016.300x140.jpg" alt="" width="300" height="140">                    </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Successfully Hack a Website in 2016!
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="142514">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/hack-like-pro-secretly-hack-into-switch-on-watch-anyones-webcam-remotely-0142514/" class="no-video ">
+
+                    <span class="img-crop">
+                        <img src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-like-pro-secretly-hack-into-switch-watch-anyones-webcam-remotely.300x140.jpg" alt="" width="300" height="140">                    </span>
+
+                <span class="text ">
+                        <span class="series">Hack Like a Pro</span><span class="hide">:</span>
+                    How to Secretly Hack Into, Switch On, &amp; Watch Anyone's Webcam Remotely
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="160151">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/hack-windows-7-become-admin-0160151/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-windows-7-become-admin.300x140.jpg" data-src="https://img.wonderhowto.com/img/91/69/63559050599992/0/hack-windows-7-become-admin.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Hack Windows 7 (Become Admin)
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="149638">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/get-unlimited-free-trials-using-real-fake-credit-card-number-0149638/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/get-unlimited-free-trials-using-real-fake-credit-card-number.300x140.jpg" data-src="https://img.wonderhowto.com/img/96/76/63521171811895/0/get-unlimited-free-trials-using-real-fake-credit-card-number.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Get Unlimited Free Trials Using a "Real" Fake Credit Card Number
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="160161">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/hack-android-using-kali-remotely-0160161/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-android-using-kali-remotely.300x140.jpg" data-src="https://img.wonderhowto.com/img/28/55/63559120258311/0/hack-android-using-kali-remotely.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Hack Android Using Kali (Remotely)
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="176007">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/news/you-can-now-use-protonmail-even-more-securely-through-tor-network-0176007/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/you-can-now-use-protonmail-even-more-securely-through-tor-network.300x140.jpg" data-src="https://img.wonderhowto.com/img/80/64/63621646303309/0/you-can-now-use-protonmail-even-more-securely-through-tor-network.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">News</span><span class="hide">:</span>
+                    You Can Now Use ProtonMail Even More Securely Through the Tor Network
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="161629">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/crack-any-master-combination-lock-8-tries-less-using-calculator-0161629/" class="has-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/crack-any-master-combination-lock-8-tries-less-using-calculator.300x140.jpg" data-src="https://img.wonderhowto.com/img/91/71/63565745048089/0/crack-any-master-combination-lock-8-tries-less-using-calculator.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Crack Any Master Combination Lock in 8 Tries or Less Using This Calculator
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="148366">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/hack-wi-fi-cracking-wpa2-psk-passwords-using-aircrack-ng-0148366/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-wi-fi-cracking-wpa2-psk-passwords-using-aircrack-ng.300x140.jpg" data-src="https://img.wonderhowto.com/img/36/65/63513198971448/0/hack-wi-fi-cracking-wpa2-psk-passwords-using-aircrack-ng.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How to Hack Wi-Fi</span><span class="hide">:</span>
+                    Cracking WPA2-PSK Passwords Using Aircrack-Ng
+                </span>
+            </a>
+        </h3>
+    </li><li><aside class="whtaph leftbox" data-unit-type="leftbox"></aside></li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="158819">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/hack-wi-fi-breaking-wps-pin-get-password-with-bully-0158819/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-wi-fi-breaking-wps-pin-get-password-with-bully.300x140.jpg" data-src="https://img.wonderhowto.com/img/67/36/63553119205064/0/hack-wi-fi-breaking-wps-pin-get-password-with-bully.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How to Hack Wi-Fi</span><span class="hide">:</span>
+                    Breaking a WPS PIN to Get the Password with Bully
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="160523">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/hack-like-pro-hack-facebook-part-2-facebook-password-extractor-0160523/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-like-pro-hack-facebook-part-2-facebook-password-extractor.300x140.jpg" data-src="https://img.wonderhowto.com/img/45/27/63560562351418/0/hack-like-pro-hack-facebook-part-2-facebook-password-extractor.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">Hack Like a Pro</span><span class="hide">:</span>
+                    How to Hack Facebook, Part 2 (Facebook Password Extractor)
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="155374">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/hack-like-pro-crack-online-passwords-with-tamper-data-thc-hydra-0155374/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-like-pro-crack-online-passwords-with-tamper-data-thc-hydra.300x140.jpg" data-src="https://img.wonderhowto.com/img/77/11/63537990425053/0/hack-like-pro-crack-online-passwords-with-tamper-data-thc-hydra.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">Hack Like a Pro</span><span class="hide">:</span>
+                    How to Crack Online Passwords with Tamper Data &amp; THC Hydra
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="163905">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/hacks-mr-robot-spy-anyones-smartphone-activity-0163905/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hacks-mr-robot-spy-anyones-smartphone-activity.300x140.jpg" data-src="https://img.wonderhowto.com/img/54/35/63575591138721/0/hacks-mr-robot-spy-anyones-smartphone-activity.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">The Hacks of Mr. Robot</span><span class="hide">:</span>
+                    How to Spy on Anyone's Smartphone Activity
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="139261">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/crack-wi-fi-passwords-with-your-android-phone-and-get-free-internet-0139261/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/crack-wi-fi-passwords-with-your-android-phone-and-get-free-internet.300x140.jpg" data-src="https://img.wonderhowto.com/img/35/11/63483669455533/0/crack-wi-fi-passwords-with-your-android-phone-and-get-free-internet.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    Crack Wi-Fi Passwords with Your Android Phone and Get Free Internet!
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="132568">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/hacks-behind-cracking-part-1-bypass-software-registration-0132568/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hacks-behind-cracking-part-1-bypass-software-registration.300x140.jpg" data-src="https://img.wonderhowto.com/img/15/81/63461352388591/0/hacks-behind-cracking-part-1-bypass-software-registration.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">How To</span><span class="hide">:</span>
+                    The Hacks Behind Cracking, Part 1: How to Bypass Software Registration
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="160643">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/hack-like-pro-crack-online-web-form-passwords-with-thc-hydra-burp-suite-0160643/" class="no-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-like-pro-crack-online-web-form-passwords-with-thc-hydra-burp-suite.300x140.jpg" data-src="https://img.wonderhowto.com/img/32/05/63561586176347/0/hack-like-pro-crack-online-web-form-passwords-with-thc-hydra-burp-suite.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">Hack Like a Pro</span><span class="hide">:</span>
+                    How to Crack Online Web Form Passwords with THC-Hydra &amp; Burp Suite
+                </span>
+            </a>
+        </h3>
+    </li>
+    <li class="article-item item snappable img-crop-zoom-rotate " data-article-id="151631">
+        <h3 class="article-headline">
+            <a href="https://null-byte.wonderhowto.com/how-to/hack-like-pro-getting-started-with-kali-your-new-hacking-system-0151631/" class="has-video ">
+
+                    <span class="img-crop">
+<img class="lazy-img" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/hack-like-pro-getting-started-with-kali-your-new-hacking-system.300x140.jpg" data-src="https://img.wonderhowto.com/img/64/41/63530131446407/0/hack-like-pro-getting-started-with-kali-your-new-hacking-system.300x140.jpg" alt="" width="300" height="140">                                            </span>
+
+                <span class="text ">
+                        <span class="series">Hack Like a Pro</span><span class="hide">:</span>
+                    Getting Started with Kali, Your New Hacking System
+                </span>
+            </a>
+        </h3>
+    </li>
+                                            <li class="pad-small"><div class="paging next-only"> <a class="align-right raised-btn" href="https://null-byte.wonderhowto.com/hot/">All Hot  Posts <span class="fa fa-chevron-right"></span></a> </div></li>
+                </ul>
+    </div>
+
+
+
+
+    
+
+    
+
+
+    
+
+
+            </div></div>
+
+            <div class="footer">
+                © 2017 WonderHowTo, Inc
+            </div>
+        </div>
+    </div>
+</div>
+        </div>
+</div>
+
+
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div id="sidebars">
+            
+            
+
+
+
+
+
+
+
+            
+                <div class="sidebar sidebar-user-menu">
+                    <div class="center-frame">
+                        <div class="menu">
+                            <div class="sidebar-pad">
+                                <div class="my-profile clearfix">
+                                    <button type="button" class="raised-btn align-center-full user-menu-loginsignup"><i class="fa fa-user"></i> Login or signup</button>
+                                </div>
+
+                                <div class="icon-menu-tabs clearfix">
+                                    <button type="button" class="user-menu-settings active fa fa-gears"><span>Settings</span></button>
+                                    <button type="button" class="user-menu-drafts active fa fa-pencil-square-o"><span>My Writing</span></button>
+                                    <button type="button" class="user-menu-inbox active fa fa-envelope-o"><span>Messages</span></button>
+                                    <button type="button" class="user-menu-notifications active fa fa-bell-o"><span>Notifications</span></button>
+                                    <button type="button" class="user-menu-nav active fa fa-bars"><span>Navigation</span></button>
+                                </div>
+
+                                <div class="sidebar-tab-contents">
+                                    <div class="actiongroup"><ul><li class="centered-divide"><i class="loading-spinner"></i><div class="padtop-small">Loading...</div></li></ul></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+            <aside class="whtaph whtaph-skin" data-unit-type="skin"></aside>
+                <div id="foot-init" class="clearfix">
+                <script type="text/javascript" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/ready.min.js"></script>
+    <!--[if lt IE 7 ]><link rel="stylesheet" href="https://img.wonderhowto.com/css/jquery.jgrowl.ie6.css?v=0210201700" type="text/css"/><![endif]-->
+    <!--[if lt IE 9 ]><link rel="stylesheet" href="https://img.wonderhowto.com/css/ie.css?v=0210201700" type="text/css"/><![endif]-->
+        <script src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/jquery.min.js" type="text/javascript"></script>
+        <script type="text/javascript">if(!window.jQuery) document.write('<'+'scr'+'ipt type="text/javascr'+'ipt" src="https://img.wonderhowto.com/js/libs/jquery-1.7.min.js?v=0210201700"><'+'/scri'+'pt>');</script>
+        <script src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/set.min.js" type="text/javascript"></script>
+        <script src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/go.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        //<![CDATA[
+        WHT.init({
+            loggedInUser:{"UserID":0,"UserName":"not_logged_in","DisplayName":"not_logged_in","UserBio":"","IsAdmin":false,"IsStaff":false,"IsUser":false,"IsCurator":false,"CanEdit":false,"cd":0,"UserCommentScore":0,"KudosCount":0,"KudosPower":0,"JudgementPower":0,"ReputationCount":0,"ResponseCount":0,"ImageID":"user_default_large.jpg"},currentWorld:{"IsCategoryOrSubCategoryWorld":false,"WorldID":1124,"WorldName":"Null Byte","Description":"Null Byte is a white hat hacker world for anyone interested in hacking, science, networking, social engineering, security, pentesting, getting root, zero days, etc. \r\n\r\n[http://null-byte.wonderhowto.com/inspiration/recognition-excellence-null-byte-fellows-awards-recommendations-certifications-0164506/ Null Byte Fellows]:\r\n\r\n- [http://creator.wonderhowto.com/ciuffy/ Ciuffy] (awarded [http://null-byte.wonderhowto.com/inspiration/announcing-first-null-byte-fellows-0164952/ 10.4.15])\r\n- [http://creator.wonderhowto.com/ghost_/ ghost_] (awarded [http://null-byte.wonderhowto.com/inspiration/announcing-first-null-byte-fellows-0164952/ 10.4.15])\r\n- [http://creator.wonderhowto.com/martijn1803/ Phoenix750] (awarded [http://null-byte.wonderhowto.com/inspiration/announcing-first-null-byte-fellows-0164952/ 10.4.15])\r\n- [http://creator.wonderhowto.com/defaltos/ The Defalt] (awarded [http://null-byte.wonderhowto.com/inspiration/and-winner-white-hat-award-for-technical-excellence-is-0169021/ 2.28.16])\r\n\r\n[http://null-byte.wonderhowto.com/inspiration/recognition-excellence-null-byte-fellows-awards-recommendations-certifications-0164506/ White Hat Award for Technical Excellence]:\r\n\r\n- [http://creator.wonderhowto.com/defaltos/ The Defalt] (awarded [http://null-byte.wonderhowto.com/inspiration/and-winner-white-hat-award-for-technical-excellence-is-0169021/ 2.28.16])\r\n\r\nFollow Null Byte on:\r\n\r\n- [https://plus.google.com/b/106653382407425784977/ Google+]\r\n- [https://twitter.com/#!/NullByteWht Twitter]\r\n","Slogan":"The aspiring white-hat hacker/security awareness playground","UrlName":"null-byte","CreatedByUserID":32,"CreatedByUserName":"bryan","CreatedByUserDisplayName":"Bryan Crow","CreatedByUserImage":"634470464421918830.jpg","CreatedByUserGender":1,"CreatedByUserImagePath":"/userimages/634470464421918830.jpg","CreatedByUserProfilePath":"https://wwwwonderhowto.com/community/member/bryan/","CreatedDate":"\/Date(1316496204577)\/","LastUpdated":"\/Date(1487528796837)\/","HeaderGraphic":"636203278708946907","HasCustomHeaderGraphic":true,"HeaderGraphicMatchesOriginal":false,"HeaderHeight":38,"HeaderColor":"081e05","ShowHeaderText":true,"LargeImage":"636216463033098064","Image":"636216463033098064","TwitterUrl":"http://twitter.com/NullByteWht","FacebookUrl":"","GooglePlusUrl":"","HowToSubCategoryMode":0,"InspirationSubCategoryMode":0,"RootDomainName":"wonderhowto.com","FullDomainName":"null-byte.wonderhowto.com","FullWWWDomainName":"null-byte.wonderhowto.com","HasChildWorlds":false,"HasOwnDomain":false,"AllowUserPosts":true,"ChannelID":2,"CategoryID":6,"MemberCount":12470,"ContributorCount":2046,"PostCount":5104,"ChildLevel":1,"ImageID":"636203278708946907","CoverImage":"636216463033098064"},alerts:[],ajaxControllerURL:'/ajax/',urlBase:'https://null-byte.wonderhowto.com',imgUrlBase:'https://img.wonderhowto.com',imgFormats:["1014x174","w974","974x232","1920x1080","3840x1800","3200x1500","2560x1200","1920x900","1280x600","1280x220","960x540","664x250","654x306","w532","w302","w240","w654","w728","w1456","300x380","300x200","300x140","250x188","236x160","225x113","200x150","200x113","191x89","190x88","186x86","w160","150x190","150x70","146x68","135x180","100x47","88x68","w88","65x30","64x50","62x83","62x29","51x68","48x64","42x56","32x43","18x24","16x16","b300x169","b300x140","b654x306","b300x52","original"],activeBrowseBase:'',hero: {id:176007,title:"You Can Now Use ProtonMail Even More Securely Through the Tor Network",img:"https://img.wonderhowto.com/img/69/07/63620327870894/0/null-byte.1280x600.jpg"},rootHero: {id:176281,title:"Video: HoloLenz Adds Magic Windows to HoloLens & Gives Portals to New Worlds",img:"https://img.wonderhowto.com/img/73/93/63620373033679/0/wonderhowto.1280x600.jpg"},rootDomains:["wonderhowto.com","gadgethacks.com","invisiverse.com","reality.news","driverless.id"],socialLinks: {facebook: '',twitter: 'http://twitter.com/NullByteWht',youtube: '',pinterest: ''}
+        });
+
+        // Second part of jquery loading
+        (function (i, s, q, l) { for (q = window._q(), l = q.length; i < l;) { $.apply(this, s.call(q[i++])); } window._q = undefined; }(0, Array.prototype.slice));
+
+        //]]>
+    </script>
+        <script src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/done.min.js" type="text/javascript"></script>
+
+    
+    <script type="text/javascript">
+        //<![CDATA[
+        //initialize article galleries:
+        WHT.activeArticle = new WHT.ManagedArticle({
+            articleID: 159231,
+            authorUserName: "occupythewebotw",
+            connectionType: 0,
+            rootElement: $('.article-wrapper.article-id-159231'),
+            fnInit: (function(){setTimeout(function(){$('#10305292docPartGal880037').whtGallery({initFromGalleryItemsObjects:[{type:"galleryImage",caption:"",standardSource:"635555328578473084.jpg",largeSource:"635555328578473084.jpg",thumbSource:"635555328578473084.jpg",standardWidth:1375,standardHeight:698,largeWidth:1375,largeHeight:698,creditURL:"",creditText:"",originalURL:"",shadow:false,upScale:false,scale:0}],initWithLayoutIndex:0,imageTitleUrlBase:'hack-like-pro-using-powerful-versatile-scapy-for-scanning-dosing'});},1);
+setTimeout(function(){$('#47543664docPartGal880041').whtGallery({initFromGalleryItemsObjects:[{type:"galleryImage",caption:"",standardSource:"635555333186129638.jpg",largeSource:"635555333186129638.jpg",thumbSource:"635555333186129638.jpg",standardWidth:772,standardHeight:475,largeWidth:772,largeHeight:475,creditURL:"",creditText:"",originalURL:"",shadow:false,upScale:false,scale:0}],initWithLayoutIndex:0,imageTitleUrlBase:'hack-like-pro-using-powerful-versatile-scapy-for-scanning-dosing'});},1);
+setTimeout(function(){$('#60470938docPartGal880011').whtGallery({initFromGalleryItemsObjects:[{type:"galleryImage",caption:"",standardSource:"635548905653669535.jpg",largeSource:"635548905653669535.jpg",thumbSource:"635548905653669535.jpg",standardWidth:736,standardHeight:160,largeWidth:736,largeHeight:160,creditURL:"",creditText:"",originalURL:"",shadow:true,upScale:false,scale:0}],initWithLayoutIndex:0,imageTitleUrlBase:'hack-like-pro-using-powerful-versatile-scapy-for-scanning-dosing'});},1);
+setTimeout(function(){$('#62516879docPartGal880043').whtGallery({initFromGalleryItemsObjects:[{type:"galleryImage",caption:"",standardSource:"635555340020348250.jpg",largeSource:"635555340020348250.jpg",thumbSource:"635555340020348250.jpg",standardWidth:713,standardHeight:433,largeWidth:713,largeHeight:433,creditURL:"",creditText:"",originalURL:"",shadow:true,upScale:false,scale:0}],initWithLayoutIndex:0,imageTitleUrlBase:'hack-like-pro-using-powerful-versatile-scapy-for-scanning-dosing'});},1);
+setTimeout(function(){$('#28540334docPartGal880045').whtGallery({initFromGalleryItemsObjects:[{type:"galleryImage",caption:"",standardSource:"635555341197848466.jpg",largeSource:"635555341197848466.jpg",thumbSource:"635555341197848466.jpg",standardWidth:549,standardHeight:77,largeWidth:549,largeHeight:77,creditURL:"",creditText:"",originalURL:"",shadow:true,upScale:false,scale:0}],initWithLayoutIndex:0,imageTitleUrlBase:'hack-like-pro-using-powerful-versatile-scapy-for-scanning-dosing'});},1);
+setTimeout(function(){$('#39293538docPartGal880047').whtGallery({initFromGalleryItemsObjects:[{type:"galleryImage",caption:"",standardSource:"635555341972535151.jpg",largeSource:"635555341972535151.jpg",thumbSource:"635555341972535151.jpg",standardWidth:548,standardHeight:128,largeWidth:548,largeHeight:128,creditURL:"",creditText:"",originalURL:"",shadow:true,upScale:false,scale:0}],initWithLayoutIndex:0,imageTitleUrlBase:'hack-like-pro-using-powerful-versatile-scapy-for-scanning-dosing'});},1);
+setTimeout(function(){$('#48024551docPartGal880049').whtGallery({initFromGalleryItemsObjects:[{type:"galleryImage",caption:"",standardSource:"635555342290973422.jpg",largeSource:"635555342290973422.jpg",thumbSource:"635555342290973422.jpg",standardWidth:546,standardHeight:62,largeWidth:546,largeHeight:62,creditURL:"",creditText:"",originalURL:"",shadow:true,upScale:false,scale:0}],initWithLayoutIndex:0,imageTitleUrlBase:'hack-like-pro-using-powerful-versatile-scapy-for-scanning-dosing'});},1);
+setTimeout(function(){$('#28682078docPartGal880051').whtGallery({initFromGalleryItemsObjects:[{type:"galleryImage",caption:"",standardSource:"635555342738004058.jpg",largeSource:"635555342738004058.jpg",thumbSource:"635555342738004058.jpg",standardWidth:722,standardHeight:433,largeWidth:722,largeHeight:433,creditURL:"",creditText:"",originalURL:"",shadow:true,upScale:false,scale:0}],initWithLayoutIndex:0,imageTitleUrlBase:'hack-like-pro-using-powerful-versatile-scapy-for-scanning-dosing'});},1);
+setTimeout(function(){$('#2376049docPartGal880053').whtGallery({initFromGalleryItemsObjects:[{type:"galleryImage",caption:"",standardSource:"635555342930034992.jpg",largeSource:"635555342930034992.jpg",thumbSource:"635555342930034992.jpg",standardWidth:722,standardHeight:434,largeWidth:722,largeHeight:434,creditURL:"",creditText:"",originalURL:"",shadow:false,upScale:false,scale:0}],initWithLayoutIndex:0,imageTitleUrlBase:'hack-like-pro-using-powerful-versatile-scapy-for-scanning-dosing'});},1);
+setTimeout(function(){$('#36336585docPartGal880055').whtGallery({initFromGalleryItemsObjects:[{type:"galleryImage",caption:"",standardSource:"635555344915350011.jpg",largeSource:"635555344915350011.jpg",thumbSource:"635555344915350011.jpg",standardWidth:549,standardHeight:77,largeWidth:549,largeHeight:77,creditURL:"",creditText:"",originalURL:"",shadow:true,upScale:false,scale:0}],initWithLayoutIndex:0,imageTitleUrlBase:'hack-like-pro-using-powerful-versatile-scapy-for-scanning-dosing'});},1);
+setTimeout(function(){$('#22173324docPartGal880057').whtGallery({initFromGalleryItemsObjects:[{type:"galleryImage",caption:"",standardSource:"635555346960505488.jpg",largeSource:"635555346960505488.jpg",thumbSource:"635555346960505488.jpg",standardWidth:727,standardHeight:524,largeWidth:727,largeHeight:524,creditURL:"",creditText:"",originalURL:"",shadow:true,upScale:false,scale:0}],initWithLayoutIndex:0,imageTitleUrlBase:'hack-like-pro-using-powerful-versatile-scapy-for-scanning-dosing'});},1);
+}),
+            url: "https://null-byte.wonderhowto.com/how-to/hack-like-pro-using-powerful-versatile-scapy-for-scanning-dosing-0159231/",
+            editUrl: "https://null-byte.wonderhowto.com/how-to/hack-like-pro-using-powerful-versatile-scapy-for-scanning-dosing-0159231/edit/",
+            noCache: false,
+            dnra: false,
+            pageTitle: "Hack Like a Pro: Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing &#171; Null Byte",
+            fnInitComments: (function(){WHT.Comments.init({id: 159231, urlVote: "https://null-byte.wonderhowto.com/ajax/updatecommentscore/", urlSubmit: "https://null-byte.wonderhowto.com/ajax/submitcomment/", urlDelete: "https://null-byte.wonderhowto.com/ajax/deletecomment/", docX: []});})
+        });
+        //]]>
+    </script>
+
+    <script type="text/javascript">
+        //Prevent double posting by accident
+        var currentlyVoting = false;
+
+        // see if there any comments to init:
+        if (typeof initQueue !== 'undefined' && initQueue) {
+            for(var i = 0; i < initQueue.length; i++) {
+                initQueue[i].apply();
+            }
+        }
+
+        // Follow Button:
+        var buttons = $(".article-author");
+        buttons.on("hover", ".btn", WHT.World.WorldButtonHoverHandler);
+        $(".article-author").on("hover",".follow-button",WHT.User.OnFollowButonHover);
+        $(".article-author").on("click",".follow-button",WHT.User.OnFollowUserClick);
+
+    </script>
+    <!--[if lt IE 7 ]><script type="text/javascript" src="https://img.wonderhowto.com/js/libs/dd_belatedpng.js?v=0210201700"></script><script type="text/javascript">DD_belatedPNG.fix('img, .png_bg');</script><![endif]-->
+    <script type="text/javascript">
+        //<![CDATA[
+        // Manually trigger jQuery ready to speed up page init:
+        setTimeout(function () { $.ready(); }, 0);
+        //]]>
+    </script>
+
+                        <!-- Analytics -->
+            <script type="text/javascript">
+                //<![CDATA[
+
+                // GA:
+                (function (i, s, o, g, r, a, m) {
+                    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                        (i[r].q = i[r].q || []).push(arguments)
+                    }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+                })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+                ga('create', 'UA-2361644-1', { 'cookieDomain': 'wonderhowto.com', 'legacyCookieDomain': '.wonderhowto.com' });
+                ga('send', 'pageview');
+
+                // Chartbeat:
+                var _sf_async_config = { uid: 3214, domain: "wonderhowto.com", sections: "All Posts,How-Tos,No Video,null-byte" , authors: "occupythewebotw" };
+                (function () {
+                    function loadChartbeat() {
+                        window._sf_endpt = (new Date()).getTime();
+                        var e = document.createElement('script');
+                        e.async = true;
+                        e.setAttribute('language', 'javascript');
+                        e.setAttribute('type', 'text/javascript');
+                        e.setAttribute('src',
+                        (("https:" == document.location.protocol) ? "https://s3.amazonaws.com/" : "http://") +
+                        "static.chartbeat.com/js/chartbeat.js");
+                        document.body.appendChild(e);
+                    }
+                    var oldonload = window.onload;
+                    window.onload = (typeof window.onload != 'function') ? loadChartbeat : function () { oldonload(); loadChartbeat(); };
+                })();
+
+                // comScore:
+                var _comscore = _comscore || [];
+                _comscore.push({ c1: 2, c2: "6035753", c3: "6035753", c4: document.location.href, c5: "Technology - News", c6: "", c15: "" });
+                (function () {
+                    var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+                    s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+                    el.parentNode.insertBefore(s, el);
+                })();
+
+                //]]>
+            </script>
+            <noscript>&lt;img src="https://sb.scorecardresearch.com/b?c1=2&amp;amp;c2=6035753&amp;amp;c3=6035753&amp;amp;c4=www.wonderhowto.com&amp;amp;c5=Technology%20-%20News&amp;amp;c6=&amp;amp;c15=&amp;amp;cv=1.3&amp;amp;cj=1" style="display:none" width="0" height="0" alt="" /&gt;</noscript>
+            <!-- End Analytics -->
+
+        </div>
+    </footer>
+
+
+
+
+
+
+<iframe src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/getuid.html" style="display: none;"></iframe><span style="display: none;"><iframe style="display:none" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/rtset.html"></iframe></span><span style="display: none;"><iframe id="4451dc03ec" name="4451dc03ec" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/afr.html" frameborder="0" framespacing="0" scrolling="no" width="1" height="1"></iframe></span><iframe src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/usermatch.html" style="display: none;"></iframe><iframe src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/getuid(1).html" style="display: none;"></iframe><span style="display: none;"><iframe style="display:none" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/getuid(2).html"></iframe></span><span style="display: none;"><iframe style="display:none" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/user_sync.html"></iframe></span><iframe src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/getuid(3).html" style="display: none;"></iframe><iframe src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/getuid(4).html" style="display: none;"></iframe><iframe src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/getuid(5).html" style="display: none;"></iframe><iframe name="__bkframe" id="__bkframe" title="bk" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/saved_resource.html" style="border: 0px; width: 0px; height: 0px; display: none; position: absolute; clip: rect(0px 0px 0px 0px);"></iframe><iframe src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/net.html" width="0" height="0" frameborder="0"></iframe><script async="" language="javascript" type="text/javascript" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/chartbeat.js"></script><iframe id="google_osd_static_frame_2872958259288" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;" src="./Hack Like a Pro_ Using the Powerful &amp; Versatile Scapy for Scanning &amp; DoSing « Null Byte_files/saved_resource(2).html"></iframe></body></html>
