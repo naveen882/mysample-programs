@@ -3523,3 +3523,5 @@ print "=========================================================="
 #In python interpreter, _ is the last value printed in the console and not the declared one.
 #To hold the result of the last executed statement in an interactive interpreter session
 
+print "=========================================================="
+#In try finally continue and break cannot be used together
