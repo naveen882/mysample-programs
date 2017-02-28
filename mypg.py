@@ -3518,3 +3518,8 @@ for i in range(1,10):
     if i % 3 ==0:
         print
 
+print "=========================================================="
+#It's just a variable name, and it's conventional in python to use _ for throwaway variables. It just indicates that the loop variable isn't actually used.
+#In python interpreter, _ is the last value printed in the console and not the declared one.
+#To hold the result of the last executed statement in an interactive interpreter session
+
