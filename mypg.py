@@ -3519,7 +3519,7 @@ for i in range(1,10):
         print
 
 print "=========================================================="
-#It's just a variable name, and it's conventional in python to use _ for throwaway variables. It just indicates that the loop variable isn't actually used.
+#It's just a variable name, and it's conventional in python to use _ for throwaway variables. It just indicates that the loop variable isn't actually used. #very important
 #In python interpreter, _ is the last value printed in the console and not the declared one.
 #To hold the result of the last executed statement in an interactive interpreter session
 
@@ -3527,3 +3527,89 @@ print "=========================================================="
 #In try finally continue and break cannot be used together
 print "=========================================================="
 #PYTHONPATH sets the search path for importing python modules.
+print "=========================================================="
+"""
+How to quickly copy a list without linking them together:
+>>> A = [1,2,3,4,5]
+>>> B = A
+>>> C = A[:] #very important
+>>> A[0] = 8
+>>> A
+[8, 2, 3, 4, 5]
+>>> B
+[8, 2, 3, 4, 5]
+>>> C
+[1, 2, 3, 4, 5]
+"""
+print "=========================================================="
+"""
+#dictionary counting 
+>>> D['cat'] = D.get('cat', 0) + 1 #very important
+"""
+print "=========================================================="
+"""
+"==" compares the object by value and "is" compares the object by their memory address #very important
+>>> a=10
+>>> b=10
+>>> id(a)
+38412416
+>>> id(b)
+38412416
+>>> a=500
+>>> b=500
+>>> id(a)
+38430232
+>>> id(b)
+38430184
+>>> a==b
+True
+"""
+print "=========================================================="
+"""
+Builtin types can be over written
+>>> str="123"
+>>> str("123")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'str' object is not callable
+"""
+print "=========================================================="
+#unpacking
+a,b=(1,2)
+print a,b
+a,b=[1,2]
+print a,b
+print "=========================================================="
+"""
+Ternary operator in Python
+Although python does not have an inbuilt ternary operator like  ? :  but python supports its simulation as follow:
+
+>>> 'true' if True else 'false'
+'true'
+>>> 'true' if False else 'false'
+'false'
+"""
+print "=========================================================="
+"""
+Execute the Python code contained in script, which must be a filesystem path (absolute or relative) referring to either a Python file, a directory containing a __main__.py file, or a zipfile containing a __main__.py file.
+$ echo "print 'hello world'" > __main__.py
+$ zip runme.zip __main__.py
+ adding: __main__.py (stored 0%)
+$ python runme.zip
+hello world
+"""
+print "=========================================================="
+"""
+python uses 'j' instead of i for imaginary numbers
+>>> x = 3j + 6
+print x.imag
+3.0
+"""
+print "=========================================================="
+def work():
+    print("Hello ",work.w)
+ 
+work.w ="World"
+work()
+#prints ('Hello ', 'World')
+print "=========================================================="
