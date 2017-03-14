@@ -3613,3 +3613,14 @@ work.w ="World"
 work()
 #prints ('Hello ', 'World')
 print "=========================================================="
+"""
+To read data as it is from csv file  #very important
+
+import csv
+
+f=open("TopicEmails.csv")
+c=csv.reader(open("TopicEmails.csv", "rb"), delimiter=',')
+for l in c:
+   ....
+"""
+print "=========================================================="
