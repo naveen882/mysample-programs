@@ -88,7 +88,7 @@ class Testjson(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-    assert 1 ==2
+    #assert 1 ==2
 
 """
 In the following code all the classes will be called automatically when run as python test_primes.py since unitest.main() is called
