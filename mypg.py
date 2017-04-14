@@ -3381,7 +3381,7 @@ print py2
 #True
 print "=========================================================="
 """
-Differnce between class and instance attributes
+Differnce between class and instance attributes , class variable vs instance variables
 
 >>> class A: foo = []
 >>> a, b = A(), A()
@@ -3624,3 +3624,9 @@ for l in c:
    ....
 """
 print "=========================================================="
+#Only try and finally can be used ,this is majorly for cleaningup code in cse of exception,like file open can be closed with  finally block
+try:
+   a= int("1")
+finally:
+    print a
+    print "Done"
