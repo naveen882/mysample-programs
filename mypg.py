@@ -3630,3 +3630,9 @@ try:
 finally:
     print a
     print "Done"
+print "=========================================================="
+"""
+what is a descriptor ?
+A descriptor is any object that implements at least one of methods named __get__(),__set()__ and __delete__()
+
+A data desciptor implements both __get__() and __set__().Implementing only __get__() makes you a non data descriptor
