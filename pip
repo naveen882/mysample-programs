@@ -1,0 +1,17 @@
+pip list #lists all installed packages
+pip list -o #list the outaded packages installed on our system
+pip search packagename
+pip install packagename
+pip uninstall packagename
+pip install -U packagename #to upgrade
+pip freeze #list all packages
+pip freeze > requirement.txt
+pip install -r requirement.txt #to install from requirement file
+pip freeze --local #list all installed packages only in venv
+
+=========================================
+#Installing specific version of venv
+
+virtualenv -p /usr/bin/python3.4 .venv
+virtualenv .venv #install default version of python
+
