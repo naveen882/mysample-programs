@@ -2040,7 +2040,7 @@ def f(x):
     return {
         'foo': 1,
         'bar': 2,        
-    }.get(x, 3) #.get is like the default,very important
+    }.get(x, 3) #.get is like the default,##very important
 
 print f('gg')
 print f('foo')
@@ -3010,7 +3010,7 @@ print "=========================================================="
 The assert statement exists in almost every programming language. When you do...
 
 assert condition
-************************very important******************
+************************##very important******************
 ... you're telling the program to test that condition, and trigger an error if the condition is false.
 ******************************************
 
@@ -3040,7 +3040,7 @@ gc.disable() - Disables automatic garbage collection.
 """
 print "=========================================================="
 """
-********Very important************
+********##very important************
 Difference between _, __ and __xx__ in Python
 
 One underline in the beginning
@@ -3519,7 +3519,7 @@ for i in range(1,10):
         print
 
 print "=========================================================="
-#It's just a variable name, and it's conventional in python to use _ for throwaway variables. It just indicates that the loop variable isn't actually used. #very important
+#It's just a variable name, and it's conventional in python to use _ for throwaway variables. It just indicates that the loop variable isn't actually used. ##very important
 #In python interpreter, _ is the last value printed in the console and not the declared one.
 #To hold the result of the last executed statement in an interactive interpreter session
 
@@ -3532,7 +3532,7 @@ print "=========================================================="
 How to quickly copy a list without linking them together:
 >>> A = [1,2,3,4,5]
 >>> B = A
->>> C = A[:] #very important
+>>> C = A[:] ##very important
 >>> A[0] = 8
 >>> A
 [8, 2, 3, 4, 5]
@@ -3544,11 +3544,11 @@ How to quickly copy a list without linking them together:
 print "=========================================================="
 """
 #dictionary counting 
->>> D['cat'] = D.get('cat', 0) + 1 #very important
+>>> D['cat'] = D.get('cat', 0) + 1 ##very important
 """
 print "=========================================================="
 """
-"==" compares the object by value and "is" compares the object by their memory address #very important
+"==" compares the object by value and "is" compares the object by their memory address ##very important
 >>> a=10
 >>> b=10
 >>> id(a)
@@ -3614,7 +3614,7 @@ work()
 #prints ('Hello ', 'World')
 print "=========================================================="
 """
-To read data as it is from csv file  #very important
+To read data as it is from csv file  ##very important
 
 import csv
 
@@ -3636,3 +3636,233 @@ what is a descriptor ?
 A descriptor is any object that implements at least one of methods named __get__(),__set()__ and __delete__()
 
 A data desciptor implements both __get__() and __set__().Implementing only __get__() makes you a non data descriptor
+"""
+print "=========================================================="
+"""
+class AA(object):
+	def __init__(self,name):
+		self.name =name
+		return self.name
+
+class BB(AA):
+	super().__init__("Tom") #this is same as the below line but this is in python3 and super definition has to be chnaged for python 2.7 and this is preferred for reading conventions and where there are more inheritence
+	AA.__init__(self,"Pluto") 
+"""
+print "=========================================================="
+class AA(object):
+	def __init__(self,name):
+		self.name = name
+
+a=AA("Tom")
+print a #This does not make any sense so consider the below
+class BB(object):
+	def __init__(self,name):
+		self.name = name
+
+	def __repr__(self): #mostlt to be used for debugging puprose
+		return "AA({})".format(self.name)
+
+b=BB("Tom")
+print b #This is much better than above AA
+print repr(b) #another way of calling __repr__()
+
+class CC(object):
+	def __init__(self,name):
+		self.name = name
+
+	def __repr__(self):
+		return "AA({})".format(self.name)
+
+	def __str__(self):
+		return "{} - is the correct name".format(self.name) #making it more meanigful and str overwrites repr in this case
+c=CC("Tom")
+print c #This is much better than above AA
+print repr(c)
+print str(c) #another way of calling __str__()
+
+print "=========================================================="
+print 1+2
+print int.__add__(1,2)
+print str.__add__('a','b')
+print  len('test')
+print 'test'.__len__()
+#__len__() mostly overwritten in the case when they want to know the length of first name and last name together as it will suit the documents length or not
+
+
+"""
+class Emp(object):
+	def __init__(self,pay):
+		self.pay=pay
+
+e1=Emp(5000)
+e2=Emp(6000)
+#print e1+e2 #This will raise an error as it doesnot know how to add objects,so we define __add__() as below
+"""
+class Emp(object):
+	def __init__(self,pay):
+		self.pay=pay
+
+	def __add__(self,other):
+		return self.pay+other.pay
+
+e1=Emp(5000)
+e2=Emp(6000)
+print e1+e2
+print "=========================================================="
+"""
+
+class  G():
+	def t(self):
+		return  NotImplemented #the purpose of returning an object (NotImplemented) in this case is that the other methods knows how to fallback on the other object seeing it knows how to handle the operation or  else in the end eventually if does not know how to handle it will throw an error
+"""
+print "=========================================================="
+"""
+class TT(object):
+	def __init__(self):
+		self.name="Tom"
+
+	def showname(self):
+		return self.name
+
+t=TT()
+print t #This will print some info like <__main__.TT object at 0x7f3a69375250> but see the below example
+"""
+
+class TT(object):
+	def __init__(self):
+		self.name="Tom"
+
+	def showname(self):
+		return self.name
+
+	__str__ = showname    ##very very important
+
+t=TT()
+print t #This will print some info like <__main__.TT object at 0x7f3a69375250>
+print "=========================================================="
+class YY(object):
+	def __init__(self):
+		self.first_name="Tom"
+		self.last_name=" Pluto"
+
+	@property
+	def fullname(self):
+		return self.first_name+ " " +self.last_name
+
+	@fullname.setter
+	def fullname(self,s):
+		s=s.split(" ")
+		self.first_name=s[0]
+		self.first_name=s[1]
+
+	@fullname.deleter
+	def fullname(self):
+		print "In deleter"
+		self.first_name=None
+		self.first_name=None
+
+#In the above by using property decorator we can just call the fullname instead of  fullname()
+y=YY()
+print y.fullname
+
+#But to set a different name on the same object we use the setter decorator which will  set  the new name and then call full name in this case
+y.fullname = "Tom  Missie"
+#so to cleanup code we can  use a deleter  as @fullname.deleter as above
+del y.fullname
+#print y.fullname #So this will raise as exception in this case
+
+print "=========================================================="
+#Reading from one file and writing to another
+with open("/tmp/aa.txt") as rf: #rd is for binary read and wb is for writing to a binary file,this is  for reading from a  image binary file and write to another
+	with  open("/tmp/yy.txt","w") as wf:
+		for l in rf:
+			wf.write(l)
+print "=========================================================="
+print  os.path.basename("/tmp/aa.txt") #will print aa.txt
+print  os.path.dirname("/tmp/aa.txt") #will print  /tmp
+print  os.path.split("/tmp/aa.txt") #will print ('/tmp', 'aa.txt')
+print "=========================================================="
+#LEGB  => Local,Enclosing,Global,Builtin
+x='Global'
+def outer():
+	x='In outer'   #Enclosing
+	def inner():
+		#nonlocal x #python 3,this will overwrite Enclosing variable,this is also widely used than global variable
+		x= 'inner' #Local
+		print x
+	inner()
+	print x
+
+outer()
+print "=========================================================="
+"""
+All the known errors are caught to be first as the general exception at the last "except Exception as e" or if we use this first other exception code will never be executed
+try:
+except FileNotFound as fnf:
+	print fnf
+except  FloatingPointError as fpe:
+	print fpe
+except ArithmeticError as ae:
+	print ae
+except Exception as e:
+	print e
+"""
+print "=========================================================="
+#set is a collection of unique elements ##very very important
+a=[1,2,2,3,4,5,5]
+my_set=set()
+for i in a:
+	my_set.add(i)
+print my_set
+#The above can also be doen in the following way using set comprehension
+#set comprehension
+my_set={i for i in a}
+print my_set
+print "=========================================================="
+#generator #comprehension style ##very very important
+a=[1,2,3,4,5]
+gen = (i**i for i in a)
+print type(gen)
+print gen
+print next(gen),next(gen),next(gen),next(gen),next(gen)
+print "=========================================================="
+#How to sort objects ##very very important
+class Employee(object):
+	def __init__(self,name,age,salary):
+		self.name = name
+		self.age = age
+		self.salary = salary
+	def __repr__(self):
+		return "name {0.name} ,age{0.age},salary is {0.salary}".format(self)
+	def __str__(self):
+		return "name {0.name} ,age{0.age},salary is {0.salary}".format(self)
+
+
+e1=Employee("Carl",37,70000)
+e2=Employee("Sarah",29,80000)
+e3=Employee("John",43,90000)
+
+employee=[e1,e2,e3]
+print e1 #This will cal __str__
+print repr(e1) #This will cal __repr__
+print sorted(employee) #This will not sort the objects with name
+#To sort the objects with name we have to use the "key" in sorted function as follows
+
+def e_sort(e):
+	return e.name
+print sorted(employee,key=e_sort)#this will sort the employee with name ,in the e_sort function if you change e.name to e.age ,then the sorting will happen based on the age
+#The above can done using lambda also,like the following
+print sorted(employee,key=lambda e:e.name)
+#OR
+from operator  import attrgetter
+print sorted(employee,key=attrgetter('name'))
+print "=========================================================="
+"""
+yield can be used with dictionary,list...
+ex:
+
+def rt():
+	for i in xrange(100000):
+		yield {'id':1,'val':2}
+"""
+print "=========================================================="
