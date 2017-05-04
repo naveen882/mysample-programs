@@ -3866,3 +3866,15 @@ def rt():
 		yield {'id':1,'val':2}
 """
 print "=========================================================="
+#comparing first and last element in a list,this better works on a even number of elements in the list
+##very very important
+a=[1,2,3,3,2,1]
+if len(a)%2 ==0:
+	for i in range(len(a)):
+		if i <= (len(a)/2)-1:
+			if a[i] == a[-i-1]: #first element is compared like a[0] == a[-0-1] ,second elemen like a[1] == a[-1-1] and so on.........
+				print "Same"
+			else:
+				print "Not Same"
+
+print "=========================================================="
