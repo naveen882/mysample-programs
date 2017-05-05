@@ -3878,3 +3878,11 @@ if len(a)%2 ==0:
 				print "Not Same"
 
 print "=========================================================="
+"""
+In python 3
+/  => 5/2 =>2.5
+// is known as floor division => 5//2 will give the integer part of this i.e,2
+% is used to mainly know whether the number is divisible or not
+"""
+
+print "=========================================================="
