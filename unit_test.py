@@ -56,7 +56,8 @@ class AlmostEqual1Test(unittest.TestCase):
         self.failUnlessAlmostEqual(1.1, 3.3-2.0, places=0)
 
 def raises_error(*args, **kwds):
-    print args, kwds
+    print "====="
+    print args, kwds 
     raise ValueError('Invalid value: ' + str(args) + str(kwds))
 
 class ExceptionTest(unittest.TestCase):
@@ -89,5 +90,3 @@ class FixturesTest(unittest.TestCase):
 if __name__ == '__main__':
     unittest.main()
 
-if __name__ == '__main__':
-	unittest.main()
