@@ -2,6 +2,7 @@ import re
 
 """
  Use "r" at the start of the pattern string, it designates a python raw string. ##very very important
+ https://www.analyticsvidhya.com/blog/2015/06/regular-expression-python/
 """
 
 
