@@ -202,6 +202,10 @@ print result #['192.1.23.255', '1.2.1.213']
 
 #You can read html file using library urllib2 (see below code).
 
+s='Full Movie Online HD 2017 - x264 - asas+asasa+asff+ff .avi'
+
 #import urllib2
 #response = urllib2.urlopen('https://www.yahoo.com')
 #html = response.read()
+result =re.findall(r'^.*-\s\b(\w+)\+(\w+)\+(\w+)\+(\w+).*$',s)
+print result
