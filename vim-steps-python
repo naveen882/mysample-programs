@@ -1,9 +1,11 @@
-sudo apt-get install exuberant-ctags
-git clone https://github.com/rmk135/vimrc.git` #use setup.sh to install
-#after installing the aboveadd the gollowing to vimrc
-python_highlight_all=1
-open vi /tmp/a.py and install
+.sudo apt-get install exuberant-ctags #not required,c tags are more than enough for simple projects
+for c tage installation follow http://benoithamelin.tumblr.com/post/15101202004/using-vim-exuberant-ctags-easy-source-navigation
+1.git clone https://github.com/rmk135/vimrc.git` #use setup.sh to install
+#after installing the aboveadd the following to vimrc
+2.python_highlight_all=1
+3.open vi /tmp/a.py and install
 :PluginInstall andviro/flake8-vim
 then again add the following in vimrc
-let g:PyFlakeOnWrite = 1
-git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+4.let g:PyFlakeOnWrite = 1
+andviro/flake8-vim is installed from https://github.com/andviro/flake8-vim ,for more settings use https://github.com/andviro/flake8-vim docs
+#git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
