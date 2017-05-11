@@ -1,3 +1,9 @@
 sudo apt-get install exuberant-ctags
-git clone https://github.com/rmk135/vimrc.git`
+git clone https://github.com/rmk135/vimrc.git` #use setup.sh to install
+#after installing the aboveadd the gollowing to vimrc
+python_highlight_all=1
+open vi /tmp/a.py and install
+:PluginInstall andviro/flake8-vim
+then again add the following in vimrc
+let g:PyFlakeOnWrite = 1
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
