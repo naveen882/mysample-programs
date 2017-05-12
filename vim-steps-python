@@ -7,5 +7,7 @@ for c tage installation follow http://benoithamelin.tumblr.com/post/15101202004/
 then again add the following in vimrc
 4.let python_highlight_all=1
 5.let g:PyFlakeOnWrite = 1
+6.se ic
 andviro/flake8-vim is installed from https://github.com/andviro/flake8-vim ,for more settings use https://github.com/andviro/flake8-vim docs
 #git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+#In pyflakes plugin increase the number of lines and compile again to get max number of lines
