@@ -1,5 +1,5 @@
 import pdb
-
+# https://pythonconquerstheuniverse.wordpress.com/2009/09/10/debugging-in-python/
 # n for next line of code
 # q for quitting pdb
 # l list 11 lines of code
