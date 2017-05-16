@@ -10,6 +10,9 @@ then again add the following in vimrc
 6.let g:PyFlakeOnWrite = 1
 7.se ic
 8.nmap <leader>n :NERDTree
+9.comment hte following in vimrc file, "autocmd BufWinLeave *.py :TagbarClose
+10.nmap <leader>. :wq<CR>
+Note : folding hte code and opening it is => za and double quotes opens the nerd tree windows "
 #f9 ,f10 to navigate between opened files in tab
 andviro/flake8-vim is installed from https://github.com/andviro/flake8-vim ,for more settings use https://github.com/andviro/flake8-vim docs
 #git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
