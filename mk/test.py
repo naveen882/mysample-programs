@@ -49,3 +49,15 @@ m.method.assert_called_once()
 m.method.assert_once_called()
 m.method(real.rt(1))
 #m.method.assert_called_once()
+#AssertionError: Expected 'method' to have been called once. Called 2 times.
+
+
+#Press ENTER or type command to continue
+#In methid
+#1
+#Traceback (most recent call last):
+#  File "test.py", line 47, in <module>
+#    m.method.assert_once_called()
+#  File "/home/naveen/pg/mk/venv/local/lib/python2.7/site-packages/mock/mock.py", line 703, in __getattr__
+#    raise AttributeError(name)
+#AttributeError: assert_once_called
