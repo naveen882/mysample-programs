@@ -1,4 +1,5 @@
-#
+#https://docs.python.org/3.7/library/unittest.mock.html#unittest.mock.patch
+#https://docs.python.org/3/library/unittest.mock-examples.html
 
 from mock import MagicMock,Mock
 
