@@ -41,7 +41,9 @@ mock.close.assert_called_with()
 #assert_called
 #Assert that the mock was called at least once.
 m = Mock()
-m.method(real.rt(1))
+m.real.rt(2)
+#OR should use hte above as it will not return or print the value
+#m.method(real.rt(1))
 m.method.assert_called()
 
 #assert_called_once
