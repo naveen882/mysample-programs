@@ -43,13 +43,13 @@ mock.close.assert_called_with()
 m = Mock()
 m.real.rt(2)
 #OR should use hte above as it will not return or print the value
-#m.method(real.rt(1))
+m.method(real.rt(1))
 m.method.assert_called()
 
 #assert_called_once
 #Assert that the mock was called exactly once.
 m.method.assert_called_once()
-m.method.assert_once_called()
+#m.method.assert_once_called()
 m.method(real.rt(1))
 #m.method.assert_called_once()
 #AssertionError: Expected 'method' to have been called once. Called 2 times.
@@ -64,3 +64,12 @@ m.method(real.rt(1))
 #  File "/home/naveen/pg/mk/venv/local/lib/python2.7/site-packages/mock/mock.py", line 703, in __getattr__
 #    raise AttributeError(name)
 #AttributeError: assert_once_called
+
+
+class foo(object):
+	def rt(self):
+		print "In rt"
+	def rr(self):
+		print "In rr"
+		return "foo"
+	
