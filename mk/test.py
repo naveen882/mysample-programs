@@ -72,4 +72,6 @@ class foo(object):
 	def rr(self):
 		print "In rr"
 		return "foo"
+	def ty(self):
+		print  "In ty"
 	

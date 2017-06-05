@@ -1,5 +1,8 @@
 from mock import mock,patch,Mock
 import unittest as ut
+from test import foo
+#http://www.voidspace.org.uk/python/mock/mock.html
+#http://www.voidspace.org.uk/python/mock/examples.html
 
 mck = mock.MagicMock()
 print dir(mck)
@@ -23,6 +26,16 @@ class yy(ut.TestCase):
 		m1=Mock(return_value='abc')
 		print m1.return_value
 		print "==================="
+
+	@patch.object(foo,'ty')
+	def test_t1(self,i):
+		print self.assertTrue(True)
+		print "=================>"
+		print dir(i)
+		print i
+		i()
+		print i.assert_called
+		print "=================>"
 
 ut.main()
 
