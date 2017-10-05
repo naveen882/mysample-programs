@@ -3892,3 +3892,7 @@ or
 transmit it to memory, a database, or a file. Its main purpose is to save the state of an object in 
 order to be able to recreate it when needed. The reverse process is called deserialization.
 """
+"""
+Creating class object depending on condition
+x = (classA if y == 1 else classB)(param1, param2)
+"""
