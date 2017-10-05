@@ -3990,3 +3990,14 @@ print("http://www.google.co.uk".endswith((".com", ".co.uk")))
 #1-> True
 #2-> True
 """
+
+"""
+********##very important************
+raw_input list and string
+>>> print (raw_input().split())
+['1,2,3,4']
+1,2,3,4
+>>> print (raw_input().split())
+['1', '2', '3', '4']
+1 2 3 4
+"""
