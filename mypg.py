@@ -3896,3 +3896,97 @@ order to be able to recreate it when needed. The reverse process is called deser
 Creating class object depending on condition
 x = (classA if y == 1 else classB)(param1, param2)
 """
+"""
+Splitting a  string with back slash in a new line may cause whit space. so using the double quotes is the best way of splitting a string into different line
+multiStr= ("select * from multi_row "
+"where row_id < 5 "
+"order by age") 
+print(multiStr)
+
+#select * from multi_row where row_id < 5 order by age
+"""
+"""
+testList = [1,2,3]
+x, y, z = testList
+
+print(x, y, z)
+
+# 1 2 3
+"""
+
+"""
+Print the file path of imported modules.
+import threading 
+import socket
+
+print(threading)
+print(socket)
+
+#1- <module 'threading' from '/usr/lib/python2.7/threading.py'>
+#2- <module 'socket' from '/usr/lib/python2.7/socket.py'>
+"""
+
+"""
+Unpack function arguments using splat operator.
+def test(x, y, z):
+	print(x, y, z)
+
+testDict = {'x': 1, 'y': 2, 'z': 3} 
+testList = [10, 20, 30]
+
+test(*testDict)
+test(**testDict)
+test(*testList)
+
+#1-> x y z
+#2-> 1 2 3
+#3-> 10 20 30
+"""
+
+"""
+Check the memory usage of an object.
+import sys
+x=1
+print(sys.getsizeof(x))
+
+#-> 24
+"""
+
+"""
+Use __slots__ to reduce memory overheads.
+Have you ever observed your Python application consuming a lot of resources especially memory? Here is one trick which uses <__slots__> class variable to reduce memory overhead to some extent.
+import sys
+class FileSystem(object):
+
+	def __init__(self, files, folders, devices):
+		self.files = files
+		self.folders = folders
+		self.devices = devices
+
+print(sys.getsizeof( FileSystem ))
+
+class FileSystem1(object):
+
+	__slots__ = ['files', 'folders', 'devices']
+	
+	def __init__(self, files, folders, devices):
+		self.files = files
+		self.folders = folders
+		self.devices = devices
+
+print(sys.getsizeof( FileSystem1 ))
+
+#In Python 3.5
+#1-> 1016
+#2-> 888
+Clearly, you can see from the results that there are savings in memory usage. But you should use __slots__ when the memory overhead of a class is unnecessarily large. Do it only after profiling the application. Otherwise, you’ll make the code difficult to change and with no real benefit.
+"""
+
+"""
+ In line search for multiple prefixes in a string.
+ print("http://www.google.com".startswith(("http://", "https://")))
+print("http://www.google.co.uk".endswith((".com", ".co.uk")))
+
+#1-> True
+#2-> True
+"""
