@@ -3738,7 +3738,7 @@ class TT(object):
 	__str__ = showname    ##very very important
 
 t=TT()
-print t #This will print some info like <__main__.TT object at 0x7f3a69375250>
+print t #This will print as Tom
 print "=========================================================="
 class YY(object):
 	def __init__(self):
