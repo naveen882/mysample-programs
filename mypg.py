@@ -3979,7 +3979,7 @@ print(sys.getsizeof( FileSystem1 ))
 #In Python 3.5
 #1-> 1016
 #2-> 888
-Clearly, you can see from the results that there are savings in memory usage. But you should use __slots__ when the memory overhead of a class is unnecessarily large. Do it only after profiling the application. Otherwise, you’ll make the code difficult to change and with no real benefit.
+Clearly, you can see from the results that there are savings in memory usage. But you should use __slots__ when the memory overhead of a class is unnecessarily large. Do it only after profiling the application. Otherwise, you'll make the code difficult to change and with no real benefit.
 """
 
 """
@@ -4008,4 +4008,17 @@ raw_input list and string
 >>> ', '.join(map(lambda x: "'" + x + "'", a))
 "'1', '2', '3', '4', '5'"
 """
+class ExampleClass(object):
+    def __call__(self, *args, **kwargs):
+        print("Hell yeah!")
+
+	def rt(self):
+		print "In rt"
+
+# Create an instance of ExampleClass
+inst = ExampleClass()
+
+# Call the object as a function!
+inst()
+#print inst.rt() #AttributeError: 'ExampleClass' object has no attribute 'rt'
 
