@@ -44,3 +44,15 @@ Subject    Semester   Count
 ITB001     1          3
 ITB001     2          2
 MKB114     1          2
+
+Aggregate Functions are:
+
+    MIN returns the smallest value in a given column
+
+    SUM returns the sum of the numeric values in a given column
+
+    AVG returns the average value of a given column
+
+    COUNT returns the total number of values in a given column
+
+    COUNT(*) returns the number of rows in a table
