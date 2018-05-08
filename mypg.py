@@ -4022,3 +4022,32 @@ inst = ExampleClass()
 inst()
 #print inst.rt() #AttributeError: 'ExampleClass' object has no attribute 'rt'
 
+'''
+set important examples
+# Program to perform different set operations
+# as we do in  mathematics
+ 
+# sets are define
+A = {0, 2, 4, 6, 8};
+B = {1, 2, 3, 4, 5};
+ 
+# union
+print("Union :", A | B)
+ 
+# intersection
+print("Intersection :", A & B)
+ 
+# difference
+print("Difference :", A - B)
+ 
+# symmetric difference
+print("Symmetric difference :", A ^ B)
+
+Output:
+
+('Union :', set([0, 1, 2, 3, 4, 5, 6, 8]))
+('Intersection :', set([2, 4]))
+('Difference :', set([8, 0, 6]))
+('Symmetric difference :', set([0, 1, 3, 5, 6, 8]))
+
+'''
