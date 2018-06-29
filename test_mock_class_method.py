@@ -22,3 +22,4 @@ class test_A(TestCase):
         self.assertFalse(a.show())
         
 unittest.main()
+#https://docs.python.org/3.3/library/unittest.mock-examples.html
