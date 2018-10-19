@@ -3979,7 +3979,7 @@ print(sys.getsizeof( FileSystem1 ))
 #In Python 3.5
 #1-> 1016
 #2-> 888
-Clearly, you can see from the results that there are savings in memory usage. But you should use __slots__ when the memory overhead of a class is unnecessarily large. Do it only after profiling the application. Otherwise, you’ll make the code difficult to change and with no real benefit.
+Clearly, you can see from the results that there are savings in memory usage. But you should use __slots__ when the memory overhead of a class is unnecessarily large. Do it only after profiling the application. Otherwise, you'll make the code difficult to change and with no real benefit.
 """
 
 """
@@ -4008,4 +4008,46 @@ raw_input list and string
 >>> ', '.join(map(lambda x: "'" + x + "'", a))
 "'1', '2', '3', '4', '5'"
 """
+class ExampleClass(object):
+    def __call__(self, *args, **kwargs):
+        print("Hell yeah!")
 
+	def rt(self):
+		print "In rt"
+
+# Create an instance of ExampleClass
+inst = ExampleClass()
+
+# Call the object as a function!
+inst()
+#print inst.rt() #AttributeError: 'ExampleClass' object has no attribute 'rt'
+
+'''
+set important examples
+# Program to perform different set operations
+# as we do in  mathematics
+ 
+# sets are define
+A = {0, 2, 4, 6, 8};
+B = {1, 2, 3, 4, 5};
+ 
+# union
+print("Union :", A | B)
+ 
+# intersection
+print("Intersection :", A & B)
+ 
+# difference
+print("Difference :", A - B)
+ 
+# symmetric difference
+print("Symmetric difference :", A ^ B)
+
+Output:
+
+('Union :', set([0, 1, 2, 3, 4, 5, 6, 8]))
+('Intersection :', set([2, 4]))
+('Difference :', set([8, 0, 6]))
+('Symmetric difference :', set([0, 1, 3, 5, 6, 8]))
+
+'''
