@@ -109,3 +109,9 @@ a= df.apply(fn,axis=1)
 print type(a)
 print a
 print "============="
+pd.set_option('display.precision',1000)
+a=pd.DataFrame({'a':[1,2,3,4,5],'b':[6,7,8,99,10],'c':[11,12,13,14,15]})
+b=pd.DataFrame({'a':[1,2,3,4,5],'b':[6,7,8,9,10],'c':[11,12,13,14,15]})
+df = pd.merge(a,b,on=['a','b'],how="outer",suffixes=('_1','_2'))
+print df
+
