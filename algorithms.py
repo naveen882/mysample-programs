@@ -561,3 +561,27 @@ for i in range(1,n+1):
  #####
 ######
 """
+""" ****** important find triplets in a list which equals to sum 0 ,asked by google *******"""
+arr = [0, -1, 2, -3, 1]    
+
+def find_triplets(arr, n):
+    found = False
+    for i in range(0, n-2): 
+        #print("=================")
+        #print("i {0} n-2 {1} ".format(i,n-2))
+        #print("==1==")
+        for j in range(i+1, n-1):
+            #print("j {0} n-1 {1}".format(j,n-1)) 
+            #print("==2==")
+            for k in range(j+1, n): 
+                #print("k {0} {1} n".format(k, n))   
+                #print("==3==")
+                if (arr[i] + arr[j] + arr[k] == 0): 
+                    print(arr[i], arr[j], arr[k]) 
+                    found = True
+        
+    print(found)    
+    if not found:
+        print("Not found")
+
+find_triplets(arr , len(arr))  
