@@ -1274,6 +1274,12 @@ A set in python is a hash itself. So implementing difference for it is not as ha
 """
 Why isn't RAM as fast as registers/cache memory?
 Registers and cache are on the cpu chip itself, or tied to it very closely. Normal RAM is accessed through an address bus, and it often subject to a level of indirection by memory mapping
+The hierarchy is:
+
+    Internal registers. ( ~ 1 clock cycle. So if it’s a 3GHz CPU, that’s 0.3ns)
+    Cache ( a few clock cycles. So usually the order of 1–5ns)
+    RAM (This depends entirely on how fast the RAM is, but can be in the order of few hundred ns.
+    Secondary storage. (Even if it’s an SSD, this still ranges to the ms order).
 """
 """
 what is the difference between div and span
