@@ -3570,7 +3570,7 @@ print "=========================================================="
 How to quickly copy a list without linking them together:
 >>> A = [1,2,3,4,5]
 >>> B = A
->>> C = A[:] ##very important
+>>> C = A[:] #####very important , so this will not require copy library,it is the alternative of deep copy
 >>> A[0] = 8
 >>> A
 [8, 2, 3, 4, 5]
