@@ -1271,7 +1271,22 @@ A set in python is a hash itself. So implementing difference for it is not as ha
 
 """
 
+"""
+what is the difference between div and span
+    div is a block element
+    span is an inline element.
 
+This means that to use them semantically, divs should be used to wrap sections of a document, while spans should be used to wrap small portions of text, images, etc.
+
+*****For example: As in html 4******
+
+<div>This a large main division, with <span>a small bit</span> of spanned text!</div>
+
+Note that it is illegal to place a block level element within an inline element, so:
+
+<div>Some <span>text that <div>I want</div> to mark</span> up</div>
+
+...is illegal.
 
 
 """
