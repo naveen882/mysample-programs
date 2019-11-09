@@ -1271,7 +1271,10 @@ How does set work in python
 A set in python is a hash itself. So implementing difference for it is not as hard as you imagine. Looking from a higher level how does one implement set difference? Iterate over one of the collections and add to the result all elements that are not present in the other sequence.
 
 """
-
+"""
+Why isn't RAM as fast as registers/cache memory?
+Registers and cache are on the cpu chip itself, or tied to it very closely. Normal RAM is accessed through an address bus, and it often subject to a level of indirection by memory mapping
+"""
 """
 what is the difference between div and span
 There are lots of block elements (linebreaks before and after) defined in HTML, and lots of inline tags (no linebreaks)
