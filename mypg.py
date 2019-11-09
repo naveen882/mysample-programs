@@ -1,4 +1,5 @@
-import string
+pan
+mport string
 import logging
 import datetime
 import os,subprocess 
@@ -1273,9 +1274,22 @@ A set in python is a hash itself. So implementing difference for it is not as ha
 
 """
 what is the difference between div and span
+There are lots of block elements (linebreaks before and after) defined in HTML, and lots of inline tags (no linebreaks)
+***important: https://stackoverflow.com/questions/183532/what-is-the-difference-between-html-tags-div-and-span *****
     div is a block element
     span is an inline element.
+<div> this is a div </div>
+<div> this is a div </div>
+<div> this is a div </div>
 
+Output:
+this is a div
+this is a div
+this is a div
+<span> this is a span </span>
+<span> this is a span </span>
+<span> this is a span </span>
+Output: this is a span this is a span this is a span
 This means that to use them semantically, divs should be used to wrap sections of a document, while spans should be used to wrap small portions of text, images, etc.
 
 *****For example: As in html 4******
