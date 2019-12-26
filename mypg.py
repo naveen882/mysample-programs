@@ -4088,3 +4088,30 @@ Output:
 ('Symmetric difference :', set([0, 1, 3, 5, 6, 8]))
 
 '''
+"""
+Quick sort algorith very very easy .*******important*******
+https://www.youtube.com/watch?v=kFeXwkgnQ9U
+#preferred algorithm for sorting. Doesnt matter even if there are duplicates
+"""
+def quick_sort(sequence):
+	length = len(sequence)
+	if length <= 1 :
+		return sequence
+	else:
+		pivot= sequence.pop() #get the last item of the list as pivot
+
+	items_greater = []
+	items_lower = []
+
+	for item in sequence:
+		if item>pivot:
+			items_greater.append(item)
+		else:
+			items_lower.append(item)
+
+	return quick_sort(items_lower) + [pivot] + quick_sort(items_greater)
+
+print quick_sort([0,9,3,8,2,7,5]) #Time complexity n logn and worst is n*n
+
+
+
