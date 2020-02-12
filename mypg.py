@@ -2249,6 +2249,7 @@ C1 = type("C1",(BaseClass,),{"x":1,"Check":Check1})
 C2 = type("C2",(BaseClass,),{"x":30,"Check":Check2})
 C3 = type("C2",(BaseClass,),{"x":30,"Check":Check3})
 
+#Important:::::::::::::::::::::::::::::::::::::::::::::::
 def MyFactory(myStr):
 	for cls in BaseClass.__subclasses__():
 		if cls.Check(myStr):
