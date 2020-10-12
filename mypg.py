@@ -4115,4 +4115,19 @@ def quick_sort(sequence):
 print quick_sort([0,9,3,8,2,7,5]) #Time complexity n logn and worst is n*n
 
 
+print "=== Important ****=========="
+#sharing attributes between objects
+class Employee():
+	total = 0
+	def __init__(self,name):
+		self.name = name
+		Employee.total += 1
 
+	def print_total(self):
+		print self.total
+
+e=Employee('1')
+e1=Employee('2')
+e.print_total()
+e1.print_total()
+print "==========="
