@@ -4131,3 +4131,11 @@ e1=Employee('2')
 e.print_total()
 e1.print_total()
 print "==========="
+#multiple assignments important
+d= {}
+b= d[1] = '123'
+print(b)
+#'123'
+print(d)
+#{1: '123'}
+print "==========="
