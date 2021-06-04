@@ -4139,3 +4139,17 @@ print(b)
 print(d)
 #{1: '123'}
 print "==========="
+#Important
+#return vs yield
+#once the return keywords returns the lines after return is ignored
+#but after the call of the yield statment the lines after the yield statement continues
+def rt():
+	'''   doctsting    '''
+
+	for i in range(10):
+		yield i
+	print("Printing i after yielding")
+
+for i in rt():
+	print(i)
+print "==========="
