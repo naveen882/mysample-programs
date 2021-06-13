@@ -4153,3 +4153,21 @@ def rt():
 for i in rt():
 	print(i)
 print "==========="
+#Important
+#when anyvariable assigned to slots only those can be used and new instance variables cannot be assigned that is the reason slots are used
+class FileSystem1(object):
+
+	__slots__ = ['files', 'folders', 'devices']
+	
+	def __init__(self, files, folders, devices):
+		self.files = files
+		self.folders = folders
+		self.devices = devices
+
+f=FileSystem1(1,2,3)
+print(f.files)
+try:
+	f.newvariable = 10
+except Exception as e:
+	print(e)
+
