@@ -4170,4 +4170,72 @@ try:
 	f.newvariable = 10
 except Exception as e:
 	print(e)
+print "==========="
+#property descriptor
+class Foo(object):
+	def __init__(self, value):
+		self._name = value	
+
+	@property
+	def name(self):
+		print "returning name"
+		return self._name
+
+	@name.setter
+	def name(self, value):
+		print "setting name"
+		self._name = value
+
+o = Foo(value='test')
+print(o.name) #prints "returning name" test
+o.name='123' #prints setting name
+print(o.name)#prints "returning name"123 
+print "==========="
+
+class Foo(object):
+	def __init__(self):
+		self.__a = 1 #__a becomes a private variable and is not accessible from the object so we have to write a getter method
+
+	def get(self):
+		return self.__a
+
+o = Foo()
+#print(o.__a)# gives an error important
+print(o.get())
+
+print "==========="
+class Foo(object):
+	at = 1
+
+	def access_var(cls):
+		print(id(cls))
+		print(cls.at)
+
+o = Foo()
+print(id(Foo))
+print(id(o))
+print(o.access_var())
+
+print "==========="
+#Important: In the below class since __baz is a private variable , even thought child class overrides the value the old value is retained and there are two copies of __baz
+class Foo(object):
+    def __init__(self):
+        self.__baz = 42
+    def foo(self):
+        print self.__baz
+    
+class Bar(Foo):
+    def __init__(self):
+        super(Bar, self).__init__()
+        self.__baz = 21
+    def bar(self):
+        print self.__baz
+
+x = Bar()
+x.foo()
+#42
+print(x.bar())
+#21
+print x.__dict__
+#{'_Bar__baz': 21, '_Foo__baz': 42}
 
