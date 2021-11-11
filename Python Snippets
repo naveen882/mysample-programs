@@ -1,0 +1,4 @@
+Sorting a dictionary based on a key
+Input: my_list = [{'name':'Homer', 'age':39}, {'name':'Bart', 'age':10}]
+Output: [{'name':'Bart', 'age':10}, {'name':'Homer', 'age':39}]
+Solution1 : my_list = sorted(my_list, key=lambda k: k['name'])
