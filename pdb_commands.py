@@ -12,7 +12,7 @@ import pdb
 #    -> final = combine(a, b)
 #    (Pdb) s
 # *****Importanti below statement*****
-# One of the nice things about the (Pdb) prompt is that you can do anything at it — you can enter
+# One of the nice things about the (Pdb) prompt is that you can do anything at it - you can enter
 # any command that you like at the (Pdb) prompt. So you can, for instance, enter this command at the
 # (Pdb) prompt.
 # (Pdb) var1 = "bbb"
@@ -24,10 +24,6 @@ c = "ccc"
 pdb.set_trace()
 final = a + b + c
 print final
-for i in range(5):
-    pdb.set_trace()
-    print i
-    print "again"
 
 
 def combine(s1, s2):      # define subroutine combine, which...
@@ -42,3 +38,11 @@ b = "bbb"
 c = "ccc"
 final = combine(a, b)
 print final
+
+
+for i in range(5):
+    pdb.set_trace()
+    print i
+    print "again"
+
+

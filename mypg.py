@@ -2780,7 +2780,7 @@ obj.__dict__['email'] = 'in@python.org'
 print obj.__dict__
 print "=========================================================="
 output = 1<< 10 #Left shift operator
-print output
+print output #output is 1024
 
 #os.tempnam(dir, prefix) .Creates a  temporary file in the given directory with the file prefixed with the prefix name.see example below
 #os.tempnam('/tmp/tutorialsdir','tuts1')
@@ -3097,8 +3097,8 @@ class A(object):
 
 
 
-def method(self):
-    self.__method()
+	def method(self):
+		self.__method()
 
 
 
@@ -3419,6 +3419,7 @@ print py2
 #True
 print "=========================================================="
 """
+#veryvery important
 Differnce between class and instance attributes , class variable vs instance variables
 
 >>> class A: foo = []
@@ -3447,6 +3448,7 @@ json dumps takes an object and produces a string:
 """
 
 """
+## veryvery important
 log n typically is indicated when the problem is iteratvely made smaller
 """
 print "=========================================================="
@@ -3649,7 +3651,7 @@ def work():
  
 work.w ="World"
 work()
-#prints ('Hello ', 'World')
+#prints Hello  World
 print "=========================================================="
 """
 To read data as it is from csv file  ##very important
