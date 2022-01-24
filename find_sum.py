@@ -1,4 +1,4 @@
-#find out which two numbers  gives a  sum 9 and return thrie index, list is always sorted
+#find out which two numbers  gives a  sum 9 and return their index, condition is :list is always sorted
 
 def find_sum(li, target):
     left_ptr = li[0]
