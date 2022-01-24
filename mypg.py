@@ -5,53 +5,53 @@ import os,subprocess
 
 class Dynamo():
 	def __init__(self,x):
-		print "In Init def"
+		print("In Init def\n")
 		self.x = x
 
 	def __str__(self):
-		print "In str function"
+		print("In str function")
 		return str(self.x)+ "======"
 
 	def __repr__(self):
-		print "In repr function"
+		print("In repr function")
 		return self.x+ "===="
 
 	def __getattr__(self,k):
 		if k == "color":
-			print "key is color"
+			print("key is color")
 		else:
-			print "key is something else %s"%(k)
+			print("key is something else %s"%(k))
 
 d=Dynamo(1)
 d.color
 d.color1
-print "%s"%(d.x)
-print str(d) ##//Thsi will print str function
+print("%s"%(d.x))
+print(str(d)) ##//Thsi will print(str function
 
-print "==================================="
+print("===================================")
 #A key difference between __getattr__ and __getattribute__ is that __getattr__ is only invoked if the attribute wasn't found the usual ways. It's good for implementing a fallback for missing attributes, and is probably the one of two you want.
-print "==================================="
+print("===================================")
 
 
 class Rastan(object):
 	def __init__(self,x):
-		print "In init def"
+		print("In init def")
 		self.x=x
 
         #getattribute is invoked before looking at the actual attributes on the object,
 	def __getattribute__(self,k):
-		print "In get attribute"
+		print("In get attribute")
 		if k == "color":
-			print "key is color"
+			print("key is color")
 		else:
-			print "key is comething else %s  and %s"%(k,"============")
+			print("key is comething else %s  and %s"%(k,"============"))
 
 d=Rastan(1)
 d.color
 d.color1	
-print "%s"%(d.x)
+print("%s"%(d.x))
 
-print "=========================================="
+print("==========================================")
 #Difference between function decorator and class decorator
 #If you want to keep state in the decorator you should use a class decorator. 
 #If you can write a function to implement your decorator you should prefer it. But not all decorators can easily be written as a function - for example when you want to store some internal state.
@@ -73,13 +73,13 @@ def something():
     pass
 
 something()
-print something.counter #Magic/Trick is function can access class variables
+print(something.counter) #Magic/Trick is function can access class variables
 something()
-print something.counter #Magic/Trick is function can access class variables
+print(something.counter) #Magic/Trick is function can access class variables
 #### OR ######
 #s=something
-#print s.counter
-print "=========================================="
+#print(s.counter
+print("==========================================")
 #combining two lists into one
 
 listone = [1,2,3]
@@ -87,57 +87,57 @@ listtwo = [4,5,6]
 
 mergedlist = listone + listtwo # This will not remove duplicates ,also this will result in a list [1,2,3,4,5,6]
 listone.extend(listtwo) #To merge to list one
-print listone
+print(listone)
 #[1, 2, 3, 4, 5, 6]
 listone = (1,2,3)
 listtwo = (4,5,6)
 
-print listone+listtwo #also this will result in a tuple (1,2,3,4,5,6)
+print(listone+listtwo) #also this will result in a tuple (1,2,3,4,5,6)
 listone = [1,2,3]
 listtwo = (4,5,6)
 
 try:
-    print listone+listtwo
+    print(listone+listtwo)
 except Exception as e: #Exception is a keyword
-    print e
+    print(e)
 
-print listone+list(listtwo)
-print "=========================================="
+print(listone+list(listtwo))
+print("==========================================")
 #Duplicating a list within itself
 listone = [1,2,3]
 listone = listone * 2 
 
-print listone
+print(listone)
 #[1, 2, 3, 1, 2, 3]
 
 listone=[1,2,3]
-print [listone]*2
+print([listone]*2)
 #[[1, 2, 3], [1, 2, 3]]
 
 
-print "=========================================="
+print("==========================================")
 #Python pass by value and pass by reference
 def f(*t):
-  print t
+  print(t)
   t=3
-  print t
+  print(t)
 t= 2
-print t
+print(t)
 2
 f(t) #prints (2,)
-print t #prints 2
+print(t) #prints 2
 
 
 #Ex:2
 x = [ 2, 4, 4, 5, 5 ]
-print x  # 2, 4, 4, 5, 5
+print(x)  # 2, 4, 4, 5, 5
 
 def go( li ) :
   li = [ 5, 6, 7, 8 ]  # re-assigning what li POINTS TO, does not
   # change the value of the ORIGINAL variable x
 
 go( x ) 
-print x  # 2, 4, 4, 5, 5  [ STILL! ]
+print(x)  # 2, 4, 4, 5, 5  [ STILL! ]
 
 #Ex:3
 def change(x):
@@ -145,7 +145,7 @@ def change(x):
 
 x = [1]
 change(x)
-print x #prints 3o
+print(x) #prints 3o
 
 def rr(a):
     a=1
@@ -153,13 +153,13 @@ def rr(a):
 
 
 a=2
-print rr(a) #prints 1
-print a #prints 2
+print(rr(a)) #prints 1
+print(a) #prints 2
 
 a=1
 
 def t():
-	print a #prints 1
+	print(a) #prints 1
 
 t()
 
@@ -183,7 +183,7 @@ def tyhu(tt):
 
 g=10
 yy = tyhu(g)
-print g,yy
+print(g,yy)
 
 
 #In this case the function is creating a copy of g as tt and also it is not mentioned as global variable
@@ -194,13 +194,13 @@ print g,yy
 def changeme( mylist ):
    "This changes a passed list into this function"
    mylist.append([1,2,3,4]);
-   print "Values inside the function: ", mylist
+   print("Values inside the function: ", mylist)
    return
 
 # Now you can call changeme function
 mylist = [10,20,30];
 changeme( mylist );
-print "Values outside the function: ", mylist
+print("Values outside the function: ", mylist)
 #Here, we are maintaining reference of the passed object and appending values in the same object. So, this would produce the following result:
 
 #Values inside the function:  [10, 20, 30, [1, 2, 3, 4]]
@@ -214,13 +214,13 @@ print "Values outside the function: ", mylist
 def changeme( mylist ):
    "This changes a passed list into this function"
    mylist = [1,2,3,4]; # This would assig new reference in mylist
-   print "Values inside the function: ", mylist
+   print("Values inside the function: ", mylist)
    return
 
 # Now you can call changeme function
 mylist = [10,20,30];
 changeme( mylist );
-print "Values outside the function: ", mylist
+print("Values outside the function: ", mylist)
 #The parameter mylist is local to the function changeme. Changing mylist within the function does not affect mylist. The function accomplishes nothing and finally this would produce the following result:
 
 #Values inside the function:  [1, 2, 3, 4]
@@ -241,44 +241,44 @@ print "Values outside the function: ", mylist
 #tuples cannot be changed
 #integer cannot be changed
 
-print "=========================================="
+print("==========================================")
 #Inverting a dictionary using a dictionary comprehension
 m = {'a': 1, 'b': 2, 'c': 3, 'd': 4}
-print m
+print(m)
 #{'d': 4, 'a': 1, 'b': 2, 'c': 3}
-print {v: k for k, v in m.items()}
+print({v: k for k, v in m.items()})
 #{1: 'a', 2: 'b', 3: 'c', 4: 'd'}
 
 #Dictionry comprehension example
 
 emails = {'Dick': 'bob@example.com', 'Jane': 'jane@example.com', 'Stou': 'stou@example.net'}
-email_at_dotcom = dict( [name, '.com' in email] for name, email in emails.iteritems() )
+email_at_dotcom = dict( [name, '.com' in email] for name, email in emails.items() )
 # email_at_dotcom now is {'Dick': True, 'Jane': True, 'Stou': False}
-print "=========================================="
+print("==========================================")
 
 #Sets and set operations
 A = {1, 2, 3, 3}
-print A
+print(A)
 #set([1, 2, 3])
 B = {2,3, 4, 5, 6, 7}
-print B
+print(B)
 #set([3, 4, 5, 6, 7])
-print A | B #combines and removes duplicates and also sorts in asc order
+print(A | B) #combines and removes duplicates and also sorts in asc order
 #set([1, 2, 3, 4, 5, 6, 7])
-print A & B #combines common elements and removes duplicates and also sorts in asc order
+print(A & B) #combines common elements and removes duplicates and also sorts in asc order
 #set([2, 3])
-print A - B
+print(A - B)
 #set([1, 2])
-print B - A
+print(B - A)
 #set([4, 5, 6, 7])
-print A ^ B
+print(A ^ B)
 #set([1, 2, 4, 5, 6, 7])
-print (A ^ B) == ((A - B) | (B - A))
+print((A ^ B) == ((A - B) | (B - A)))
 #[1,2,3] True
 
 #sets are mutable
 #fronzensets are immutable
-print "=========================================="
+print("==========================================")
 #Dictionary to lists
 dictionary = {'a': 1, 'b': 2, 'c': 3}
 dict_as_list = dictionary.items()
@@ -299,7 +299,7 @@ dictionary = dict(dict_as_list)
 dict_as_list = (('a', 1), ('b', 2), ['c', 3])
 dictionary = dict(dict_as_list)
 # dictionary now contains {'a': 1, 'b': 2, 'c': 3}
-print "=========================================="
+print("==========================================")
 
 f=open("/tmp/aa.txt","w")
 f.write("Testing  and \n Testing again \n and \n again")
@@ -308,7 +308,7 @@ f.close()
 f=open("/tmp/aa.txt")
 while True:
 	for l in f.read(): #reads full file at one stretch
-		print l,
+		print(l,)
 	else:
 		break
 f.close()
@@ -317,7 +317,7 @@ f.close()
 f=open("/tmp/aa.txt")
 while True:
 	for l in f.readline(): #reads a sing line
-		print l,
+		print(l,)
 	else:
 		break
 f.close()
@@ -326,7 +326,7 @@ f.close()
 f=open("/tmp/aa.txt") # read entire file once and splits it line by line
 while True:
 	for l in f.readlines():
-		print l,
+		print(l,)
 	else:
 		break
 f.close()
@@ -341,204 +341,204 @@ line = f.readline()
 #100.112.17.235# If the file is not empty keep reading line one at a time
 ## till the file is empty
 while line:
-	print line
+	print(line)
 	line = f.readline()
 f.close()
 
-print "====================="
+print("=====================")
 os.system("touch /tmp/ab.txt")
 f=open("/tmp/ab.txt","r+") # read  and write mode  and to use this file should be existing already
 f.write("This is some text 123456789")
-print f.seek(10) #read after tenth character
-print f.read() #read after tenth character and print every thing
+print(f.seek(10)) #read after tenth character
+print(f.read()) #read after tenth character and print(every thing
 f.seek(10) #read after tenth character
-print f.read(1) #read after tenth character and print one character only 
+print(f.read(1)) #read after tenth character and print(one character only 
 f.close()
 
 #important reading speific lines
 
 f=open('/tmp/aa.txt')
 lines=f.readlines()
-print lines[1]
-print lines[2]
+print(lines[1])
+print(lines[2])
 f.close()
 
-print "======================================="
+print("=======================================")
 
 a=(1,2,3,4)
-print a[0]
-print a[1]
-print a[2]
-print a[3]
+print(a[0])
+print(a[1])
+print(a[2])
+print(a[3])
 
-print "======================================="
+print("=======================================")
 b=((1,2,3,4),(1,2))
-print b[0][0]
-print b[0][1]
-print b[0][2]
-print b[0][3]
-print b[1][0]
-print b[1][1]
+print(b[0][0])
+print(b[0][1])
+print(b[0][2])
+print(b[0][3])
+print(b[1][0])
+print(b[1][1])
 
-print "======================================="
+print("=======================================")
 for i in range(len(b)):
 	for s in range(len(b[i])):
-		print b[i][s]
+		print(b[i][s])
 
-print "======================================="
+print("=======================================")
 c={'a':1,'b':2}
-print c['a']
-print c['b']
+print(c['a'])
+print(c['b'])
 #Key value can also be added like the following
 c['c'] = 3
-print c
-print c.keys() #returns keys list
-print c.values() #returns values list
-print c.pop('b',None) #returns 2
-print c.get("b",c.update({'b':6}))
-#print c.get("b",c['b']=6) #This raises an error saying assignment cannot be done here 
-print c #prints {'a': 1, 'b': 6}
+print(c)
+print(c.keys()) #returns keys list
+print(c.values()) #returns values list
+print(c.pop('b',None)) #returns 2
+print(c.get("b",c.update({'b':6})))
+#print(c.get("b",c['b']=6) #This raises an error saying assignment cannot be done here 
+print(c) #prints {'a': 1, 'b': 6}
 try :
 	if c['d']:
-		print c['d']
+		print(c['d'])
 except:
 	logging.debug("debug")
 	logging.error("error")
 	logging.exception("exception")
 
-print "======================================="
+print("=======================================")
 qq="12"
 rr="13"
 out = "<html>%(qq)s%(rr)s</html>" % locals()
-print out
+print(out)
 out = "<html>%(qq)s%(rr)s</html>" % globals()
-print out
-print "======================================="
+print(out)
+print("=======================================")
 def func(a,b=None):
 	if b is None:
-		print "b is None"
-		print b is None ## this will print true
+		print("b is None")
+		print(b is None) ## this will print(true
 	else:
-		print a,b
+		print(a,b)
 
 func(1)
 func(1,2)
-print "======================================="
+print("=======================================")
 def func1(a,*b): #* stands for a tuple
-	print a
+	print(a)
 	if len(b) > 0 :
-		print b #This prints tuple
-		print type(b) #This prints tuple
+		print(b) #This prints tuple
+		print(type(b)) #This prints tuple
 		for i in b:
-			print i
+			print(i)
 
 func1(1,2,3,4,5,6) #watch the difference between the below line
 func1(1,2,3,4,5,6,)
 func1(1)
 func1(1,) #this will not enter the if loop
-print "======================================="
+print("=======================================")
 def func2(l,**c):
-	print l
+	print(l)
 	if len(c) > 0:
 		for i in c:
-			print c[i]
+			print(c[i])
 
 c={'a':1,'b':2,'c':3}
 func2(1,**c)
-print "======================================="
+print("=======================================")
 aa=(1,2,3,(4,5),6)
-print aa[0]
-print aa[1]
-print aa[2]
-print aa[3][0]
-print aa[3][1]
-print aa[4]
-print "======================================="
+print(aa[0])
+print(aa[1])
+print(aa[2])
+print(aa[3][0])
+print(aa[3][1])
+print(aa[4])
+print("=======================================")
 i=5
 def fs(args=i):
-	print args
-	print i
+	print(args)
+	print(i)
 
 i=6
 fs()
 fs(7)
-print "======================================="
+print("=======================================")
 cc=[1,2,3,4]
 dd=['1','2','3','4']
-print "%s"%"====".join(dd) ##### To remember   
-print "====".join(dd) #This is similar to the above statement
+print("%s"%"====".join(dd)) ##### To remember   
+print("====".join(dd)) #This is similar to the above statement
 #####join takes liast as arguments
 for i in range(len(dd)):
-	print i,dd[i]
+	print(i,dd[i])
 a=11
 b=22
 c="ee"
 
-print a,b,c
+print(a,b,c)
 a,b,c=c,a,b
-print a,b,c
-print "======================================="
-add2 = lambda a,b:a+b;print "=====";print "|||||||";print "iiiiiiiii"   ##To remember,first return statement and rest prints statement next
-print add2(3,4)
+print(a,b,c)
+print("=======================================")
+add2 = lambda a,b:a+b;print("=====");print("|||||||");print("iiiiiiiii")   ##To remember,first return statement and rest prints statement next
+print(add2(3,4))
 def tr(add2):
-	print add2(5,6)
-print "======================================="
+	print(add2(5,6))
+print("=======================================")
 ee=[1,2]
 ff=[3,4]
 gg=zip(ee,ff)
-print gg
+print(gg)
 gg = dict(gg)
-print gg
+print(gg)
 gg.update({'1':4})
-print gg[1]
-print gg['1']     
-print gg
-print "======================================="
+print(gg[1])
+print(gg['1'])     
+print(gg)
+print("=======================================")
 a=[1,2]
 try:
 	gg={a:2}
-	print gg
+	print(gg)
 except:
-	print logging.exception("e") #This prints unhashable type: 'list'
-print "=======================================" ##From here
+	print(logging.exception("e")) #This prints unhashable type: 'list'
+print("=======================================") ##From here
 di=dict(a=1,b=2)
-print di
-print dir(di)
-print di.items() # will represent key value in tuple format inside a list
-print di.has_key('a')
-print di.keys()
-print di.values()
+print(di)
+print(dir(di))
+print(di.items()) # will represent key value in tuple format inside a list
+print(di.has_key('a'))
+print(di.keys())
+print(di.values())
 it =di.iterkeys()
-print it.next()
-print it.next()
+print(it.next())
+print(it.next())
 it =di.itervalues()
-print it.next()
-print it.next()
-print "======================================="
+print(it.next())
+print(it.next())
+print("=======================================")
 strings=['a','b','c','d','e']
 for i,k in enumerate(strings):
-	print i,k
-print "======================================="
+	print(i,k)
+print("=======================================")
 class test22:
 	def hello(self,**args):
-		print args['a']
+		print(args['a'])
 
 jj={'a': '1'}
 t = test22()	
 t.hello(**jj)
 t.hello(**({'a':'b'}))
 		
-print "======================================="
+print("=======================================")
 a=[6,6,1,1,2,3,3,3,4,5]
-print list(set(a))
-print type(list(set(a)))
-print "======================================="
+print(list(set(a)))
+print(type(list(set(a))))
+print("=======================================")
 a=[6,6,1,1,2,3,3,3,4,5]
-print sorted(a)
-print sorted(set(a),reverse=True)
-print "======================================="
+print(sorted(a))
+print(sorted(set(a),reverse=True))
+print("=======================================")
 def fun(*a,**kw):
-	print a,kw
+	print(a,kw)
 
 a= [1,2,3,'a']
 b=dict(a=1,b=2,c=3)
@@ -549,60 +549,60 @@ fun(*a,**b)
 fun(a)
 fun(b)
 fun(a,b)
-print "======================================="
+print("=======================================")
 opt = ["opt3", "opt2", "opt7", "opt6", "opt1", "opt10", "opt11"]
-print sorted(opt)
-print (opt.sort()) #This will sort the original list
-print opt
-print "======================================="
+print(sorted(opt))
+print((opt.sort())) #This will sort the original list
+print(opt)
+print("=======================================")
 
 list_of_tuples = [('key', 'value'), ('key2', 'value2')]
 a_dict_2 = dict(list_of_tuples)
-print a_dict_2
+print(a_dict_2)
 a_dict_3 = a_dict_2
 bb=1
 aa=dict(a_dict_2 = a_dict_2)
-print aa
+print(aa)
 for val ,key in enumerate(aa):
 		for i in aa[key]:
-			print "========"
-			print aa[key]
-			print aa[key][i]
-print a_dict_2 ==a_dict_3	
-print a_dict_2.clear() #a_dict_3 is also cleared
-print str(a_dict_2) + "====="
-print str(a_dict_3) + "====="
-print "======================================="
+			print("========")
+			print(aa[key])
+			print(aa[key][i])
+print(a_dict_2 ==a_dict_3)	
+print(a_dict_2.clear()) #a_dict_3 is also cleared
+print(str(a_dict_2) + "=====")
+print(str(a_dict_3) + "=====")
+print("=======================================")
 class mytest:
 	p = 1
 	def __init__(self,a):
 		self.a = a
-		print str(self.p) + "======"		
+		print(str(self.p) + "======")		
 	def hello(self):
-		print "in mytest hello"
+		print("in mytest hello")
 
 class myt(mytest):
 	def __init__(self,b,obj):
 		obj.p=2
 		obj.__init__(4)
-		print obj.p
+		print(obj.p)
 
 	def hello(self):
-		print "in myt hello"
+		print("in myt hello")
 
 mt = mytest(2)
 m=myt(3,mt)
 mt.hello()
 m.hello()
-print "======================================="
+print("=======================================")
 #Array slicing
 mystr1="hello world"
-print mystr1[::-2]
-print mystr1[-1] # prints d #This is Negative indexing in python ****************
-print "======================================="
+print(mystr1[::-2])
+print(mystr1[-1]) # prints d #This is Negative indexing in python ****************
+print("=======================================")
 for x in range(1,11):
-	print x
-print "======================================="
+	print(x)
+print("=======================================")
 str1="golf"
 def reverse(str1):
 	a=list(str1)
@@ -610,37 +610,37 @@ def reverse(str1):
 		yield i
 
 for i in reverse(str1):
-		print i
+		print(i)
 
-print "======================================="
+print("=======================================")
 a = [-1, 1, 66.25, 333, 333, 1234.5]
 del a[0]
-print a
+print(a)
 del a[2:4] #deletes items 2 and 3
-print a
+print(a)
 del a[:]
 del a[::]
-print a
-print "======================================="
+print(a)
+print("=======================================")
 knights={'a':1,'b':2}
 for i,k in knights.iteritems():
-	print type(i)
-	print type(k)
-	print i,k
+	print(type(i))
+	print(type(k))
+	print(i,k)
 for k in knights.iterkeys():
-	print type(k)
-	print k
+	print(type(k))
+	print(k)
 for k in knights.itervalues():
-	print type(k)
-	print k
-print "======================================="
+	print(type(k))
+	print(k)
+print("=======================================")
 def linear(a,b):
 	def result(x):
 		return a*x+b
 	return result(1)
 
 aa=linear(3,4)
-print aa	
+print(aa)	
 
 def linear(a,b):
 	def result(x):
@@ -648,58 +648,58 @@ def linear(a,b):
 	return result
 aa= linear(5,6)
 bb=aa(4)
-print bb #prints 26
-print "======================================="
+print(bb) #prints 26
+print("=======================================")
 if __name__ == "__main__":
-	print __name__
+	print(__name__)
 import logging
-print logging.__name__
+print(logging.__name__)
 class rtt(object):
     pass
-print rtt.__name__ #prints rtt as string
-print "======================================="
+print(rtt.__name__) #prints rtt as string
+print("=======================================")
 a = [66.25, 333, 333, 1, 1234.5]
-print a.count(333)
-print a.count(66.25)
-print a.count('x')
-print a.insert(2,-11)
-print a.append(333)
-print a.index(333)
-print a
-print a.reverse()
-print a
-print a.sort()
-print a
-print a.sort()
+print(a.count(333))
+print(a.count(66.25))
+print(a.count('x'))
+print(a.insert(2,-11))
+print(a.append(333))
+print(a.index(333))
+print(a)
+print(a.reverse())
+print(a)
+print(a.sort())
+print(a)
+print(a.sort())
 
-print "======================================="
+print("=======================================")
 #class decorator without arguments
 class decoratorWithoutArguments(object):
 
     def __init__(self, f):
         #If there are no decorator arguments, the function
         #to be decorated is passed to the constructor.
-        #print "Inside __init__()"
+        #print("Inside __init__()"
         self.f = f
 
     def __call__(self, *args):
         #The __call__ method is not called until the
         #decorated function is called.
-        print "Inside __call__()"
+        print("Inside __call__()")
         self.f(*args)
-        print "After self.f(*args)"
+        print("After self.f(*args)")
 
 @decoratorWithoutArguments
 def sayHello(a1, a2, a3, a4):
-    print 'sayHello arguments:', a1, a2, a3, a4
+    print('sayHello arguments:', a1, a2, a3, a4)
 
-print "After decoration"
+print("After decoration")
 
-print "Preparing to call sayHello()"
+print("Preparing to call sayHello()")
 sayHello("say", "hello", "argument", "list")
-print "After first sayHello() call"
+print("After first sayHello() call")
 sayHello("a", "different", "set of", "arguments")
-print "After second sayHello() call"
+print("After second sayHello() call")
 
 
 #class decorator with arguments
@@ -708,7 +708,7 @@ class decoratorWithArguments(object):
     def __init__(self, arg1, arg2, arg3):
         #If there are decorator arguments, the function
         #to be decorated is not passed to the constructor!
-        print "Inside __init__()"
+        print("Inside __init__()")
         self.arg1 = arg1
         self.arg2 = arg2
         self.arg3 = arg3
@@ -717,59 +717,59 @@ class decoratorWithArguments(object):
         #If there are decorator arguments, __call__() is only called
         #once, as part of the decoration process! You can only give
         #it a single argument, which is the function object.
-        print "Inside __call__()"
+        print("Inside __call__()")
         def wrapped_f(*args):
-            print "Inside wrapped_f()"
-            print "Decorator arguments:", self.arg1, self.arg2, self.arg3
+            print("Inside wrapped_f()")
+            print("Decorator arguments:", self.arg1, self.arg2, self.arg3)
             f(*args)
-            print "After f(*args)"
+            print("After f(*args)")
         return wrapped_f
 
 @decoratorWithArguments("hello", "world", 42)
 def sayHello(a1, a2, a3, a4):
-    print 'sayHello arguments:', a1, a2, a3, a4
+    print('sayHello arguments:', a1, a2, a3, a4)
 
 
 #Function decorator with arguments
 def decoratorFunctionWithArguments(arg1, arg2, arg3):
     def wrap(f):
-        print "Inside wrap()"
+        print("Inside wrap()")
         def wrapped_f(*args):
-            print "Inside wrapped_f()"
-            print "Decorator arguments:", arg1, arg2, arg3
+            print("Inside wrapped_f()")
+            print("Decorator arguments:", arg1, arg2, arg3)
             f(*args)
-            print "After f(*args)"
+            print("After f(*args)")
         return wrapped_f
     return wrap
 
 @decoratorFunctionWithArguments("hello", "world", 42)
 def sayHello(a1, a2, a3, a4):
-    print 'sayHello arguments:', a1, a2, a3, a4
+    print('sayHello arguments:', a1, a2, a3, a4)
 
-print "After decoration"
+print("After decoration")
 
-print "Preparing to call sayHello()"
+print("Preparing to call sayHello()")
 sayHello("say", "hello", "argument", "list")
-print "after first sayHello() call"
+print("after first sayHello() call")
 sayHello("a", "different", "set of", "arguments")
-print "after second sayHello() call"
-print "======================================="
+print("after second sayHello() call")
+print("=======================================")
 def shout(aa="yes"):
-	print aa
+	print(aa)
 
 scream=shout
 scream()
 scream(1)
 
-print "======================================="
+print("=======================================")
 def makebold(fn):
-    print "2"
+    print("2")
     def wrapped():
         return "<b>" + fn() + "</b>"
     return wrapped
 
 def makeitalic(fn):
-    print "1"
+    print("1")
     def wrapped():
         return "<i>" + fn() + "</i>"
     return wrapped
@@ -779,124 +779,124 @@ def makeitalic(fn):
 def hello():
     return "hello world"
 
-print hello()
-print "======================================="
+print(hello())
+print("=======================================")
 a=[1,2,3,333,6,'ab',5,4,7,'a',77,5566,94,2,34]
-print a
+print(a)
 for ii in range(len(a)-1):
 	for jj in range(len(a)-ii-1):
 		if a[jj] > a[jj+ 1]:
 			a[jj],a[jj+1]=a[jj+1],a[jj]
 
-print a
-print "======================================="
+print(a)
+print("=======================================")
 word="acr"
 word=sorted(word)
 alternatives = ['car', 'girl', 'tofu', 'rca']	
 for i in alternatives:
 	if sorted(i) == word:
-		print i
-print "======================================="
+		print(i)
+print("=======================================")
 a=['1','2','3']
 a=map(int,a)
-print a
+print(a)
 b=['1','2','3']
-print "======================================="
+print("=======================================")
 def rt(a=[]):
 	a.append(1)
-	print a
+	print(a)
 
 rt()
 rt()
 rt()
 rt()
-print "======================================="
+print("=======================================")
 d={}
-print d['red'] if 'red' in d else 'None===========' 
+print(d['red'] if 'red' in d else 'None===========' )
 d={'red':1}
 #OR
 d.get('red',"None===========")
-print d['red'] if 'red' in d else 'None===========' 
+print(d['red'] if 'red' in d else 'None===========' )
 d.get('red',"None===========")
-#print help(d.get)
+#print(help(d.get)
 colors = ['red','red','red','red','green','blue','blue']
 #Best way to count objects in a list
 for i in colors:
 	d[i]=d.get(i,0)+1
-print d
-print "======================================="
+print(d)
+print("=======================================")
 def rs(a,b,c):
-	print a,b,c
+	print(a,b,c)
 
 aa=[1,2,3]
 rs(*aa)
-print "======================================="
+print("=======================================")
 st='str'  'ing'             #  <-  This is ok
-print st ##This prints string
-print "======================================="
+print(st) ##This prints string
+print("=======================================")
 T2=[(i,j) for i in range(3) for j in range(i) ]
-print T2
+print(T2)
 
 arr=["harry","sally","tom"]
 for i in range(len(arr)):
-	print arr[i %len(arr)] * 3 
-	print arr[(i+2) % len(arr)] * 2
-	print arr[(i+1) % len(arr)] * 1
+	print(arr[i %len(arr)] * 3 )
+	print(arr[(i+2) % len(arr)] * 2)
+	print(arr[(i+1) % len(arr)] * 1)
 
 mydict = {'carl':40, 'alan':2, 'bob':1, 'danny':3}
 
-print dict(sorted(mydict.items(),key = lambda x:x[1]))  ## to remember
+print(dict(sorted(mydict.items(),key = lambda x:x[1])))  ## to remember
 my_dict = {'carl':40, 'alan':2, 'bob':1, 'danny':3}
 my_dict=dict(zip(my_dict.values(),my_dict.keys()))
-print my_dict
+print(my_dict)
 my_dict = {'carl':40, 'alan':2, 'bob':1, 'danny':3}
 my_dict = dict([(v,k) for k,v in my_dict.items()])
-print my_dict
+print(my_dict)
 my_dict = {'carl':40, 'alan':2, 'bob':1, 'danny':3}
 mydict= {v:k for k,v in mydict.items()}
-print my_dict  #dictionary comprehension
-print {(v,k) for k,v in mydict.items()} #use : for dictionary else it would be a set
+print(my_dict)  #dictionary comprehension
+print({(v,k) for k,v in mydict.items()}) #use : for dictionary else it would be a set
 #set([(1, 'bob'), (40, 'carl'), (2, 'alan'), (3, 'danny')])
-print "======================================="
+print("=======================================")
 def binary_search(a, x, lo=0, hi=None):
 	if hi is None:
 		hi = len(a)
 	while lo < hi:
-		print "lo %d"%(lo)
-		print "hi %d"%(hi)
+		print("lo %d"%(lo))
+		print("hi %d"%(hi))
 		mid = (lo+hi)//2
-		print "mid %d"%(mid)
+		print("mid %d"%(mid))
 		midval = a[mid]
-		print "midval %d"%(midval)
+		print("midval %d"%(midval))
 		if midval < x:
 			lo = mid+1
-			print "lo %d"%(lo)
+			print("lo %d"%(lo))
 		elif midval > x: 
 			hi = mid
-			print "hi %d"%(hi)
+			print("hi %d"%(hi))
 		else:
 			return mid
 	return -1
 a=[1,2,3,4,5,6,7,8,9]
 mid = binary_search(a,7) 
-print mid
-print "======================================="
+print(mid)
+print("=======================================")
 #A dict cannot have list or dict as keys but it can have tuple since tuple cannot be chnages and is a read only datastructure
 a=(1,2)
 b={a:2}
-print b
+print(b)
 #{(1, 2): 2}
-print b[(1,2)] # will give 2
-print "======================================="
+print(b[(1,2)]) # will give 2
+print("=======================================")
 class a:
 	def __init__(self):
 		self.l=None
-		print self.l
-		if self.l  :  #since self.l is None the print steatement is not printed
-			print "exist" 
+		print(self.l)
+		if self.l  :  #since self.l is None the print(steatement is not printed
+			print("exist" )
  
 
-print "======================================="
+print("=======================================")
 def fib():
 	a,b=0,1
 	while True:
@@ -904,34 +904,34 @@ def fib():
 		a,b=b,a+b
 
 a = fib()	
-print a.next()
-print next(a)
-print next(a)
-print next(a)
-print next(a)
-print next(a)
-print "=========="
+print(a.next())
+print(next(a))
+print(next(a))
+print(next(a))
+print(next(a))
+print(next(a))
+print("==========")
 def fibn(n):
 	a,b=0,1
 	while b<n:
 		yield a
 		a,b=b,a+b
 i = fibn(20)	
-print next(i)
-print next(i)
-print next(i)
-print next(i)
-print next(i)
-print next(i)
-print next(i)
-print "======================================="
+print(next(i))
+print(next(i))
+print(next(i))
+print(next(i))
+print(next(i))
+print(next(i))
+print(next(i))
+print("=======================================")
 def palindrome(word):
 	return word == word[::-1]
 
-print palindrome("tat")
-print palindrome("t")
-print palindrome("ti")
-print "======================================="
+print(palindrome("tat"))
+print(palindrome("t"))
+print(palindrome("ti"))
+print("=======================================")
 #iterator
 class seq:
 	x= 0 
@@ -945,10 +945,10 @@ class seq:
 
 s=seq()
 type(s)
-print s.next()
-print s.next()
-#print s.next() ## this will call StopIteration
-print "======================================="
+print(s.next())
+print(s.next())
+#print(s.next() ## this will call StopIteration
+print("=======================================")
 #Python polymorphism example and inheritence example
 class Animal:
 	def __init__(self, name):    # Constructor of the class
@@ -969,72 +969,72 @@ animals = [Cat('Missy'),
            Dog('Lassie')]
 
 for animal in animals:
-	print animal.name + ': ' + animal.talk()
+	print(animal.name + ': ' + animal.talk())
 
-print "======================================="
+print("=======================================")
 class a:
 	pass
 
 x=a()
 x.a =1
-print x.__dict__
-print "======================================="
+print(x.__dict__)
+print("=======================================")
 # class can also be created with metaclasses read about this..
-print "======================================="
+print("=======================================")
 art = ["a","b","c","d","e"]
 a = datetime.datetime.now()
 for i in reversed(art):
-	print i
+	print(i)
 b = datetime.datetime.now()
 c=b-a
-print c.seconds,"1st"
-print c.microseconds,"1st"
+print(c.seconds,"1st")
+print(c.microseconds,"1st")
 a = datetime.datetime.now()
 for i in art[::-1]:
-	print i
+	print(i)
 b = datetime.datetime.now()
 c=b-a
-print c.seconds,"2nd"
-print c.microseconds,"2nd"
+print(c.seconds,"2nd")
+print(c.microseconds,"2nd")
 
-print "======================================="
+print("=======================================")
 colors = ["red","yellow","blue","green"] 
 for i in sorted(colors):
-	print i
+	print(i)
 for i in sorted(colors,reverse=True): #This sorts the list in reverse alphabetical order
-	print i
+	print(i)
 for i in reversed(colors): ##This sorts the list in reverse order
-	print i
+	print(i)
 
 
 
 a={'b':1}
 del a['b']
-print a ##If u delete a value by its key it will delete the key also
+print(a) ##If u delete a value by its key it will delete the key also
 
 def rt(ty):
-	print ty
+	print(ty)
 
 rt(ty=1) #you can call the function withc exact same function definition attributes.This is just for readability purpose.Changing the parameter will result in an error
 
 a,b,c,d=colors #unpacking an array into different variable
-print a,b,c,d
-print "======================================="
+print(a,b,c,d)
+print("=======================================")
 try:
     a={'b':1}
     for i in a:
         del a[i] #RuntimeError: dictionary changed size during iteration
 except:
     logging.exception("Error while iterating dictionary")
-print "======================================="
+print("=======================================")
 #overloading is not supported in python
 def at(r):
-  print r
-  print "Inm 1"
+  print(r)
+  print("Inm 1")
 
 def at(r,t):
-  print "Inm 2"
-  print r,t
+  print("Inm 2")
+  print(r,t)
 
 try:
 	at(1)
@@ -1043,15 +1043,15 @@ except:
 #Traceback (most recent call last):
 #  File "<stdin>", line 1, in <module>
 #TypeError: a() takes exactly 2 arguments (1 given)
-print "======================================="
+print("=======================================")
 #oneliner to read a file
 os.system("echo 'hello world' > ./ten_one_liners.py")
-print open("ten_one_liners.py").readlines()
+print(open("ten_one_liners.py").readlines())
 
-print "======================================="
+print("=======================================")
 #Difference between is and "=="
 #is will return True if two variables point to the same object, == if the objects referred to by the variables are equal.
-print "======================================="
+print("=======================================")
 #using eval
 
 #The eval function lets a python program run python code within itself.
@@ -1062,33 +1062,33 @@ eval('x + 1')
 #2
 eval('x')
 #1
-print "======================================="
+print("=======================================")
 try:
     open("/tmp/s.txt")
     #pass
     #for i in range(10):
     #   break
 except: #There can be more than one except
-    print "Exception"
+    print("Exception")
 else:   #else part will be executed if no exceptions are raised
-    print "In else"
+    print("In else")
 finally: #finally will be executed irrespective of conditions
-    print "In final"
+    print("In final")
 
 try:
     pass
 except:
-    print "Exception"
+    print("Exception")
 finally: #finally will be executed irrespective of conditions
-    print "In final"
+    print("In final")
 
 #Python for else:
 for i in range(1,11):
-    print i
+    print(i)
     break
 else:
-    print "In else1" #else will be executed only when there is no break
-print "======================================="
+    print("In else1") #else will be executed only when there is no break
+print("=======================================")
 #Python Access specifiers
 #Python does not have mandatory access control like some other languages you may be used to. The philosophy of the language is "We are all consenting adults".
 __private_access_specifier = 1 ## private has __
@@ -1113,39 +1113,39 @@ class Cup:
 redCup = Cup("red")
 redCup._Cup__content = "tea"
 
-print "======================================="
+print("=======================================")
 #Important chnaging one character in a given string
 string="yelloworld"
-print string
+print(string)
 string=list(string)
 string[0]='h'
 string1="".join(string)
-print string1
+print(string1)
 
 string="yelloworld"
 di={string:'123'}
-print di
+print(di)
 string=list(string)
 string[0]='h'
 string="".join(string)
-print string
-print di
+print(string)
+print(di)
 #Note: Even though the string chnaged dictionary remain unchanged
 #How to change a dictionary key 
 
 di["helloworld"] = di.pop("yelloworld")
-print di
+print(di)
 
 #               OR
 
 string="yelloworld"
 di={string:'123'}
 di["helloworld"]=di["yelloworld"]
-print di
+print(di)
 del di["yelloworld"]
-print di
+print(di)
 
-print "======================================="
+print("=======================================")
 """
 The str() function is meant to return representations of values which are fairly human-readable
 repr() is meant to generate representations which can be read by the interpreter (or will force a SyntaxError if there is no equivalent syntax).
@@ -1317,7 +1317,7 @@ Object:
 This is the basic unit of object oriented programming. That is both data and function that operate on data are bundled as a unit called as object.
 Class:
 
-When you define a class, you define a blueprint for an object. This doesn't actually define any data, but it does define what the class name means, that is, what an object of the class will consist of and what operations can be performed on such an object.
+When you define a class, you define a blueprint(for an object. This doesn't actually define any data, but it does define what the class name means, that is, what an object of the class will consist of and what operations can be performed on such an object.
 Abstraction:
 
 Data abstraction refers to, providing only essential information to the outside word and hiding their background details ie. to represent the needed information in program without presenting the details.
@@ -1401,13 +1401,13 @@ python __dict__
 """
 class C(object):
     def m(self):
-        print "m"
+        print("m"
 
 
 x=C()
 x.m()
-print dir(x)
-print vars(x)
+print(dir(x))
+print(vars(x))
 So the difference between vars(x) and dir(x) is that dir(x) does the extra work of looking in x's class (and it's bases) for attributes that are accessible from it, not just those attributes that are stored in x's own symbol table. In the above example, vars(x) returns an empty dictionary, because x has no instance variables. However, dir(x) returns
 """
 
@@ -1433,7 +1433,7 @@ class Test(object):
     huh = locals()
     c = 'three'
     huh['d'] = 'four'
-    print huh
+    print(huh)
 gives us:
 
 {
@@ -1458,8 +1458,8 @@ and also,
 (not(x < 15 and y >= 3) has the same value as (x >= 15 or y < 3)
 x = int(raw_input("Enter a value for x: "))
 y = int(raw_input("Enter a value for y: "))
-print (not(x < 15 and y >= 3))
-print (x >= 15 or y < 3)
+print((not(x < 15 and y >= 3))
+print((x >= 15 or y < 3)
 We have two values: T and F.
 We can combine these values in three ways: NOT, AND, and OR.
 NOT is the simplest:
@@ -1518,12 +1518,12 @@ lambda functions:
 Python supports the creation of anonymous functions (i.e. functions that are not bound to a name) at runtime, using a construct called "lambda".
 >>> def f (x): return x**2
 ... 
->>> print f(8)
+>>> print(f(8))
 64
 >>> 
 >>> g = lambda x: x**2
 >>> 
->>> print g(8)
+>>> print(g(8))
 64
 
 As you can see, f() and g() do exactly the same and can be used in the same ways. Note that the lambda definition does not include a "return" statement -- it always contains an expression which is returned. Also note that you can put a lambda definition anywhere a function is expected, and you don't have to assign it to a variable at all. 
@@ -1534,10 +1534,10 @@ As you can see, f() and g() do exactly the same and can be used in the same ways
 >>> f = make_incrementor(2)
 >>> g = make_incrementor(6)
 >>> 
->>> print f(42), g(42)
+>>> print(f(42), g(42))
 44 48
 >>> 
->>> print make_incrementor(22)(33)
+>>> print(make_incrementor(22)(33)
 55
 
 The above is equivalent to 
@@ -1549,16 +1549,16 @@ The above is equivalent to
 
 >>> foo = [2, 18, 9, 22, 17, 24, 8, 12, 27]
 >>> 
-print filter(lambda x: x % 3 == 0, foo) #[18, 9, 24, 12, 27]
+print(filter(lambda x: x % 3 == 0, foo) #[18, 9, 24, 12, 27]
 #Construct a list from those elements of iterable for which function returns true. iterable may be either a sequence, a container which supports iteration, or an iterator. If iterable is a string or a tuple, the result also has that type; otherwise it is always a list.filter(function, iterable) is equivalent to [item for item in iterable if function(item)]
 
->>> print map(lambda x: x * 2 + 10, foo)
+>>> print(map(lambda x: x * 2 + 10, foo)
 [14, 46, 28, 54, 44, 58, 26, 34, 64]
 >>> 
->>> print reduce(lambda x, y: x + y, foo) #reduce(lambda x, y: x+y, [1, 2, 3, 4, 5]) calculates ((((1+2)+3)+4)+5)
+>>> print(reduce(lambda x, y: x + y, foo) #reduce(lambda x, y: x+y, [1, 2, 3, 4, 5]) calculates ((((1+2)+3)+4)+5)
 139
 The above reduce is equal to 
-print sum(foo)#139
+print(sum(foo)#139
 First we define a simple list of integer values, then we use the standard functions filter(), map() and reduce() to do various things with that list. All of the three functions expect two arguments: A function and a list. 
 
 Of course, we could define a separate function somewhere else and then use that function's name as an argument to filter() etc., and in fact that's probably a good idea if we're going to use that function several times, or if the function is too complex for writing in a single line. However, if we need it only once and it's quite simple (i.e. it contains just one expression, like in the above examples), it's more convenient to use a lambda construct to generate a (temporary) anonymous function and pass it to filter() immediately. This creates very compact, yet readable code. 
@@ -1652,13 +1652,13 @@ We have a module called m.py like this:
 # m.py
 class MyClass:
     def f(self):
-        print "f()"
+        print("f()")
 
 Then, if we run the monkey-patch testing like this:
 
 >>> import m
 >>> def monkey_f(self):
-	print "monkey_f()"
+	print("monkey_f()")
 
 	
 >>> m.MyClass.f = monkey_f
@@ -1774,7 +1774,7 @@ At each step, reduce passes the current product or division, along with the next
 """
 #printing list in reverse order with python
 >>> for length in range(10, 0,-1):
-...     print length
+...     print(length
 ... 
 10
 9
@@ -1787,7 +1787,7 @@ At each step, reduce passes the current product or division, along with the next
 2
 1
 >>> for length in range(10, 0,-2):
-...     print length
+...     print(length
 ... 
 10
 8
@@ -1808,9 +1808,9 @@ def func(t):
 
 li=[1,2,3,4,5]
 gn = func(li)
-print gn.next() #after printing 1, 1 is discarded from memory
-print gn.next() #after printing 2, 2 is discarded from memory
-print gn.next() #after printing 3, 3 is discarded from memory
+print(gn.next()) #after printing 1, 1 is discarded from memory
+print(gn.next()) #after printing 2, 2 is discarded from memory
+print(gn.next()) #after printing 3, 3 is discarded from memory
 """
 From above,Thats why generator are more efficient,where as in iterator after returning 1 ,1 is still retained in memory , we may have to use del() explicitly to remove it from memory,but also some times the object have circular references and therefore may need to delete all the objects associated with it which is more complicated and errorsum. So generator is ususally preferred over an iterator most of the times
 """
@@ -1820,9 +1820,9 @@ From above,Thats why generator are more efficient,where as in iterator after ret
 """
 >>> a=[]
 >>> for i in a:
-...     print "inside"
+...     print("inside")
 ... else:
-...     print "in else"
+...     print("in else")
 ... 
 in else
 """
@@ -1862,97 +1862,97 @@ import copy
 a = [1, 2, 3]
 b = [4, 5, 6]
 c = [a, b]
-print "======Normal copy============="
-print c
+print("======Normal copy=============")
+print(c)
 
 #Using normal assignment operatings to copy:
 d=c
-print d
+print(d)
 d[0][1]="a"
-print c #"a"is found in both c and d
-print d #"a"is found in both c and d
-print id(c) == id(d)  #True ,both have same ids
-print id(c[0]) == id(d[0]) #True ,Elements are also same
+print(c) #"a"is found in both c and d
+print(d) #"a"is found in both c and d
+print(id(c) == id(d))  #True ,both have same ids
+print(id(c[0]) == id(d[0])) #True ,Elements are also same
 
 #using a shallow copy
 a = [1, 2, 3]
 b = [4, 5, 6]
 c = [a, b]
-print "======Shallow copy============="
-print c
+print("======Shallow copy=============")
+print(c)
 d = copy.copy(c)
-print id(c) == id(d)  #False ,both have different ids
-print id(c[0]) == id(d[0]) #True ,Elements are also same
+print(id(c) == id(d))  #False ,both have different ids
+print(id(c[0]) == id(d[0])) #True ,Elements are also same
 d[0][1]="a"
-print c #"a"is found in both c and d
-print d #"a"is found in both c and d
+print(c) #"a"is found in both c and d
+print(d) #"a"is found in both c and d
 
 #using a shallow copy
 a = [1, 2, 3]
 b = [4, 5, 6]
 c = [a, b]
-print "======Deep copy============="
-print c
+print("======Deep copy=============")
+print(c)
 d = copy.deepcopy(c)
-print id(c) == id(d)  #False ,both have different ids
-print id(c[0]) == id(d[0]) #False ,Elements are also same
+print(id(c) == id(d))  #False ,both have different ids
+print(id(c[0]) == id(d[0])) #False ,Elements are also same
 d[0][1]="a"
-print c #"a"is found in d only
-print d #"a"is found in d only
+print(c) #"a"is found in d only
+print(d) #"a"is found in d only
 
-print "======shallow dict copy============="
+print("======shallow dict copy=============")
 c={'a':1}
 d=copy.copy(c)
 d.update({'b':2})
-print c,d
+print(c,d)
 c.update({'c':3})
-print c,d
-print "======deep dict copy============="
+print(c,d)
+print("======deep dict copy=============")
 c={'a':1}
 d=copy.deepcopy(c)
 d.update({'a':2})
-print c,d
+print(c,d)
 c.update({'c':3})
-print c,d
-print "=========================================="
+print(c,d)
+print("==========================================")
 d={"a":1,"b":2,"c":3}
-print zip(*d.iteritems()) #To separate keys and values, 
+print(zip(*d.iteritems())) #To separate keys and values, 
 #[('a', 'c', 'b'), (1, 3, 2)]
-print zip(d.iteritems()) #if "* is omitted the output is as follows"
+print(zip(d.iteritems())) #if "* is omitted the output is as follows"
 #[(('a', 1),), (('c', 3),), (('b', 2),)]
 
 a, b, c = 1, 2, 3
-print a, b, c
+print(a, b, c)
 #(1, 2, 3)
 a, b, c = [1, 2, 3]
-print a, b, c
+print(a, b, c)
 #(1, 2, 3)
 a, (b, c), d = [1, (2, 3), 4]
-print a
+print(a)
 #1
-print b
+print(b)
 #2
-print c
+print(c)
 #3
-print d
+print(d)
 #4
 
 #Negative indexing
 
 a = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-print a[-1]
+print(a[-1])
 #10
-print a[-3]
+print(a[-3])
 #8
 
 #List slices with step (a[start:end:step])
 
 a = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-print a[::2]
+print(a[::2])
 #[0, 2, 4, 6, 8, 10]
-print a[::3]
+print(a[::3])
 #[0, 3, 6, 9]
-print a[2:8:2]
+print(a[2:8:2])
 #[2, 4, 6]
 
 
@@ -1960,44 +1960,44 @@ a = [1, 2, 3, 4, 5, 6]
 
 # Using iterators
 group_adjacent = lambda a, k: zip(*([iter(a)] * k))
-print group_adjacent(a, 3)
+print(group_adjacent(a, 3))
 #[(1, 2, 3), (4, 5, 6)]
-print group_adjacent(a, 2)
+print(group_adjacent(a, 2))
 #[(1, 2), (3, 4), (5, 6)]
-print group_adjacent(a, 1)
+print(group_adjacent(a, 1))
 #[(1,), (2,), (3,), (4,), (5,), (6,)]
 
 
 #[on_true] if [expression] else [on_false]
 x, y = 50, 25
 small = x if x < y else y
-print small
+print(small)
 
-print "=========="
+print("==========")
 #Boolean as indexes
 b = 1==1
 name = "I am %s" % ["John","Doe"][b]
-print name
+print(name)
 
-print "=========="
+print("==========")
 #In python false is treated as 0 and True is treated as 1
 a=1
-print (a==1) + (a>0) + (a==2)
+print((a==1) + (a>0) + (a==2))
 #2
-print "=========="
+print("==========")
 a = ['two', 'three', 'four']
 for i, word in enumerate(a, 2):
-  print i, word
+  print(i, word)
 
 #2 two
 #3 three
 #4 four
 
-print "====List comprehension if else======"
+print("====List comprehension if else======")
 a=1
 b=2
-print [ a if a== 1 else  b]
-print "=========="
+print([ a if a== 1 else  b])
+print("==========")
 n=1
 if n < 0:
     result = 'n is negative'
@@ -2005,20 +2005,20 @@ else:
     result = 'n is positive'
 #Or in short this can be written as ,
 result = n < 0 and 'n is negative' or 'n is positive'
-print result
-print "=========="
+print(result)
+print("==========")
 a=[1,2,3,4,5]
 b=[6,7,8,9]
-print dict(zip(a,b))
+print(dict(zip(a,b)))
 #{1: 6, 2: 7, 3: 8, 4: 9}
-print "=========="
+print("==========")
 abc = 'mystring',
-print abc
+print(abc)
 # ('mystring,) #abc is a tuple now ust because of the leading comma
 
-print "=========="
+print("==========")
 def foo(a, b, c):
-    print a, b, c
+    print(a, b, c)
 
 mydict = {'a':1, 'b':2, 'c':3}
 mylist = [10, 20, 30]
@@ -2029,49 +2029,53 @@ foo(**mydict)
 #1, 2, 3
 foo(*mylist)
 #10 20 30
-print "=========="
+print("==========")
 #Python enums
 class PlayerRanking:
   Bolt, Green, Johnson, Mom = range(4)
 
-print PlayerRanking.Mom
+print(PlayerRanking.Mom)
 #3
-print "=========="
+print("==========")
 #Inline if statement
-print "Hello" if True else "World"
+print("Hello" if True else "World")
 #Hello
-print "=========="
+print("==========")
 #List comprehension
 numbers = [1,2,3,4,5,6]
 even = [number for number in numbers if number%2 == 0]
-print "=========="
+print("==========")
 #This is more of a fun one than a useful technique. In python True and False are basically just global variables. Thus:
-print False == True
+print(False == True)
 #False
+"""
+The following cannot be done in python 3
+
 False = True
 if False:
-    print "Hello"
+    print("Hello")
 else:
-    print "World"
+    print("World")
 #Hello
-print "=========="
+"""
+print("==========")
 os.system("echo '{\"key\":\"value\"}' | python -m json.tool")
-print "=========="
+print("==========")
 #Python simple calculator and writing lamda functions inside dictionary
 calculator = {
 'plus': lambda x, y: x + y,
 'minus': lambda x, y: x - y
 }
-print calculator['minus'](9,3)
+print(calculator['minus'](9,3))
 #6
-print "=========="
+print("==========")
 #Context Managers!
 with open("ten_one_liners.py") as f:
    print(f.readlines())
 
 #It will automatically close the file on exit, this can be used for creating resources which are automatically cleaned up after exiting scope.
 
-print "=========="
+print("==========")
 #Implementing a switch-case statement:
 def f(x):    
     return {
@@ -2079,26 +2083,26 @@ def f(x):
         'bar': 2,        
     }.get(x, 3) #.get is like the default,##very important
 
-print f('gg')
-print f('foo')
-print "=========="
+print(f('gg'))
+print(f('foo'))
+print("==========")
 #Default value
 text = ''
 option = text or 'empty'
-print option
+print(option)
 #'empty'
-print "=========="
+print("==========")
 #Ternary Expressions
 
 y = 1
 x = 10 if (y == 1) else 20
-print x
+print(x)
 #10
 y = 2
 x = 10 if (y == 1) else 20
-print x
+print(x)
 #20
-print "=========="
+print("==========")
 p = lambda k : {"a":1,"b":2}.get(k,"Default")
 p("a")
 #1
@@ -2106,7 +2110,7 @@ p("b")
 #2
 p("bb")
 #'Default'
-print "=========="
+print("==========")
 #creating a class on the fly using type
 #using type to create classes
 #type takes three arguments 
@@ -2115,12 +2119,12 @@ print "=========="
 #3. class functions in dict format as shown
 
 def t(self,a):
-	print a
+	print(a)
 
 
 class A(object):
 	def __init__(self):
-		print "In A"
+		print("In A")
 
 B= type("B",(A,),{"t1":t})
 b=B()
@@ -2128,30 +2132,30 @@ b.t1(11)
 C= type("C",(object,),{"t2":t})
 c=C()
 c.t2(12)
-#print "=========="
+#print("=========="
 #As to why the dict.update function is used beacuse u can update more than one variable at the same time. As oppose to a['aa'] where only one value can be updated at one time
-#print "=========="
+#print("=========="
 #Get common elements from 3 lists
 a = [1,2,3,4]
 b = [2,3,4,5]
 c = [3,4,5,6]
-print set(a) & set(b) & set(c)
+print(set(a) & set(b) & set(c))
 #{3, 4}
 # or 
 out = [x for x in a if x in b and x in c] # Depending on the length of the lists, a very expensive solution
-print out
+print(out)
 
-print "================================================="
-if "" : print "A",
-if[[]]:print "B",
-if None: print "C",
-if ():print "D",
-if " ":print "E",
-if 9%9:print "F",
+print("=================================================")
+if "" : print("A",)
+if[[]]:print("B",)
+if None: print("C",)
+if ():print("D",)
+if " ":print("E",)
+if 9%9:print("F",)
 
-print "The above print B E"
+print("The above print(B E")
 
-print "================================================="
+print("=================================================")
 def myfunc():
 	"""The purpose of myfunc is to prepare scambled eggs with spam"""
 	eggs=2
@@ -2159,28 +2163,28 @@ def myfunc():
 	breakfast = "eggs" * eggs + spam
 
 
-print myfunc.__doc__
+print(myfunc.__doc__)
 
-print "=============================="
+print("==============================")
 import timeit
 #s =timeit.timeit()
 s = {s for s in range(10000)} #This is set comprehension
 x = [x for x in range(10000)] 
 d=[{i:i} for i in x]
-print s
-print type(s)
-print timeit.timeit('print x[9999]', setup='from __main__ import x',number=1)
-print timeit.timeit('print d[9999]', setup='from __main__ import d',number=1)
-print tuple(i for i in (1, 2, 3))
+print(s)
+print(type(s))
+print(timeit.timeit('print(x[9999]', setup='from __main__ import x',number=1))
+print(timeit.timeit('print(d[9999]', setup='from __main__ import d',number=1))
+print(tuple(i for i in (1, 2, 3)))
 
 for i in [(1,2,3)]:
-	print i
+	print(i)
 
 dct= {'spam' : 'eggs',1:2,(1,2):(3,4)}
-print dir(dct)
+print(dir(dct))
 
-print dct['spam']
-print "=============================="
+print(dct['spam'])
+print("==============================")
 #What are containers in python
 
 
@@ -2189,7 +2193,7 @@ print "=============================="
 #Examples of containers include tuple, list, set, dict; these are the built-in containers. More container types are available in the collections module
 # A Container is a class that implements the __contains__ method.
 
-print "=============================="
+print("==============================")
 #Singleton class: is a design pattern in which only one instance of the object may be created.One of something.Ex: One phonebook
 class MySingleTon(object):
 	_instance = None
@@ -2200,21 +2204,21 @@ class MySingleTon(object):
 		return self._instance
 
 x=MySingleTon()
-print x.y
+print(x.y)
 x.y=20
 z=MySingleTon()
-print z.y
+print(z.y)
 #The above can be done using a decorator also
-print "=============================="
+print("==============================")
 #classdecorator: lets you call a class function without creating the object of the class
 
 class MyClass:
 	@classmethod
 	def printHam(self):
-		print "HAM"
+		print("HAM")
 
 MyClass.printHam()
-print "=============================="
+print("==============================")
 #Factory: is a design pattern in which you let a function determine which class to create
 
 BaseClass = type("BaseClass",(object,),{})
@@ -2226,10 +2230,10 @@ def MyFactory(myBool=None):
 
 m = MyFactory(True)
 v = MyFactory()
-print m.x,v.x
+print(m.x,v.x)
 #Factory allows stuff to be created on the fly and not have programmer  harcode everything
 #In this example if there are 100 subclasses if loop will be nested over and over again which is very confusing and difficlut to maintain so we can refactor the above solution like the following:
-print "=============================="
+print("==============================")
 BaseClass = type("BaseClass",(object,),{})
 
 @classmethod
@@ -2257,8 +2261,8 @@ def MyFactory(myStr):
 
 m = MyFactory("ham")
 v = MyFactory("sandwich")
-print m.x,v.x
-print "=============================="
+print(m.x,v.x)
+print("==============================")
 """
 Abstract base class:cannot be instantiated
                     It can only be inherited from,
@@ -2266,16 +2270,16 @@ Abstract base class:cannot be instantiated
 
 
 """
-print "=============================="
+print("==============================")
 def yu(**kwargs):
 	for i,k in kwargs.items():
-		print i,k
+		print(i,k)
 
 yu(x=13,y=7)
 
 def yut(*args):
 	for i in args:
-		print i
+		print(i)
 
 try:
 	#Important:::::::::::::::::::::::::::::::::::::::::::::::
@@ -2283,28 +2287,28 @@ try:
 	#yut(x=13,y=7,14) #This will cause an error as 14 is passed after the keyword arguments
 	pass
 except:
-	print "In  exception"
-print "=============================="
+	print("In  exception")
+print("==============================")
 def outside():
 	x=10
 	def inr():
-		print x
+		print(x)
 	return inr
 
 o = outside()
 o() #prints 10, because when inr is created it initializes all the local variables available with outside() fucntion
-print "=============================="
+print("==============================")
 def ph(self):
-	print "In ph"
+	print("In ph")
 
 C1 = type("C1",(BaseClass,),{"x":1,"Check":Check1,"ph1":ph})
 c = C1()
-print c.x #=>equivalent to self.x
+print(c.x) #=>equivalent to self.x
 c.ph1() #=>equivalent to obj.ph1
-print "=============================="
-print "1".__class__
-print "1".__class__.__class__
-print "=============================="
+print("==============================")
+print("1".__class__)
+print("1".__class__.__class__)
+print("==============================")
 """
 class tty(object): #object is a must else super will not be called
 	def __init__(self):
@@ -2316,17 +2320,17 @@ class bs(tty):
 		super(tty,self).__init__()
 
 iu= bs()
-print dir(iu)
-print iu.health
+print(dir(iu)
+print(iu.health
 """
-print "==================================="
+print("===================================")
 """
 Tuples:a mechanism for grouping and organizing data to make it easier to use ex:(a_born,1981)
 
 Tuples are used for grouping data
 
 """
-print "==================================="
+print("===================================")
 """
 Important default dict
 """
@@ -2338,9 +2342,9 @@ d = defaultdict(int)
 for k in s:
 	d[k] += 1
 
-print d
+print(d)
 #defaultdict(<type 'int'>, {'i': 4, 'p': 2, 's': 4, 'm': 1})
-print d.items()
+print(d.items())
 #[('i', 4), ('p', 2), ('s', 4), ('m', 1)]
 
 
@@ -2349,9 +2353,9 @@ d = defaultdict(list)
 for k, v in s:
 	d[k].append(v)
 
-print d
+print(d)
 #defaultdict(<type 'list'>, {'blue': [2, 4], 'red': [1], 'yellow': [1, 3]})
-print d.items()
+print(d.items())
 #[('blue', [2, 4]), ('red', [1]), ('yellow', [1, 3])]
 
 
@@ -2359,7 +2363,7 @@ somedict = {}
 try:
 	print(somedict[3]) # KeyError
 except  Exception as e:
-	print e
+	print(e)
 	
 someddict = defaultdict(int)
 print(someddict[3])
@@ -2368,11 +2372,11 @@ print(someddict[3])
 ice_cream = defaultdict(lambda: 'Vanilla')
 ice_cream['Sarah'] = 'Chunky Monkey'
 ice_cream['Abdul'] = 'Butter Pecan'
-print ice_cream['Sarah']
+print(ice_cream['Sarah'])
 #Chunky Monkey
-print ice_cream['Joe']
+print(ice_cream['Joe'])
 #Vanilla
-print "========================================="
+print("=========================================")
 """
 Important: While chaining decorators only the top __Call__ is executed
 Also in function decorators deco3 has access to deco2 inner function and deco2 has control over deco1 
@@ -2381,53 +2385,53 @@ class deco3(object):
 	def __init__(self,u):
 		self.u = u
 	def __call__(self):
-		print "====3"
-		print self.u.f.g.__name__
+		print("====3")
+		print(self.u.f.g.__name__)
 		self.u.f.g()
-		print "===="
+		print("====")
 
 
 class deco2(object):
 	def __init__(self,f):
 		self.f = f
 	def __call__(self):
-		print "====2"
-		print self.f.g.__name__
-		print "===="
+		print("====2")
+		print(self.f.g.__name__)
+		print("====")
 
 class deco1(object):
 	def __init__(self,g):
 		self.g = g
 	def __call__(self):
-		print "====1"
-		print self.g.__name__
-		print "===="
+		print("====1")
+		print(self.g.__name__)
+		print("====")
 
 @deco3
 @deco2
 @deco1
 def tr():
-	print "In tr"
+	print("In tr")
 
 tr()
-print "=========================================================="
+print("==========================================================")
 def deco3(u):
 	def ss():
-		print "1"
+		print("1")
 		u()
 	return ss 
 
 def deco2(y):
 	def yy():
-		print "2"
-		print y.__name__
+		print("2")
+		print(y.__name__)
 		y()
 	return yy 
 
 def deco1(f):
 	def tt():
-		print "3"
-		print f.__name__
+		print("3")
+		print(f.__name__)
 		f()
 	return tt
 	
@@ -2435,96 +2439,96 @@ def deco1(f):
 @deco2
 @deco1
 def tr():
-	print "In tr"
+	print("In tr")
 
 tr()
-print "=========================================================="
+print("==========================================================")
 #In a function decorator there should always be a return type and ususally the inner it is the inner function like "return rt" and "return rt()" will not work but if it is not a generator then calling only "rt" will not work it should be like "rt()" properly as in the below example
-print "=========================================================="
+print("==========================================================")
 def tt():
 	def rt():	
-		print "inside"
+		print("inside")
 	#rt #only writing rt insted of rt() will not call the rt function unlike the decorator
 	rt()
 
 tt()
-print "=========================================================="
+print("==========================================================")
 a=[1]
 b=['1']
-print a+b
+print(a+b)
 #[1, '1']
 a=[1]
 b=[2]
-print a+b
+print(a+b)
 #[1, 2]
 a=(1)
 b=(2)
-print a+b
+print(a+b)
 #3
 a=(1,2)
 b=(3,4)
-print a+b
+print(a+b)
 #(1, 2, 3, 4)
 s="Hello worl. example again"
 s.replace("worl","world")
 #'Hello world. example again'
-print s
+print(s)
 #'Hello worl. example again'
 s=s.replace("worl","world")
-print s
+print(s)
 #'Hello world. example again'
 a=(1,)
-print type(a)
+print(type(a))
 #<type 'tuple'>
 b=(2,)
-print a+b
+print(a+b)
 #(1, 2)
 a=((1))
-print type(a)
+print(type(a))
 #<type 'int'>
 b=((2))
-print a+b
+print(a+b)
 #3
 a=(((1)))
 b=(((2)))
-print a+b
+print(a+b)
 #3
-print "=========================================================="
+print("==========================================================")
 x = [1, 2, 3]
 x.append([4, 5])
-print (x)
+print((x))
 
 #gives you: [1, 2, 3, [4, 5]]
 
 x = [1, 2, 3]
 x.extend([4, 5])
-print (x)
+print((x))
 
 #gives you: [1, 2, 3, 4, 5]
-print "=========================================================="
+print("==========================================================")
 s="a","b",[1,2,3,4],5
-print type(s) #prints tuple
+print(type(s)) #prints tuple
 s=1,2,
-print type(s) #prints tuple
+print(type(s)) #prints tuple
 s={1:'a'}
-print s
-print "=========================================================="
+print(s)
+print("==========================================================")
 a="abc"
 b="def"
-print [i+j for i in a for j  in b] #print all combinations from both the list
+print([i+j for i in a for j  in b]) #print(all combinations from both the list
 #['ad', 'ae', 'af', 'bd', 'be', 'bf', 'cd', 'ce', 'cf']
-print "=========================================================="
+print("==========================================================")
 a=['']
 for i in a:
-	print i #prints ''
-	print "inside"  #prints inside
+	print(i) #prints ''
+	print("inside")  #prints inside
 
-print '' is None #prints False
-print '' == None #prints False
-print "=========================================================="
-print [1,2,3,4][1]
+print('' is None) #prints False
+print('' == None) #prints False
+print("==========================================================")
+print([1,2,3,4][1])
 #2
-print "=========================================================="
+print("==========================================================")
 def t():
    a=0
    while True:
@@ -2535,7 +2539,7 @@ def t():
             break
 
 for i in t():
-   print i
+   print(i)
 #this example is to show that next(i) or i.next() is not mandatory.The advantage with the above is you dont have to take care of the stopiteration condition
 #It is only mandatory when as below example,Here if you do not know the number of elements you need to take care of StopIteration condition
 
@@ -2548,8 +2552,8 @@ i.next()
 try:
 	next(i)
 except Exception as e:
-	print "In exception",e
-print "=========================================================="
+	print("In exception",e)
+print("==========================================================")
 class aa:
    a=11
    @classmethod
@@ -2559,53 +2563,53 @@ class aa:
    def foo():
       return aa.a
 
-print aa.t()
-print aa.foo()
-print "=========================================================="
-print list(enumerate(["a", "b", "c"]))
+print(aa.t())
+print(aa.foo())
+print("==========================================================")
+print(list(enumerate(["a", "b", "c"])))
 #[(0, "a"), (1, "b"), (2, "c")]
 for i, c in enumerate(["a", "b", "c"]):
-    print i, c
+    print(i, c)
 
 #0 a
 #1 b
 #2 c
-print "=========================================================="
+print("==========================================================")
 #convert string to variable
 a=['a','b','c','d']
 for i in a:
     exec("%s = %d" % (i,2))
-    print i
+    print(i)
 
 #a
 #b
 #c
 #d
-print a,b,c,d
+print(a,b,c,d)
 #2 2 2 2
 
-print "=========================================================="
+print("==========================================================")
 """
 xrange is not a generator but it evaluates lazily and acts like a generator.  
 explain what "evaluates lazily" means?
 "evaluates lazily" means that each i is evaluated on demand rather than on initialization.
 http://stackoverflow.com/questions/94935/what-is-the-difference-between-range-and-xrange-functions-in-python-2-x
 """
-print "=========================================================="
+print("==========================================================")
 x=[1,2,3]
 y=[4,5,6]
 zipped = zip(x,y)
-print zipped
+print(zipped)
 [(1, 4), (2, 5), (3, 6)]
 x2,y2 = zip(*zipped)
 #[(1, 2, 3), (4, 5, 6)]
-print x == list(x2) and y == list(y2)
-print "=========================================================="
+print(x == list(x2) and y == list(y2))
+print("==========================================================")
 sentinel = object()
 
 def foo(self, value=sentinel):
 	if value is not sentinel:
-		print "you passed something else"
+		print("you passed something else")
 
 sentinel = []
 sentinel = {}
@@ -2614,45 +2618,45 @@ foo(1)
 """ 
 http://stackoverflow.com/questions/13287887/using-none-as-parameter-to-keyword-argument
 """
-print "=========================================================="
-print __file__
-print os.path.abspath(__file__)
-print os.path.dirname(os.path.abspath(__file__))
-print os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-print os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+print("==========================================================")
+print(__file__)
+print(os.path.abspath(__file__))
+print(os.path.dirname(os.path.abspath(__file__)))
+print(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+print(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 if None:
-    print "insideeee"
+    print("insideeee")
 else:
-    print "in elseeeee"
+    print("in elseeeee")
 
 
 if {}:
-    print "In iffffff"
+    print("In iffffff")
 else:
-    print "in elseeeee"
-print "=========================================================="
+    print("in elseeeee")
+print("==========================================================")
 #Python lstrip() and rstrip()
 a = '        hello world!    '
-print a
+print(a)
 #' \t hello world!\t '
-print a.lstrip(' ')
-print repr(a.lstrip(' '))
+print(a.lstrip(' '))
+print(repr(a.lstrip(' ')))
 #'\t hello world!\t '
-print a.lstrip()
+print(a.lstrip())
 #'hello world!\t '
-print a.rstrip(' ')
+print(a.rstrip(' '))
 #' \t hello world!\t'
-print a.rstrip()
+print(a.rstrip())
 #' \t hello world!'
-print a.strip()
+print(a.strip())
 #hello world!
-print "=========================================================="
+print("==========================================================")
 """
 Context managers are the statment which uses with ex:
 with open('a.txt') as f:  #This line will make sure that the file will be closed after the operation and even if there is an exception the outer exception will catch it and close the file before inner exception takes place
 	//do something
 """
-print "=========================================================="
+print("==========================================================")
 a = set()
 
 #Use add to append single values
@@ -2666,67 +2670,67 @@ a.update([3,4])
 
 #Check your collection
 
-print a
+print(a)
 #Out[*n*]: {1, 2, 3, 4}
-print a.add.__doc__
+print(a.add.__doc__)
 #'Add an element to a set.\n\nThis has no effect if the element is already present.'
-print "=========================================================="
+print("==========================================================")
 #Named tuple
 #What is namedtuple ?
 
 #As the name suggests, namedtuple is a tuple with name. In standard tuple, we access the elements using the index, whereas namedtuple allows user to define name for elements. This is very handy especially processing csv (comma separated value) files and working with complex and large dataset, where the code becomes messy with the use of indices (not so pythonic).
 a=(1,'tom',2)
 b=[1,'tom',2]
-print "%s serial number name is %s and leaves at house # %s "%a #Note that the actual datatype %d or %s can be used here
-print "%d serial number name is %s and leaves at house # %d "%a #Note that the actual datatype or %s can be used here
+print("%s serial number name is %s and leaves at house # %s "%a) #Note that the actual datatype %d or %s can be used here
+print("%d serial number name is %s and leaves at house # %d "%a) #Note that the actual datatype or %s can be used here
 #We cannot use list to do the same
-#print "%d serial number name is %s and leaves at house # %d "%b #This gives an error , 
+#print("%d serial number name is %s and leaves at house # %d "%b #This gives an error , 
 #Instead of accessing a tuple by indexes 
 from collections import namedtuple
 Emp = namedtuple('Emp', 'id batch empno')
 t1= Emp(1,2,3)
-print t1.id
-print t1.batch
-print t1.empno
-print "=========================================================="
+print(t1.id)
+print(t1.batch)
+print(t1.empno)
+print("==========================================================")
 def rt(a,l=[]):
 	l.append(a)
 	return l
 
-print rt(10) # [10]
-print rt(20,[]) # [20]
-print rt(30) # [10, 30]
-print rt(40,["a","b","c"]) # [10, 30]
-print "=========================================================="
+print(rt(10)) # [10]
+print(rt(20,[])) # [20]
+print(rt(30)) # [10, 30]
+print(rt(40,["a","b","c"])) # [10, 30]
+print("==========================================================")
 #Best way to count the number of words in a file
-print "=========================================================="
+print("==========================================================")
 l=[1,2,3,None,{},(),[]]
-print len(l)
+print(len(l))
 #7
-print "=========================================================="
+print("==========================================================")
 import collections
 
 l=[1,2,3,4,5,6,1,2]
-print collections.Counter(l)
+print(collections.Counter(l))
 #Counter({1: 2, 2: 2, 3: 1, 4: 1, 5: 1, 6: 1})
-print "=========================================================="
+print("==========================================================")
 def count(a,*l):
-	print a,l
+	print(a,l)
 
 a=[1,2,3,4,5]
 count(*l) #This is variable list argument
 #1 (2, 3, 4, 5, 6, 1, 2)
-print "=========================================================="
+print("==========================================================")
 #Python parallel vs concurrent programming
-print "=========================================================="
+print("==========================================================")
 #To count the number of words in a file
-print "++++++++++++++++++++++++++++++++++"
+print("++++++++++++++++++++++++++++++++++")
 os.system("echo 'this is a test file used for testing and  this file file is only for testing' > /tmp/a.txt")
 with open('/tmp/a.txt') as f:
 	di.update({ w : (di[w]+1 if w in di else 1)  for l in f for w in l.split(' ')})
-print di
-print "++++++++++++++++++++++++++++++++++"
-#print di	
+print(di)
+print("++++++++++++++++++++++++++++++++++")
+#print(di	
 #In python we cant refer to the current object i.e, dictionary in this case
 	
 #No you cant, 99% of the python is about runtime. It will define the objects in runtime, and until the end of your operations python doesn't create the di
@@ -2736,9 +2740,9 @@ counter = Counter()
 with open('test_readme.txt') as f:
 	for line in f:
 		counter += Counter(line.split())
-print counter
-print dict(counter)
-print "=========================================================="
+print(counter)
+print(dict(counter))
+print("==========================================================")
 """map(function, iterable, ...)
 Return an iterator that applies function to every item of iterable, yielding the results. If additional iterable arguments are passed, function must take that many arguments and is applied to the items from all iterables in parallel. With multiple iterables, the iterator stops when the shortest iterable is exhausted.
 """
@@ -2747,9 +2751,9 @@ The below works only on a python interpreter
 import sys
 sys.ps1
 '>>> '
-print sys.ps2
+print(sys.ps2
 '... '
-print sys.ps3
+print(sys.ps3
   File "<stdin>", line 1, in <module>
 AttributeError: 'module' object has no attribute 'ps3'
 sys.ps1= '+++'
@@ -2760,34 +2764,34 @@ sys.ps1= '+++'
 def Execute at Runtime
 ***
 """
-print "=========================================================="
+print("==========================================================")
 #The following shows the number of cpu present on the system
 import multiprocessing as m
-print m.cpu_count()
-print "=========================================================="
+print(m.cpu_count())
+print("==========================================================")
 #******* VERY IMPORTANT READ REFER GIL.txt
-print "=========================================================="
+print("==========================================================")
 #https://kovshenin.com/2010/pickle-vs-json-which-is-faster/
 #JSON is faster as per the above link
-print "=========================================================="
+print("==========================================================")
 class Candidate(object):
    def __init__(self, name):
       self.name = name
 
 obj = Candidate('Python')
-print obj.__dict__
+print(obj.__dict__)
 obj.__dict__['email'] = 'in@python.org'
-print obj.__dict__
-print "=========================================================="
+print(obj.__dict__)
+print("==========================================================")
 output = 1<< 10 #Left shift operator
-print output #output is 1024
+print(output) #output is 1024
 
 #os.tempnam(dir, prefix) .Creates a  temporary file in the given directory with the file prefixed with the prefix name.see example below
 #os.tempnam('/tmp/tutorialsdir','tuts1')
 
 #/tmp/tutorialsdir/tuts1IbAco8
 
-print "=========================================================="
+print("==========================================================")
 #num = int(input("Enter a number: "))
 num = 407
 
@@ -2806,30 +2810,30 @@ if num > 1:
 # or equal to 1, it is not prime
 else:
    print(num,"is not a prime number")
-print "=========================================================="
-print r"\nwoow"
+print("==========================================================")
+print(r"\nwoow")
 """
 the text exactly like this: r"\nwoow"
 When prefixed with the letter 'r' or 'R' a string literal becomes a raw string and the escape sequences such as \n are not converted.
 """
 
-print "\x48\x49!"
+print("\x48\x49!")
 """
 HI!
 description:
 \\x is an escape sequence that means the following 2 digits are a hexadicmal number encoding a character.
 """
 
-print "hello" 'world'
+print("hello" 'world')
 #helloworld
 class Person:
 	def __init__(self, id):
 		self.id = id
 p =Person(1)
-print p.__dict__
+print(p.__dict__)
 #{'id': 1}
 p.__dict__['age']=2
-print p.__dict__
+print(p.__dict__)
 #{'age': 2, 'id': 1}
 """
 What does the code below do?
@@ -2856,7 +2860,7 @@ sum = 0
 for k in confusion:
     sum += confusion[k]
 
-print sum
+print(sum
 
     6 - correct
 
@@ -2869,7 +2873,7 @@ Note from python docs: "if two numbers compare equal (such as 1 and 1.0) then th
 Question #50: What gets printed?
 
 names = ['Amir', 'Barry', 'Chales', 'Dao']
-print names[-1][-1]
+print(names[-1][-1]
 
     o - correct
 
@@ -2880,7 +2884,7 @@ description:
 Question #61: What gets printed in the below?
 """
 def print_header(str):
-    print "+++%s+++" % str
+    print("+++%s+++" % str)
 
 
 print_header.category = 1
@@ -2909,7 +2913,7 @@ for m in dir(f):
     if callable(mthd):
         mthd()
 
-print f.val
+print(f.val
 
     An exception is thrown - correct
 
@@ -2927,7 +2931,7 @@ theCopy = kvps.copy()
 kvps['1'] = 5
 
 sum = kvps['1'] + theCopy['1']
-print sum
+print(sum
 
     1
     2
@@ -2948,7 +2952,7 @@ theCopy = kvps.copy()
 kvps['1'][0] = 5
 
 sum = kvps['1'][0] + theCopy['1'][0]
-print sum
+print(sum
 
     10 - correct
     An exception is thrown
@@ -2968,7 +2972,7 @@ theCopy = copy.deepcopy(kvps)
 kvps['1'][0] = 5
 
 sum = kvps['1'][0] + theCopy['1'][0]
-print sum
+print(sum
 
     6 - correct
 
@@ -2982,25 +2986,25 @@ theCopy = dict(kvps)
 kvps['1'] = 5
 
 sum = kvps['1'] + theCopy['1']
-print sum
+print(sum
 
     6 - correct
 
 description:
 Creating a new dictionary object initialized from the first does a 'shallow copy'
 """
-print "=========================================================="
-print [2,3,4]*3
+print("==========================================================")
+print([2,3,4]*3)
 #[2, 3, 4, 2, 3, 4, 2, 3, 4]
-print "=========================================================="
+print("==========================================================")
 def rt(a,b,c=set()):
-	print a,b,c
+	print(a,b,c)
 	if len(c)>0:
-		print "hi"
+		print("hi")
 
 rt(1,2,(1,3))
 rt(1,2)
-print "=========================================================="
+print("==========================================================")
 """
 >>> x=1,
 >>> x
@@ -3013,7 +3017,7 @@ print "=========================================================="
 >>> type(x)
 <type 'int'>
 """
-print "=========================================================="
+print("==========================================================")
 """
 >>> 1
 1
@@ -3021,7 +3025,7 @@ print "=========================================================="
 3
 """
 
-print "=========================================================="
+print("==========================================================")
 """
 >>> Jan = Mar = May = range(1, 32)
 >>> Jan
@@ -3031,19 +3035,19 @@ print "=========================================================="
 >>> May
 [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
 """
-print "=========================================================="
+print("==========================================================")
 def bool_to_str(value):
 	"""value should be a bool"""
 	if value: #This is just to avoid None condition
-		print "12345"
-		print value
+		print("12345")
+		print(value)
 		return ['No', 'Yes'][value]
 
-print bool_to_str(True) #Prints Yes
-print bool_to_str(False) #Prints No
-print bool_to_str(None) #Prints None
+print(bool_to_str(True)) #Prints Yes
+print(bool_to_str(False)) #Prints No
+print(bool_to_str(None)) #Prints None
 #False is 0 and True is 1
-print "=========================================================="
+print("==========================================================")
 """
 The assert statement exists in almost every programming language. When you do...
 
@@ -3066,7 +3070,7 @@ Traceback (most recent call last):
 AssertionError
 
 """
-print "=========================================================="
+print("==========================================================")
 """
 How is memory managed in python?
 - Memory management in Python involves a private heap containing all Python objects and data structures. Interpreter takes care of Python heap and that the programmer has no access to it.
@@ -3076,7 +3080,7 @@ How is memory managed in python?
 gc.enable() -Enables automatic garbage collection.
 gc.disable() - Disables automatic garbage collection.
 """
-print "=========================================================="
+print("==========================================================")
 """
 ********##very important************
 Difference between _, __ and __xx__ in Python
@@ -3093,7 +3097,7 @@ This one causes a lot of confusion. It should not be used to mark a method as pr
 
 class A(object):
     def __method(self):
-        print "I'm a method in A"
+        print("I'm a method in A")
 
 
 
@@ -3120,7 +3124,7 @@ Fine, as we expected. Now let's subclass A and customize __method
 
 class B(A):
     def __method(self):
-        print "I'm a method in B"
+        print("I'm a method in B")
 
 
 
@@ -3203,9 +3207,9 @@ def __str__(self):
 
 
 num = CrazyNumber(10)
-print num           # 10
-print num + 5       # 5
-print num - 20      # 30
+print(num           # 10
+print(num + 5       # 5
+print(num - 20      # 30
 
 
 
@@ -3229,7 +3233,7 @@ def __len__(self):
 
 room = Room()
 room.add("Igor")
-print len(room)     # 1
+print(len(room)     # 1
 
 
 
@@ -3243,14 +3247,14 @@ Use _one_underline to mark you methods as not part of the API. Use __two_underli
 """
 
 
-print "=========================================================="
+print("==========================================================")
 """
 FYI
 In python 3 functions can be defined as >>> def foo((x1, y1: expression), (x2: expression, y2: expression)=(None, None)):
 
 """
 
-print "=========================================================="
+print("==========================================================")
 
 """
 In python 3 only functions can be defined as below ,but it is not mandatory but it is done because the user can call functions with proper type praameters http://stackoverflow.com/questions/39698290/python-3-x-what-is-annotation
@@ -3264,7 +3268,7 @@ In the sample you gave, it is being used to create a type hint. Type hinting is 
 See the typing module[https://docs.python.org/3/library/typing.html] for a set of objects to help create type hints, and the PEP 484 Type Hints proposal.
 
 """
-print "=========================================================="
+print("==========================================================")
 """
 what is lazy loading
 
@@ -3273,7 +3277,7 @@ object until the point at which it is needed.Lazy loading is a design pattern co
 computer programming to defer initialization of an object until the point at which it is needed
 
 """
-print "=========================================================="
+print("==========================================================")
 
 """
 what is @property decorator
@@ -3291,13 +3295,13 @@ class C(object):
         return self._x
 
 c = C(1)
-print c.x
+print(c.x)
 #1
 c.x = 2
 AttributeError        Traceback (most recent call last)
 AttributeError: can't set attribute
 """
-print "=========================================================="
+print("==========================================================")
 """
 python 3 only
 
@@ -3342,7 +3346,7 @@ tail = {'y': 2, 'z': 3}
  # Out: {'x': 1, 'y': 2, 'z': 3}
 
 """
-print "=========================================================="
+print("==========================================================")
 """
 Python 2
 >>> True, False = False, True
@@ -3359,28 +3363,28 @@ Python 3
 
   Python 2.x2.7
 
-  print "Hello World"
-  print                         # print a newline
-  print "No newline",           # add trailing comma to remove newline 
-  print >>sys.stderr, "Error"   # print to stderr
-  print("hello")                # print "hello", since ("hello") == "hello"
-  print()                       # print an empty tuple "()"
-  print 1, 2, 3                 # print space-separated arguments: "1 2 3"
-  print(1, 2, 3)                # print tuple "(1, 2, 3)"
+  print("Hello World")
+  print()                        # print(a newline
+  print("No newline",)           # add trailing comma to remove newline 
+  print(>>sys.stderr, "Error")   # print(to stderr
+  print("hello")                # print("hello", since ("hello") == "hello"
+  print()                       # print(an empty tuple "()"
+  print(1, 2, 3)                 # print(space-separated arguments: "1 2 3"
+  print(1, 2, 3)                # print(tuple "(1, 2, 3)"
 
   In Python 3, print() is a function, with keyword arguments for common uses:
       Python 3.x3.0
 
-      print "Hello World"              # SyntaxError
+      print("Hello World")              # SyntaxError
       print("Hello World")
-      print()                          # print a newline (must use parentheses)
+      print()                          # print(a newline (must use parentheses)
       print("No newline", end="")      # end specifies what to append (defaults to newline)
       print("Error", file=sys.stderr)  # file specifies the output buffer
       print("Comma", "separated", "output", sep=",")  # sep specifies the separator
       print("A", "B", "C", sep="")     # null string for sep: prints as ABC
       print("Flush this", flush=True)  # flush the output buffer, added in Python 3.3
-      print(1, 2, 3)                   # print space-separated arguments: "1 2 3"
-      print((1, 2, 3))                 # print tuple "(1, 2, 3)"
+      print(1, 2, 3)                   # print(space-separated arguments: "1 2 3"
+      print((1, 2, 3))                 # print(tuple "(1, 2, 3)"
 
 
       Leaked variables in list comprehension
@@ -3389,7 +3393,7 @@ Python 3
       x = 'hello world!'
       vowels = [x for x in 'AEIOU'] 
 
-      print (vowels)
+      print((vowels)
       # Out: ['A', 'E', 'I', 'O', 'U']
       print(x)
       # Out: 'U'   
@@ -3399,7 +3403,7 @@ Python 3
       x = 'hello world!'
       vowels = [x for x in 'AEIOU']
 
-      print (vowels)
+      print((vowels)
       # Out: ['A', 'E', 'I', 'O', 'U']
       print(x)
       # Out: 'hello world!'
@@ -3408,16 +3412,16 @@ Python 3
 
 
 """
-print "=========================================================="
+print("==========================================================")
 #finding out which version of python
 import sys
 py2 = sys.version_info < (3,)
 py3 =not py2
-print py3
+print(py3)
 #False
-print py2
+print(py2)
 #True
-print "=========================================================="
+print("==========================================================")
 """
 #veryvery important
 Differnce between class and instance attributes , class variable vs instance variables
@@ -3435,7 +3439,7 @@ Differnce between class and instance attributes , class variable vs instance var
 []
 
 """
-print "=========================================================="
+print("==========================================================")
 """
 json dumps takes an object and produces a string:
 
@@ -3451,66 +3455,66 @@ json dumps takes an object and produces a string:
 ## veryvery important
 log n typically is indicated when the problem is iteratvely made smaller
 """
-print "=========================================================="
+print("==========================================================")
 """
 if you want to use {} while using format.This is the way to do it
 
 """
 
-print "{{Hello}} {}".format('world') #{Hello} world
+print("{{Hello}} {}".format('world')) #{Hello} world
 """
-This is the way to print the variables
+This is the way to print(the variables
 """
 auth_url="www.yahoo.com"
 search_url="google.com"
-print "auth url is {auth_url} and search url is {search_url}".format(**locals())##use ** to "unpack" a dictionary and * to unpack a dictionary
+print("auth url is {auth_url} and search url is {search_url}".format(**locals()))##use ** to "unpack" a dictionary and * to unpack a dictionary
 """
 Important:
 
 use ** to "unpack" a dictionary  and * to unpack a dictionary
 """
-print "=========================================================="
+print("==========================================================")
 """
 Accessing dictionary by index
 """
 a={'a':1,'b':33,'c':44,'d':66,'e':5}
 b={'aa':1,'bb':33,'cc':44,'dd':66,'ee':5}
 for i in range(len(a)):
-	print b.keys()[i]
-	print b.values()[i]
-print "=========================================================="
+	print(b.keys()[i])
+	print(b.values()[i])
+print("==========================================================")
 u=unicode('unicode')
 s=str('string')
-print u,s
-print u+s
-print "=========================================================="
+print(u,s)
+print(u+s)
+print("==========================================================")
 import json
 d={'a':1,'b':2}
 #to import the dictionary to json use
-print json.dumps(d)
+print(json.dumps(d))
 t=json.dumps(d)
 #to retreieve the javascript data structure to python use
-print json.loads(t)
+print(json.loads(t))
 d=json.loads(t)
-print d
-print "=========================================================="
+print(d)
+print("==========================================================")
 search_url = "www.example.com"
 
 def custom_search_url(search_url):
-	print "search url {search_url}".format(**locals())
-	print "search url {search_url}".format(**globals())
+	print("search url {search_url}".format(**locals()))
+	print("search url {search_url}".format(**globals()))
 
 custom_search_url("www.otherexample.com")
-print "search url {search_url}".format(**locals())
-print "search url {search_url}".format(**globals())
-print "=========================================================="
-print '%s and {0}'%('hellow').format('world')
+print("search url {search_url}".format(**locals()))
+print("search url {search_url}".format(**globals()))
+print("==========================================================")
+print('%s and {0}'%('hellow').format('world'))
 #'hellow and {0}'
 '%s and {0}'%('hello {0}').format('world')
 #'hello world and {0}'
-print '%s and {0}'.format('world')%('hello')
+print('%s and {0}'.format('world')%('hello'))
 #'hello and world'
-print "=========================================================="
+print("==========================================================")
 """
 vars([object])
 
@@ -3518,56 +3522,56 @@ Without an argument, act like locals().
 You can just use the vars builtin function which looks up __dict__ for you:
 vars(t).keys()
 """
-print "=========================================================="
+print("==========================================================")
 #UTF-8 is an extension of ASCII
-print "=========================================================="
+print("==========================================================")
 ee=[1,2]
 ff=[3,4]
-print [list(i) for i in zip(ee,ff)]
-print dict(list(i) for i in zip(ee,ff))
+print([list(i) for i in zip(ee,ff)])
+print(dict(list(i) for i in zip(ee,ff)))
 
 #Find duplicates in O(n) time and O(1) extra space
 arr=[1, 2, 3, 1, 3, 6, 6]
-print arr
+print(arr)
 a = datetime.datetime.now()
 for i in range(len(arr)):
     if (arr[abs(arr[i])] >= 0):
         arr[abs(arr[i])] = -arr[abs(arr[i])];
     else:
-        print " %d "%(abs(arr[i]));
+        print(" %d "%(abs(arr[i])));
 b = datetime.datetime.now()
 c=b-a
-print c
+print(c)
 
-print "=========================================================="
+print("==========================================================")
 #list to string
 
 li= [1, 2, 3, 4, 5, 6]
-print map(str,li) #['1', '2', '3', '4', '5', '6']
-print "".join(str(e) for e in li)
+print(map(str,li)) #['1', '2', '3', '4', '5', '6']
+print("".join(str(e) for e in li))
 #123456
-print "=========================================================="
+print("==========================================================")
 #Tower of hanoi can be solved always in i.e,2powern-1 moves'
 #Example if we have three disks then it would take 2^3-1 moves i,e 7 moves
 #For more example watch tower_of_hanoi.gif in the same directory 
-print "=========================================================="
+print("==========================================================")
 #printing 3*3 matrix
 
 for i in range(1,10):
-    print i,
+    print(i,)
     if i % 3 ==0:
-        print
+        print()
 
-print "=========================================================="
+print("==========================================================")
 #It's just a variable name, and it's conventional in python to use _ for throwaway variables. It just indicates that the loop variable isn't actually used. ##very important
 #In python interpreter, _ is the last value printed in the console and not the declared one.
 #To hold the result of the last executed statement in an interactive interpreter session
 
-print "=========================================================="
+print("==========================================================")
 #In try finally continue and break cannot be used together
-print "=========================================================="
+print("==========================================================")
 #PYTHONPATH sets the search path for importing python modules.
-print "=========================================================="
+print("==========================================================")
 """
 How to quickly copy a list without linking them together:
 >>> A = [1,2,3,4,5]
@@ -3581,12 +3585,12 @@ How to quickly copy a list without linking them together:
 >>> C
 [1, 2, 3, 4, 5]
 """
-print "=========================================================="
+print("==========================================================")
 """
 #dictionary counting 
 >>> D['cat'] = D.get('cat', 0) + 1 ##very important
 """
-print "=========================================================="
+print("==========================================================")
 """
 "==" compares the object by value and "is" compares the object by their memory address ##very important
 >>> a=10
@@ -3604,7 +3608,7 @@ print "=========================================================="
 >>> a==b
 True
 """
-print "=========================================================="
+print("==========================================================")
 """
 Builtin types can be over written
 >>> str="123"
@@ -3613,13 +3617,13 @@ Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 TypeError: 'str' object is not callable
 """
-print "=========================================================="
+print("==========================================================")
 #unpacking
 a,b=(1,2)
-print a,b
+print(a,b)
 a,b=[1,2]
-print a,b
-print "=========================================================="
+print(a,b)
+print("==========================================================")
 """
 Ternary operator in Python
 Although python does not have an inbuilt ternary operator like  ? :  but python supports its simulation as follow:
@@ -3629,30 +3633,30 @@ Although python does not have an inbuilt ternary operator like  ? :  but python 
 >>> 'true' if False else 'false'
 'false'
 """
-print "=========================================================="
+print("==========================================================")
 """
 Execute the Python code contained in script, which must be a filesystem path (absolute or relative) referring to either a Python file, a directory containing a __main__.py file, or a zipfile containing a __main__.py file.
-$ echo "print 'hello world'" > __main__.py
+$ echo "print('hello world'" > __main__.py
 $ zip runme.zip __main__.py
  adding: __main__.py (stored 0%)
 $ python runme.zip
 hello world
 """
-print "=========================================================="
+print("==========================================================")
 """
 python uses 'j' instead of i for imaginary numbers
 >>> x = 3j + 6
-print x.imag
+print(x.imag)
 3.0
 """
-print "=========================================================="
+print("==========================================================")
 def work():
     print("Hello ",work.w)
  
 work.w ="World"
 work()
 #prints Hello  World
-print "=========================================================="
+print("==========================================================")
 """
 To read data as it is from csv file  ##very important
 
@@ -3663,21 +3667,21 @@ c=csv.reader(open("TopicEmails.csv", "rb"), delimiter=',')
 for l in c:
    ....
 """
-print "=========================================================="
+print("==========================================================")
 #Only try and finally can be used ,this is majorly for cleaningup code in cse of exception,like file open can be closed with  finally block
 try:
    a= int("1")
 finally:
-    print a
-    print "Done"
-print "=========================================================="
+    print(a)
+    print("Done")
+print("==========================================================")
 """
 what is a descriptor ?
 A descriptor is any object that implements at least one of methods named __get__(),__set()__ and __delete__()
 
 A data desciptor implements both __get__() and __set__().Implementing only __get__() makes you a non data descriptor
 """
-print "=========================================================="
+print("==========================================================")
 """
 class AA(object):
 	def __init__(self,name):
@@ -3688,13 +3692,13 @@ class BB(AA):
 	super().__init__("Tom") #this is same as the below line but this is in python3 and super definition has to be chnaged for python 2.7 and this is preferred for reading conventions and where there are more inheritence
 	AA.__init__(self,"Pluto") 
 """
-print "=========================================================="
+print("==========================================================")
 class AA(object):
 	def __init__(self,name):
 		self.name = name
 
 a=AA("Tom")
-print a #This does not make any sense so consider the below
+print(a) #This does not make any sense so consider the below
 class BB(object):
 	def __init__(self,name):
 		self.name = name
@@ -3703,8 +3707,8 @@ class BB(object):
 		return "AA({})".format(self.name)
 
 b=BB("Tom")
-print b #This is much better than above AA
-print repr(b) #another way of calling __repr__()
+print(b) #This is much better than above AA
+print(repr(b)) #another way of calling __repr__()
 
 class CC(object):
 	def __init__(self,name):
@@ -3716,16 +3720,16 @@ class CC(object):
 	def __str__(self):
 		return "{} - is the correct name".format(self.name) #making it more meanigful and str overwrites repr in this case
 c=CC("Tom")
-print c #This is much better than above AA
-print repr(c)
-print str(c) #another way of calling __str__()
+print(c) #This is much better than above AA
+print(repr(c))
+print(str(c)) #another way of calling __str__()
 
-print "=========================================================="
-print 1+2
-print int.__add__(1,2)
-print str.__add__('a','b')
-print  len('test')
-print 'test'.__len__()
+print("==========================================================")
+print(1+2)
+print(int.__add__(1,2))
+print(str.__add__('a','b'))
+print( len('test'))
+print('test'.__len__())
 #__len__() mostly overwritten in the case when they want to know the length of first name and last name together as it will suit the documents length or not
 
 
@@ -3736,7 +3740,7 @@ class Emp(object):
 
 e1=Emp(5000)
 e2=Emp(6000)
-#print e1+e2 #This will raise an error as it doesnot know how to add objects,so we define __add__() as below
+#print(e1+e2 #This will raise an error as it doesnot know how to add objects,so we define __add__() as below
 """
 class Emp(object):
 	def __init__(self,pay):
@@ -3747,15 +3751,15 @@ class Emp(object):
 
 e1=Emp(5000)
 e2=Emp(6000)
-print e1+e2
-print "=========================================================="
+print(e1+e2)
+print("==========================================================")
 """
 
 class  G():
 	def t(self):
 		return  NotImplemented #the purpose of returning an object (NotImplemented) in this case is that the other methods knows how to fallback on the other object seeing it knows how to handle the operation or  else in the end eventually if does not know how to handle it will throw an error
 """
-print "=========================================================="
+print("==========================================================")
 """
 class TT(object):
 	def __init__(self):
@@ -3765,7 +3769,7 @@ class TT(object):
 		return self.name
 
 t=TT()
-print t #This will print some info like <__main__.TT object at 0x7f3a69375250> but see the below example
+print(t #This will print(some info like <__main__.TT object at 0x7f3a69375250> but see the below example
 """
 
 class TT(object):
@@ -3778,8 +3782,8 @@ class TT(object):
 	__str__ = showname    ##very very important
 
 t=TT()
-print t #This will print as Tom
-print "=========================================================="
+print() #This will print(as Tom
+print("==========================================================")
 class YY(object):
 	def __init__(self):
 		self.first_name="Tom"
@@ -3797,31 +3801,31 @@ class YY(object):
 
 	@fullname.deleter
 	def fullname(self):
-		print "In deleter"
+		print("In deleter")
 		self.first_name=None
 		self.first_name=None
 
 #In the above by using property decorator we can just call the fullname instead of  fullname()
 y=YY()
-print y.fullname
+print(y.fullname)
 
 #But to set a different name on the same object we use the setter decorator which will  set  the new name and then call full name in this case
 y.fullname = "Tom  Missie"
 #so to cleanup code we can  use a deleter  as @fullname.deleter as above
 del y.fullname
-#print y.fullname #So this will raise as exception in this case
+#print(y.fullname #So this will raise as exception in this case
 
-print "=========================================================="
+print("==========================================================")
 #Reading from one file and writing to another
 with open("/tmp/aa.txt") as rf: #rd is for binary read and wb is for writing to a binary file,this is  for reading from a  image binary file and write to another
 	with  open("/tmp/yy.txt","w") as wf:
 		for l in rf:
 			wf.write(l)
-print "=========================================================="
-print  os.path.basename("/tmp/aa.txt") #will print aa.txt
-print  os.path.dirname("/tmp/aa.txt") #will print  /tmp
-print  os.path.split("/tmp/aa.txt") #will print ('/tmp', 'aa.txt')
-print "=========================================================="
+print("==========================================================")
+print( os.path.basename("/tmp/aa.txt")) #will print(aa.txt
+print( os.path.dirname("/tmp/aa.txt")) #will print( /tmp
+print( os.path.split("/tmp/aa.txt")) #will print(('/tmp', 'aa.txt')
+print("==========================================================")
 #LEGB  => Local,Enclosing,Global,Builtin
 x='Global'
 def outer():
@@ -3829,43 +3833,43 @@ def outer():
 	def inner():
 		#nonlocal x #python 3,this will overwrite Enclosing variable,this is also widely used than global variable
 		x= 'inner' #Local
-		print x
+		print(x)
 	inner()
-	print x
+	print(x)
 
 outer()
-print "=========================================================="
+print("==========================================================")
 """
 All the known errors are caught to be first as the general exception at the last "except Exception as e" or if we use this first other exception code will never be executed
 try:
 except FileNotFound as fnf:
-	print fnf
+	print(fnf)
 except  FloatingPointError as fpe:
-	print fpe
+	print(fpe)
 except ArithmeticError as ae:
-	print ae
+	print(ae)
 except Exception as e:
-	print e
+	print(e)
 """
-print "=========================================================="
+print("==========================================================")
 #set is a collection of unique elements ##very very important
 a=[1,2,2,3,4,5,5]
 my_set=set()
 for i in a:
 	my_set.add(i)
-print my_set
+print(my_set)
 #The above can also be doen in the following way using set comprehension
 #set comprehension
 my_set={i for i in a}
-print my_set
-print "=========================================================="
+print(my_set)
+print("==========================================================")
 #generator #comprehension style ##very very important
 a=[1,2,3,4,5]
 gen = (i**i for i in a)
-print type(gen)
-print gen
-print next(gen),next(gen),next(gen),next(gen),next(gen)
-print "=========================================================="
+print(type(gen))
+print(gen)
+print(next(gen),next(gen),next(gen),next(gen),next(gen))
+print("==========================================================")
 #How to sort objects ##very very important
 class Employee(object):
 	def __init__(self,name,age,salary):
@@ -3883,20 +3887,20 @@ e2=Employee("Sarah",29,80000)
 e3=Employee("John",43,90000)
 
 employee=[e1,e2,e3]
-print e1 #This will cal __str__
-print repr(e1) #This will cal __repr__
-print sorted(employee) #This will not sort the objects with name
+print(e1) #This will cal __str__
+print(repr(e1)) #This will cal __repr__
+print(sorted(employee)) #This will not sort the objects with name
 #To sort the objects with name we have to use the "key" in sorted function as follows
 
 def e_sort(e):
 	return e.name
-print sorted(employee,key=e_sort)#this will sort the employee with name ,in the e_sort function if you change e.name to e.age ,then the sorting will happen based on the age
+print(sorted(employee,key=e_sort))#this will sort the employee with name ,in the e_sort function if you change e.name to e.age ,then the sorting will happen based on the age
 #The above can done using lambda also,like the following
-print sorted(employee,key=lambda e:e.name)
+print(sorted(employee,key=lambda e:e.name))
 #OR
 from operator  import attrgetter
-print sorted(employee,key=attrgetter('name'))
-print "=========================================================="
+print(sorted(employee,key=attrgetter('name')))
+print("==========================================================")
 """
 yield can be used with dictionary,list...
 ex:
@@ -3905,7 +3909,7 @@ def rt():
 	for i in xrange(100000):
 		yield {'id':1,'val':2}
 """
-print "=========================================================="
+print("==========================================================")
 #comparing first and last element in a list,this better works on a even number of elements in the list
 ##very very important
 a=[1,2,3,3,2,1]
@@ -3913,11 +3917,11 @@ if len(a)%2 ==0:
 	for i in range(len(a)):
 		if i <= (len(a)/2)-1:
 			if a[i] == a[-i-1]: #first element is compared like a[0] == a[-0-1] ,second elemen like a[1] == a[-1-1] and so on.........
-				print "Same"
+				print("Same")
 			else:
-				print "Not Same"
+				print("Not Same")
 
-print "=========================================================="
+print("==========================================================")
 """
 In python 3
 /  => 5/2 =>2.5
@@ -3925,7 +3929,7 @@ In python 3
 % is used to mainly know whether the number is divisible or not
 """
 
-print "=========================================================="
+print("==========================================================")
 """
 Serialization is the process of converting an object into a stream of bytes in order to store the object 
 or 
@@ -3955,7 +3959,7 @@ print(x, y, z)
 """
 
 """
-Print the file path of imported modules.
+print(the file path of imported modules.
 import threading 
 import socket
 
@@ -4034,10 +4038,10 @@ print("http://www.google.co.uk".endswith((".com", ".co.uk")))
 """
 ********##very important************
 raw_input list and string
->>> print (raw_input().split())
+>>> print((raw_input().split())
 ['1,2,3,4']
 1,2,3,4
->>> print (raw_input().split())
+>>> print((raw_input().split())
 ['1', '2', '3', '4']
 1 2 3 4
 """
@@ -4049,18 +4053,18 @@ raw_input list and string
 "'1', '2', '3', '4', '5'"
 """
 class ExampleClass(object):
-    def __call__(self, *args, **kwargs):
-        print("Hell yeah!")
+	def __call__(self, *args, **kwargs):
+		print("Hell yeah!")
 
 	def rt(self):
-		print "In rt"
+		print("In rt")
 
 # Create an instance of ExampleClass
 inst = ExampleClass()
 
 # Call the object as a function!
 inst()
-#print inst.rt() #AttributeError: 'ExampleClass' object has no attribute 'rt'
+#print(inst.rt() #AttributeError: 'ExampleClass' object has no attribute 'rt'
 
 '''
 set important examples
@@ -4114,10 +4118,10 @@ def quick_sort(sequence):
 
 	return quick_sort(items_lower) + [pivot] + quick_sort(items_greater)
 
-print quick_sort([0,9,3,8,2,7,5]) #Time complexity n logn and worst is n*n
+print(quick_sort([0,9,3,8,2,7,5]))#Time complexity n logn and worst is n*n
 
 
-print "=== Important ****=========="
+print("=== Important ****==========")
 #sharing attributes between objects
 class Employee():
 	total = 0
@@ -4126,13 +4130,13 @@ class Employee():
 		Employee.total += 1
 
 	def print_total(self):
-		print self.total
+		print(self.total)
 
 e=Employee('1')
 e1=Employee('2')
 e.print_total()
 e1.print_total()
-print "==========="
+print("===========")
 #multiple assignments important
 d= {}
 b= d[1] = '123'
@@ -4140,7 +4144,7 @@ print(b)
 #'123'
 print(d)
 #{1: '123'}
-print "==========="
+print("===========")
 #Important
 #return vs yield
 #once the return keywords returns the lines after return is ignored
@@ -4154,7 +4158,7 @@ def rt():
 
 for i in rt():
 	print(i)
-print "==========="
+print("===========")
 #Important
 #when anyvariable assigned to slots only those can be used and new instance variables cannot be assigned that is the reason slots are used
 class FileSystem1(object):
@@ -4172,7 +4176,7 @@ try:
 	f.newvariable = 10
 except Exception as e:
 	print(e)
-print "==========="
+print("===========")
 #property descriptor
 class Foo(object):
 	def __init__(self, value):
@@ -4180,19 +4184,19 @@ class Foo(object):
 
 	@property
 	def name(self):
-		print "returning name"
+		print("returning name")
 		return self._name
 
 	@name.setter
 	def name(self, value):
-		print "setting name"
+		print("setting name")
 		self._name = value
 
 o = Foo(value='test')
 print(o.name) #prints "returning name" test
 o.name='123' #prints setting name
 print(o.name)#prints "returning name"123 
-print "==========="
+print("===========")
 
 class Foo(object):
 	def __init__(self):
@@ -4205,7 +4209,7 @@ o = Foo()
 #print(o.__a)# gives an error important
 print(o.get())
 
-print "==========="
+print("===========")
 class Foo(object):
 	at = 1
 
@@ -4218,26 +4222,26 @@ print(id(Foo))
 print(id(o))
 print(o.access_var())
 
-print "==========="
+print("===========")
 #Important: In the below class since __baz is a private variable , even thought child class overrides the value the old value is retained and there are two copies of __baz
 class Foo(object):
     def __init__(self):
         self.__baz = 42
     def foo(self):
-        print self.__baz
+        print(self.__baz)
     
 class Bar(Foo):
     def __init__(self):
         super(Bar, self).__init__()
         self.__baz = 21
     def bar(self):
-        print self.__baz
+        print(self.__baz)
 
 x = Bar()
 x.foo()
 #42
 print(x.bar())
 #21
-print x.__dict__
+print(x.__dict__)
 #{'_Bar__baz': 21, '_Foo__baz': 42}
 
