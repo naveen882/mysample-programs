@@ -3486,7 +3486,7 @@ Accessing dictionary by index
 	#print(b.keys()[i])
 	#print(b.values()[i])
 print("==========================================================")
-u=unicode('unicode')
+u=str('unicode')
 s=str('string')
 print(u,s)
 print(u+s)
@@ -3892,7 +3892,7 @@ e3=Employee("John",43,90000)
 employee=[e1,e2,e3]
 print(e1) #This will cal __str__
 print(repr(e1)) #This will cal __repr__
-print(sorted(employee)) #This will not sort the objects with name
+#print(sorted(employee)) #This will not sort the objects with name . this used to work in python2.7
 #To sort the objects with name we have to use the "key" in sorted function as follows
 
 def e_sort(e):
