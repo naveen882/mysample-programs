@@ -505,15 +505,15 @@ di=dict(a=1,b=2)
 print(di)
 print(dir(di))
 print(di.items()) # will represent key value in tuple format inside a list
-print(di.has_key('a'))
+#print(di.has_key('a')) This works on python2.7
 print(di.keys())
 print(di.values())
-it =di.iterkeys()
-print(it.next())
-print(it.next())
-it =di.itervalues()
-print(it.next())
-print(it.next())
+#it =di.iterkeys() This works on python2.7
+#print(it.next())
+#print(it.next())
+#it =di.itervalues()
+#print(it.next())
+#print(it.next())
 print("=======================================")
 strings=['a','b','c','d','e']
 for i,k in enumerate(strings):
@@ -623,14 +623,14 @@ del a[::]
 print(a)
 print("=======================================")
 knights={'a':1,'b':2}
-for i,k in knights.iteritems():
+for i,k in knights.items():
 	print(type(i))
 	print(type(k))
 	print(i,k)
-for k in knights.iterkeys():
+for k in knights:
 	print(type(k))
 	print(k)
-for k in knights.itervalues():
+for k in knights.values():
 	print(type(k))
 	print(k)
 print("=======================================")
@@ -781,6 +781,7 @@ def hello():
 
 print(hello())
 print("=======================================")
+"""This works on python2.7, string and integer cannot be compared on python 3
 a=[1,2,3,333,6,'ab',5,4,7,'a',77,5566,94,2,34]
 print(a)
 for ii in range(len(a)-1):
@@ -789,6 +790,7 @@ for ii in range(len(a)-1):
 			a[jj],a[jj+1]=a[jj+1],a[jj]
 
 print(a)
+"""
 print("=======================================")
 word="acr"
 word=sorted(word)
@@ -904,7 +906,7 @@ def fib():
 		a,b=b,a+b
 
 a = fib()	
-print(a.next())
+print(next(a))
 print(next(a))
 print(next(a))
 print(next(a))
@@ -1808,9 +1810,9 @@ def func(t):
 
 li=[1,2,3,4,5]
 gn = func(li)
-print(gn.next()) #after printing 1, 1 is discarded from memory
-print(gn.next()) #after printing 2, 2 is discarded from memory
-print(gn.next()) #after printing 3, 3 is discarded from memory
+print(next(gn)) #after printing 1, 1 is discarded from memory
+print(next(gn)) #after printing 2, 2 is discarded from memory
+print(next(gn)) #after printing 3, 3 is discarded from memory
 """
 From above,Thats why generator are more efficient,where as in iterator after returning 1 ,1 is still retained in memory , we may have to use del() explicitly to remove it from memory,but also some times the object have circular references and therefore may need to delete all the objects associated with it which is more complicated and errorsum. So generator is ususally preferred over an iterator most of the times
 """
@@ -1916,9 +1918,9 @@ c.update({'c':3})
 print(c,d)
 print("==========================================")
 d={"a":1,"b":2,"c":3}
-print(zip(*d.iteritems())) #To separate keys and values, 
+print(zip(*d.items())) #To separate keys and values, 
 #[('a', 'c', 'b'), (1, 3, 2)]
-print(zip(d.iteritems())) #if "* is omitted the output is as follows"
+print(zip(d.items())) #if "* is omitted the output is as follows"
 #[(('a', 1),), (('c', 3),), (('b', 2),)]
 
 a, b, c = 1, 2, 3
@@ -2173,8 +2175,8 @@ x = [x for x in range(10000)]
 d=[{i:i} for i in x]
 print(s)
 print(type(s))
-print(timeit.timeit('print(x[9999]', setup='from __main__ import x',number=1))
-print(timeit.timeit('print(d[9999]', setup='from __main__ import d',number=1))
+print(timeit.timeit('print(x[9999])', setup='from __main__ import x',number=1))
+print(timeit.timeit('print(d[9999])', setup='from __main__ import d',number=1))
 print(tuple(i for i in (1, 2, 3)))
 
 for i in [(1,2,3)]:
@@ -2544,11 +2546,11 @@ for i in t():
 #It is only mandatory when as below example,Here if you do not know the number of elements you need to take care of StopIteration condition
 
 i=t()
-i.next()
 next(i)
-i.next()
 next(i)
-i.next()
+next(i)
+next(i)
+next(i)
 try:
 	next(i)
 except Exception as e:
@@ -3477,11 +3479,12 @@ print("==========================================================")
 """
 Accessing dictionary by index
 """
-a={'a':1,'b':33,'c':44,'d':66,'e':5}
-b={'aa':1,'bb':33,'cc':44,'dd':66,'ee':5}
-for i in range(len(a)):
-	print(b.keys()[i])
-	print(b.values()[i])
+#This works on python2.7
+#a={'a':1,'b':33,'c':44,'d':66,'e':5}
+#b={'aa':1,'bb':33,'cc':44,'dd':66,'ee':5}
+#for i in range(len(a)):
+	#print(b.keys()[i])
+	#print(b.values()[i])
 print("==========================================================")
 u=unicode('unicode')
 s=str('string')
