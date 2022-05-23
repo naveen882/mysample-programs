@@ -4247,4 +4247,26 @@ print(x.bar())
 #21
 print(x.__dict__)
 #{'_Bar__baz': 21, '_Foo__baz': 42}
+#==============================================
+"""
+Coroutines : Are methods which waits until at the yield until the next input is available
+
+def grep(pattern):
+    print('Looking for ', pattern)
+    try:
+        while True:
+            line = (yield)
+            if pattern in line:
+            print(line)
+    except GeneratorExit:
+        print('Going away. GoodBye')
+
+This is the simple example of a coroutine. It is initialized by specifying a pattern it will look for(this is of course optional; not all coroutines will take an initial parameter)/ It will then wait until a value is submitted to it and then using the if statement it will decide if the pattern is present in the value. If it is then it will print the line out. If the close() method is called on this coroutine the GeneratorExitexception will be called.
+
+The difference between genrators and coroutines are
+Generrators are data producers
+Coroutines are data consumers
+A generator produces a series of values using yield
+
+"""
 
