@@ -30,3 +30,17 @@ while left < right:
 
 
 print(" ".join(l)) 
+
+"""
+********Important***********
+O(1) < O(logn) < O(n) < O(nlogn) holds true.
+https://stackoverflow.com/questions/56506410/why-is-on-better-than-o-nlogn
+
+The complexity of above program is 3nlogn
+Explaination:
+    - split() is n
+    - len() is n
+    - while left<right loop is logn
+    - join() is n
+    
+"""
