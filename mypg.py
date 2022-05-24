@@ -4269,4 +4269,9 @@ Coroutines are data consumers
 A generator produces a series of values using yield
 
 """
+"""
+********Important***********
+O(1) < O(logn) < O(n) < O(nlogn) holds true.
+https://stackoverflow.com/questions/56506410/why-is-on-better-than-o-nlogn
+"""
 
